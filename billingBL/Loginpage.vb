@@ -47,13 +47,4 @@
             MessageBox.Show("username / password is incorrect", "information", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
-
-
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs)
-        If CheckBox1.Checked = True Then
-            txtPass.UseSystemPasswordChar = ""
-        Else
-            txtPass.UseSystemPasswordChar = "●"
-        End If
-    End Sub
 End Class
