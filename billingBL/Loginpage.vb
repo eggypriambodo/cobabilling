@@ -43,8 +43,26 @@
         password = txtPass.Text
         If username.Equals("admin") And password.Equals("admin123") Then
             MessageBox.Show("login success", "information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dashboard.Show()
+            Me.Hide()
         Else
             MessageBox.Show("username / password is incorrect", "information", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub txtPass_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPass.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            Dim username As String
+            Dim password As String
+            username = txtUser.Text
+            password = txtPass.Text
+            If username.Equals("admin") And password.Equals("admin123") Then
+                MessageBox.Show("login success", "information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dashboard.Show()
+                Me.Hide()
+            Else
+                MessageBox.Show("username / password is incorrect", "information", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 End Class
