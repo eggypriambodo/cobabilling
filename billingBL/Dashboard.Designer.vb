@@ -193,7 +193,7 @@ Partial Class Dashboard
         ' imgboxlogo
         ' 
         imgboxlogo.Dock = DockStyle.Fill
-        imgboxlogo.Image = My.Resources.Resources.logo2
+        imgboxlogo.Image = My.Resources.Resources.logo21
         imgboxlogo.Location = New Point(0, 0)
         imgboxlogo.Name = "imgboxlogo"
         imgboxlogo.Size = New Size(200, 140)
