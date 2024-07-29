@@ -23,15 +23,15 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SideNavbar = New Panel()
+        btnLogout = New FontAwesome.Sharp.IconButton()
+        btnPengaturan = New FontAwesome.Sharp.IconButton()
+        btnLaporan = New FontAwesome.Sharp.IconButton()
+        btnTransaksi = New FontAwesome.Sharp.IconButton()
+        btnBilling = New FontAwesome.Sharp.IconButton()
+        btnDashboard = New FontAwesome.Sharp.IconButton()
         Panel1 = New Panel()
         imgboxlogo = New PictureBox()
-        btnDashboard = New FontAwesome.Sharp.IconButton()
         PanelJudul = New Panel()
-        btnBilling = New FontAwesome.Sharp.IconButton()
-        btnTransaksi = New FontAwesome.Sharp.IconButton()
-        btnLaporan = New FontAwesome.Sharp.IconButton()
-        btnPengaturan = New FontAwesome.Sharp.IconButton()
-        btnLogout = New FontAwesome.Sharp.IconButton()
         textboxAlamat = New TextBox()
         SideNavbar.SuspendLayout()
         Panel1.SuspendLayout()
@@ -55,119 +55,26 @@ Partial Class Dashboard
         SideNavbar.Size = New Size(200, 450)
         SideNavbar.TabIndex = 0
         ' 
-        ' Panel1
+        ' btnLogout
         ' 
-        Panel1.Controls.Add(imgboxlogo)
-        Panel1.Dock = DockStyle.Top
-        Panel1.Location = New Point(0, 0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(200, 140)
-        Panel1.TabIndex = 1
-        ' 
-        ' imgboxlogo
-        ' 
-        imgboxlogo.Dock = DockStyle.Fill
-        imgboxlogo.Image = My.Resources.Resources.logo2
-        imgboxlogo.Location = New Point(0, 0)
-        imgboxlogo.Name = "imgboxlogo"
-        imgboxlogo.Size = New Size(200, 140)
-        imgboxlogo.SizeMode = PictureBoxSizeMode.Zoom
-        imgboxlogo.TabIndex = 0
-        imgboxlogo.TabStop = False
-        ' 
-        ' btnDashboard
-        ' 
-        btnDashboard.Dock = DockStyle.Top
-        btnDashboard.FlatAppearance.BorderSize = 0
-        btnDashboard.FlatStyle = FlatStyle.Flat
-        btnDashboard.ForeColor = SystemColors.ButtonHighlight
-        btnDashboard.IconChar = FontAwesome.Sharp.IconChar.HouseChimneyWindow
-        btnDashboard.IconColor = Color.White
-        btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnDashboard.IconSize = 32
-        btnDashboard.ImageAlign = ContentAlignment.MiddleLeft
-        btnDashboard.Location = New Point(0, 140)
-        btnDashboard.Name = "btnDashboard"
-        btnDashboard.Padding = New Padding(10, 0, 0, 0)
-        btnDashboard.Size = New Size(200, 50)
-        btnDashboard.TabIndex = 2
-        btnDashboard.Text = "Dashboard"
-        btnDashboard.TextAlign = ContentAlignment.MiddleLeft
-        btnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnDashboard.UseVisualStyleBackColor = True
-        ' 
-        ' PanelJudul
-        ' 
-        PanelJudul.BackColor = SystemColors.MenuHighlight
-        PanelJudul.Controls.Add(textboxAlamat)
-        PanelJudul.Dock = DockStyle.Top
-        PanelJudul.Location = New Point(200, 0)
-        PanelJudul.Name = "PanelJudul"
-        PanelJudul.Size = New Size(584, 60)
-        PanelJudul.TabIndex = 1
-        ' 
-        ' btnBilling
-        ' 
-        btnBilling.Dock = DockStyle.Top
-        btnBilling.FlatAppearance.BorderSize = 0
-        btnBilling.FlatStyle = FlatStyle.Flat
-        btnBilling.ForeColor = SystemColors.ButtonHighlight
-        btnBilling.IconChar = FontAwesome.Sharp.IconChar.Table
-        btnBilling.IconColor = Color.White
-        btnBilling.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnBilling.IconSize = 32
-        btnBilling.ImageAlign = ContentAlignment.MiddleLeft
-        btnBilling.Location = New Point(0, 190)
-        btnBilling.Name = "btnBilling"
-        btnBilling.Padding = New Padding(10, 0, 0, 0)
-        btnBilling.Size = New Size(200, 50)
-        btnBilling.TabIndex = 3
-        btnBilling.Text = "Billing"
-        btnBilling.TextAlign = ContentAlignment.MiddleLeft
-        btnBilling.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnBilling.UseVisualStyleBackColor = True
-        ' 
-        ' btnTransaksi
-        ' 
-        btnTransaksi.Dock = DockStyle.Top
-        btnTransaksi.FlatAppearance.BorderSize = 0
-        btnTransaksi.FlatStyle = FlatStyle.Flat
-        btnTransaksi.ForeColor = SystemColors.ButtonHighlight
-        btnTransaksi.IconChar = FontAwesome.Sharp.IconChar.CartFlatbed
-        btnTransaksi.IconColor = Color.White
-        btnTransaksi.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnTransaksi.IconSize = 32
-        btnTransaksi.ImageAlign = ContentAlignment.MiddleLeft
-        btnTransaksi.Location = New Point(0, 240)
-        btnTransaksi.Name = "btnTransaksi"
-        btnTransaksi.Padding = New Padding(10, 0, 0, 0)
-        btnTransaksi.Size = New Size(200, 50)
-        btnTransaksi.TabIndex = 4
-        btnTransaksi.Text = "Transaksi"
-        btnTransaksi.TextAlign = ContentAlignment.MiddleLeft
-        btnTransaksi.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnTransaksi.UseVisualStyleBackColor = True
-        ' 
-        ' btnLaporan
-        ' 
-        btnLaporan.Dock = DockStyle.Top
-        btnLaporan.FlatAppearance.BorderSize = 0
-        btnLaporan.FlatStyle = FlatStyle.Flat
-        btnLaporan.ForeColor = SystemColors.ButtonHighlight
-        btnLaporan.IconChar = FontAwesome.Sharp.IconChar.Receipt
-        btnLaporan.IconColor = Color.White
-        btnLaporan.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnLaporan.IconSize = 32
-        btnLaporan.ImageAlign = ContentAlignment.MiddleLeft
-        btnLaporan.Location = New Point(0, 290)
-        btnLaporan.Name = "btnLaporan"
-        btnLaporan.Padding = New Padding(10, 0, 0, 0)
-        btnLaporan.Size = New Size(200, 50)
-        btnLaporan.TabIndex = 5
-        btnLaporan.Text = "Laporan"
-        btnLaporan.TextAlign = ContentAlignment.MiddleLeft
-        btnLaporan.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnLaporan.UseVisualStyleBackColor = True
+        btnLogout.Dock = DockStyle.Top
+        btnLogout.FlatAppearance.BorderSize = 0
+        btnLogout.FlatStyle = FlatStyle.Flat
+        btnLogout.ForeColor = SystemColors.ButtonHighlight
+        btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOut
+        btnLogout.IconColor = Color.White
+        btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnLogout.IconSize = 32
+        btnLogout.ImageAlign = ContentAlignment.MiddleLeft
+        btnLogout.Location = New Point(0, 390)
+        btnLogout.Name = "btnLogout"
+        btnLogout.Padding = New Padding(10, 0, 0, 0)
+        btnLogout.Size = New Size(200, 50)
+        btnLogout.TabIndex = 7
+        btnLogout.Text = "Logout"
+        btnLogout.TextAlign = ContentAlignment.MiddleLeft
+        btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnLogout.UseVisualStyleBackColor = True
         ' 
         ' btnPengaturan
         ' 
@@ -190,26 +97,119 @@ Partial Class Dashboard
         btnPengaturan.TextImageRelation = TextImageRelation.ImageBeforeText
         btnPengaturan.UseVisualStyleBackColor = True
         ' 
-        ' btnLogout
+        ' btnLaporan
         ' 
-        btnLogout.Dock = DockStyle.Top
-        btnLogout.FlatAppearance.BorderSize = 0
-        btnLogout.FlatStyle = FlatStyle.Flat
-        btnLogout.ForeColor = SystemColors.ButtonHighlight
-        btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOut
-        btnLogout.IconColor = Color.White
-        btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnLogout.IconSize = 32
-        btnLogout.ImageAlign = ContentAlignment.MiddleLeft
-        btnLogout.Location = New Point(0, 390)
-        btnLogout.Name = "btnLogout"
-        btnLogout.Padding = New Padding(10, 0, 0, 0)
-        btnLogout.Size = New Size(200, 50)
-        btnLogout.TabIndex = 7
-        btnLogout.Text = "Logout"
-        btnLogout.TextAlign = ContentAlignment.MiddleLeft
-        btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnLogout.UseVisualStyleBackColor = True
+        btnLaporan.Dock = DockStyle.Top
+        btnLaporan.FlatAppearance.BorderSize = 0
+        btnLaporan.FlatStyle = FlatStyle.Flat
+        btnLaporan.ForeColor = SystemColors.ButtonHighlight
+        btnLaporan.IconChar = FontAwesome.Sharp.IconChar.Receipt
+        btnLaporan.IconColor = Color.White
+        btnLaporan.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnLaporan.IconSize = 32
+        btnLaporan.ImageAlign = ContentAlignment.MiddleLeft
+        btnLaporan.Location = New Point(0, 290)
+        btnLaporan.Name = "btnLaporan"
+        btnLaporan.Padding = New Padding(10, 0, 0, 0)
+        btnLaporan.Size = New Size(200, 50)
+        btnLaporan.TabIndex = 5
+        btnLaporan.Text = "Laporan"
+        btnLaporan.TextAlign = ContentAlignment.MiddleLeft
+        btnLaporan.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnLaporan.UseVisualStyleBackColor = True
+        ' 
+        ' btnTransaksi
+        ' 
+        btnTransaksi.Dock = DockStyle.Top
+        btnTransaksi.FlatAppearance.BorderSize = 0
+        btnTransaksi.FlatStyle = FlatStyle.Flat
+        btnTransaksi.ForeColor = SystemColors.ButtonHighlight
+        btnTransaksi.IconChar = FontAwesome.Sharp.IconChar.CartFlatbed
+        btnTransaksi.IconColor = Color.White
+        btnTransaksi.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnTransaksi.IconSize = 32
+        btnTransaksi.ImageAlign = ContentAlignment.MiddleLeft
+        btnTransaksi.Location = New Point(0, 240)
+        btnTransaksi.Name = "btnTransaksi"
+        btnTransaksi.Padding = New Padding(10, 0, 0, 0)
+        btnTransaksi.Size = New Size(200, 50)
+        btnTransaksi.TabIndex = 4
+        btnTransaksi.Text = "Transaksi"
+        btnTransaksi.TextAlign = ContentAlignment.MiddleLeft
+        btnTransaksi.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnTransaksi.UseVisualStyleBackColor = True
+        ' 
+        ' btnBilling
+        ' 
+        btnBilling.Dock = DockStyle.Top
+        btnBilling.FlatAppearance.BorderSize = 0
+        btnBilling.FlatStyle = FlatStyle.Flat
+        btnBilling.ForeColor = SystemColors.ButtonHighlight
+        btnBilling.IconChar = FontAwesome.Sharp.IconChar.Table
+        btnBilling.IconColor = Color.White
+        btnBilling.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnBilling.IconSize = 32
+        btnBilling.ImageAlign = ContentAlignment.MiddleLeft
+        btnBilling.Location = New Point(0, 190)
+        btnBilling.Name = "btnBilling"
+        btnBilling.Padding = New Padding(10, 0, 0, 0)
+        btnBilling.Size = New Size(200, 50)
+        btnBilling.TabIndex = 3
+        btnBilling.Text = "Billing"
+        btnBilling.TextAlign = ContentAlignment.MiddleLeft
+        btnBilling.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnBilling.UseVisualStyleBackColor = True
+        ' 
+        ' btnDashboard
+        ' 
+        btnDashboard.Dock = DockStyle.Top
+        btnDashboard.FlatAppearance.BorderSize = 0
+        btnDashboard.FlatStyle = FlatStyle.Flat
+        btnDashboard.ForeColor = SystemColors.ButtonHighlight
+        btnDashboard.IconChar = FontAwesome.Sharp.IconChar.HouseChimneyWindow
+        btnDashboard.IconColor = Color.White
+        btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnDashboard.IconSize = 32
+        btnDashboard.ImageAlign = ContentAlignment.MiddleLeft
+        btnDashboard.Location = New Point(0, 140)
+        btnDashboard.Name = "btnDashboard"
+        btnDashboard.Padding = New Padding(10, 0, 0, 0)
+        btnDashboard.Size = New Size(200, 50)
+        btnDashboard.TabIndex = 2
+        btnDashboard.Text = "Dashboard"
+        btnDashboard.TextAlign = ContentAlignment.MiddleLeft
+        btnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnDashboard.UseVisualStyleBackColor = True
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(imgboxlogo)
+        Panel1.Dock = DockStyle.Top
+        Panel1.Location = New Point(0, 0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(200, 140)
+        Panel1.TabIndex = 1
+        ' 
+        ' imgboxlogo
+        ' 
+        imgboxlogo.Dock = DockStyle.Fill
+        imgboxlogo.Image = My.Resources.Resources.logo2
+        imgboxlogo.Location = New Point(0, 0)
+        imgboxlogo.Name = "imgboxlogo"
+        imgboxlogo.Size = New Size(200, 140)
+        imgboxlogo.SizeMode = PictureBoxSizeMode.Zoom
+        imgboxlogo.TabIndex = 0
+        imgboxlogo.TabStop = False
+        ' 
+        ' PanelJudul
+        ' 
+        PanelJudul.BackColor = SystemColors.MenuHighlight
+        PanelJudul.Controls.Add(textboxAlamat)
+        PanelJudul.Dock = DockStyle.Top
+        PanelJudul.Location = New Point(200, 0)
+        PanelJudul.Name = "PanelJudul"
+        PanelJudul.Size = New Size(584, 60)
+        PanelJudul.TabIndex = 1
         ' 
         ' textboxAlamat
         ' 
