@@ -23,6 +23,7 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SideNavbar = New Panel()
+        btnLogout = New FontAwesome.Sharp.IconButton()
         btnPengaturan = New FontAwesome.Sharp.IconButton()
         btnLaporan = New FontAwesome.Sharp.IconButton()
         btnTransaksi = New FontAwesome.Sharp.IconButton()
@@ -33,7 +34,6 @@ Partial Class Dashboard
         imgboxlogo = New PictureBox()
         PanelJudul = New Panel()
         textboxAlamat = New TextBox()
-        btnLogout = New FontAwesome.Sharp.IconButton()
         SideNavbar.SuspendLayout()
         Panel1.SuspendLayout()
         CType(imgboxlogo, ComponentModel.ISupportInitialize).BeginInit()
@@ -53,9 +53,32 @@ Partial Class Dashboard
         SideNavbar.Controls.Add(Panel1)
         SideNavbar.Dock = DockStyle.Left
         SideNavbar.Location = New Point(0, 0)
+        SideNavbar.Margin = New Padding(3, 4, 3, 4)
         SideNavbar.Name = "SideNavbar"
-        SideNavbar.Size = New Size(200, 698)
+        SideNavbar.Size = New Size(229, 931)
         SideNavbar.TabIndex = 0
+        ' 
+        ' btnLogout
+        ' 
+        btnLogout.Dock = DockStyle.Top
+        btnLogout.FlatAppearance.BorderSize = 0
+        btnLogout.FlatStyle = FlatStyle.Flat
+        btnLogout.ForeColor = SystemColors.ButtonHighlight
+        btnLogout.IconChar = FontAwesome.Sharp.IconChar.Table
+        btnLogout.IconColor = Color.White
+        btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnLogout.IconSize = 32
+        btnLogout.ImageAlign = ContentAlignment.MiddleLeft
+        btnLogout.Location = New Point(0, 798)
+        btnLogout.Margin = New Padding(3, 4, 3, 4)
+        btnLogout.Name = "btnLogout"
+        btnLogout.Padding = New Padding(11, 0, 0, 0)
+        btnLogout.Size = New Size(229, 93)
+        btnLogout.TabIndex = 8
+        btnLogout.Text = "Logout"
+        btnLogout.TextAlign = ContentAlignment.MiddleLeft
+        btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnLogout.UseVisualStyleBackColor = True
         ' 
         ' btnPengaturan
         ' 
@@ -68,10 +91,11 @@ Partial Class Dashboard
         btnPengaturan.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnPengaturan.IconSize = 32
         btnPengaturan.ImageAlign = ContentAlignment.MiddleLeft
-        btnPengaturan.Location = New Point(0, 530)
+        btnPengaturan.Location = New Point(0, 705)
+        btnPengaturan.Margin = New Padding(3, 4, 3, 4)
         btnPengaturan.Name = "btnPengaturan"
-        btnPengaturan.Padding = New Padding(10, 0, 0, 0)
-        btnPengaturan.Size = New Size(200, 70)
+        btnPengaturan.Padding = New Padding(11, 0, 0, 0)
+        btnPengaturan.Size = New Size(229, 93)
         btnPengaturan.TabIndex = 7
         btnPengaturan.Text = "Pengaturan"
         btnPengaturan.TextAlign = ContentAlignment.MiddleLeft
@@ -89,10 +113,11 @@ Partial Class Dashboard
         btnLaporan.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnLaporan.IconSize = 32
         btnLaporan.ImageAlign = ContentAlignment.MiddleLeft
-        btnLaporan.Location = New Point(0, 460)
+        btnLaporan.Location = New Point(0, 612)
+        btnLaporan.Margin = New Padding(3, 4, 3, 4)
         btnLaporan.Name = "btnLaporan"
-        btnLaporan.Padding = New Padding(10, 0, 0, 0)
-        btnLaporan.Size = New Size(200, 70)
+        btnLaporan.Padding = New Padding(11, 0, 0, 0)
+        btnLaporan.Size = New Size(229, 93)
         btnLaporan.TabIndex = 6
         btnLaporan.Text = "Laporan"
         btnLaporan.TextAlign = ContentAlignment.MiddleLeft
@@ -110,10 +135,11 @@ Partial Class Dashboard
         btnTransaksi.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnTransaksi.IconSize = 32
         btnTransaksi.ImageAlign = ContentAlignment.MiddleLeft
-        btnTransaksi.Location = New Point(0, 390)
+        btnTransaksi.Location = New Point(0, 519)
+        btnTransaksi.Margin = New Padding(3, 4, 3, 4)
         btnTransaksi.Name = "btnTransaksi"
-        btnTransaksi.Padding = New Padding(10, 0, 0, 0)
-        btnTransaksi.Size = New Size(200, 70)
+        btnTransaksi.Padding = New Padding(11, 0, 0, 0)
+        btnTransaksi.Size = New Size(229, 93)
         btnTransaksi.TabIndex = 5
         btnTransaksi.Text = "Transaksi"
         btnTransaksi.TextAlign = ContentAlignment.MiddleLeft
@@ -131,10 +157,11 @@ Partial Class Dashboard
         btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnMenu.IconSize = 32
         btnMenu.ImageAlign = ContentAlignment.MiddleLeft
-        btnMenu.Location = New Point(0, 320)
+        btnMenu.Location = New Point(0, 426)
+        btnMenu.Margin = New Padding(3, 4, 3, 4)
         btnMenu.Name = "btnMenu"
-        btnMenu.Padding = New Padding(10, 0, 0, 0)
-        btnMenu.Size = New Size(200, 70)
+        btnMenu.Padding = New Padding(11, 0, 0, 0)
+        btnMenu.Size = New Size(229, 93)
         btnMenu.TabIndex = 4
         btnMenu.Text = "Menu"
         btnMenu.TextAlign = ContentAlignment.MiddleLeft
@@ -152,10 +179,11 @@ Partial Class Dashboard
         btnBilling.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnBilling.IconSize = 32
         btnBilling.ImageAlign = ContentAlignment.MiddleLeft
-        btnBilling.Location = New Point(0, 250)
+        btnBilling.Location = New Point(0, 333)
+        btnBilling.Margin = New Padding(3, 4, 3, 4)
         btnBilling.Name = "btnBilling"
-        btnBilling.Padding = New Padding(10, 0, 0, 0)
-        btnBilling.Size = New Size(200, 70)
+        btnBilling.Padding = New Padding(11, 0, 0, 0)
+        btnBilling.Size = New Size(229, 93)
         btnBilling.TabIndex = 3
         btnBilling.Text = "Billing"
         btnBilling.TextAlign = ContentAlignment.MiddleLeft
@@ -173,10 +201,11 @@ Partial Class Dashboard
         btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnDashboard.IconSize = 32
         btnDashboard.ImageAlign = ContentAlignment.MiddleLeft
-        btnDashboard.Location = New Point(0, 180)
+        btnDashboard.Location = New Point(0, 240)
+        btnDashboard.Margin = New Padding(3, 4, 3, 4)
         btnDashboard.Name = "btnDashboard"
-        btnDashboard.Padding = New Padding(10, 0, 0, 0)
-        btnDashboard.Size = New Size(200, 70)
+        btnDashboard.Padding = New Padding(11, 0, 0, 0)
+        btnDashboard.Size = New Size(229, 93)
         btnDashboard.TabIndex = 2
         btnDashboard.Text = "Dashboard"
         btnDashboard.TextAlign = ContentAlignment.MiddleLeft
@@ -188,8 +217,9 @@ Partial Class Dashboard
         Panel1.Controls.Add(imgboxlogo)
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
+        Panel1.Margin = New Padding(3, 4, 3, 4)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(200, 180)
+        Panel1.Size = New Size(229, 240)
         Panel1.TabIndex = 1
         ' 
         ' imgboxlogo
@@ -197,8 +227,9 @@ Partial Class Dashboard
         imgboxlogo.Dock = DockStyle.Fill
         imgboxlogo.Image = My.Resources.Resources.logo21
         imgboxlogo.Location = New Point(0, 0)
+        imgboxlogo.Margin = New Padding(3, 4, 3, 4)
         imgboxlogo.Name = "imgboxlogo"
-        imgboxlogo.Size = New Size(200, 180)
+        imgboxlogo.Size = New Size(229, 240)
         imgboxlogo.SizeMode = PictureBoxSizeMode.Zoom
         imgboxlogo.TabIndex = 0
         imgboxlogo.TabStop = False
@@ -208,49 +239,31 @@ Partial Class Dashboard
         PanelJudul.BackColor = SystemColors.MenuHighlight
         PanelJudul.Controls.Add(textboxAlamat)
         PanelJudul.Dock = DockStyle.Top
-        PanelJudul.Location = New Point(200, 0)
+        PanelJudul.Location = New Point(229, 0)
+        PanelJudul.Margin = New Padding(3, 4, 3, 4)
         PanelJudul.Name = "PanelJudul"
-        PanelJudul.Size = New Size(737, 100)
+        PanelJudul.Size = New Size(842, 133)
         PanelJudul.TabIndex = 1
         ' 
         ' textboxAlamat
         ' 
         textboxAlamat.Dock = DockStyle.Bottom
-        textboxAlamat.Location = New Point(0, 77)
+        textboxAlamat.Location = New Point(0, 106)
+        textboxAlamat.Margin = New Padding(3, 4, 3, 4)
         textboxAlamat.Name = "textboxAlamat"
-        textboxAlamat.Size = New Size(737, 23)
+        textboxAlamat.Size = New Size(842, 27)
         textboxAlamat.TabIndex = 0
         textboxAlamat.Text = "Alamat Lokasi"
         textboxAlamat.TextAlign = HorizontalAlignment.Center
         ' 
-        ' btnLogout
-        ' 
-        btnLogout.Dock = DockStyle.Top
-        btnLogout.FlatAppearance.BorderSize = 0
-        btnLogout.FlatStyle = FlatStyle.Flat
-        btnLogout.ForeColor = SystemColors.ButtonHighlight
-        btnLogout.IconChar = FontAwesome.Sharp.IconChar.Table
-        btnLogout.IconColor = Color.White
-        btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnLogout.IconSize = 32
-        btnLogout.ImageAlign = ContentAlignment.MiddleLeft
-        btnLogout.Location = New Point(0, 600)
-        btnLogout.Name = "btnLogout"
-        btnLogout.Padding = New Padding(10, 0, 0, 0)
-        btnLogout.Size = New Size(200, 70)
-        btnLogout.TabIndex = 8
-        btnLogout.Text = "Logout"
-        btnLogout.TextAlign = ContentAlignment.MiddleLeft
-        btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnLogout.UseVisualStyleBackColor = True
-        ' 
         ' Dashboard
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(937, 698)
+        ClientSize = New Size(1071, 931)
         Controls.Add(PanelJudul)
         Controls.Add(SideNavbar)
+        Margin = New Padding(3, 4, 3, 4)
         Name = "Dashboard"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Dashboard"
