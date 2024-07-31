@@ -3,20 +3,15 @@
 
     End Sub
 
-    Private Sub btnOpenTable_Click(sender As Object, e As EventArgs) Handles btnOpenTable.Click
-        ContextMenuStrip1.Show(btnOpenTable, 0, btnOpenTable.Height)
+    Private Sub btnOpenTable_Click(sender As Object, e As EventArgs) Handles btnOpenLos.Click
+        FormOpenTable.Show()
     End Sub
 
-
-    Private Sub btnOrderLos_Click(sender As Object, e As EventArgs) Handles btnOrderLos.Click
-
+    Private Sub FormBilling_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TimerSaatIni.Enabled = True
     End Sub
 
-    Private Sub btnOrderJam_Click(sender As Object, e As EventArgs) Handles btnOrderJam.Click
-
-    End Sub
-
-    Private Sub btnOrderPaket_Click(sender As Object, e As EventArgs) Handles btnOrderPaket.Click
-
+    Private Sub TimerSaatIni_Tick(sender As Object, e As EventArgs) Handles TimerSaatIni.Tick
+        LabelTimerSaatIni.Text = Date.Now.ToString("dd/MMM/yyyy HH:mm:ss")
     End Sub
 End Class

@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿Imports FontAwesome.Sharp
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Dashboard
     Inherits System.Windows.Forms.Form
 
@@ -23,18 +25,18 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         SideNavbar = New Panel()
-        btnLogout = New FontAwesome.Sharp.IconButton()
-        btnPengaturan = New FontAwesome.Sharp.IconButton()
-        btnLaporan = New FontAwesome.Sharp.IconButton()
-        btnTransaksi = New FontAwesome.Sharp.IconButton()
-        btnMenu = New FontAwesome.Sharp.IconButton()
-        btnBilling = New FontAwesome.Sharp.IconButton()
-        btnDashboard = New FontAwesome.Sharp.IconButton()
+        btnPengaturan = New IconButton()
+        btnLaporan = New IconButton()
+        btnTransaksi = New IconButton()
+        btnMenu = New IconButton()
+        btnBilling = New IconButton()
+        btnDashboard = New IconButton()
         Panel1 = New Panel()
         imgboxlogo = New PictureBox()
+        btnLogout = New IconButton()
         PanelJudul = New Panel()
-        tbNamaBilliard = New TextBox()
-        textboxAlamat = New TextBox()
+        LabelAlamat = New Label()
+        LabelNamaTempat = New Label()
         PanelDesktop = New Panel()
         SideNavbar.SuspendLayout()
         Panel1.SuspendLayout()
@@ -56,30 +58,8 @@ Partial Class Dashboard
         SideNavbar.Location = New Point(0, 0)
         SideNavbar.Margin = New Padding(3, 4, 3, 4)
         SideNavbar.Name = "SideNavbar"
-        SideNavbar.Size = New Size(200, 749)
+        SideNavbar.Size = New Size(257, 900)
         SideNavbar.TabIndex = 0
-        ' 
-        ' btnLogout
-        ' 
-        btnLogout.Dock = DockStyle.Top
-        btnLogout.FlatAppearance.BorderSize = 0
-        btnLogout.FlatStyle = FlatStyle.Flat
-        btnLogout.ForeColor = SystemColors.ButtonHighlight
-        btnLogout.IconChar = FontAwesome.Sharp.IconChar.Table
-        btnLogout.IconColor = Color.White
-        btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnLogout.IconSize = 32
-        btnLogout.ImageAlign = ContentAlignment.MiddleLeft
-        btnLogout.Location = New Point(0, 798)
-        btnLogout.Margin = New Padding(3, 4, 3, 4)
-        btnLogout.Name = "btnLogout"
-        btnLogout.Padding = New Padding(11, 0, 0, 0)
-        btnLogout.Size = New Size(229, 93)
-        btnLogout.TabIndex = 8
-        btnLogout.Text = "Logout"
-        btnLogout.TextAlign = ContentAlignment.MiddleLeft
-        btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnLogout.UseVisualStyleBackColor = True
         ' 
         ' btnPengaturan
         ' 
@@ -87,16 +67,16 @@ Partial Class Dashboard
         btnPengaturan.FlatAppearance.BorderSize = 0
         btnPengaturan.FlatStyle = FlatStyle.Flat
         btnPengaturan.ForeColor = SystemColors.ButtonHighlight
-        btnPengaturan.IconChar = FontAwesome.Sharp.IconChar.Cog
+        btnPengaturan.IconChar = IconChar.Cog
         btnPengaturan.IconColor = Color.White
-        btnPengaturan.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnPengaturan.IconFont = IconFont.Auto
         btnPengaturan.IconSize = 32
         btnPengaturan.ImageAlign = ContentAlignment.MiddleLeft
         btnPengaturan.Location = New Point(0, 705)
         btnPengaturan.Margin = New Padding(3, 4, 3, 4)
         btnPengaturan.Name = "btnPengaturan"
         btnPengaturan.Padding = New Padding(11, 0, 0, 0)
-        btnPengaturan.Size = New Size(229, 93)
+        btnPengaturan.Size = New Size(257, 93)
         btnPengaturan.TabIndex = 7
         btnPengaturan.Text = "Pengaturan"
         btnPengaturan.TextAlign = ContentAlignment.MiddleLeft
@@ -109,16 +89,16 @@ Partial Class Dashboard
         btnLaporan.FlatAppearance.BorderSize = 0
         btnLaporan.FlatStyle = FlatStyle.Flat
         btnLaporan.ForeColor = SystemColors.ButtonHighlight
-        btnLaporan.IconChar = FontAwesome.Sharp.IconChar.Receipt
+        btnLaporan.IconChar = IconChar.Receipt
         btnLaporan.IconColor = Color.White
-        btnLaporan.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnLaporan.IconFont = IconFont.Auto
         btnLaporan.IconSize = 32
         btnLaporan.ImageAlign = ContentAlignment.MiddleLeft
         btnLaporan.Location = New Point(0, 612)
         btnLaporan.Margin = New Padding(3, 4, 3, 4)
         btnLaporan.Name = "btnLaporan"
         btnLaporan.Padding = New Padding(11, 0, 0, 0)
-        btnLaporan.Size = New Size(229, 93)
+        btnLaporan.Size = New Size(257, 93)
         btnLaporan.TabIndex = 6
         btnLaporan.Text = "Laporan"
         btnLaporan.TextAlign = ContentAlignment.MiddleLeft
@@ -131,16 +111,16 @@ Partial Class Dashboard
         btnTransaksi.FlatAppearance.BorderSize = 0
         btnTransaksi.FlatStyle = FlatStyle.Flat
         btnTransaksi.ForeColor = SystemColors.ButtonHighlight
-        btnTransaksi.IconChar = FontAwesome.Sharp.IconChar.CartFlatbed
+        btnTransaksi.IconChar = IconChar.CartFlatbed
         btnTransaksi.IconColor = Color.White
-        btnTransaksi.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnTransaksi.IconFont = IconFont.Auto
         btnTransaksi.IconSize = 32
         btnTransaksi.ImageAlign = ContentAlignment.MiddleLeft
         btnTransaksi.Location = New Point(0, 519)
         btnTransaksi.Margin = New Padding(3, 4, 3, 4)
         btnTransaksi.Name = "btnTransaksi"
         btnTransaksi.Padding = New Padding(11, 0, 0, 0)
-        btnTransaksi.Size = New Size(229, 93)
+        btnTransaksi.Size = New Size(257, 93)
         btnTransaksi.TabIndex = 5
         btnTransaksi.Text = "Transaksi"
         btnTransaksi.TextAlign = ContentAlignment.MiddleLeft
@@ -153,16 +133,16 @@ Partial Class Dashboard
         btnMenu.FlatAppearance.BorderSize = 0
         btnMenu.FlatStyle = FlatStyle.Flat
         btnMenu.ForeColor = SystemColors.ButtonHighlight
-        btnMenu.IconChar = FontAwesome.Sharp.IconChar.BeerMugEmpty
+        btnMenu.IconChar = IconChar.BeerMugEmpty
         btnMenu.IconColor = Color.White
-        btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnMenu.IconFont = IconFont.Auto
         btnMenu.IconSize = 32
         btnMenu.ImageAlign = ContentAlignment.MiddleLeft
         btnMenu.Location = New Point(0, 426)
         btnMenu.Margin = New Padding(3, 4, 3, 4)
         btnMenu.Name = "btnMenu"
         btnMenu.Padding = New Padding(11, 0, 0, 0)
-        btnMenu.Size = New Size(229, 93)
+        btnMenu.Size = New Size(257, 93)
         btnMenu.TabIndex = 4
         btnMenu.Text = "Menu"
         btnMenu.TextAlign = ContentAlignment.MiddleLeft
@@ -175,16 +155,16 @@ Partial Class Dashboard
         btnBilling.FlatAppearance.BorderSize = 0
         btnBilling.FlatStyle = FlatStyle.Flat
         btnBilling.ForeColor = SystemColors.ButtonHighlight
-        btnBilling.IconChar = FontAwesome.Sharp.IconChar.Table
+        btnBilling.IconChar = IconChar.Table
         btnBilling.IconColor = Color.White
-        btnBilling.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnBilling.IconFont = IconFont.Auto
         btnBilling.IconSize = 32
         btnBilling.ImageAlign = ContentAlignment.MiddleLeft
         btnBilling.Location = New Point(0, 333)
         btnBilling.Margin = New Padding(3, 4, 3, 4)
         btnBilling.Name = "btnBilling"
         btnBilling.Padding = New Padding(11, 0, 0, 0)
-        btnBilling.Size = New Size(229, 93)
+        btnBilling.Size = New Size(257, 93)
         btnBilling.TabIndex = 3
         btnBilling.Text = "Billing"
         btnBilling.TextAlign = ContentAlignment.MiddleLeft
@@ -197,16 +177,16 @@ Partial Class Dashboard
         btnDashboard.FlatAppearance.BorderSize = 0
         btnDashboard.FlatStyle = FlatStyle.Flat
         btnDashboard.ForeColor = SystemColors.ButtonHighlight
-        btnDashboard.IconChar = FontAwesome.Sharp.IconChar.HouseChimneyWindow
+        btnDashboard.IconChar = IconChar.HouseChimneyWindow
         btnDashboard.IconColor = Color.White
-        btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnDashboard.IconFont = IconFont.Auto
         btnDashboard.IconSize = 32
         btnDashboard.ImageAlign = ContentAlignment.MiddleLeft
         btnDashboard.Location = New Point(0, 240)
         btnDashboard.Margin = New Padding(3, 4, 3, 4)
         btnDashboard.Name = "btnDashboard"
         btnDashboard.Padding = New Padding(11, 0, 0, 0)
-        btnDashboard.Size = New Size(229, 93)
+        btnDashboard.Size = New Size(257, 93)
         btnDashboard.TabIndex = 2
         btnDashboard.Text = "Dashboard"
         btnDashboard.TextAlign = ContentAlignment.MiddleLeft
@@ -220,7 +200,7 @@ Partial Class Dashboard
         Panel1.Location = New Point(0, 0)
         Panel1.Margin = New Padding(3, 4, 3, 4)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(229, 240)
+        Panel1.Size = New Size(257, 240)
         Panel1.TabIndex = 1
         ' 
         ' imgboxlogo
@@ -230,64 +210,81 @@ Partial Class Dashboard
         imgboxlogo.Location = New Point(0, 0)
         imgboxlogo.Margin = New Padding(3, 4, 3, 4)
         imgboxlogo.Name = "imgboxlogo"
-        imgboxlogo.Size = New Size(229, 240)
+        imgboxlogo.Size = New Size(257, 240)
         imgboxlogo.SizeMode = PictureBoxSizeMode.Zoom
         imgboxlogo.TabIndex = 0
         imgboxlogo.TabStop = False
         ' 
+        ' btnLogout
+        ' 
+        btnLogout.Dock = DockStyle.Top
+        btnLogout.FlatAppearance.BorderSize = 0
+        btnLogout.FlatStyle = FlatStyle.Flat
+        btnLogout.ForeColor = SystemColors.ButtonHighlight
+        btnLogout.IconChar = IconChar.Table
+        btnLogout.IconColor = Color.White
+        btnLogout.IconFont = IconFont.Auto
+        btnLogout.IconSize = 32
+        btnLogout.ImageAlign = ContentAlignment.MiddleLeft
+        btnLogout.Location = New Point(0, 798)
+        btnLogout.Margin = New Padding(3, 4, 3, 4)
+        btnLogout.Name = "btnLogout"
+        btnLogout.Padding = New Padding(11, 0, 0, 0)
+        btnLogout.Size = New Size(229, 93)
+        btnLogout.TabIndex = 8
+        btnLogout.Text = "Logout"
+        btnLogout.TextAlign = ContentAlignment.MiddleLeft
+        btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnLogout.UseVisualStyleBackColor = True
+        ' 
         ' PanelJudul
         ' 
         PanelJudul.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        PanelJudul.Controls.Add(tbNamaBilliard)
-        PanelJudul.Controls.Add(textboxAlamat)
+        PanelJudul.Controls.Add(LabelAlamat)
+        PanelJudul.Controls.Add(LabelNamaTempat)
         PanelJudul.Dock = DockStyle.Top
-        PanelJudul.Location = New Point(229, 0)
+        PanelJudul.Location = New Point(257, 0)
         PanelJudul.Margin = New Padding(3, 4, 3, 4)
         PanelJudul.Name = "PanelJudul"
-        PanelJudul.Size = New Size(1170, 100)
+        PanelJudul.Size = New Size(1193, 196)
         PanelJudul.TabIndex = 1
         ' 
-        ' tbNamaBilliard
+        ' LabelAlamat
         ' 
-        tbNamaBilliard.BackColor = SystemColors.MenuHighlight
-        tbNamaBilliard.BorderStyle = BorderStyle.None
-        tbNamaBilliard.Dock = DockStyle.Top
-        tbNamaBilliard.Font = New Font("Segoe UI", 36.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        tbNamaBilliard.ForeColor = Color.White
-        tbNamaBilliard.Location = New Point(0, 0)
-        tbNamaBilliard.Name = "tbNamaBilliard"
-        tbNamaBilliard.Size = New Size(1170, 64)
-        tbNamaBilliard.TabIndex = 1
-        tbNamaBilliard.Text = "Nama Billiard"
-        tbNamaBilliard.TextAlign = HorizontalAlignment.Center
+        LabelAlamat.Dock = DockStyle.Top
+        LabelAlamat.ForeColor = SystemColors.Control
+        LabelAlamat.Location = New Point(0, 130)
+        LabelAlamat.Name = "LabelAlamat"
+        LabelAlamat.Size = New Size(1193, 65)
+        LabelAlamat.TabIndex = 3
+        LabelAlamat.Text = "Jl. MT. Haryono No.195-197, Dinoyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144"
+        LabelAlamat.TextAlign = ContentAlignment.MiddleCenter
         ' 
-        ' textboxAlamat
+        ' LabelNamaTempat
         ' 
-        textboxAlamat.BackColor = SystemColors.MenuHighlight
-        textboxAlamat.BorderStyle = BorderStyle.None
-        textboxAlamat.Dock = DockStyle.Bottom
-        textboxAlamat.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        textboxAlamat.ForeColor = Color.White
-        textboxAlamat.Location = New Point(0, 78)
-        textboxAlamat.Name = "textboxAlamat"
-        textboxAlamat.Size = New Size(1170, 22)
-        textboxAlamat.TabIndex = 0
-        textboxAlamat.Text = "Alamat Lokasi"
-        textboxAlamat.TextAlign = HorizontalAlignment.Center
+        LabelNamaTempat.Dock = DockStyle.Top
+        LabelNamaTempat.Font = New Font("Segoe UI", 36.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelNamaTempat.ForeColor = SystemColors.Control
+        LabelNamaTempat.Location = New Point(0, 0)
+        LabelNamaTempat.Name = "LabelNamaTempat"
+        LabelNamaTempat.Size = New Size(1193, 130)
+        LabelNamaTempat.TabIndex = 2
+        LabelNamaTempat.Text = "XYZ BILLIARD"
+        LabelNamaTempat.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' PanelDesktop
         ' 
         PanelDesktop.Dock = DockStyle.Fill
-        PanelDesktop.Location = New Point(200, 100)
+        PanelDesktop.Location = New Point(257, 196)
         PanelDesktop.Name = "PanelDesktop"
-        PanelDesktop.Size = New Size(1170, 649)
+        PanelDesktop.Size = New Size(1193, 704)
         PanelDesktop.TabIndex = 2
         ' 
         ' Dashboard
         ' 
         AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1370, 749)
+        ClientSize = New Size(1450, 900)
         Controls.Add(PanelDesktop)
         Controls.Add(PanelJudul)
         Controls.Add(SideNavbar)
@@ -300,7 +297,6 @@ Partial Class Dashboard
         Panel1.ResumeLayout(False)
         CType(imgboxlogo, ComponentModel.ISupportInitialize).EndInit()
         PanelJudul.ResumeLayout(False)
-        PanelJudul.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -312,10 +308,11 @@ Partial Class Dashboard
     Friend WithEvents btnPengaturan As FontAwesome.Sharp.IconButton
     Friend WithEvents btnLaporan As FontAwesome.Sharp.IconButton
     Friend WithEvents btnTransaksi As FontAwesome.Sharp.IconButton
+    Private btnLogout As IconButton
     Friend WithEvents btnBilling As FontAwesome.Sharp.IconButton
-    Friend WithEvents textboxAlamat As TextBox
     Friend WithEvents btn As FontAwesome.Sharp.IconButton
     Friend WithEvents btnMenu As FontAwesome.Sharp.IconButton
     Friend WithEvents PanelDesktop As Panel
-    Friend WithEvents tbNamaBilliard As TextBox
+    Friend WithEvents LabelAlamat As Label
+    Friend WithEvents LabelNamaTempat As Label
 End Class
