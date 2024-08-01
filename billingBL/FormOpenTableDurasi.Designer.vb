@@ -22,6 +22,7 @@ Partial Class FormOpenTableDurasi
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         TableLayoutPanel1 = New TableLayoutPanel()
         LabelOpenTable = New Label()
         FlowLayoutPanel1 = New FlowLayoutPanel()
@@ -60,14 +61,14 @@ Partial Class FormOpenTableDurasi
         Label21 = New Label()
         btnFixOrder = New Button()
         Label17 = New Label()
-        TableLayoutPanel2 = New TableLayoutPanel()
-        Label27 = New Label()
-        Label26 = New Label()
-        Label25 = New Label()
-        Label24 = New Label()
-        Label23 = New Label()
-        Label22 = New Label()
-        Label19 = New Label()
+        DataGridView1 = New DataGridView()
+        namaPaket = New DataGridViewTextBoxColumn()
+        hargaSiang = New DataGridViewTextBoxColumn()
+        hargaMalam = New DataGridViewTextBoxColumn()
+        akhirsiang = New DataGridViewTextBoxColumn()
+        akhirMalam = New DataGridViewTextBoxColumn()
+        discTable = New DataGridViewTextBoxColumn()
+        discFnB = New DataGridViewTextBoxColumn()
         TableLayoutPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
@@ -83,7 +84,7 @@ Partial Class FormOpenTableDurasi
         Panel13.SuspendLayout()
         Panel14.SuspendLayout()
         Panel15.SuspendLayout()
-        TableLayoutPanel2.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TableLayoutPanel1
@@ -100,7 +101,7 @@ Partial Class FormOpenTableDurasi
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 45F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
-        TableLayoutPanel1.Size = New Size(1008, 277)
+        TableLayoutPanel1.Size = New Size(1000, 277)
         TableLayoutPanel1.TabIndex = 0
         ' 
         ' LabelOpenTable
@@ -112,7 +113,7 @@ Partial Class FormOpenTableDurasi
         LabelOpenTable.ForeColor = SystemColors.Control
         LabelOpenTable.Location = New Point(3, 0)
         LabelOpenTable.Name = "LabelOpenTable"
-        LabelOpenTable.Size = New Size(1002, 50)
+        LabelOpenTable.Size = New Size(994, 50)
         LabelOpenTable.TabIndex = 0
         LabelOpenTable.Text = " OPEN TABLE DURASI"
         LabelOpenTable.TextAlign = ContentAlignment.MiddleCenter
@@ -136,7 +137,7 @@ Partial Class FormOpenTableDurasi
         FlowLayoutPanel1.Controls.Add(btnFixOrder)
         FlowLayoutPanel1.Location = New Point(3, 53)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(1002, 221)
+        FlowLayoutPanel1.Size = New Size(994, 221)
         FlowLayoutPanel1.TabIndex = 1
         ' 
         ' Panel1
@@ -160,7 +161,7 @@ Partial Class FormOpenTableDurasi
         LabelNoOrder.Name = "LabelNoOrder"
         LabelNoOrder.Size = New Size(201, 47)
         LabelNoOrder.TabIndex = 1
-        LabelNoOrder.Text = "123456789"
+        LabelNoOrder.Text = "-;-;-"
         LabelNoOrder.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Label1
@@ -232,7 +233,7 @@ Partial Class FormOpenTableDurasi
         labelAkhirHargaSiang.Name = "labelAkhirHargaSiang"
         labelAkhirHargaSiang.Size = New Size(113, 47)
         labelAkhirHargaSiang.TabIndex = 1
-        labelAkhirHargaSiang.Text = "16:00:00"
+        labelAkhirHargaSiang.Text = "-;-;-"
         labelAkhirHargaSiang.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Label5
@@ -309,7 +310,7 @@ Partial Class FormOpenTableDurasi
         labelHargaSiang.Name = "labelHargaSiang"
         labelHargaSiang.Size = New Size(201, 47)
         labelHargaSiang.TabIndex = 1
-        labelHargaSiang.Text = "25.000"
+        labelHargaSiang.Text = "-;-;-"
         labelHargaSiang.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Label9
@@ -345,7 +346,7 @@ Partial Class FormOpenTableDurasi
         labelAkhirHargaMalam.Name = "labelAkhirHargaMalam"
         labelAkhirHargaMalam.Size = New Size(113, 47)
         labelAkhirHargaMalam.TabIndex = 2
-        labelAkhirHargaMalam.Text = "00:00:00"
+        labelAkhirHargaMalam.Text = "-;-;-"
         labelAkhirHargaMalam.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Label11
@@ -420,7 +421,7 @@ Partial Class FormOpenTableDurasi
         Label14.Name = "Label14"
         Label14.Size = New Size(200, 47)
         Label14.TabIndex = 1
-        Label14.Text = "30.000"
+        Label14.Text = "-;-;-"
         Label14.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Label15
@@ -495,7 +496,7 @@ Partial Class FormOpenTableDurasi
         labelPerubahanHarga.Name = "labelPerubahanHarga"
         labelPerubahanHarga.Size = New Size(66, 47)
         labelPerubahanHarga.TabIndex = 1
-        labelPerubahanHarga.Text = "Tidak"
+        labelPerubahanHarga.Text = "-;-;-"
         labelPerubahanHarga.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Label21
@@ -525,125 +526,97 @@ Partial Class FormOpenTableDurasi
         ' 
         Label17.BorderStyle = BorderStyle.FixedSingle
         Label17.Dock = DockStyle.Top
+        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label17.Location = New Point(0, 277)
         Label17.Name = "Label17"
-        Label17.Size = New Size(1008, 20)
+        Label17.Size = New Size(1000, 30)
         Label17.TabIndex = 1
         Label17.Text = "Daftar Paket"
         Label17.TextAlign = ContentAlignment.MiddleCenter
         ' 
-        ' TableLayoutPanel2
+        ' DataGridView1
         ' 
-        TableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
-        TableLayoutPanel2.ColumnCount = 7
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 67.39726F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 32.60274F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 133F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 150F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 150F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 109F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 100F))
-        TableLayoutPanel2.Controls.Add(Label27, 6, 0)
-        TableLayoutPanel2.Controls.Add(Label26, 5, 0)
-        TableLayoutPanel2.Controls.Add(Label25, 4, 0)
-        TableLayoutPanel2.Controls.Add(Label24, 3, 0)
-        TableLayoutPanel2.Controls.Add(Label23, 2, 0)
-        TableLayoutPanel2.Controls.Add(Label22, 1, 0)
-        TableLayoutPanel2.Controls.Add(Label19, 0, 0)
-        TableLayoutPanel2.Dock = DockStyle.Top
-        TableLayoutPanel2.Location = New Point(0, 297)
-        TableLayoutPanel2.Name = "TableLayoutPanel2"
-        TableLayoutPanel2.RowCount = 2
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 11.6935482F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 88.30645F))
-        TableLayoutPanel2.Size = New Size(1008, 248)
-        TableLayoutPanel2.TabIndex = 2
+        DataGridView1.BackgroundColor = SystemColors.Control
+        DataGridView1.BorderStyle = BorderStyle.None
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.Control
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaSiang, hargaMalam, akhirsiang, akhirMalam, discTable, discFnB})
+        DataGridView1.EnableHeadersVisualStyles = False
+        DataGridView1.Location = New Point(3, 310)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.Size = New Size(982, 235)
+        DataGridView1.TabIndex = 6
         ' 
-        ' Label27
+        ' namaPaket
         ' 
-        Label27.AutoSize = True
-        Label27.Dock = DockStyle.Fill
-        Label27.Location = New Point(908, 2)
-        Label27.Name = "Label27"
-        Label27.Size = New Size(95, 28)
-        Label27.TabIndex = 6
-        Label27.Text = "Disc FnB (%)"
-        Label27.TextAlign = ContentAlignment.MiddleCenter
+        namaPaket.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        namaPaket.FillWeight = 175F
+        namaPaket.HeaderText = "Nama Paket"
+        namaPaket.MinimumWidth = 6
+        namaPaket.Name = "namaPaket"
         ' 
-        ' Label26
+        ' hargaSiang
         ' 
-        Label26.AutoSize = True
-        Label26.Dock = DockStyle.Fill
-        Label26.Location = New Point(797, 2)
-        Label26.Name = "Label26"
-        Label26.Size = New Size(103, 28)
-        Label26.TabIndex = 5
-        Label26.Text = "Disc Table (%)"
-        Label26.TextAlign = ContentAlignment.MiddleCenter
+        hargaSiang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        hargaSiang.HeaderText = "Harga Siang "
+        hargaSiang.MinimumWidth = 6
+        hargaSiang.Name = "hargaSiang"
         ' 
-        ' Label25
+        ' hargaMalam
         ' 
-        Label25.AutoSize = True
-        Label25.Dock = DockStyle.Fill
-        Label25.Location = New Point(645, 2)
-        Label25.Name = "Label25"
-        Label25.Size = New Size(144, 28)
-        Label25.TabIndex = 4
-        Label25.Text = "Akhir Harga Malam"
-        Label25.TextAlign = ContentAlignment.MiddleCenter
+        hargaMalam.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        hargaMalam.HeaderText = "Harga Malam "
+        hargaMalam.MinimumWidth = 6
+        hargaMalam.Name = "hargaMalam"
         ' 
-        ' Label24
+        ' akhirsiang
         ' 
-        Label24.AutoSize = True
-        Label24.Dock = DockStyle.Fill
-        Label24.Location = New Point(493, 2)
-        Label24.Name = "Label24"
-        Label24.Size = New Size(144, 28)
-        Label24.TabIndex = 3
-        Label24.Text = "Akhir Harga Siang"
-        Label24.TextAlign = ContentAlignment.MiddleCenter
+        akhirsiang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        akhirsiang.HeaderText = "Jam Akhir Harga Siang"
+        akhirsiang.MinimumWidth = 6
+        akhirsiang.Name = "akhirsiang"
         ' 
-        ' Label23
+        ' akhirMalam
         ' 
-        Label23.AutoSize = True
-        Label23.Dock = DockStyle.Fill
-        Label23.Location = New Point(358, 2)
-        Label23.Name = "Label23"
-        Label23.Size = New Size(127, 28)
-        Label23.TabIndex = 2
-        Label23.Text = "Harga Malam"
-        Label23.TextAlign = ContentAlignment.MiddleCenter
+        akhirMalam.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        akhirMalam.HeaderText = "Jam Akhir Harga Malam"
+        akhirMalam.MinimumWidth = 6
+        akhirMalam.Name = "akhirMalam"
         ' 
-        ' Label22
+        ' discTable
         ' 
-        Label22.AutoSize = True
-        Label22.Dock = DockStyle.Fill
-        Label22.Location = New Point(242, 2)
-        Label22.Name = "Label22"
-        Label22.Size = New Size(108, 28)
-        Label22.TabIndex = 1
-        Label22.Text = "Harga Siang"
-        Label22.TextAlign = ContentAlignment.MiddleCenter
+        discTable.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        discTable.FillWeight = 50F
+        discTable.HeaderText = "Disc Table (%)"
+        discTable.MinimumWidth = 6
+        discTable.Name = "discTable"
         ' 
-        ' Label19
+        ' discFnB
         ' 
-        Label19.AutoSize = True
-        Label19.Dock = DockStyle.Fill
-        Label19.Location = New Point(5, 2)
-        Label19.Name = "Label19"
-        Label19.Size = New Size(229, 28)
-        Label19.TabIndex = 0
-        Label19.Text = "Nama Paket"
-        Label19.TextAlign = ContentAlignment.MiddleCenter
+        discFnB.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        discFnB.FillWeight = 50F
+        discFnB.HeaderText = "Disc FnB (%)"
+        discFnB.MinimumWidth = 6
+        discFnB.Name = "discFnB"
         ' 
         ' FormOpenTableDurasi
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1008, 548)
-        Controls.Add(TableLayoutPanel2)
+        ClientSize = New Size(1000, 548)
+        Controls.Add(DataGridView1)
         Controls.Add(Label17)
         Controls.Add(TableLayoutPanel1)
+        MaximizeBox = False
         Name = "FormOpenTableDurasi"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FormOpenTable"
@@ -665,8 +638,7 @@ Partial Class FormOpenTableDurasi
         Panel14.ResumeLayout(False)
         Panel14.PerformLayout()
         Panel15.ResumeLayout(False)
-        TableLayoutPanel2.ResumeLayout(False)
-        TableLayoutPanel2.PerformLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -708,13 +680,13 @@ Partial Class FormOpenTableDurasi
     Friend WithEvents Label21 As Label
     Friend WithEvents btnFixOrder As Button
     Friend WithEvents Label17 As Label
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Label27 As Label
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label24 As Label
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Label19 As Label
     Friend WithEvents dropdownPilihTable As ComboBox
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents namaPaket As DataGridViewTextBoxColumn
+    Friend WithEvents hargaSiang As DataGridViewTextBoxColumn
+    Friend WithEvents hargaMalam As DataGridViewTextBoxColumn
+    Friend WithEvents akhirsiang As DataGridViewTextBoxColumn
+    Friend WithEvents akhirMalam As DataGridViewTextBoxColumn
+    Friend WithEvents discTable As DataGridViewTextBoxColumn
+    Friend WithEvents discFnB As DataGridViewTextBoxColumn
 End Class
