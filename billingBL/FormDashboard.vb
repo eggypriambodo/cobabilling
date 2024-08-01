@@ -11,18 +11,19 @@ Public Class FormDashboard
     Shared _continue As Boolean
     Shared _serialPort As SerialPort
     Sub munculserial()
-        For Each AvailableSerialPorts As String In IO.Ports.SerialPort.GetPortNames()
-            cbSerialPort.Items.Add(AvailableSerialPorts)
-            cbSerialPort.Text = AvailableSerialPorts
-            _serialPort.ReadTimeout = 2000
-            btnToOnSerialPorts.Visible = True
-            btnToOffSerialPorts.Visible = False
-            TextBox1.ScrollBars = ScrollBars.Vertical
-        Next
+
     End Sub
 
     Private Sub FormDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        munculserial
+        For Each AvailableSerialPorts As String In System.IO.Ports.SerialPort.GetPortNames()
+            cbSerialPort.Items.Add(AvailableSerialPorts)
+            cbSerialPort.Text = AvailableSerialPorts
+            _serialPort.ReadTimeout = 2000
+
+            TextBox1.ScrollBars = ScrollBars.Vertical
+        Next
+        btnToOnSerialPorts.Visible = True
+        btnToOffSerialPorts.Visible = False
     End Sub
 
     Private Sub btnToOnSerialPorts_Click(sender As Object, e As EventArgs)
@@ -39,6 +40,5 @@ Public Class FormDashboard
     Private Sub btnToOffSerialPorts_Click(sender As Object, e As EventArgs)
 
     End Sub
-
 
 End Class

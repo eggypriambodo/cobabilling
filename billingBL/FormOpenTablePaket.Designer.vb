@@ -74,11 +74,11 @@ Partial Class FormOpenTablePaket
         TableLayoutPanel2.ColumnCount = 7
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 67.39726F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 32.60274F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 133F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 150F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 150F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 109F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 100F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 116F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 131F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 131F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 95F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 90F))
         TableLayoutPanel2.Controls.Add(Label27, 6, 0)
         TableLayoutPanel2.Controls.Add(Label26, 5, 0)
         TableLayoutPanel2.Controls.Add(Label25, 4, 0)
@@ -87,21 +87,22 @@ Partial Class FormOpenTablePaket
         TableLayoutPanel2.Controls.Add(Label22, 1, 0)
         TableLayoutPanel2.Controls.Add(Label19, 0, 0)
         TableLayoutPanel2.Dock = DockStyle.Top
-        TableLayoutPanel2.Location = New Point(0, 294)
+        TableLayoutPanel2.Location = New Point(0, 221)
+        TableLayoutPanel2.Margin = New Padding(3, 2, 3, 2)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 2
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 11.6935482F))
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 88.30645F))
-        TableLayoutPanel2.Size = New Size(671, 274)
+        TableLayoutPanel2.Size = New Size(995, 206)
         TableLayoutPanel2.TabIndex = 8
         ' 
         ' Label27
         ' 
         Label27.AutoSize = True
         Label27.Dock = DockStyle.Fill
-        Label27.Location = New Point(571, 2)
+        Label27.Location = New Point(905, 2)
         Label27.Name = "Label27"
-        Label27.Size = New Size(95, 31)
+        Label27.Size = New Size(85, 23)
         Label27.TabIndex = 6
         Label27.Text = "Disc FnB (%)"
         Label27.TextAlign = ContentAlignment.MiddleCenter
@@ -110,9 +111,9 @@ Partial Class FormOpenTablePaket
         ' 
         Label26.AutoSize = True
         Label26.Dock = DockStyle.Fill
-        Label26.Location = New Point(460, 2)
+        Label26.Location = New Point(808, 2)
         Label26.Name = "Label26"
-        Label26.Size = New Size(103, 31)
+        Label26.Size = New Size(89, 23)
         Label26.TabIndex = 5
         Label26.Text = "Disc Table (%)"
         Label26.TextAlign = ContentAlignment.MiddleCenter
@@ -121,9 +122,9 @@ Partial Class FormOpenTablePaket
         ' 
         Label25.AutoSize = True
         Label25.Dock = DockStyle.Fill
-        Label25.Location = New Point(308, 2)
+        Label25.Location = New Point(675, 2)
         Label25.Name = "Label25"
-        Label25.Size = New Size(144, 31)
+        Label25.Size = New Size(125, 23)
         Label25.TabIndex = 4
         Label25.Text = "Akhir Harga Malam"
         Label25.TextAlign = ContentAlignment.MiddleCenter
@@ -132,9 +133,9 @@ Partial Class FormOpenTablePaket
         ' 
         Label24.AutoSize = True
         Label24.Dock = DockStyle.Fill
-        Label24.Location = New Point(156, 2)
+        Label24.Location = New Point(542, 2)
         Label24.Name = "Label24"
-        Label24.Size = New Size(144, 31)
+        Label24.Size = New Size(125, 23)
         Label24.TabIndex = 3
         Label24.Text = "Akhir Harga Siang"
         Label24.TextAlign = ContentAlignment.MiddleCenter
@@ -143,9 +144,9 @@ Partial Class FormOpenTablePaket
         ' 
         Label23.AutoSize = True
         Label23.Dock = DockStyle.Fill
-        Label23.Location = New Point(21, 2)
+        Label23.Location = New Point(424, 2)
         Label23.Name = "Label23"
-        Label23.Size = New Size(127, 31)
+        Label23.Size = New Size(110, 23)
         Label23.TabIndex = 2
         Label23.Text = "Harga Malam"
         Label23.TextAlign = ContentAlignment.MiddleCenter
@@ -154,9 +155,9 @@ Partial Class FormOpenTablePaket
         ' 
         Label22.AutoSize = True
         Label22.Dock = DockStyle.Fill
-        Label22.Location = New Point(15, 2)
+        Label22.Location = New Point(287, 2)
         Label22.Name = "Label22"
-        Label22.Size = New Size(1, 31)
+        Label22.Size = New Size(129, 23)
         Label22.TabIndex = 1
         Label22.Text = "Harga Siang"
         Label22.TextAlign = ContentAlignment.MiddleCenter
@@ -167,7 +168,7 @@ Partial Class FormOpenTablePaket
         Label19.Dock = DockStyle.Fill
         Label19.Location = New Point(5, 2)
         Label19.Name = "Label19"
-        Label19.Size = New Size(2, 31)
+        Label19.Size = New Size(274, 23)
         Label19.TabIndex = 0
         Label19.Text = "Nama Paket"
         Label19.TextAlign = ContentAlignment.MiddleCenter
@@ -176,9 +177,9 @@ Partial Class FormOpenTablePaket
         ' 
         Label17.BorderStyle = BorderStyle.FixedSingle
         Label17.Dock = DockStyle.Top
-        Label17.Location = New Point(0, 274)
+        Label17.Location = New Point(0, 205)
         Label17.Name = "Label17"
-        Label17.Size = New Size(671, 20)
+        Label17.Size = New Size(995, 16)
         Label17.TabIndex = 7
         Label17.Text = "Daftar Paket"
         Label17.TextAlign = ContentAlignment.MiddleCenter
@@ -192,12 +193,13 @@ Partial Class FormOpenTablePaket
         TableLayoutPanel1.Controls.Add(FlowLayoutPanel1, 0, 1)
         TableLayoutPanel1.Dock = DockStyle.Top
         TableLayoutPanel1.Location = New Point(0, 0)
+        TableLayoutPanel1.Margin = New Padding(3, 2, 3, 2)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 2
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 45F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
-        TableLayoutPanel1.Size = New Size(671, 274)
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 15F))
+        TableLayoutPanel1.Size = New Size(995, 205)
         TableLayoutPanel1.TabIndex = 6
         ' 
         ' LabelOpenTable
@@ -209,7 +211,7 @@ Partial Class FormOpenTablePaket
         LabelOpenTable.ForeColor = SystemColors.Control
         LabelOpenTable.Location = New Point(3, 0)
         LabelOpenTable.Name = "LabelOpenTable"
-        LabelOpenTable.Size = New Size(665, 49)
+        LabelOpenTable.Size = New Size(989, 37)
         LabelOpenTable.TabIndex = 0
         LabelOpenTable.Text = " OPEN TABLE PAKET"
         LabelOpenTable.TextAlign = ContentAlignment.MiddleCenter
@@ -226,9 +228,10 @@ Partial Class FormOpenTablePaket
         FlowLayoutPanel1.Controls.Add(Panel3)
         FlowLayoutPanel1.Controls.Add(Panel6)
         FlowLayoutPanel1.Controls.Add(btnFixOrder)
-        FlowLayoutPanel1.Location = New Point(3, 52)
+        FlowLayoutPanel1.Location = New Point(3, 39)
+        FlowLayoutPanel1.Margin = New Padding(3, 2, 3, 2)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(663, 218)
+        FlowLayoutPanel1.Size = New Size(580, 164)
         FlowLayoutPanel1.TabIndex = 1
         ' 
         ' Panel1
@@ -237,9 +240,10 @@ Partial Class FormOpenTablePaket
         Panel1.BorderStyle = BorderStyle.FixedSingle
         Panel1.Controls.Add(labelNoOrder)
         Panel1.Controls.Add(Label1)
-        Panel1.Location = New Point(3, 3)
+        Panel1.Location = New Point(3, 2)
+        Panel1.Margin = New Padding(3, 2, 3, 2)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(323, 49)
+        Panel1.Size = New Size(283, 37)
         Panel1.TabIndex = 0
         ' 
         ' labelNoOrder
@@ -247,10 +251,10 @@ Partial Class FormOpenTablePaket
         labelNoOrder.Dock = DockStyle.Right
         labelNoOrder.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelNoOrder.ForeColor = SystemColors.Control
-        labelNoOrder.Location = New Point(120, 0)
-        labelNoOrder.Margin = New Padding(3, 7, 3, 0)
+        labelNoOrder.Location = New Point(105, 0)
+        labelNoOrder.Margin = New Padding(3, 5, 3, 0)
         labelNoOrder.Name = "labelNoOrder"
-        labelNoOrder.Size = New Size(201, 47)
+        labelNoOrder.Size = New Size(176, 35)
         labelNoOrder.TabIndex = 1
         labelNoOrder.Text = "123456789"
         labelNoOrder.TextAlign = ContentAlignment.MiddleRight
@@ -262,7 +266,7 @@ Partial Class FormOpenTablePaket
         Label1.ForeColor = SystemColors.Control
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(114, 47)
+        Label1.Size = New Size(100, 35)
         Label1.TabIndex = 0
         Label1.Text = "No. Order"
         Label1.TextAlign = ContentAlignment.MiddleLeft
@@ -273,9 +277,10 @@ Partial Class FormOpenTablePaket
         Panel2.BorderStyle = BorderStyle.FixedSingle
         Panel2.Controls.Add(labelPaket)
         Panel2.Controls.Add(Label3)
-        Panel2.Location = New Point(332, 3)
+        Panel2.Location = New Point(292, 2)
+        Panel2.Margin = New Padding(3, 2, 3, 2)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(323, 49)
+        Panel2.Size = New Size(283, 37)
         Panel2.TabIndex = 1
         ' 
         ' labelPaket
@@ -283,10 +288,10 @@ Partial Class FormOpenTablePaket
         labelPaket.Dock = DockStyle.Right
         labelPaket.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelPaket.ForeColor = SystemColors.Control
-        labelPaket.Location = New Point(120, 0)
-        labelPaket.Margin = New Padding(3, 7, 3, 0)
+        labelPaket.Location = New Point(105, 0)
+        labelPaket.Margin = New Padding(3, 5, 3, 0)
         labelPaket.Name = "labelPaket"
-        labelPaket.Size = New Size(201, 47)
+        labelPaket.Size = New Size(176, 35)
         labelPaket.TabIndex = 1
         labelPaket.Text = "-;-;-"
         labelPaket.TextAlign = ContentAlignment.MiddleRight
@@ -298,7 +303,7 @@ Partial Class FormOpenTablePaket
         Label3.ForeColor = SystemColors.Control
         Label3.Location = New Point(0, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(114, 47)
+        Label3.Size = New Size(100, 35)
         Label3.TabIndex = 0
         Label3.Text = "Paket"
         Label3.TextAlign = ContentAlignment.MiddleLeft
@@ -308,9 +313,10 @@ Partial Class FormOpenTablePaket
         Panel4.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel4.BorderStyle = BorderStyle.FixedSingle
         Panel4.Controls.Add(Label7)
-        Panel4.Location = New Point(3, 58)
+        Panel4.Location = New Point(3, 43)
+        Panel4.Margin = New Padding(3, 2, 3, 2)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(151, 49)
+        Panel4.Size = New Size(132, 37)
         Panel4.TabIndex = 3
         ' 
         ' Label7
@@ -320,7 +326,7 @@ Partial Class FormOpenTablePaket
         Label7.ForeColor = SystemColors.Control
         Label7.Location = New Point(0, 0)
         Label7.Name = "Label7"
-        Label7.Size = New Size(114, 47)
+        Label7.Size = New Size(100, 35)
         Label7.TabIndex = 0
         Label7.Text = "Table"
         Label7.TextAlign = ContentAlignment.MiddleLeft
@@ -330,18 +336,20 @@ Partial Class FormOpenTablePaket
         Panel5.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel5.BorderStyle = BorderStyle.FixedSingle
         Panel5.Controls.Add(dropdownPilihTable)
-        Panel5.Location = New Point(160, 58)
+        Panel5.Location = New Point(141, 43)
+        Panel5.Margin = New Padding(3, 2, 3, 2)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(165, 49)
+        Panel5.Size = New Size(145, 37)
         Panel5.TabIndex = 4
         ' 
         ' dropdownPilihTable
         ' 
         dropdownPilihTable.FormattingEnabled = True
         dropdownPilihTable.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8"})
-        dropdownPilihTable.Location = New Point(9, 11)
+        dropdownPilihTable.Location = New Point(8, 8)
+        dropdownPilihTable.Margin = New Padding(3, 2, 3, 2)
         dropdownPilihTable.Name = "dropdownPilihTable"
-        dropdownPilihTable.Size = New Size(151, 28)
+        dropdownPilihTable.Size = New Size(133, 23)
         dropdownPilihTable.TabIndex = 0
         ' 
         ' Panel13
@@ -349,9 +357,10 @@ Partial Class FormOpenTablePaket
         Panel13.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel13.BorderStyle = BorderStyle.FixedSingle
         Panel13.Controls.Add(Label18)
-        Panel13.Location = New Point(331, 58)
+        Panel13.Location = New Point(292, 43)
+        Panel13.Margin = New Padding(3, 2, 3, 2)
         Panel13.Name = "Panel13"
-        Panel13.Size = New Size(151, 49)
+        Panel13.Size = New Size(132, 37)
         Panel13.TabIndex = 12
         ' 
         ' Label18
@@ -361,7 +370,7 @@ Partial Class FormOpenTablePaket
         Label18.ForeColor = SystemColors.Control
         Label18.Location = New Point(0, 0)
         Label18.Name = "Label18"
-        Label18.Size = New Size(114, 47)
+        Label18.Size = New Size(100, 35)
         Label18.TabIndex = 0
         Label18.Text = "Nama Tamu"
         Label18.TextAlign = ContentAlignment.MiddleLeft
@@ -371,16 +380,18 @@ Partial Class FormOpenTablePaket
         Panel14.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel14.BorderStyle = BorderStyle.FixedSingle
         Panel14.Controls.Add(textboxNamaTamu)
-        Panel14.Location = New Point(488, 58)
+        Panel14.Location = New Point(430, 43)
+        Panel14.Margin = New Padding(3, 2, 3, 2)
         Panel14.Name = "Panel14"
-        Panel14.Size = New Size(166, 49)
+        Panel14.Size = New Size(146, 37)
         Panel14.TabIndex = 13
         ' 
         ' textboxNamaTamu
         ' 
-        textboxNamaTamu.Location = New Point(20, 10)
+        textboxNamaTamu.Location = New Point(18, 8)
+        textboxNamaTamu.Margin = New Padding(3, 2, 3, 2)
         textboxNamaTamu.Name = "textboxNamaTamu"
-        textboxNamaTamu.Size = New Size(125, 27)
+        textboxNamaTamu.Size = New Size(110, 23)
         textboxNamaTamu.TabIndex = 1
         ' 
         ' Panel3
@@ -389,9 +400,10 @@ Partial Class FormOpenTablePaket
         Panel3.BorderStyle = BorderStyle.FixedSingle
         Panel3.Controls.Add(labelHargaPaket)
         Panel3.Controls.Add(Label4)
-        Panel3.Location = New Point(3, 113)
+        Panel3.Location = New Point(3, 84)
+        Panel3.Margin = New Padding(3, 2, 3, 2)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(323, 49)
+        Panel3.Size = New Size(283, 37)
         Panel3.TabIndex = 16
         ' 
         ' labelHargaPaket
@@ -399,10 +411,10 @@ Partial Class FormOpenTablePaket
         labelHargaPaket.Dock = DockStyle.Right
         labelHargaPaket.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelHargaPaket.ForeColor = SystemColors.Control
-        labelHargaPaket.Location = New Point(162, 0)
-        labelHargaPaket.Margin = New Padding(3, 7, 3, 0)
+        labelHargaPaket.Location = New Point(142, 0)
+        labelHargaPaket.Margin = New Padding(3, 5, 3, 0)
         labelHargaPaket.Name = "labelHargaPaket"
-        labelHargaPaket.Size = New Size(159, 47)
+        labelHargaPaket.Size = New Size(139, 35)
         labelHargaPaket.TabIndex = 1
         labelHargaPaket.Text = "-;-;-"
         labelHargaPaket.TextAlign = ContentAlignment.MiddleRight
@@ -414,7 +426,7 @@ Partial Class FormOpenTablePaket
         Label4.ForeColor = SystemColors.Control
         Label4.Location = New Point(0, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(156, 47)
+        Label4.Size = New Size(136, 35)
         Label4.TabIndex = 0
         Label4.Text = "Harga"
         Label4.TextAlign = ContentAlignment.MiddleLeft
@@ -425,9 +437,10 @@ Partial Class FormOpenTablePaket
         Panel6.BorderStyle = BorderStyle.FixedSingle
         Panel6.Controls.Add(labelDurasiPaket)
         Panel6.Controls.Add(Label5)
-        Panel6.Location = New Point(332, 113)
+        Panel6.Location = New Point(292, 84)
+        Panel6.Margin = New Padding(3, 2, 3, 2)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(323, 49)
+        Panel6.Size = New Size(283, 37)
         Panel6.TabIndex = 17
         ' 
         ' labelDurasiPaket
@@ -435,10 +448,10 @@ Partial Class FormOpenTablePaket
         labelDurasiPaket.Dock = DockStyle.Right
         labelDurasiPaket.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelDurasiPaket.ForeColor = SystemColors.Control
-        labelDurasiPaket.Location = New Point(120, 0)
-        labelDurasiPaket.Margin = New Padding(3, 7, 3, 0)
+        labelDurasiPaket.Location = New Point(105, 0)
+        labelDurasiPaket.Margin = New Padding(3, 5, 3, 0)
         labelDurasiPaket.Name = "labelDurasiPaket"
-        labelDurasiPaket.Size = New Size(201, 47)
+        labelDurasiPaket.Size = New Size(176, 35)
         labelDurasiPaket.TabIndex = 1
         labelDurasiPaket.Text = "-;-;-"
         labelDurasiPaket.TextAlign = ContentAlignment.MiddleRight
@@ -450,7 +463,7 @@ Partial Class FormOpenTablePaket
         Label5.ForeColor = SystemColors.Control
         Label5.Location = New Point(0, 0)
         Label5.Name = "Label5"
-        Label5.Size = New Size(114, 47)
+        Label5.Size = New Size(100, 35)
         Label5.TabIndex = 0
         Label5.Text = "Durasi"
         Label5.TextAlign = ContentAlignment.MiddleLeft
@@ -459,21 +472,23 @@ Partial Class FormOpenTablePaket
         ' 
         btnFixOrder.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnFixOrder.ForeColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        btnFixOrder.Location = New Point(3, 168)
+        btnFixOrder.Location = New Point(3, 125)
+        btnFixOrder.Margin = New Padding(3, 2, 3, 2)
         btnFixOrder.Name = "btnFixOrder"
-        btnFixOrder.Size = New Size(321, 48)
+        btnFixOrder.Size = New Size(281, 36)
         btnFixOrder.TabIndex = 15
         btnFixOrder.Text = "ORDER"
         btnFixOrder.UseVisualStyleBackColor = True
         ' 
         ' FormOpenTablePaket
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(671, 537)
+        ClientSize = New Size(995, 596)
         Controls.Add(TableLayoutPanel2)
         Controls.Add(Label17)
         Controls.Add(TableLayoutPanel1)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "FormOpenTablePaket"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FormOpenTablePaket"

@@ -32,6 +32,7 @@ Partial Class FormDashboard
         ' 
         ' TextBox1
         ' 
+        TextBox1.Enabled = False
         TextBox1.Location = New Point(340, 399)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(152, 23)
