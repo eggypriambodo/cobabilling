@@ -6,9 +6,12 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
+    Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
         Close()
 
     End Sub
+
+
+
 
 End Class
