@@ -71,7 +71,7 @@ Partial Class FormOpenTablePaket
         ' 
         TableLayoutPanel1.AutoSize = True
         TableLayoutPanel1.ColumnCount = 1
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
         TableLayoutPanel1.Controls.Add(LabelOpenTable, 0, 0)
         TableLayoutPanel1.Controls.Add(FlowLayoutPanel1, 0, 1)
         TableLayoutPanel1.Dock = DockStyle.Top
@@ -79,10 +79,10 @@ Partial Class FormOpenTablePaket
         TableLayoutPanel1.Margin = New Padding(3, 2, 3, 2)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 2
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10.0F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 45.0F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 15.0F))
-        TableLayoutPanel1.Size = New Size(995, 205)
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 45F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 15F))
+        TableLayoutPanel1.Size = New Size(587, 205)
         TableLayoutPanel1.TabIndex = 6
         ' 
         ' LabelOpenTable
@@ -94,7 +94,7 @@ Partial Class FormOpenTablePaket
         LabelOpenTable.ForeColor = SystemColors.Control
         LabelOpenTable.Location = New Point(3, 0)
         LabelOpenTable.Name = "LabelOpenTable"
-        LabelOpenTable.Size = New Size(989, 37)
+        LabelOpenTable.Size = New Size(581, 37)
         LabelOpenTable.TabIndex = 0
         LabelOpenTable.Text = " OPEN TABLE PAKET"
         LabelOpenTable.TextAlign = ContentAlignment.MiddleCenter
@@ -132,7 +132,7 @@ Partial Class FormOpenTablePaket
         ' labelNoOrder
         ' 
         labelNoOrder.Dock = DockStyle.Right
-        labelNoOrder.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        labelNoOrder.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelNoOrder.ForeColor = SystemColors.Control
         labelNoOrder.Location = New Point(105, 0)
         labelNoOrder.Margin = New Padding(3, 5, 3, 0)
@@ -169,7 +169,7 @@ Partial Class FormOpenTablePaket
         ' labelPaket
         ' 
         labelPaket.Dock = DockStyle.Right
-        labelPaket.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        labelPaket.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelPaket.ForeColor = SystemColors.Control
         labelPaket.Location = New Point(105, 0)
         labelPaket.Margin = New Padding(3, 5, 3, 0)
@@ -292,7 +292,7 @@ Partial Class FormOpenTablePaket
         ' labelHargaPaket
         ' 
         labelHargaPaket.Dock = DockStyle.Right
-        labelHargaPaket.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        labelHargaPaket.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelHargaPaket.ForeColor = SystemColors.Control
         labelHargaPaket.Location = New Point(142, 0)
         labelHargaPaket.Margin = New Padding(3, 5, 3, 0)
@@ -329,7 +329,7 @@ Partial Class FormOpenTablePaket
         ' labelDurasiPaket
         ' 
         labelDurasiPaket.Dock = DockStyle.Right
-        labelDurasiPaket.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        labelDurasiPaket.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelDurasiPaket.ForeColor = SystemColors.Control
         labelDurasiPaket.Location = New Point(105, 0)
         labelDurasiPaket.Margin = New Padding(3, 5, 3, 0)
@@ -353,7 +353,7 @@ Partial Class FormOpenTablePaket
         ' 
         ' btnFixOrder
         ' 
-        btnFixOrder.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
+        btnFixOrder.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnFixOrder.ForeColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         btnFixOrder.Location = New Point(3, 125)
         btnFixOrder.Margin = New Padding(3, 2, 3, 2)
@@ -369,7 +369,7 @@ Partial Class FormOpenTablePaket
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle1.ForeColor = SystemColors.Control
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
@@ -378,17 +378,19 @@ Partial Class FormOpenTablePaket
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaPaket, duration, discTable, discFnB})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(0, 307)
+        DataGridView1.Location = New Point(0, 230)
+        DataGridView1.Margin = New Padding(3, 2, 3, 2)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(657, 218)
+        DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView1.Size = New Size(575, 164)
         DataGridView1.TabIndex = 10
         ' 
         ' namaPaket
         ' 
         namaPaket.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        namaPaket.FillWeight = 175.0F
+        namaPaket.FillWeight = 175F
         namaPaket.HeaderText = "Nama Paket"
         namaPaket.MinimumWidth = 6
         namaPaket.Name = "namaPaket"
@@ -410,7 +412,7 @@ Partial Class FormOpenTablePaket
         ' discTable
         ' 
         discTable.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        discTable.FillWeight = 50.0F
+        discTable.FillWeight = 50F
         discTable.HeaderText = "Disc Table (%)"
         discTable.MinimumWidth = 6
         discTable.Name = "discTable"
@@ -418,7 +420,7 @@ Partial Class FormOpenTablePaket
         ' discFnB
         ' 
         discFnB.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        discFnB.FillWeight = 50.0F
+        discFnB.FillWeight = 50F
         discFnB.HeaderText = "Disc FnB (%)"
         discFnB.MinimumWidth = 6
         discFnB.Name = "discFnB"
@@ -428,21 +430,23 @@ Partial Class FormOpenTablePaket
         Label17.BorderStyle = BorderStyle.FixedSingle
         Label17.Dock = DockStyle.Top
         Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label17.Location = New Point(0, 274)
+        Label17.Location = New Point(0, 205)
         Label17.Name = "Label17"
-        Label17.Size = New Size(671, 30)
+        Label17.Size = New Size(587, 23)
         Label17.TabIndex = 9
         Label17.Text = "Daftar Paket"
         Label17.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' FormOpenTablePaket
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(671, 537)
-        Controls.Add(TableLayoutPanel2)
+        ClientSize = New Size(587, 403)
+        Controls.Add(DataGridView1)
         Controls.Add(Label17)
         Controls.Add(TableLayoutPanel1)
+        Margin = New Padding(3, 2, 3, 2)
+        MaximizeBox = False
         Name = "FormOpenTablePaket"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FormOpenTablePaket"

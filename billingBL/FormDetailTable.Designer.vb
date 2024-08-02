@@ -28,6 +28,10 @@ Partial Class FormDetailTable
         FlowLayoutPanel1 = New FlowLayoutPanel()
         Label41 = New Label()
         DataGridView1 = New DataGridView()
+        namaFnB = New DataGridViewTextBoxColumn()
+        hargaFnB = New DataGridViewTextBoxColumn()
+        qtyFnB = New DataGridViewTextBoxColumn()
+        totalFnB = New DataGridViewTextBoxColumn()
         TableLayoutPanel1 = New TableLayoutPanel()
         labelPPn = New Label()
         labelTaxService = New Label()
@@ -84,10 +88,6 @@ Partial Class FormDetailTable
         tbReferensi = New TextBox()
         btnCetak = New Button()
         btnBayar = New Button()
-        namaFnB = New DataGridViewTextBoxColumn()
-        hargaFnB = New DataGridViewTextBoxColumn()
-        qtyFnB = New DataGridViewTextBoxColumn()
-        totalFnB = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -140,7 +140,7 @@ Partial Class FormDetailTable
         FlowLayoutPanel1.Location = New Point(1, 74)
         FlowLayoutPanel1.Margin = New Padding(3, 2, 3, 2)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(336, 324)
+        FlowLayoutPanel1.Size = New Size(294, 243)
         FlowLayoutPanel1.TabIndex = 1
         ' 
         ' Label41
@@ -149,7 +149,7 @@ Partial Class FormDetailTable
         Label41.BorderStyle = BorderStyle.FixedSingle
         Label41.Location = New Point(3, 0)
         Label41.Name = "Label41"
-        Label41.Size = New Size(333, 25)
+        Label41.Size = New Size(292, 19)
         Label41.TabIndex = 1
         Label41.Text = "Daftar FnB"
         Label41.TextAlign = ContentAlignment.MiddleCenter
@@ -160,12 +160,40 @@ Partial Class FormDetailTable
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaFnB, hargaFnB, qtyFnB, totalFnB})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(3, 28)
+        DataGridView1.Location = New Point(3, 21)
+        DataGridView1.Margin = New Padding(3, 2, 3, 2)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(330, 286)
+        DataGridView1.Size = New Size(289, 214)
         DataGridView1.TabIndex = 0
+        ' 
+        ' namaFnB
+        ' 
+        namaFnB.HeaderText = "Nama"
+        namaFnB.MinimumWidth = 6
+        namaFnB.Name = "namaFnB"
+        namaFnB.Width = 125
+        ' 
+        ' hargaFnB
+        ' 
+        hargaFnB.HeaderText = "Harga"
+        hargaFnB.MinimumWidth = 6
+        hargaFnB.Name = "hargaFnB"
+        hargaFnB.Width = 75
+        ' 
+        ' qtyFnB
+        ' 
+        qtyFnB.HeaderText = "Qty"
+        qtyFnB.MinimumWidth = 6
+        qtyFnB.Name = "qtyFnB"
+        qtyFnB.Width = 40
+        ' 
+        ' totalFnB
+        ' 
+        totalFnB.HeaderText = "Total"
+        totalFnB.MinimumWidth = 6
+        totalFnB.Name = "totalFnB"
         ' 
         ' TableLayoutPanel1
         ' 
@@ -204,7 +232,8 @@ Partial Class FormDetailTable
         TableLayoutPanel1.Controls.Add(Label16, 0, 13)
         TableLayoutPanel1.Controls.Add(Label17, 0, 14)
         TableLayoutPanel1.Controls.Add(Label18, 0, 15)
-        TableLayoutPanel1.Location = New Point(340, 99)
+        TableLayoutPanel1.Location = New Point(298, 74)
+        TableLayoutPanel1.Margin = New Padding(3, 2, 3, 2)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 16
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 5.88235235F))
@@ -223,7 +252,7 @@ Partial Class FormDetailTable
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 5.88235235F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 5.88235235F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 5.88235235F))
-        TableLayoutPanel1.Size = New Size(300, 324)
+        TableLayoutPanel1.Size = New Size(262, 243)
         TableLayoutPanel1.TabIndex = 2
         ' 
         ' labelPPn
@@ -231,23 +260,23 @@ Partial Class FormDetailTable
         labelPPn.AutoSize = True
         labelPPn.Dock = DockStyle.Right
         labelPPn.Font = New Font("Segoe UI", 8.0F)
-        labelPPn.Location = New Point(270, 300)
+        labelPPn.Location = New Point(238, 225)
         labelPPn.Name = "labelPPn"
-        labelPPn.Size = New Size(27, 24)
+        labelPPn.Size = New Size(21, 18)
         labelPPn.TabIndex = 32
         labelPPn.Text = ";-;-"
         labelPPn.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' labelTaxService
         ' 
-        Label34.AutoSize = True
-        Label34.Dock = DockStyle.Right
-        Label34.Font = New Font("Segoe UI", 8.0F)
-        Label34.Location = New Point(353, 280)
-        Label34.Name = "Label34"
-        Label34.Size = New Size(27, 20)
-        Label34.TabIndex = 31
-        Label34.Text = ";-;-"
+        labelTaxService.AutoSize = True
+        labelTaxService.Dock = DockStyle.Right
+        labelTaxService.Font = New Font("Segoe UI", 8.0F)
+        labelTaxService.Location = New Point(238, 210)
+        labelTaxService.Name = "labelTaxService"
+        labelTaxService.Size = New Size(21, 15)
+        labelTaxService.TabIndex = 31
+        labelTaxService.Text = ";-;-"
         labelTaxService.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' labelSubtotal
@@ -255,21 +284,21 @@ Partial Class FormDetailTable
         labelSubtotal.AutoSize = True
         labelSubtotal.Dock = DockStyle.Right
         labelSubtotal.Font = New Font("Segoe UI", 8.0F)
-        labelSubtotal.Location = New Point(270, 260)
+        labelSubtotal.Location = New Point(238, 195)
         labelSubtotal.Name = "labelSubtotal"
-        Label33.Size = New Size(27, 20)
-        Label33.TabIndex = 30
-        Label33.Text = ";-;-"
-        Label33.TextAlign = ContentAlignment.MiddleRight
+        labelSubtotal.Size = New Size(21, 15)
+        labelSubtotal.TabIndex = 30
+        labelSubtotal.Text = ";-;-"
+        labelSubtotal.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' labelTotalFnB
         ' 
-        Label32.AutoSize = True
-        Label32.Dock = DockStyle.Right
-        Label32.Font = New Font("Segoe UI", 8.0F)
-        Label32.Location = New Point(353, 240)
+        labelTotalFnB.AutoSize = True
+        labelTotalFnB.Dock = DockStyle.Right
+        labelTotalFnB.Font = New Font("Segoe UI", 8.0F)
+        labelTotalFnB.Location = New Point(238, 180)
         labelTotalFnB.Name = "labelTotalFnB"
-        labelTotalFnB.Size = New Size(27, 20)
+        labelTotalFnB.Size = New Size(21, 15)
         labelTotalFnB.TabIndex = 29
         labelTotalFnB.Text = ";-;-"
         labelTotalFnB.TextAlign = ContentAlignment.MiddleRight
@@ -277,11 +306,11 @@ Partial Class FormDetailTable
         ' labelDiskonFnB
         ' 
         labelDiskonFnB.AutoSize = True
-        Label31.Dock = DockStyle.Right
-        Label31.Font = New Font("Segoe UI", 8.0F)
-        Label31.Location = New Point(353, 220)
+        labelDiskonFnB.Dock = DockStyle.Right
+        labelDiskonFnB.Font = New Font("Segoe UI", 8.0F)
+        labelDiskonFnB.Location = New Point(238, 165)
         labelDiskonFnB.Name = "labelDiskonFnB"
-        labelDiskonFnB.Size = New Size(27, 20)
+        labelDiskonFnB.Size = New Size(21, 15)
         labelDiskonFnB.TabIndex = 28
         labelDiskonFnB.Text = ";-;-"
         labelDiskonFnB.TextAlign = ContentAlignment.MiddleRight
@@ -289,11 +318,11 @@ Partial Class FormDetailTable
         ' labelSubtotalFnB
         ' 
         labelSubtotalFnB.AutoSize = True
-        Label30.Dock = DockStyle.Right
-        Label30.Font = New Font("Segoe UI", 8.0F)
-        Label30.Location = New Point(353, 200)
+        labelSubtotalFnB.Dock = DockStyle.Right
+        labelSubtotalFnB.Font = New Font("Segoe UI", 8.0F)
+        labelSubtotalFnB.Location = New Point(238, 150)
         labelSubtotalFnB.Name = "labelSubtotalFnB"
-        labelSubtotalFnB.Size = New Size(27, 20)
+        labelSubtotalFnB.Size = New Size(21, 15)
         labelSubtotalFnB.TabIndex = 27
         labelSubtotalFnB.Text = ";-;-"
         labelSubtotalFnB.TextAlign = ContentAlignment.MiddleRight
@@ -301,11 +330,11 @@ Partial Class FormDetailTable
         ' labelTotalTable
         ' 
         labelTotalTable.AutoSize = True
-        Label29.Dock = DockStyle.Right
-        Label29.Font = New Font("Segoe UI", 8.0F)
-        Label29.Location = New Point(353, 180)
+        labelTotalTable.Dock = DockStyle.Right
+        labelTotalTable.Font = New Font("Segoe UI", 8.0F)
+        labelTotalTable.Location = New Point(238, 135)
         labelTotalTable.Name = "labelTotalTable"
-        labelTotalTable.Size = New Size(27, 20)
+        labelTotalTable.Size = New Size(21, 15)
         labelTotalTable.TabIndex = 26
         labelTotalTable.Text = ";-;-"
         labelTotalTable.TextAlign = ContentAlignment.MiddleRight
@@ -313,11 +342,11 @@ Partial Class FormDetailTable
         ' labelDiskonTable
         ' 
         labelDiskonTable.AutoSize = True
-        Label28.Dock = DockStyle.Right
-        Label28.Font = New Font("Segoe UI", 8.0F)
-        Label28.Location = New Point(353, 160)
+        labelDiskonTable.Dock = DockStyle.Right
+        labelDiskonTable.Font = New Font("Segoe UI", 8.0F)
+        labelDiskonTable.Location = New Point(238, 120)
         labelDiskonTable.Name = "labelDiskonTable"
-        labelDiskonTable.Size = New Size(27, 20)
+        labelDiskonTable.Size = New Size(21, 15)
         labelDiskonTable.TabIndex = 25
         labelDiskonTable.Text = ";-;-"
         labelDiskonTable.TextAlign = ContentAlignment.MiddleRight
@@ -325,11 +354,11 @@ Partial Class FormDetailTable
         ' labelSubtotalTable
         ' 
         labelSubtotalTable.AutoSize = True
-        Label27.Dock = DockStyle.Right
-        Label27.Font = New Font("Segoe UI", 8.0F)
-        Label27.Location = New Point(353, 140)
+        labelSubtotalTable.Dock = DockStyle.Right
+        labelSubtotalTable.Font = New Font("Segoe UI", 8.0F)
+        labelSubtotalTable.Location = New Point(238, 105)
         labelSubtotalTable.Name = "labelSubtotalTable"
-        labelSubtotalTable.Size = New Size(27, 20)
+        labelSubtotalTable.Size = New Size(21, 15)
         labelSubtotalTable.TabIndex = 24
         labelSubtotalTable.Text = ";-;-"
         labelSubtotalTable.TextAlign = ContentAlignment.MiddleRight
@@ -337,11 +366,11 @@ Partial Class FormDetailTable
         ' labelDuration
         ' 
         labelDuration.AutoSize = True
-        Label26.Dock = DockStyle.Right
-        Label26.Font = New Font("Segoe UI", 8.0F)
-        Label26.Location = New Point(353, 120)
+        labelDuration.Dock = DockStyle.Right
+        labelDuration.Font = New Font("Segoe UI", 8.0F)
+        labelDuration.Location = New Point(238, 90)
         labelDuration.Name = "labelDuration"
-        labelDuration.Size = New Size(27, 20)
+        labelDuration.Size = New Size(21, 15)
         labelDuration.TabIndex = 23
         labelDuration.Text = ";-;-"
         labelDuration.TextAlign = ContentAlignment.MiddleRight
@@ -349,11 +378,11 @@ Partial Class FormDetailTable
         ' labelWaktuSelesai
         ' 
         labelWaktuSelesai.AutoSize = True
-        Label25.Dock = DockStyle.Right
-        Label25.Font = New Font("Segoe UI", 8.0F)
-        Label25.Location = New Point(353, 100)
+        labelWaktuSelesai.Dock = DockStyle.Right
+        labelWaktuSelesai.Font = New Font("Segoe UI", 8.0F)
+        labelWaktuSelesai.Location = New Point(238, 75)
         labelWaktuSelesai.Name = "labelWaktuSelesai"
-        labelWaktuSelesai.Size = New Size(27, 20)
+        labelWaktuSelesai.Size = New Size(21, 15)
         labelWaktuSelesai.TabIndex = 22
         labelWaktuSelesai.Text = ";-;-"
         labelWaktuSelesai.TextAlign = ContentAlignment.MiddleRight
@@ -361,11 +390,11 @@ Partial Class FormDetailTable
         ' labelWaktuMulai
         ' 
         labelWaktuMulai.AutoSize = True
-        Label24.Dock = DockStyle.Right
-        Label24.Font = New Font("Segoe UI", 8.0F)
-        Label24.Location = New Point(353, 80)
+        labelWaktuMulai.Dock = DockStyle.Right
+        labelWaktuMulai.Font = New Font("Segoe UI", 8.0F)
+        labelWaktuMulai.Location = New Point(238, 60)
         labelWaktuMulai.Name = "labelWaktuMulai"
-        labelWaktuMulai.Size = New Size(27, 20)
+        labelWaktuMulai.Size = New Size(21, 15)
         labelWaktuMulai.TabIndex = 21
         labelWaktuMulai.Text = ";-;-"
         labelWaktuMulai.TextAlign = ContentAlignment.MiddleRight
@@ -373,11 +402,11 @@ Partial Class FormDetailTable
         ' labelNoTable
         ' 
         labelNoTable.AutoSize = True
-        Label23.Dock = DockStyle.Right
-        Label23.Font = New Font("Segoe UI", 8.0F)
-        Label23.Location = New Point(353, 60)
+        labelNoTable.Dock = DockStyle.Right
+        labelNoTable.Font = New Font("Segoe UI", 8.0F)
+        labelNoTable.Location = New Point(238, 45)
         labelNoTable.Name = "labelNoTable"
-        labelNoTable.Size = New Size(27, 20)
+        labelNoTable.Size = New Size(21, 15)
         labelNoTable.TabIndex = 20
         labelNoTable.Text = ";-;-"
         labelNoTable.TextAlign = ContentAlignment.MiddleRight
@@ -385,11 +414,11 @@ Partial Class FormDetailTable
         ' labelPaket
         ' 
         labelPaket.AutoSize = True
-        Label22.Dock = DockStyle.Right
-        Label22.Font = New Font("Segoe UI", 8.0F)
-        Label22.Location = New Point(353, 40)
+        labelPaket.Dock = DockStyle.Right
+        labelPaket.Font = New Font("Segoe UI", 8.0F)
+        labelPaket.Location = New Point(238, 30)
         labelPaket.Name = "labelPaket"
-        labelPaket.Size = New Size(27, 20)
+        labelPaket.Size = New Size(21, 15)
         labelPaket.TabIndex = 19
         labelPaket.Text = ";-;-"
         labelPaket.TextAlign = ContentAlignment.MiddleRight
@@ -397,11 +426,11 @@ Partial Class FormDetailTable
         ' labelNoOrder
         ' 
         labelNoOrder.AutoSize = True
-        Label21.Dock = DockStyle.Right
-        Label21.Font = New Font("Segoe UI", 8.0F)
-        Label21.Location = New Point(353, 20)
+        labelNoOrder.Dock = DockStyle.Right
+        labelNoOrder.Font = New Font("Segoe UI", 8.0F)
+        labelNoOrder.Location = New Point(238, 15)
         labelNoOrder.Name = "labelNoOrder"
-        labelNoOrder.Size = New Size(27, 20)
+        labelNoOrder.Size = New Size(21, 15)
         labelNoOrder.TabIndex = 18
         labelNoOrder.Text = ";-;-"
         labelNoOrder.TextAlign = ContentAlignment.MiddleRight
@@ -409,11 +438,11 @@ Partial Class FormDetailTable
         ' labelTanggal
         ' 
         labelTanggal.AutoSize = True
-        Label20.Dock = DockStyle.Right
-        Label20.Font = New Font("Segoe UI", 8.0F)
-        Label20.Location = New Point(353, 0)
+        labelTanggal.Dock = DockStyle.Right
+        labelTanggal.Font = New Font("Segoe UI", 8.0F)
+        labelTanggal.Location = New Point(238, 0)
         labelTanggal.Name = "labelTanggal"
-        labelTanggal.Size = New Size(27, 20)
+        labelTanggal.Size = New Size(21, 15)
         labelTanggal.TabIndex = 17
         labelTanggal.Text = ";-;-"
         labelTanggal.TextAlign = ContentAlignment.MiddleRight
@@ -424,7 +453,7 @@ Partial Class FormDetailTable
         Label3.Font = New Font("Segoe UI", 8.0F)
         Label3.Location = New Point(3, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(58, 19)
+        Label3.Size = New Size(51, 13)
         Label3.TabIndex = 0
         Label3.Text = "Tanggal:"
         Label3.TextAlign = ContentAlignment.MiddleLeft
@@ -501,7 +530,7 @@ Partial Class FormDetailTable
         Label10.Font = New Font("Segoe UI", 8.0F)
         Label10.Location = New Point(3, 120)
         Label10.Name = "Label10"
-        Label10.Size = New Size(108, 19)
+        Label10.Size = New Size(76, 15)
         Label10.TabIndex = 7
         Label10.Text = "Diskon Table (%)"
         Label10.TextAlign = ContentAlignment.MiddleLeft
@@ -512,7 +541,7 @@ Partial Class FormDetailTable
         Label11.Font = New Font("Segoe UI", 8.0F)
         Label11.Location = New Point(3, 105)
         Label11.Name = "Label11"
-        Label11.Size = New Size(122, 19)
+        Label11.Size = New Size(81, 15)
         Label11.TabIndex = 8
         Label11.Text = "Subtotal Table (Rp)"
         Label11.TextAlign = ContentAlignment.MiddleLeft
@@ -523,7 +552,7 @@ Partial Class FormDetailTable
         Label12.Font = New Font("Segoe UI", 8.0F)
         Label12.Location = New Point(3, 135)
         Label12.Name = "Label12"
-        Label12.Size = New Size(100, 19)
+        Label12.Size = New Size(65, 15)
         Label12.TabIndex = 9
         Label12.Text = "Total Table (Rp)"
         Label12.TextAlign = ContentAlignment.MiddleLeft
@@ -534,7 +563,7 @@ Partial Class FormDetailTable
         Label13.Font = New Font("Segoe UI", 8.0F)
         Label13.Location = New Point(3, 150)
         Label13.Name = "Label13"
-        Label13.Size = New Size(115, 19)
+        Label13.Size = New Size(76, 15)
         Label13.TabIndex = 10
         Label13.Text = "Subtotal FnB (Rp)"
         Label13.TextAlign = ContentAlignment.MiddleLeft
@@ -545,7 +574,7 @@ Partial Class FormDetailTable
         Label14.Font = New Font("Segoe UI", 8.0F)
         Label14.Location = New Point(3, 165)
         Label14.Name = "Label14"
-        Label14.Size = New Size(101, 19)
+        Label14.Size = New Size(83, 13)
         Label14.TabIndex = 11
         Label14.Text = "Diskon FnB (%)"
         Label14.TextAlign = ContentAlignment.MiddleLeft
@@ -626,15 +655,15 @@ Partial Class FormDetailTable
         ' 
         ' tbNamaTamu
         ' 
-        TextBox6.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TextBox6.Enabled = False
-        TextBox6.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        TextBox6.Location = New Point(183, 282)
-        TextBox6.Margin = New Padding(3, 12, 3, 3)
-        TextBox6.Name = "TextBox6"
-        TextBox6.Size = New Size(175, 30)
-        TextBox6.TabIndex = 11
-        TextBox6.TextAlign = HorizontalAlignment.Right
+        tbNamaTamu.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        tbNamaTamu.Enabled = False
+        tbNamaTamu.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        tbNamaTamu.Location = New Point(161, 209)
+        tbNamaTamu.Margin = New Padding(3, 9, 3, 2)
+        tbNamaTamu.Name = "tbNamaTamu"
+        tbNamaTamu.Size = New Size(152, 26)
+        tbNamaTamu.TabIndex = 11
+        tbNamaTamu.TextAlign = HorizontalAlignment.Right
         ' 
         ' Label39
         ' 
@@ -653,10 +682,10 @@ Partial Class FormDetailTable
         tbUangKembalian.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         tbUangKembalian.Enabled = False
         tbUangKembalian.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        tbUangKembalian.Location = New Point(183, 228)
-        tbUangKembalian.Margin = New Padding(3, 12, 3, 3)
+        tbUangKembalian.Location = New Point(161, 169)
+        tbUangKembalian.Margin = New Padding(3, 9, 3, 2)
         tbUangKembalian.Name = "tbUangKembalian"
-        tbUangKembalian.Size = New Size(175, 30)
+        tbUangKembalian.Size = New Size(152, 26)
         tbUangKembalian.TabIndex = 9
         tbUangKembalian.TextAlign = HorizontalAlignment.Right
         ' 
@@ -677,10 +706,10 @@ Partial Class FormDetailTable
         tbUangDiterima.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         tbUangDiterima.Enabled = False
         tbUangDiterima.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        tbUangDiterima.Location = New Point(183, 174)
-        tbUangDiterima.Margin = New Padding(3, 12, 3, 3)
+        tbUangDiterima.Location = New Point(161, 129)
+        tbUangDiterima.Margin = New Padding(3, 9, 3, 2)
         tbUangDiterima.Name = "tbUangDiterima"
-        tbUangDiterima.Size = New Size(175, 30)
+        tbUangDiterima.Size = New Size(152, 26)
         tbUangDiterima.TabIndex = 7
         tbUangDiterima.TextAlign = HorizontalAlignment.Right
         ' 
@@ -701,24 +730,24 @@ Partial Class FormDetailTable
         tboxKeterangan.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         tboxKeterangan.Enabled = False
         tboxKeterangan.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        tboxKeterangan.Location = New Point(183, 120)
-        tboxKeterangan.Margin = New Padding(3, 12, 3, 3)
+        tboxKeterangan.Location = New Point(161, 89)
+        tboxKeterangan.Margin = New Padding(3, 9, 3, 2)
         tboxKeterangan.Name = "tboxKeterangan"
-        tboxKeterangan.Size = New Size(175, 30)
+        tboxKeterangan.Size = New Size(152, 26)
         tboxKeterangan.TabIndex = 5
         tboxKeterangan.TextAlign = HorizontalAlignment.Right
         ' 
         ' tboxDiskonKhusus
         ' 
-        TextBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TextBox2.Enabled = False
-        TextBox2.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        TextBox2.Location = New Point(183, 66)
-        TextBox2.Margin = New Padding(3, 12, 3, 3)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(175, 30)
-        TextBox2.TabIndex = 3
-        TextBox2.TextAlign = HorizontalAlignment.Right
+        tboxDiskonKhusus.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        tboxDiskonKhusus.Enabled = False
+        tboxDiskonKhusus.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        tboxDiskonKhusus.Location = New Point(161, 49)
+        tboxDiskonKhusus.Margin = New Padding(3, 9, 3, 2)
+        tboxDiskonKhusus.Name = "tboxDiskonKhusus"
+        tboxDiskonKhusus.Size = New Size(152, 26)
+        tboxDiskonKhusus.TabIndex = 3
+        tboxDiskonKhusus.TextAlign = HorizontalAlignment.Right
         ' 
         ' Label19
         ' 
@@ -727,7 +756,7 @@ Partial Class FormDetailTable
         Label19.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label19.Location = New Point(3, 0)
         Label19.Name = "Label19"
-        Label19.Size = New Size(174, 54)
+        Label19.Size = New Size(152, 40)
         Label19.TabIndex = 0
         Label19.Text = "Grand Total (Rp)"
         Label19.TextAlign = ContentAlignment.MiddleLeft
@@ -736,81 +765,86 @@ Partial Class FormDetailTable
         ' 
         cboxDiskonKhusus.AutoSize = True
         cboxDiskonKhusus.Dock = DockStyle.Fill
-        cboxDiskonKhusus.Location = New Point(3, 57)
+        cboxDiskonKhusus.Location = New Point(3, 42)
+        cboxDiskonKhusus.Margin = New Padding(3, 2, 3, 2)
         cboxDiskonKhusus.Name = "cboxDiskonKhusus"
-        cboxDiskonKhusus.Size = New Size(174, 48)
+        cboxDiskonKhusus.Size = New Size(152, 36)
         cboxDiskonKhusus.TabIndex = 1
         cboxDiskonKhusus.Text = "Diskon Khusus"
         cboxDiskonKhusus.UseVisualStyleBackColor = True
         ' 
         ' tboxGrandTotal
         ' 
-        TextBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TextBox1.Enabled = False
-        TextBox1.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(183, 12)
-        TextBox1.Margin = New Padding(3, 12, 3, 3)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(175, 30)
-        TextBox1.TabIndex = 2
-        TextBox1.TextAlign = HorizontalAlignment.Right
+        tboxGrandTotal.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        tboxGrandTotal.Enabled = False
+        tboxGrandTotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        tboxGrandTotal.Location = New Point(161, 9)
+        tboxGrandTotal.Margin = New Padding(3, 9, 3, 2)
+        tboxGrandTotal.Name = "tboxGrandTotal"
+        tboxGrandTotal.Size = New Size(152, 26)
+        tboxGrandTotal.TabIndex = 2
+        tboxGrandTotal.TextAlign = HorizontalAlignment.Right
         ' 
         ' Label36
         ' 
         Label36.AutoSize = True
         Label36.Dock = DockStyle.Fill
         Label36.Font = New Font("Segoe UI", 9.0F)
-        Label36.Location = New Point(3, 108)
+        Label36.Location = New Point(3, 80)
         Label36.Name = "Label36"
-        Label36.Size = New Size(174, 54)
+        Label36.Size = New Size(152, 40)
         Label36.TabIndex = 4
         Label36.Text = "Keterangan"
         Label36.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' FlowLayoutPanel2
         ' 
-        FlowLayoutPanel2.Controls.Add(RadioButton1)
-        FlowLayoutPanel2.Controls.Add(RadioButton2)
-        FlowLayoutPanel2.Controls.Add(RadioButton3)
-        FlowLayoutPanel2.Controls.Add(RadioButton4)
-        FlowLayoutPanel2.Location = New Point(257, 441)
+        FlowLayoutPanel2.Controls.Add(rbtnCash)
+        FlowLayoutPanel2.Controls.Add(rbtnQRIS)
+        FlowLayoutPanel2.Controls.Add(rbtnDebit)
+        FlowLayoutPanel2.Controls.Add(rbtnTransfer)
+        FlowLayoutPanel2.Location = New Point(300, 331)
+        FlowLayoutPanel2.Margin = New Padding(3, 2, 3, 2)
         FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        FlowLayoutPanel2.Size = New Size(383, 31)
+        FlowLayoutPanel2.Size = New Size(260, 23)
         FlowLayoutPanel2.TabIndex = 4
         ' 
         ' rbtnCash
         ' 
         rbtnCash.AutoSize = True
         rbtnCash.Dock = DockStyle.Bottom
-        rbtnCash.Location = New Point(3, 3)
+        rbtnCash.Location = New Point(3, 2)
+        rbtnCash.Margin = New Padding(3, 2, 3, 2)
         rbtnCash.Name = "rbtnCash"
-        rbtnCash.Size = New Size(61, 24)
-        RadioButton1.TabIndex = 0
-        RadioButton1.TabStop = True
-        RadioButton1.Text = "Cash"
-        RadioButton1.UseVisualStyleBackColor = True
+        rbtnCash.Size = New Size(51, 19)
+        rbtnCash.TabIndex = 0
+        rbtnCash.TabStop = True
+        rbtnCash.Text = "Cash"
+        rbtnCash.UseVisualStyleBackColor = True
         ' 
         ' rbtnQRIS
         ' 
-        RadioButton2.AutoSize = True
-        RadioButton2.Dock = DockStyle.Bottom
-        RadioButton2.Location = New Point(70, 3)
-        RadioButton2.Name = "RadioButton2"
-        RadioButton2.Size = New Size(62, 24)
-        RadioButton2.TabIndex = 1
-        RadioButton2.TabStop = True
-        RadioButton2.Text = "QRIS"
+        rbtnQRIS.AutoSize = True
+        rbtnQRIS.Dock = DockStyle.Bottom
+        rbtnQRIS.Location = New Point(60, 2)
+        rbtnQRIS.Margin = New Padding(3, 2, 3, 2)
+        rbtnQRIS.Name = "rbtnQRIS"
+        rbtnQRIS.Size = New Size(50, 19)
+        rbtnQRIS.TabIndex = 1
+        rbtnQRIS.TabStop = True
+        rbtnQRIS.Text = "QRIS"
         rbtnQRIS.UseVisualStyleBackColor = True
         ' 
         ' rbtnDebit
         ' 
         rbtnDebit.AutoSize = True
-        RadioButton3.Dock = DockStyle.Bottom
-        rbtnDebit.Location = New Point(138, 3)
-        RadioButton3.Name = "RadioButton3"
-        RadioButton3.Size = New Size(67, 24)
-        RadioButton3.TabIndex = 2
-        RadioButton3.TabStop = True
+        rbtnDebit.Dock = DockStyle.Bottom
+        rbtnDebit.Location = New Point(116, 2)
+        rbtnDebit.Margin = New Padding(3, 2, 3, 2)
+        rbtnDebit.Name = "rbtnDebit"
+        rbtnDebit.Size = New Size(53, 19)
+        rbtnDebit.TabIndex = 2
+        rbtnDebit.TabStop = True
         rbtnDebit.Text = "Debit"
         rbtnDebit.UseVisualStyleBackColor = True
         ' 
@@ -818,11 +852,12 @@ Partial Class FormDetailTable
         ' 
         rbtnTransfer.AutoSize = True
         rbtnTransfer.Dock = DockStyle.Bottom
-        rbtnTransfer.Location = New Point(211, 3)
+        rbtnTransfer.Location = New Point(175, 2)
+        rbtnTransfer.Margin = New Padding(3, 2, 3, 2)
         rbtnTransfer.Name = "rbtnTransfer"
-        RadioButton4.Size = New Size(82, 24)
-        RadioButton4.TabIndex = 3
-        RadioButton4.TabStop = True
+        rbtnTransfer.Size = New Size(66, 19)
+        rbtnTransfer.TabIndex = 3
+        rbtnTransfer.TabStop = True
         rbtnTransfer.Text = "Transfer"
         rbtnTransfer.UseVisualStyleBackColor = True
         ' 
@@ -832,7 +867,8 @@ Partial Class FormDetailTable
         FlowLayoutPanel3.Controls.Add(tbReferensi)
         FlowLayoutPanel3.Controls.Add(btnCetak)
         FlowLayoutPanel3.Controls.Add(btnBayar)
-        FlowLayoutPanel3.Location = New Point(646, 429)
+        FlowLayoutPanel3.Location = New Point(565, 322)
+        FlowLayoutPanel3.Margin = New Padding(3, 2, 3, 2)
         FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         FlowLayoutPanel3.Size = New Size(317, 32)
         FlowLayoutPanel3.TabIndex = 5
@@ -841,7 +877,7 @@ Partial Class FormDetailTable
         ' 
         Label40.Location = New Point(3, 0)
         Label40.Name = "Label40"
-        Label40.Size = New Size(40, 55)
+        Label40.Size = New Size(35, 41)
         Label40.TabIndex = 0
         Label40.Text = "Ref"
         Label40.TextAlign = ContentAlignment.MiddleCenter
@@ -851,88 +887,65 @@ Partial Class FormDetailTable
         tbReferensi.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         tbReferensi.Enabled = False
         tbReferensi.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        tbReferensi.Location = New Point(49, 12)
-        tbReferensi.Margin = New Padding(3, 12, 3, 3)
+        tbReferensi.Location = New Point(44, 9)
+        tbReferensi.Margin = New Padding(3, 9, 3, 2)
         tbReferensi.Name = "tbReferensi"
-        tbReferensi.Size = New Size(124, 30)
+        tbReferensi.Size = New Size(109, 26)
         tbReferensi.TabIndex = 12
         tbReferensi.TextAlign = HorizontalAlignment.Right
         ' 
         ' btnCetak
         ' 
-        btnCetak.Location = New Point(179, 3)
+        btnCetak.Location = New Point(159, 2)
+        btnCetak.Margin = New Padding(3, 2, 3, 2)
         btnCetak.Name = "btnCetak"
-        btnCetak.Size = New Size(89, 40)
+        btnCetak.Size = New Size(78, 30)
         btnCetak.TabIndex = 2
         btnCetak.Text = "CETAK"
         btnCetak.UseVisualStyleBackColor = True
         ' 
         ' btnBayar
         ' 
-        btnBayar.Location = New Point(274, 3)
+        btnBayar.Location = New Point(3, 43)
+        btnBayar.Margin = New Padding(3, 2, 3, 2)
         btnBayar.Name = "btnBayar"
-        btnBayar.Size = New Size(84, 40)
+        btnBayar.Size = New Size(74, 30)
         btnBayar.TabIndex = 13
         btnBayar.Text = "BAYAR"
         btnBayar.UseVisualStyleBackColor = True
         ' 
-        ' namaFnB
-        ' 
-        namaFnB.HeaderText = "Nama"
-        namaFnB.MinimumWidth = 6
-        namaFnB.Name = "namaFnB"
-        namaFnB.Width = 125
-        ' 
-        ' hargaFnB
-        ' 
-        TextBox8.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TextBox8.Enabled = False
-        TextBox8.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        TextBox8.Location = New Point(49, 12)
-        TextBox8.Margin = New Padding(3, 12, 3, 3)
-        TextBox8.Name = "TextBox8"
-        TextBox8.Size = New Size(124, 30)
-        TextBox8.TabIndex = 12
-        TextBox8.TextAlign = HorizontalAlignment.Right
-        ' 
-        ' qtyFnB
-        ' 
-        Button1.Location = New Point(179, 3)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(71, 40)
-        Button1.TabIndex = 2
-        Button1.Text = "CETAK"
-        Button1.UseVisualStyleBackColor = True
-        ' 
-        ' totalFnB
-        ' 
-        Button2.Location = New Point(256, 3)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(71, 40)
-        Button2.TabIndex = 13
-        Button2.Text = "BAYAR"
-        Button2.UseVisualStyleBackColor = True
-        ' 
         ' FormDetailTable
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleMode = AutoScaleMode.Font
+        BackColor = SystemColors.GradientActiveCaption
+        ClientSize = New Size(882, 415)
+        Controls.Add(FlowLayoutPanel3)
+        Controls.Add(FlowLayoutPanel2)
+        Controls.Add(TableLayoutPanel2)
+        Controls.Add(TableLayoutPanel1)
+        Controls.Add(FlowLayoutPanel1)
+        Controls.Add(Panel1)
+        Margin = New Padding(3, 2, 3, 2)
+        MaximizeBox = False
         Name = "FormDetailTable"
         Text = "FormDetailTable"
         Panel1.ResumeLayout(False)
         FlowLayoutPanel1.ResumeLayout(False)
-        Name = "FormDetailTable"
-        Text = "FormDetailTable"
-        Panel1.ResumeLayout(False)
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        TableLayoutPanel1.ResumeLayout(False)
+        TableLayoutPanel1.PerformLayout()
         TableLayoutPanel2.ResumeLayout(False)
         TableLayoutPanel2.PerformLayout()
         FlowLayoutPanel2.ResumeLayout(False)
         FlowLayoutPanel2.PerformLayout()
-        FlowLayoutPanel2.ResumeLayout(False)
-        FlowLayoutPanel2.PerformLayout()
         FlowLayoutPanel3.ResumeLayout(False)
+        FlowLayoutPanel3.PerformLayout()
+        ResumeLayout(False)
     End Sub
 
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents Label2 As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
@@ -945,7 +958,6 @@ Partial Class FormDetailTable
     Friend WithEvents labelTotalTable As Label
     Friend WithEvents labelDiskonTable As Label
     Friend WithEvents labelSubtotalTable As Label
-    Friend WithEvents labelDuration As Label
     Friend WithEvents labelDuration As Label
     Friend WithEvents labelWaktuSelesai As Label
     Friend WithEvents labelWaktuMulai As Label

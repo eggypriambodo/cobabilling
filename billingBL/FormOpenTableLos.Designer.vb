@@ -66,7 +66,7 @@ Partial Class FormOpenTableLos
         ' 
         TableLayoutPanel1.AutoSize = True
         TableLayoutPanel1.ColumnCount = 1
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
         TableLayoutPanel1.Controls.Add(LabelOpenTable, 0, 0)
         TableLayoutPanel1.Controls.Add(FlowLayoutPanel1, 0, 1)
         TableLayoutPanel1.Dock = DockStyle.Top
@@ -74,22 +74,22 @@ Partial Class FormOpenTableLos
         TableLayoutPanel1.Margin = New Padding(3, 2, 3, 2)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 2
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10.0F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 45.0F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 20.0F))
-        TableLayoutPanel1.Size = New Size(669, 253)
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 45F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 15F))
+        TableLayoutPanel1.Size = New Size(584, 204)
         TableLayoutPanel1.TabIndex = 3
         ' 
         ' LabelOpenTable
         ' 
         LabelOpenTable.AutoSize = True
-        LabelOpenTable.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        LabelOpenTable.BackColor = Color.FromArgb(51, 153, 255)
         LabelOpenTable.Dock = DockStyle.Fill
-        LabelOpenTable.Font = New Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelOpenTable.Font = New Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0)
         LabelOpenTable.ForeColor = SystemColors.Control
         LabelOpenTable.Location = New Point(3, 0)
         LabelOpenTable.Name = "LabelOpenTable"
-        LabelOpenTable.Size = New Size(663, 46)
+        LabelOpenTable.Size = New Size(578, 37)
         LabelOpenTable.TabIndex = 0
         LabelOpenTable.Text = " OPEN TABLE LOS TIME"
         LabelOpenTable.TextAlign = ContentAlignment.MiddleCenter
@@ -108,12 +108,12 @@ Partial Class FormOpenTableLos
         FlowLayoutPanel1.Location = New Point(3, 39)
         FlowLayoutPanel1.Margin = New Padding(3, 2, 3, 2)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(663, 199)
+        FlowLayoutPanel1.Size = New Size(578, 149)
         FlowLayoutPanel1.TabIndex = 1
         ' 
         ' Panel1
         ' 
-        Panel1.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel1.BackColor = Color.FromArgb(51, 153, 255)
         Panel1.BorderStyle = BorderStyle.FixedSingle
         Panel1.Controls.Add(labelNoOrder)
         Panel1.Controls.Add(Label1)
@@ -126,7 +126,7 @@ Partial Class FormOpenTableLos
         ' labelNoOrder
         ' 
         labelNoOrder.Dock = DockStyle.Right
-        labelNoOrder.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        labelNoOrder.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelNoOrder.ForeColor = SystemColors.Control
         labelNoOrder.Location = New Point(105, 0)
         labelNoOrder.Margin = New Padding(3, 5, 3, 0)
@@ -139,7 +139,7 @@ Partial Class FormOpenTableLos
         ' Label1
         ' 
         Label1.Dock = DockStyle.Left
-        Label1.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         Label1.ForeColor = SystemColors.Control
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
@@ -150,7 +150,7 @@ Partial Class FormOpenTableLos
         ' 
         ' Panel2
         ' 
-        Panel2.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel2.BackColor = Color.FromArgb(51, 153, 255)
         Panel2.BorderStyle = BorderStyle.FixedSingle
         Panel2.Controls.Add(labelPaket)
         Panel2.Controls.Add(Label3)
@@ -163,7 +163,7 @@ Partial Class FormOpenTableLos
         ' labelPaket
         ' 
         labelPaket.Dock = DockStyle.Right
-        labelPaket.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        labelPaket.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelPaket.ForeColor = SystemColors.Control
         labelPaket.Location = New Point(105, 0)
         labelPaket.Margin = New Padding(3, 5, 3, 0)
@@ -176,7 +176,7 @@ Partial Class FormOpenTableLos
         ' Label3
         ' 
         Label3.Dock = DockStyle.Left
-        Label3.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         Label3.ForeColor = SystemColors.Control
         Label3.Location = New Point(0, 0)
         Label3.Name = "Label3"
@@ -187,11 +187,11 @@ Partial Class FormOpenTableLos
         ' 
         ' Panel4
         ' 
-        Panel4.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel4.BackColor = Color.FromArgb(51, 153, 255)
         Panel4.BorderStyle = BorderStyle.FixedSingle
         Panel4.Controls.Add(Label7)
-        Panel4.TabIndex = 3
-        ' 
+        Panel4.Location = New Point(3, 43)
+        Panel4.Margin = New Padding(3, 2, 3, 2)
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(132, 37)
         Panel4.TabIndex = 3
@@ -199,18 +199,18 @@ Partial Class FormOpenTableLos
         ' Label7
         ' 
         Label7.Dock = DockStyle.Left
-        Label7.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         Label7.ForeColor = SystemColors.Control
         Label7.Location = New Point(0, 0)
         Label7.Name = "Label7"
-        ' 
+        Label7.Size = New Size(100, 35)
         Label7.TabIndex = 0
         Label7.Text = "Table"
         Label7.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel5
         ' 
-        Panel5.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel5.BackColor = Color.FromArgb(51, 153, 255)
         Panel5.BorderStyle = BorderStyle.FixedSingle
         Panel5.Controls.Add(dropdownPilihTable)
         Panel5.Location = New Point(141, 43)
@@ -222,7 +222,8 @@ Partial Class FormOpenTableLos
         ' dropdownPilihTable
         ' 
         dropdownPilihTable.FormattingEnabled = True
-        dropdownPilihTable.TabIndex = 0
+        dropdownPilihTable.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8"})
+        dropdownPilihTable.Location = New Point(8, 8)
         dropdownPilihTable.Margin = New Padding(3, 2, 3, 2)
         dropdownPilihTable.Name = "dropdownPilihTable"
         dropdownPilihTable.Size = New Size(133, 23)
@@ -230,7 +231,7 @@ Partial Class FormOpenTableLos
         ' 
         ' Panel13
         ' 
-        Panel13.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel13.BackColor = Color.FromArgb(51, 153, 255)
         Panel13.BorderStyle = BorderStyle.FixedSingle
         Panel13.Controls.Add(Label18)
         Panel13.Location = New Point(292, 43)
@@ -242,7 +243,7 @@ Partial Class FormOpenTableLos
         ' Label18
         ' 
         Label18.Dock = DockStyle.Left
-        Label18.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label18.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         Label18.ForeColor = SystemColors.Control
         Label18.Location = New Point(0, 0)
         Label18.Name = "Label18"
@@ -253,10 +254,10 @@ Partial Class FormOpenTableLos
         ' 
         ' Panel14
         ' 
-        Panel14.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel14.BackColor = Color.FromArgb(51, 153, 255)
         Panel14.BorderStyle = BorderStyle.FixedSingle
         Panel14.Controls.Add(textboxNamaTamu)
-        Panel14.Location = New Point(430, 43)
+        Panel14.Location = New Point(3, 84)
         Panel14.Margin = New Padding(3, 2, 3, 2)
         Panel14.Name = "Panel14"
         Panel14.Size = New Size(146, 37)
@@ -272,11 +273,11 @@ Partial Class FormOpenTableLos
         ' 
         ' Panel3
         ' 
-        Panel3.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel3.BackColor = Color.FromArgb(51, 153, 255)
         Panel3.BorderStyle = BorderStyle.FixedSingle
         Panel3.Controls.Add(labelHargaMenit)
         Panel3.Controls.Add(Label4)
-        Panel3.Location = New Point(3, 84)
+        Panel3.Location = New Point(155, 84)
         Panel3.Margin = New Padding(3, 2, 3, 2)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(283, 37)
@@ -285,7 +286,7 @@ Partial Class FormOpenTableLos
         ' labelHargaMenit
         ' 
         labelHargaMenit.Dock = DockStyle.Right
-        labelHargaMenit.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        labelHargaMenit.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         labelHargaMenit.ForeColor = SystemColors.Control
         labelHargaMenit.Location = New Point(142, 0)
         labelHargaMenit.Margin = New Padding(3, 5, 3, 0)
@@ -298,7 +299,7 @@ Partial Class FormOpenTableLos
         ' Label4
         ' 
         Label4.Dock = DockStyle.Left
-        Label4.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label4.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         Label4.ForeColor = SystemColors.Control
         Label4.Location = New Point(0, 0)
         Label4.Name = "Label4"
@@ -309,9 +310,9 @@ Partial Class FormOpenTableLos
         ' 
         ' btnFixOrder
         ' 
-        btnFixOrder.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
-        btnFixOrder.ForeColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        btnFixOrder.Location = New Point(292, 84)
+        btnFixOrder.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        btnFixOrder.ForeColor = Color.FromArgb(51, 153, 255)
+        btnFixOrder.Location = New Point(3, 125)
         btnFixOrder.Margin = New Padding(3, 2, 3, 2)
         btnFixOrder.Name = "btnFixOrder"
         btnFixOrder.Size = New Size(281, 36)
@@ -325,7 +326,7 @@ Partial Class FormOpenTableLos
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
         DataGridViewCellStyle1.ForeColor = SystemColors.Control
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
@@ -334,17 +335,18 @@ Partial Class FormOpenTableLos
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaLos, discTable, discFnB})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(0, 286)
+        DataGridView1.Location = New Point(0, 214)
+        DataGridView1.Margin = New Padding(3, 2, 3, 2)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(655, 235)
+        DataGridView1.Size = New Size(573, 176)
         DataGridView1.TabIndex = 8
         ' 
         ' namaPaket
         ' 
         namaPaket.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        namaPaket.FillWeight = 175.0F
+        namaPaket.FillWeight = 175F
         namaPaket.HeaderText = "Nama Paket"
         namaPaket.MinimumWidth = 6
         namaPaket.Name = "namaPaket"
@@ -359,7 +361,7 @@ Partial Class FormOpenTableLos
         ' discTable
         ' 
         discTable.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        discTable.FillWeight = 50.0F
+        discTable.FillWeight = 50F
         discTable.HeaderText = "Disc Table (%)"
         discTable.MinimumWidth = 6
         discTable.Name = "discTable"
@@ -367,7 +369,7 @@ Partial Class FormOpenTableLos
         ' discFnB
         ' 
         discFnB.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        discFnB.FillWeight = 50.0F
+        discFnB.FillWeight = 50F
         discFnB.HeaderText = "Disc FnB (%)"
         discFnB.MinimumWidth = 6
         discFnB.Name = "discFnB"
@@ -376,22 +378,24 @@ Partial Class FormOpenTableLos
         ' 
         Label17.BorderStyle = BorderStyle.FixedSingle
         Label17.Dock = DockStyle.Top
-        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label17.Location = New Point(0, 253)
+        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        Label17.Location = New Point(0, 204)
         Label17.Name = "Label17"
-        Label17.Size = New Size(667, 30)
+        Label17.Size = New Size(584, 23)
         Label17.TabIndex = 7
         Label17.Text = "Daftar Paket"
         Label17.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' FormOpenTableLos
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(669, 544)
-        Controls.Add(TableLayoutPanel2)
+        ClientSize = New Size(584, 408)
+        Controls.Add(DataGridView1)
         Controls.Add(Label17)
         Controls.Add(TableLayoutPanel1)
+        Margin = New Padding(3, 2, 3, 2)
+        MaximizeBox = False
         Name = "FormOpenTableLos"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FormOpenTableLos"
