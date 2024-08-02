@@ -323,11 +323,11 @@ Partial Class FormOpenTableLos
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaLos, discTable, discFnB})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(0, 286)
+        DataGridView1.Location = New Point(0, 297)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(655, 235)
+        DataGridView1.Size = New Size(667, 235)
         DataGridView1.TabIndex = 8
         ' 
         ' namaPaket
@@ -368,7 +368,7 @@ Partial Class FormOpenTableLos
         Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label17.Location = New Point(0, 253)
         Label17.Name = "Label17"
-        Label17.Size = New Size(667, 30)
+        Label17.Size = New Size(667, 29)
         Label17.TabIndex = 7
         Label17.Text = "Daftar Paket"
         Label17.TextAlign = ContentAlignment.MiddleCenter

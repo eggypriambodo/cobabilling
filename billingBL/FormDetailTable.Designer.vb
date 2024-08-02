@@ -28,6 +28,10 @@ Partial Class FormDetailTable
         FlowLayoutPanel1 = New FlowLayoutPanel()
         Label41 = New Label()
         DataGridView1 = New DataGridView()
+        namaFnB = New DataGridViewTextBoxColumn()
+        hargaFnB = New DataGridViewTextBoxColumn()
+        qtyFnB = New DataGridViewTextBoxColumn()
+        totalFnB = New DataGridViewTextBoxColumn()
         TableLayoutPanel1 = New TableLayoutPanel()
         labelPPn = New Label()
         labelTaxService = New Label()
@@ -84,10 +88,6 @@ Partial Class FormDetailTable
         tbReferensi = New TextBox()
         btnCetak = New Button()
         btnBayar = New Button()
-        namaFnB = New DataGridViewTextBoxColumn()
-        hargaFnB = New DataGridViewTextBoxColumn()
-        qtyFnB = New DataGridViewTextBoxColumn()
-        totalFnB = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -164,6 +164,34 @@ Partial Class FormDetailTable
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.Size = New Size(330, 286)
         DataGridView1.TabIndex = 0
+        ' 
+        ' namaFnB
+        ' 
+        namaFnB.HeaderText = "Nama"
+        namaFnB.MinimumWidth = 6
+        namaFnB.Name = "namaFnB"
+        namaFnB.Width = 125
+        ' 
+        ' hargaFnB
+        ' 
+        hargaFnB.HeaderText = "Harga"
+        hargaFnB.MinimumWidth = 6
+        hargaFnB.Name = "hargaFnB"
+        hargaFnB.Width = 75
+        ' 
+        ' qtyFnB
+        ' 
+        qtyFnB.HeaderText = "Qty"
+        qtyFnB.MinimumWidth = 6
+        qtyFnB.Name = "qtyFnB"
+        qtyFnB.Width = 40
+        ' 
+        ' totalFnB
+        ' 
+        totalFnB.HeaderText = "Total"
+        totalFnB.MinimumWidth = 6
+        totalFnB.Name = "totalFnB"
+        totalFnB.Width = 125
         ' 
         ' TableLayoutPanel1
         ' 
@@ -872,33 +900,6 @@ Partial Class FormDetailTable
         btnBayar.TabIndex = 13
         btnBayar.Text = "BAYAR"
         btnBayar.UseVisualStyleBackColor = True
-        ' 
-        ' namaFnB
-        ' 
-        namaFnB.HeaderText = "Nama"
-        namaFnB.MinimumWidth = 6
-        namaFnB.Name = "namaFnB"
-        namaFnB.Width = 125
-        ' 
-        ' hargaFnB
-        ' 
-        hargaFnB.HeaderText = "Harga"
-        hargaFnB.MinimumWidth = 6
-        hargaFnB.Name = "hargaFnB"
-        hargaFnB.Width = 75
-        ' 
-        ' qtyFnB
-        ' 
-        qtyFnB.HeaderText = "Qty"
-        qtyFnB.MinimumWidth = 6
-        qtyFnB.Name = "qtyFnB"
-        qtyFnB.Width = 40
-        ' 
-        ' totalFnB
-        ' 
-        totalFnB.HeaderText = "Total"
-        totalFnB.MinimumWidth = 6
-        totalFnB.Name = "totalFnB"
         ' 
         ' FormDetailTable
         ' 

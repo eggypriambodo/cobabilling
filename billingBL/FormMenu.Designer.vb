@@ -187,7 +187,7 @@ Partial Class FormMenu
         ' TextBox1
         ' 
         TextBox1.Font = New Font("Segoe UI", 12F)
-        TextBox1.Location = New Point(123, 9)
+        TextBox1.Location = New Point(123, 6)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(263, 34)
         TextBox1.TabIndex = 8
@@ -463,7 +463,7 @@ Partial Class FormMenu
         ' 
         Button3.Location = New Point(253, 703)
         Button3.Name = "Button3"
-        Button3.Size = New Size(78, 29)
+        Button3.Size = New Size(78, 51)
         Button3.TabIndex = 37
         Button3.Text = "CETAK"
         Button3.UseVisualStyleBackColor = True
@@ -472,7 +472,7 @@ Partial Class FormMenu
         ' 
         Button4.Location = New Point(354, 703)
         Button4.Name = "Button4"
-        Button4.Size = New Size(78, 29)
+        Button4.Size = New Size(78, 51)
         Button4.TabIndex = 36
         Button4.Text = "BAYAR"
         Button4.UseVisualStyleBackColor = True
@@ -481,18 +481,19 @@ Partial Class FormMenu
         ' 
         Button2.Location = New Point(139, 703)
         Button2.Name = "Button2"
-        Button2.Size = New Size(94, 29)
+        Button2.Size = New Size(94, 51)
         Button2.TabIndex = 34
-        Button2.Text = "Batal Order"
+        Button2.Text = "BATAL ORDER"
         Button2.UseVisualStyleBackColor = True
         ' 
         ' Button1
         ' 
+        Button1.Font = New Font("Segoe UI", 9F)
         Button1.Location = New Point(41, 703)
         Button1.Name = "Button1"
-        Button1.Size = New Size(94, 29)
+        Button1.Size = New Size(94, 51)
         Button1.TabIndex = 33
-        Button1.Text = "Order Baru"
+        Button1.Text = "ORDER BARU"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' TextBox5

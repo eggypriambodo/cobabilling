@@ -369,7 +369,7 @@ Partial Class FormOpenTablePaket
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(657, 218)
+        DataGridView1.Size = New Size(671, 218)
         DataGridView1.TabIndex = 10
         ' 
         ' namaPaket
