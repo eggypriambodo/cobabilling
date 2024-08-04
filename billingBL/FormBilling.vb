@@ -10,10 +10,6 @@
     Private Sub FormBilling_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Instance = Me
         TimerSaatIni.Enabled = True
-        statusTable1.Text = "KOSONG"
-        statusTable1.BackColor = Color.Lime
-
-
 
     End Sub
 
@@ -21,6 +17,8 @@
         If statusTable1.Text = "KOSONG" Then
             statusTable1.Text = "AKTIF"
             statusTable1.BackColor = Color.Red
+            btnDetail1.Enabled = True
+            btnStopTable1.Enabled = True
         End If
     End Sub
 
@@ -28,11 +26,13 @@
         If statusTable1.Text = "CHECKOUT" Then
             statusTable1.Text = "KOSONG"
             statusTable1.BackColor = Color.Lime
+            btnDetail1.Enabled = False
+            btnStopTable1.Enabled = False
         End If
     End Sub
 
     Private Sub TimerSaatIni_Tick(sender As Object, e As EventArgs) Handles TimerSaatIni.Tick
-        LabelTimerSaatIni.Text = Date.Now.ToString("dd/MMM/yyyy HH:mm:ss")
+        LabelTimerSaatIni.Text = Date.Now.ToString("dd MMM yyyy HH:mm:ss")
     End Sub
 
     Private Sub btnDetail1_Click(sender As Object, e As EventArgs) Handles btnDetail1.Click
@@ -55,14 +55,8 @@
         If statusTable1.Text = "AKTIF" Then
             statusTable1.Text = "CHECKOUT"
             statusTable1.BackColor = Color.LightGray
+
         End If
     End Sub
-
-    Public Sub UpdateOrderDetails(mulai As String, selesai As String, durasi As String)
-        labTimeStart1.Text = mulai
-        labTimeStop1.Text = selesai
-        duration1.Text = durasi
-    End Sub
-
 
 End Class

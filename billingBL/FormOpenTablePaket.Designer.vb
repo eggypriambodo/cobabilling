@@ -48,12 +48,11 @@ Partial Class FormOpenTablePaket
         Label5 = New Label()
         btnFixOrder = New Button()
         DataGridView1 = New DataGridView()
+        Label17 = New Label()
         namaPaket = New DataGridViewTextBoxColumn()
         hargaPaket = New DataGridViewTextBoxColumn()
         duration = New DataGridViewTextBoxColumn()
         discTable = New DataGridViewTextBoxColumn()
-        discFnB = New DataGridViewTextBoxColumn()
-        Label17 = New Label()
         TableLayoutPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
@@ -362,15 +361,27 @@ Partial Class FormOpenTablePaket
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaPaket, duration, discTable, discFnB})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaPaket, duration, discTable})
         DataGridView1.Dock = DockStyle.Top
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.Location = New Point(0, 305)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(676, 291)
+        DataGridView1.Size = New Size(676, 233)
         DataGridView1.TabIndex = 10
+        ' 
+        ' Label17
+        ' 
+        Label17.BorderStyle = BorderStyle.FixedSingle
+        Label17.Dock = DockStyle.Top
+        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label17.Location = New Point(0, 275)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(676, 30)
+        Label17.TabIndex = 9
+        Label17.Text = "Daftar Paket"
+        Label17.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' namaPaket
         ' 
@@ -401,26 +412,6 @@ Partial Class FormOpenTablePaket
         discTable.HeaderText = "Disc Table (%)"
         discTable.MinimumWidth = 6
         discTable.Name = "discTable"
-        ' 
-        ' discFnB
-        ' 
-        discFnB.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        discFnB.FillWeight = 50F
-        discFnB.HeaderText = "Disc FnB (%)"
-        discFnB.MinimumWidth = 6
-        discFnB.Name = "discFnB"
-        ' 
-        ' Label17
-        ' 
-        Label17.BorderStyle = BorderStyle.FixedSingle
-        Label17.Dock = DockStyle.Top
-        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label17.Location = New Point(0, 275)
-        Label17.Name = "Label17"
-        Label17.Size = New Size(676, 30)
-        Label17.TabIndex = 9
-        Label17.Text = "Daftar Paket"
-        Label17.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' FormOpenTablePaket
         ' 
@@ -475,10 +466,9 @@ Partial Class FormOpenTablePaket
     Friend WithEvents labelDurasiPaket As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label17 As Label
     Friend WithEvents namaPaket As DataGridViewTextBoxColumn
     Friend WithEvents hargaPaket As DataGridViewTextBoxColumn
     Friend WithEvents duration As DataGridViewTextBoxColumn
     Friend WithEvents discTable As DataGridViewTextBoxColumn
-    Friend WithEvents discFnB As DataGridViewTextBoxColumn
-    Friend WithEvents Label17 As Label
 End Class

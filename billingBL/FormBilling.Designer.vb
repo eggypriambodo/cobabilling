@@ -36,7 +36,6 @@ Partial Class FormBilling
         TableLayoutPanel2 = New TableLayoutPanel()
         btnStopTable1 = New Button()
         btnDetail1 = New Button()
-        btnFNB1 = New Button()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         FlowLayoutPanel3 = New FlowLayoutPanel()
         Label2 = New Label()
@@ -51,7 +50,6 @@ Partial Class FormBilling
         TableLayoutPanel4 = New TableLayoutPanel()
         btnStopTable2 = New Button()
         btnDetail2 = New Button()
-        btnFNB2 = New Button()
         FlowLayoutPanel4 = New FlowLayoutPanel()
         Label13 = New Label()
         statusTable3 = New Label()
@@ -65,7 +63,6 @@ Partial Class FormBilling
         TableLayoutPanel6 = New TableLayoutPanel()
         btnStopTable3 = New Button()
         btnDetail3 = New Button()
-        btnFNB3 = New Button()
         FlowLayoutPanel5 = New FlowLayoutPanel()
         Label21 = New Label()
         statusTable4 = New Label()
@@ -79,7 +76,6 @@ Partial Class FormBilling
         TableLayoutPanel8 = New TableLayoutPanel()
         btnStopTable4 = New Button()
         btnDetail4 = New Button()
-        btnFNB4 = New Button()
         FlowLayoutPanel6 = New FlowLayoutPanel()
         Label29 = New Label()
         statusTable5 = New Label()
@@ -93,7 +89,6 @@ Partial Class FormBilling
         TableLayoutPanel10 = New TableLayoutPanel()
         btnStopTable5 = New Button()
         btnDetail5 = New Button()
-        btnFNB5 = New Button()
         FlowLayoutPanel7 = New FlowLayoutPanel()
         Label37 = New Label()
         statusTable6 = New Label()
@@ -107,7 +102,6 @@ Partial Class FormBilling
         TableLayoutPanel12 = New TableLayoutPanel()
         btnStopTable6 = New Button()
         btnDetail6 = New Button()
-        btnFNB6 = New Button()
         FlowLayoutPanel8 = New FlowLayoutPanel()
         Label45 = New Label()
         statusTable7 = New Label()
@@ -121,7 +115,6 @@ Partial Class FormBilling
         TableLayoutPanel14 = New TableLayoutPanel()
         btnStopTable7 = New Button()
         btnDetail7 = New Button()
-        btnFNB7 = New Button()
         FlowLayoutPanel9 = New FlowLayoutPanel()
         Label53 = New Label()
         statusTable8 = New Label()
@@ -135,7 +128,6 @@ Partial Class FormBilling
         TableLayoutPanel16 = New TableLayoutPanel()
         btnStopTable8 = New Button()
         btnDetail8 = New Button()
-        btnFNB8 = New Button()
         TableLayoutPanel17 = New TableLayoutPanel()
         btnOpenPaket = New Button()
         btnOpenDurasi = New Button()
@@ -189,7 +181,7 @@ Partial Class FormBilling
         ' Label1
         ' 
         Label1.Dock = DockStyle.Right
-        Label1.Font = New Font("Segoe UI", 12F)
+        Label1.Font = New Font("Segoe UI", 12.0F)
         Label1.Location = New Point(10, 11)
         Label1.Margin = New Padding(10, 11, 3, 0)
         Label1.Name = "Label1"
@@ -210,14 +202,15 @@ Partial Class FormBilling
         statusTable1.Name = "statusTable1"
         statusTable1.Size = New Size(280, 25)
         statusTable1.TabIndex = 1
+        statusTable1.Text = "KOSONG"
         statusTable1.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
         TableLayoutPanel1.ColumnCount = 2
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel1.Controls.Add(duration1, 1, 2)
         TableLayoutPanel1.Controls.Add(Label7, 0, 2)
         TableLayoutPanel1.Controls.Add(labTimeStop1, 1, 1)
@@ -230,9 +223,9 @@ Partial Class FormBilling
         TableLayoutPanel1.Margin = New Padding(10, 11, 3, 3)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 3
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel1.Size = New Size(280, 131)
         TableLayoutPanel1.TabIndex = 2
         ' 
@@ -310,13 +303,12 @@ Partial Class FormBilling
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel2.Controls.Add(btnStopTable1, 2, 0)
         TableLayoutPanel2.Controls.Add(btnDetail1, 1, 0)
-        TableLayoutPanel2.Controls.Add(btnFNB1, 0, 0)
         TableLayoutPanel2.Dock = DockStyle.Top
         TableLayoutPanel2.Location = New Point(10, 235)
         TableLayoutPanel2.Margin = New Padding(10, 15, 3, 3)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 1
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel2.Size = New Size(280, 28)
         TableLayoutPanel2.TabIndex = 3
         ' 
@@ -341,17 +333,6 @@ Partial Class FormBilling
         btnDetail1.TabIndex = 1
         btnDetail1.Text = "Detail"
         btnDetail1.UseVisualStyleBackColor = True
-        ' 
-        ' btnFNB1
-        ' 
-        btnFNB1.Dock = DockStyle.Fill
-        btnFNB1.Location = New Point(0, 0)
-        btnFNB1.Margin = New Padding(0, 0, 10, 0)
-        btnFNB1.Name = "btnFNB1"
-        btnFNB1.Size = New Size(83, 28)
-        btnFNB1.TabIndex = 0
-        btnFNB1.Text = "FnB"
-        btnFNB1.UseVisualStyleBackColor = True
         ' 
         ' FlowLayoutPanel1
         ' 
@@ -386,7 +367,7 @@ Partial Class FormBilling
         ' Label2
         ' 
         Label2.Dock = DockStyle.Right
-        Label2.Font = New Font("Segoe UI", 12F)
+        Label2.Font = New Font("Segoe UI", 12.0F)
         Label2.Location = New Point(10, 11)
         Label2.Margin = New Padding(10, 11, 3, 0)
         Label2.Name = "Label2"
@@ -414,8 +395,8 @@ Partial Class FormBilling
         ' 
         TableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
         TableLayoutPanel3.ColumnCount = 2
-        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel3.Controls.Add(duration2, 1, 2)
         TableLayoutPanel3.Controls.Add(Label8, 0, 2)
         TableLayoutPanel3.Controls.Add(labTimeStop2, 1, 1)
@@ -428,9 +409,9 @@ Partial Class FormBilling
         TableLayoutPanel3.Margin = New Padding(10, 11, 3, 3)
         TableLayoutPanel3.Name = "TableLayoutPanel3"
         TableLayoutPanel3.RowCount = 3
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel3.Size = New Size(280, 131)
         TableLayoutPanel3.TabIndex = 2
         ' 
@@ -508,13 +489,12 @@ Partial Class FormBilling
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel4.Controls.Add(btnStopTable2, 2, 0)
         TableLayoutPanel4.Controls.Add(btnDetail2, 1, 0)
-        TableLayoutPanel4.Controls.Add(btnFNB2, 0, 0)
         TableLayoutPanel4.Dock = DockStyle.Top
         TableLayoutPanel4.Location = New Point(10, 235)
         TableLayoutPanel4.Margin = New Padding(10, 15, 3, 3)
         TableLayoutPanel4.Name = "TableLayoutPanel4"
         TableLayoutPanel4.RowCount = 1
-        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel4.Size = New Size(280, 28)
         TableLayoutPanel4.TabIndex = 3
         ' 
@@ -540,17 +520,6 @@ Partial Class FormBilling
         btnDetail2.Text = "Detail"
         btnDetail2.UseVisualStyleBackColor = True
         ' 
-        ' btnFNB2
-        ' 
-        btnFNB2.Dock = DockStyle.Fill
-        btnFNB2.Location = New Point(0, 0)
-        btnFNB2.Margin = New Padding(0, 0, 10, 0)
-        btnFNB2.Name = "btnFNB2"
-        btnFNB2.Size = New Size(83, 28)
-        btnFNB2.TabIndex = 0
-        btnFNB2.Text = "FnB"
-        btnFNB2.UseVisualStyleBackColor = True
-        ' 
         ' FlowLayoutPanel4
         ' 
         FlowLayoutPanel4.BorderStyle = BorderStyle.Fixed3D
@@ -568,7 +537,7 @@ Partial Class FormBilling
         ' Label13
         ' 
         Label13.Dock = DockStyle.Right
-        Label13.Font = New Font("Segoe UI", 12F)
+        Label13.Font = New Font("Segoe UI", 12.0F)
         Label13.Location = New Point(10, 11)
         Label13.Margin = New Padding(10, 11, 3, 0)
         Label13.Name = "Label13"
@@ -596,8 +565,8 @@ Partial Class FormBilling
         ' 
         TableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
         TableLayoutPanel5.ColumnCount = 2
-        TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel5.Controls.Add(duration3, 1, 2)
         TableLayoutPanel5.Controls.Add(Label16, 0, 2)
         TableLayoutPanel5.Controls.Add(labTimeStop3, 1, 1)
@@ -610,9 +579,9 @@ Partial Class FormBilling
         TableLayoutPanel5.Margin = New Padding(10, 11, 3, 3)
         TableLayoutPanel5.Name = "TableLayoutPanel5"
         TableLayoutPanel5.RowCount = 3
-        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel5.Size = New Size(280, 131)
         TableLayoutPanel5.TabIndex = 2
         ' 
@@ -690,13 +659,12 @@ Partial Class FormBilling
         TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel6.Controls.Add(btnStopTable3, 2, 0)
         TableLayoutPanel6.Controls.Add(btnDetail3, 1, 0)
-        TableLayoutPanel6.Controls.Add(btnFNB3, 0, 0)
         TableLayoutPanel6.Dock = DockStyle.Top
         TableLayoutPanel6.Location = New Point(10, 235)
         TableLayoutPanel6.Margin = New Padding(10, 15, 3, 3)
         TableLayoutPanel6.Name = "TableLayoutPanel6"
         TableLayoutPanel6.RowCount = 1
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel6.Size = New Size(280, 28)
         TableLayoutPanel6.TabIndex = 3
         ' 
@@ -722,17 +690,6 @@ Partial Class FormBilling
         btnDetail3.Text = "Detail"
         btnDetail3.UseVisualStyleBackColor = True
         ' 
-        ' btnFNB3
-        ' 
-        btnFNB3.Dock = DockStyle.Fill
-        btnFNB3.Location = New Point(0, 0)
-        btnFNB3.Margin = New Padding(0, 0, 10, 0)
-        btnFNB3.Name = "btnFNB3"
-        btnFNB3.Size = New Size(83, 28)
-        btnFNB3.TabIndex = 0
-        btnFNB3.Text = "FnB"
-        btnFNB3.UseVisualStyleBackColor = True
-        ' 
         ' FlowLayoutPanel5
         ' 
         FlowLayoutPanel5.BorderStyle = BorderStyle.Fixed3D
@@ -750,7 +707,7 @@ Partial Class FormBilling
         ' Label21
         ' 
         Label21.Dock = DockStyle.Right
-        Label21.Font = New Font("Segoe UI", 12F)
+        Label21.Font = New Font("Segoe UI", 12.0F)
         Label21.Location = New Point(10, 11)
         Label21.Margin = New Padding(10, 11, 3, 0)
         Label21.Name = "Label21"
@@ -778,8 +735,8 @@ Partial Class FormBilling
         ' 
         TableLayoutPanel7.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
         TableLayoutPanel7.ColumnCount = 2
-        TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel7.Controls.Add(duration4, 1, 2)
         TableLayoutPanel7.Controls.Add(Label24, 0, 2)
         TableLayoutPanel7.Controls.Add(labTimeStop4, 1, 1)
@@ -792,9 +749,9 @@ Partial Class FormBilling
         TableLayoutPanel7.Margin = New Padding(10, 11, 3, 3)
         TableLayoutPanel7.Name = "TableLayoutPanel7"
         TableLayoutPanel7.RowCount = 3
-        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel7.Size = New Size(280, 131)
         TableLayoutPanel7.TabIndex = 2
         ' 
@@ -872,13 +829,12 @@ Partial Class FormBilling
         TableLayoutPanel8.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel8.Controls.Add(btnStopTable4, 2, 0)
         TableLayoutPanel8.Controls.Add(btnDetail4, 1, 0)
-        TableLayoutPanel8.Controls.Add(btnFNB4, 0, 0)
         TableLayoutPanel8.Dock = DockStyle.Top
         TableLayoutPanel8.Location = New Point(10, 235)
         TableLayoutPanel8.Margin = New Padding(10, 15, 3, 3)
         TableLayoutPanel8.Name = "TableLayoutPanel8"
         TableLayoutPanel8.RowCount = 1
-        TableLayoutPanel8.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel8.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel8.Size = New Size(280, 28)
         TableLayoutPanel8.TabIndex = 3
         ' 
@@ -904,17 +860,6 @@ Partial Class FormBilling
         btnDetail4.Text = "Detail"
         btnDetail4.UseVisualStyleBackColor = True
         ' 
-        ' btnFNB4
-        ' 
-        btnFNB4.Dock = DockStyle.Fill
-        btnFNB4.Location = New Point(0, 0)
-        btnFNB4.Margin = New Padding(0, 0, 10, 0)
-        btnFNB4.Name = "btnFNB4"
-        btnFNB4.Size = New Size(83, 28)
-        btnFNB4.TabIndex = 0
-        btnFNB4.Text = "FnB"
-        btnFNB4.UseVisualStyleBackColor = True
-        ' 
         ' FlowLayoutPanel6
         ' 
         FlowLayoutPanel6.BorderStyle = BorderStyle.Fixed3D
@@ -932,7 +877,7 @@ Partial Class FormBilling
         ' Label29
         ' 
         Label29.Dock = DockStyle.Right
-        Label29.Font = New Font("Segoe UI", 12F)
+        Label29.Font = New Font("Segoe UI", 12.0F)
         Label29.Location = New Point(10, 11)
         Label29.Margin = New Padding(10, 11, 3, 0)
         Label29.Name = "Label29"
@@ -960,8 +905,8 @@ Partial Class FormBilling
         ' 
         TableLayoutPanel9.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
         TableLayoutPanel9.ColumnCount = 2
-        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel9.Controls.Add(duration5, 1, 2)
         TableLayoutPanel9.Controls.Add(Label32, 0, 2)
         TableLayoutPanel9.Controls.Add(labTimeStop5, 1, 1)
@@ -974,9 +919,9 @@ Partial Class FormBilling
         TableLayoutPanel9.Margin = New Padding(10, 11, 3, 3)
         TableLayoutPanel9.Name = "TableLayoutPanel9"
         TableLayoutPanel9.RowCount = 3
-        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel9.Size = New Size(280, 131)
         TableLayoutPanel9.TabIndex = 2
         ' 
@@ -1054,13 +999,12 @@ Partial Class FormBilling
         TableLayoutPanel10.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel10.Controls.Add(btnStopTable5, 2, 0)
         TableLayoutPanel10.Controls.Add(btnDetail5, 1, 0)
-        TableLayoutPanel10.Controls.Add(btnFNB5, 0, 0)
         TableLayoutPanel10.Dock = DockStyle.Top
         TableLayoutPanel10.Location = New Point(10, 235)
         TableLayoutPanel10.Margin = New Padding(10, 15, 3, 3)
         TableLayoutPanel10.Name = "TableLayoutPanel10"
         TableLayoutPanel10.RowCount = 1
-        TableLayoutPanel10.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel10.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel10.Size = New Size(280, 28)
         TableLayoutPanel10.TabIndex = 3
         ' 
@@ -1086,17 +1030,6 @@ Partial Class FormBilling
         btnDetail5.Text = "Detail"
         btnDetail5.UseVisualStyleBackColor = True
         ' 
-        ' btnFNB5
-        ' 
-        btnFNB5.Dock = DockStyle.Fill
-        btnFNB5.Location = New Point(0, 0)
-        btnFNB5.Margin = New Padding(0, 0, 10, 0)
-        btnFNB5.Name = "btnFNB5"
-        btnFNB5.Size = New Size(83, 28)
-        btnFNB5.TabIndex = 0
-        btnFNB5.Text = "FnB"
-        btnFNB5.UseVisualStyleBackColor = True
-        ' 
         ' FlowLayoutPanel7
         ' 
         FlowLayoutPanel7.BorderStyle = BorderStyle.Fixed3D
@@ -1114,7 +1047,7 @@ Partial Class FormBilling
         ' Label37
         ' 
         Label37.Dock = DockStyle.Right
-        Label37.Font = New Font("Segoe UI", 12F)
+        Label37.Font = New Font("Segoe UI", 12.0F)
         Label37.Location = New Point(10, 11)
         Label37.Margin = New Padding(10, 11, 3, 0)
         Label37.Name = "Label37"
@@ -1142,8 +1075,8 @@ Partial Class FormBilling
         ' 
         TableLayoutPanel11.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
         TableLayoutPanel11.ColumnCount = 2
-        TableLayoutPanel11.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel11.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel11.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel11.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel11.Controls.Add(duration6, 1, 2)
         TableLayoutPanel11.Controls.Add(Label40, 0, 2)
         TableLayoutPanel11.Controls.Add(labTimeStop6, 1, 1)
@@ -1156,9 +1089,9 @@ Partial Class FormBilling
         TableLayoutPanel11.Margin = New Padding(10, 11, 3, 3)
         TableLayoutPanel11.Name = "TableLayoutPanel11"
         TableLayoutPanel11.RowCount = 3
-        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel11.Size = New Size(280, 131)
         TableLayoutPanel11.TabIndex = 2
         ' 
@@ -1236,13 +1169,12 @@ Partial Class FormBilling
         TableLayoutPanel12.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel12.Controls.Add(btnStopTable6, 2, 0)
         TableLayoutPanel12.Controls.Add(btnDetail6, 1, 0)
-        TableLayoutPanel12.Controls.Add(btnFNB6, 0, 0)
         TableLayoutPanel12.Dock = DockStyle.Top
         TableLayoutPanel12.Location = New Point(10, 235)
         TableLayoutPanel12.Margin = New Padding(10, 15, 3, 3)
         TableLayoutPanel12.Name = "TableLayoutPanel12"
         TableLayoutPanel12.RowCount = 1
-        TableLayoutPanel12.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel12.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel12.Size = New Size(280, 28)
         TableLayoutPanel12.TabIndex = 3
         ' 
@@ -1268,17 +1200,6 @@ Partial Class FormBilling
         btnDetail6.Text = "Detail"
         btnDetail6.UseVisualStyleBackColor = True
         ' 
-        ' btnFNB6
-        ' 
-        btnFNB6.Dock = DockStyle.Fill
-        btnFNB6.Location = New Point(0, 0)
-        btnFNB6.Margin = New Padding(0, 0, 10, 0)
-        btnFNB6.Name = "btnFNB6"
-        btnFNB6.Size = New Size(83, 28)
-        btnFNB6.TabIndex = 0
-        btnFNB6.Text = "FnB"
-        btnFNB6.UseVisualStyleBackColor = True
-        ' 
         ' FlowLayoutPanel8
         ' 
         FlowLayoutPanel8.BorderStyle = BorderStyle.Fixed3D
@@ -1296,7 +1217,7 @@ Partial Class FormBilling
         ' Label45
         ' 
         Label45.Dock = DockStyle.Right
-        Label45.Font = New Font("Segoe UI", 12F)
+        Label45.Font = New Font("Segoe UI", 12.0F)
         Label45.Location = New Point(10, 11)
         Label45.Margin = New Padding(10, 11, 3, 0)
         Label45.Name = "Label45"
@@ -1324,8 +1245,8 @@ Partial Class FormBilling
         ' 
         TableLayoutPanel13.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
         TableLayoutPanel13.ColumnCount = 2
-        TableLayoutPanel13.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel13.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel13.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel13.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel13.Controls.Add(duration7, 1, 2)
         TableLayoutPanel13.Controls.Add(Label48, 0, 2)
         TableLayoutPanel13.Controls.Add(labTimeStop7, 1, 1)
@@ -1338,9 +1259,9 @@ Partial Class FormBilling
         TableLayoutPanel13.Margin = New Padding(10, 11, 3, 3)
         TableLayoutPanel13.Name = "TableLayoutPanel13"
         TableLayoutPanel13.RowCount = 3
-        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel13.Size = New Size(280, 131)
         TableLayoutPanel13.TabIndex = 2
         ' 
@@ -1418,13 +1339,12 @@ Partial Class FormBilling
         TableLayoutPanel14.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel14.Controls.Add(btnStopTable7, 2, 0)
         TableLayoutPanel14.Controls.Add(btnDetail7, 1, 0)
-        TableLayoutPanel14.Controls.Add(btnFNB7, 0, 0)
         TableLayoutPanel14.Dock = DockStyle.Top
         TableLayoutPanel14.Location = New Point(10, 235)
         TableLayoutPanel14.Margin = New Padding(10, 15, 3, 3)
         TableLayoutPanel14.Name = "TableLayoutPanel14"
         TableLayoutPanel14.RowCount = 1
-        TableLayoutPanel14.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel14.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel14.Size = New Size(280, 28)
         TableLayoutPanel14.TabIndex = 3
         ' 
@@ -1450,17 +1370,6 @@ Partial Class FormBilling
         btnDetail7.Text = "Detail"
         btnDetail7.UseVisualStyleBackColor = True
         ' 
-        ' btnFNB7
-        ' 
-        btnFNB7.Dock = DockStyle.Fill
-        btnFNB7.Location = New Point(0, 0)
-        btnFNB7.Margin = New Padding(0, 0, 10, 0)
-        btnFNB7.Name = "btnFNB7"
-        btnFNB7.Size = New Size(83, 28)
-        btnFNB7.TabIndex = 0
-        btnFNB7.Text = "FnB"
-        btnFNB7.UseVisualStyleBackColor = True
-        ' 
         ' FlowLayoutPanel9
         ' 
         FlowLayoutPanel9.BorderStyle = BorderStyle.Fixed3D
@@ -1478,7 +1387,7 @@ Partial Class FormBilling
         ' Label53
         ' 
         Label53.Dock = DockStyle.Right
-        Label53.Font = New Font("Segoe UI", 12F)
+        Label53.Font = New Font("Segoe UI", 12.0F)
         Label53.Location = New Point(10, 11)
         Label53.Margin = New Padding(10, 11, 3, 0)
         Label53.Name = "Label53"
@@ -1506,8 +1415,8 @@ Partial Class FormBilling
         ' 
         TableLayoutPanel15.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset
         TableLayoutPanel15.ColumnCount = 2
-        TableLayoutPanel15.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel15.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel15.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel15.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel15.Controls.Add(duration8, 1, 2)
         TableLayoutPanel15.Controls.Add(Label56, 0, 2)
         TableLayoutPanel15.Controls.Add(labTimeStop8, 1, 1)
@@ -1520,9 +1429,9 @@ Partial Class FormBilling
         TableLayoutPanel15.Margin = New Padding(10, 11, 3, 3)
         TableLayoutPanel15.Name = "TableLayoutPanel15"
         TableLayoutPanel15.RowCount = 3
-        TableLayoutPanel15.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel15.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
-        TableLayoutPanel15.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TableLayoutPanel15.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel15.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanel15.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel15.Size = New Size(280, 131)
         TableLayoutPanel15.TabIndex = 2
         ' 
@@ -1600,13 +1509,12 @@ Partial Class FormBilling
         TableLayoutPanel16.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel16.Controls.Add(btnStopTable8, 2, 0)
         TableLayoutPanel16.Controls.Add(btnDetail8, 1, 0)
-        TableLayoutPanel16.Controls.Add(btnFNB8, 0, 0)
         TableLayoutPanel16.Dock = DockStyle.Top
         TableLayoutPanel16.Location = New Point(10, 235)
         TableLayoutPanel16.Margin = New Padding(10, 15, 3, 3)
         TableLayoutPanel16.Name = "TableLayoutPanel16"
         TableLayoutPanel16.RowCount = 1
-        TableLayoutPanel16.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel16.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel16.Size = New Size(280, 28)
         TableLayoutPanel16.TabIndex = 3
         ' 
@@ -1632,17 +1540,6 @@ Partial Class FormBilling
         btnDetail8.Text = "Detail"
         btnDetail8.UseVisualStyleBackColor = True
         ' 
-        ' btnFNB8
-        ' 
-        btnFNB8.Dock = DockStyle.Fill
-        btnFNB8.Location = New Point(0, 0)
-        btnFNB8.Margin = New Padding(0, 0, 10, 0)
-        btnFNB8.Name = "btnFNB8"
-        btnFNB8.Size = New Size(83, 28)
-        btnFNB8.TabIndex = 0
-        btnFNB8.Text = "FnB"
-        btnFNB8.UseVisualStyleBackColor = True
-        ' 
         ' TableLayoutPanel17
         ' 
         TableLayoutPanel17.ColumnCount = 3
@@ -1656,7 +1553,7 @@ Partial Class FormBilling
         TableLayoutPanel17.Margin = New Padding(21, 20, 21, 3)
         TableLayoutPanel17.Name = "TableLayoutPanel17"
         TableLayoutPanel17.RowCount = 1
-        TableLayoutPanel17.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel17.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel17.Size = New Size(1269, 87)
         TableLayoutPanel17.TabIndex = 8
         ' 
@@ -1710,7 +1607,7 @@ Partial Class FormBilling
         ' 
         ' Label63
         ' 
-        Label63.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label63.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label63.Location = New Point(1006, 4)
         Label63.Name = "Label63"
         Label63.Size = New Size(75, 41)
@@ -1723,7 +1620,7 @@ Partial Class FormBilling
         ' 
         ' LabelTimerSaatIni
         ' 
-        LabelTimerSaatIni.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelTimerSaatIni.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         LabelTimerSaatIni.Location = New Point(1079, 4)
         LabelTimerSaatIni.Name = "LabelTimerSaatIni"
         LabelTimerSaatIni.Size = New Size(210, 41)
@@ -1732,7 +1629,7 @@ Partial Class FormBilling
         ' 
         ' FormBilling
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1370, 749)
         Controls.Add(LabelTimerSaatIni)
@@ -1799,7 +1696,6 @@ Partial Class FormBilling
     Friend WithEvents labTimeStart1 As Label
     Friend WithEvents btnStopTable1 As Button
     Friend WithEvents btnDetail1 As Button
-    Friend WithEvents btnFNB1 As Button
     Friend WithEvents IconDropDownButton1 As FontAwesome.Sharp.IconDropDownButton
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents Label2 As Label
@@ -1814,7 +1710,6 @@ Partial Class FormBilling
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents btnStopTable2 As Button
     Friend WithEvents btnDetail2 As Button
-    Friend WithEvents btnFNB2 As Button
     Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
     Friend WithEvents Label13 As Label
     Friend WithEvents statusTable3 As Label
@@ -1828,7 +1723,6 @@ Partial Class FormBilling
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents btnStopTable3 As Button
     Friend WithEvents btnDetail3 As Button
-    Friend WithEvents btnFNB3 As Button
     Friend WithEvents FlowLayoutPanel5 As FlowLayoutPanel
     Friend WithEvents Label21 As Label
     Friend WithEvents statusTable4 As Label
@@ -1842,7 +1736,6 @@ Partial Class FormBilling
     Friend WithEvents TableLayoutPanel8 As TableLayoutPanel
     Friend WithEvents btnStopTable4 As Button
     Friend WithEvents btnDetail4 As Button
-    Friend WithEvents btnFNB4 As Button
     Friend WithEvents FlowLayoutPanel6 As FlowLayoutPanel
     Friend WithEvents Label29 As Label
     Friend WithEvents statusTable5 As Label
@@ -1856,7 +1749,6 @@ Partial Class FormBilling
     Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
     Friend WithEvents btnStopTable5 As Button
     Friend WithEvents btnDetail5 As Button
-    Friend WithEvents btnFNB5 As Button
     Friend WithEvents FlowLayoutPanel7 As FlowLayoutPanel
     Friend WithEvents Label37 As Label
     Friend WithEvents statusTable6 As Label
@@ -1870,7 +1762,6 @@ Partial Class FormBilling
     Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
     Friend WithEvents btnStopTable6 As Button
     Friend WithEvents btnDetail6 As Button
-    Friend WithEvents btnFNB6 As Button
     Friend WithEvents FlowLayoutPanel8 As FlowLayoutPanel
     Friend WithEvents Label45 As Label
     Friend WithEvents statusTable7 As Label
@@ -1884,7 +1775,6 @@ Partial Class FormBilling
     Friend WithEvents TableLayoutPanel14 As TableLayoutPanel
     Friend WithEvents btnStopTable7 As Button
     Friend WithEvents btnDetail7 As Button
-    Friend WithEvents btnFNB7 As Button
     Friend WithEvents FlowLayoutPanel9 As FlowLayoutPanel
     Friend WithEvents Label53 As Label
     Friend WithEvents statusTable8 As Label
@@ -1898,7 +1788,6 @@ Partial Class FormBilling
     Friend WithEvents TableLayoutPanel16 As TableLayoutPanel
     Friend WithEvents btnStopTable8 As Button
     Friend WithEvents btnDetail8 As Button
-    Friend WithEvents btnFNB8 As Button
     Friend WithEvents TableLayoutPanel17 As TableLayoutPanel
     Friend WithEvents btnOpenLos As Button
     Friend WithEvents Label63 As Label

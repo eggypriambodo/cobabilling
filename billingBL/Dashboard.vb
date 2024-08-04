@@ -89,7 +89,7 @@ Public Class Dashboard
         OpenChildForm(New FormBilling)
     End Sub
 
-    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
+    Private Sub btnMenu_Click(sender As Object, e As EventArgs)
         ActivateButton(sender, RGBColors.color)
         OpenChildForm(New FormMenu)
     End Sub

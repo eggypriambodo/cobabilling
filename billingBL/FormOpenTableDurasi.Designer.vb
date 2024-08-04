@@ -68,7 +68,6 @@ Partial Class FormOpenTableDurasi
         akhirsiang = New DataGridViewTextBoxColumn()
         akhirMalam = New DataGridViewTextBoxColumn()
         discTable = New DataGridViewTextBoxColumn()
-        discFnB = New DataGridViewTextBoxColumn()
         TableLayoutPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
@@ -546,14 +545,14 @@ Partial Class FormOpenTableDurasi
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaSiang, hargaMalam, akhirsiang, akhirMalam, discTable, discFnB})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaSiang, hargaMalam, akhirsiang, akhirMalam, discTable})
         DataGridView1.Dock = DockStyle.Top
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.Location = New Point(0, 307)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(1000, 313)
+        DataGridView1.Size = New Size(1000, 241)
         DataGridView1.TabIndex = 6
         ' 
         ' namaPaket
@@ -599,14 +598,6 @@ Partial Class FormOpenTableDurasi
         discTable.HeaderText = "Disc Table (%)"
         discTable.MinimumWidth = 6
         discTable.Name = "discTable"
-        ' 
-        ' discFnB
-        ' 
-        discFnB.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        discFnB.FillWeight = 50F
-        discFnB.HeaderText = "Disc FnB (%)"
-        discFnB.MinimumWidth = 6
-        discFnB.Name = "discFnB"
         ' 
         ' FormOpenTableDurasi
         ' 
@@ -688,5 +679,4 @@ Partial Class FormOpenTableDurasi
     Friend WithEvents akhirsiang As DataGridViewTextBoxColumn
     Friend WithEvents akhirMalam As DataGridViewTextBoxColumn
     Friend WithEvents discTable As DataGridViewTextBoxColumn
-    Friend WithEvents discFnB As DataGridViewTextBoxColumn
 End Class

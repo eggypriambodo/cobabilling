@@ -50,7 +50,9 @@ Public Class FormOpenTableDurasi
     End Sub
 
     Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
+        If dropdownPilihTable.Text = "" Then
 
+        End If
         FormBilling.Instance.UbahStatusTableKosong()
         Close()
 
