@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,12 @@ Partial Class FormMenu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
         Panel7 = New Panel()
         Label63 = New Label()
@@ -125,9 +125,10 @@ Partial Class FormMenu
         Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(DataGridView1)
         Panel1.Controls.Add(Label2)
-        Panel1.Location = New Point(12, 12)
+        Panel1.Location = New Point(10, 9)
+        Panel1.Margin = New Padding(3, 2, 3, 2)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(828, 829)
+        Panel1.Size = New Size(724, 622)
         Panel1.TabIndex = 2
         ' 
         ' Panel7
@@ -136,29 +137,30 @@ Partial Class FormMenu
         Panel7.BorderStyle = BorderStyle.FixedSingle
         Panel7.Controls.Add(Label63)
         Panel7.Controls.Add(LabelTimerSaatIni)
-        Panel7.Location = New Point(422, 37)
+        Panel7.Location = New Point(369, 28)
+        Panel7.Margin = New Padding(3, 2, 3, 2)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(391, 48)
+        Panel7.Size = New Size(342, 36)
         Panel7.TabIndex = 18
         ' 
         ' Label63
         ' 
-        Label63.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label63.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label63.ForeColor = SystemColors.Control
         Label63.Location = New Point(3, 0)
         Label63.Name = "Label63"
-        Label63.Size = New Size(126, 46)
+        Label63.Size = New Size(110, 34)
         Label63.TabIndex = 5
         Label63.Text = "Order Date:"
         Label63.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' LabelTimerSaatIni
         ' 
-        LabelTimerSaatIni.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelTimerSaatIni.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         LabelTimerSaatIni.ForeColor = SystemColors.Control
-        LabelTimerSaatIni.Location = New Point(164, 0)
+        LabelTimerSaatIni.Location = New Point(144, 0)
         LabelTimerSaatIni.Name = "LabelTimerSaatIni"
-        LabelTimerSaatIni.Size = New Size(222, 46)
+        LabelTimerSaatIni.Size = New Size(194, 34)
         LabelTimerSaatIni.TabIndex = 6
         LabelTimerSaatIni.TextAlign = ContentAlignment.MiddleRight
         ' 
@@ -168,28 +170,29 @@ Partial Class FormMenu
         Panel8.BorderStyle = BorderStyle.FixedSingle
         Panel8.Controls.Add(Label1)
         Panel8.Controls.Add(TextBox1)
-        Panel8.Location = New Point(3, 37)
+        Panel8.Location = New Point(3, 28)
+        Panel8.Margin = New Padding(3, 2, 3, 2)
         Panel8.Name = "Panel8"
-        Panel8.Size = New Size(391, 48)
+        Panel8.Size = New Size(342, 36)
         Panel8.TabIndex = 19
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = SystemColors.Control
-        Label1.Location = New Point(3, 9)
+        Label1.Location = New Point(3, 7)
         Label1.Name = "Label1"
-        Label1.Size = New Size(105, 28)
+        Label1.Size = New Size(84, 21)
         Label1.TabIndex = 7
         Label1.Text = "Cari Menu"
         ' 
         ' TextBox1
         ' 
-        TextBox1.Font = New Font("Segoe UI", 12F)
+        TextBox1.Font = New Font("Segoe UI", 12.0F)
         TextBox1.Location = New Point(123, 6)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(263, 34)
+        TextBox1.Size = New Size(231, 29)
         TextBox1.TabIndex = 8
         ' 
         ' Panel6
@@ -198,35 +201,39 @@ Partial Class FormMenu
         Panel6.BorderStyle = BorderStyle.FixedSingle
         Panel6.Controls.Add(btnTambahMenu)
         Panel6.Controls.Add(btnHapusMenu)
-        Panel6.Location = New Point(3, 701)
+        Panel6.Location = New Point(3, 526)
+        Panel6.Margin = New Padding(3, 2, 3, 2)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(391, 44)
+        Panel6.Size = New Size(342, 34)
         Panel6.TabIndex = 17
         ' 
         ' btnTambahMenu
         ' 
-        btnTambahMenu.Location = New Point(292, 7)
+        btnTambahMenu.Location = New Point(256, 5)
+        btnTambahMenu.Margin = New Padding(3, 2, 3, 2)
         btnTambahMenu.Name = "btnTambahMenu"
-        btnTambahMenu.Size = New Size(94, 29)
+        btnTambahMenu.Size = New Size(82, 22)
         btnTambahMenu.TabIndex = 1
         btnTambahMenu.Text = "Tambah"
         btnTambahMenu.UseVisualStyleBackColor = True
         ' 
         ' btnHapusMenu
         ' 
-        btnHapusMenu.Location = New Point(192, 7)
+        btnHapusMenu.Location = New Point(168, 5)
+        btnHapusMenu.Margin = New Padding(3, 2, 3, 2)
         btnHapusMenu.Name = "btnHapusMenu"
-        btnHapusMenu.Size = New Size(94, 29)
+        btnHapusMenu.Size = New Size(82, 22)
         btnHapusMenu.TabIndex = 0
         btnHapusMenu.Text = "Hapus"
         btnHapusMenu.UseVisualStyleBackColor = True
         ' 
         ' TextBox2
         ' 
-        TextBox2.Font = New Font("Segoe UI", 10F)
-        TextBox2.Location = New Point(319, 662)
+        TextBox2.Font = New Font("Segoe UI", 10.0F)
+        TextBox2.Location = New Point(279, 496)
+        TextBox2.Margin = New Padding(3, 2, 3, 2)
         TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(75, 30)
+        TextBox2.Size = New Size(66, 25)
         TextBox2.TabIndex = 16
         ' 
         ' Panel5
@@ -234,9 +241,10 @@ Partial Class FormMenu
         Panel5.BackColor = SystemColors.MenuHighlight
         Panel5.BorderStyle = BorderStyle.FixedSingle
         Panel5.Controls.Add(Label9)
-        Panel5.Location = New Point(260, 661)
+        Panel5.Location = New Point(228, 496)
+        Panel5.Margin = New Padding(3, 2, 3, 2)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(53, 31)
+        Panel5.Size = New Size(47, 24)
         Panel5.TabIndex = 15
         ' 
         ' Label9
@@ -247,7 +255,7 @@ Partial Class FormMenu
         Label9.ForeColor = SystemColors.Control
         Label9.Location = New Point(0, 0)
         Label9.Name = "Label9"
-        Label9.Size = New Size(42, 23)
+        Label9.Size = New Size(35, 19)
         Label9.TabIndex = 0
         Label9.Text = "Qty:"
         Label9.TextAlign = ContentAlignment.BottomLeft
@@ -258,9 +266,10 @@ Partial Class FormMenu
         Panel4.BorderStyle = BorderStyle.FixedSingle
         Panel4.Controls.Add(Label6)
         Panel4.Controls.Add(Label7)
-        Panel4.Location = New Point(4, 661)
+        Panel4.Location = New Point(4, 496)
+        Panel4.Margin = New Padding(3, 2, 3, 2)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(229, 31)
+        Panel4.Size = New Size(201, 24)
         Panel4.TabIndex = 14
         ' 
         ' Label6
@@ -269,9 +278,9 @@ Partial Class FormMenu
         Label6.Dock = DockStyle.Right
         Label6.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label6.ForeColor = SystemColors.Control
-        Label6.Location = New Point(103, 0)
+        Label6.Location = New Point(98, 0)
         Label6.Name = "Label6"
-        Label6.Size = New Size(124, 23)
+        Label6.Size = New Size(101, 19)
         Label6.TabIndex = 1
         Label6.Text = "FRENCH FRIES"
         Label6.TextAlign = ContentAlignment.BottomRight
@@ -284,7 +293,7 @@ Partial Class FormMenu
         Label7.ForeColor = SystemColors.Control
         Label7.Location = New Point(0, 0)
         Label7.Name = "Label7"
-        Label7.Size = New Size(87, 23)
+        Label7.Size = New Size(70, 19)
         Label7.TabIndex = 0
         Label7.Text = "Harga Rp."
         Label7.TextAlign = ContentAlignment.BottomLeft
@@ -295,9 +304,10 @@ Partial Class FormMenu
         Panel3.BorderStyle = BorderStyle.FixedSingle
         Panel3.Controls.Add(Label5)
         Panel3.Controls.Add(Label4)
-        Panel3.Location = New Point(3, 624)
+        Panel3.Location = New Point(3, 468)
+        Panel3.Margin = New Padding(3, 2, 3, 2)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(391, 31)
+        Panel3.Size = New Size(342, 24)
         Panel3.TabIndex = 13
         ' 
         ' Label5
@@ -306,9 +316,9 @@ Partial Class FormMenu
         Label5.Dock = DockStyle.Right
         Label5.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label5.ForeColor = SystemColors.Control
-        Label5.Location = New Point(265, 0)
+        Label5.Location = New Point(239, 0)
         Label5.Name = "Label5"
-        Label5.Size = New Size(124, 23)
+        Label5.Size = New Size(101, 19)
         Label5.TabIndex = 1
         Label5.Text = "FRENCH FRIES"
         Label5.TextAlign = ContentAlignment.BottomRight
@@ -321,7 +331,7 @@ Partial Class FormMenu
         Label4.ForeColor = SystemColors.Control
         Label4.Location = New Point(0, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(106, 23)
+        Label4.Size = New Size(86, 19)
         Label4.TabIndex = 0
         Label4.Text = "Nama Menu"
         Label4.TextAlign = ContentAlignment.BottomLeft
@@ -330,28 +340,29 @@ Partial Class FormMenu
         ' 
         DataGridView2.BackgroundColor = SystemColors.Control
         DataGridView2.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle4.ForeColor = SystemColors.Control
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.Control
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView2.Columns.AddRange(New DataGridViewColumn() {namaPesanan, hargaPesanan, qtyMenu, totalMenu})
         DataGridView2.EnableHeadersVisualStyles = False
-        DataGridView2.Location = New Point(422, 135)
+        DataGridView2.Location = New Point(369, 101)
+        DataGridView2.Margin = New Padding(3, 2, 3, 2)
         DataGridView2.Name = "DataGridView2"
         DataGridView2.RowHeadersVisible = False
         DataGridView2.RowHeadersWidth = 51
-        DataGridView2.Size = New Size(391, 454)
+        DataGridView2.Size = New Size(342, 340)
         DataGridView2.TabIndex = 12
         ' 
         ' namaPesanan
         ' 
         namaPesanan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        namaPesanan.FillWeight = 150F
+        namaPesanan.FillWeight = 150.0F
         namaPesanan.HeaderText = "Nama Pesanan"
         namaPesanan.MinimumWidth = 6
         namaPesanan.Name = "namaPesanan"
@@ -366,7 +377,7 @@ Partial Class FormMenu
         ' qtyMenu
         ' 
         qtyMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        qtyMenu.FillWeight = 45F
+        qtyMenu.FillWeight = 45.0F
         qtyMenu.HeaderText = "Qty"
         qtyMenu.MinimumWidth = 6
         qtyMenu.Name = "qtyMenu"
@@ -380,10 +391,10 @@ Partial Class FormMenu
         ' 
         ' Label3
         ' 
-        Label3.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(422, 104)
+        Label3.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Location = New Point(369, 78)
         Label3.Name = "Label3"
-        Label3.Size = New Size(391, 28)
+        Label3.Size = New Size(342, 21)
         Label3.TabIndex = 11
         Label3.Text = "Detail Pesanan"
         Label3.TextAlign = ContentAlignment.MiddleCenter
@@ -392,28 +403,29 @@ Partial Class FormMenu
         ' 
         DataGridView1.BackgroundColor = SystemColors.Control
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle5.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle5.ForeColor = SystemColors.Control
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.ForeColor = SystemColors.Control
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaMenu, hargaMenu})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(3, 135)
+        DataGridView1.Location = New Point(3, 101)
+        DataGridView1.Margin = New Padding(3, 2, 3, 2)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(391, 454)
+        DataGridView1.Size = New Size(342, 340)
         DataGridView1.TabIndex = 10
         ' 
         ' namaMenu
         ' 
         namaMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        namaMenu.FillWeight = 175F
+        namaMenu.FillWeight = 175.0F
         namaMenu.HeaderText = "Nama Menu"
         namaMenu.MinimumWidth = 6
         namaMenu.Name = "namaMenu"
@@ -427,10 +439,10 @@ Partial Class FormMenu
         ' 
         ' Label2
         ' 
-        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(3, 104)
+        Label2.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(3, 78)
         Label2.Name = "Label2"
-        Label2.Size = New Size(391, 28)
+        Label2.Size = New Size(342, 21)
         Label2.TabIndex = 9
         Label2.Text = "Daftar Menu"
         Label2.TextAlign = ContentAlignment.MiddleCenter
@@ -454,14 +466,16 @@ Partial Class FormMenu
         Panel2.Controls.Add(Panel9)
         Panel2.Controls.Add(DataGridView3)
         Panel2.Controls.Add(Label8)
-        Panel2.Location = New Point(855, 12)
+        Panel2.Location = New Point(748, 9)
+        Panel2.Margin = New Padding(3, 2, 3, 2)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(465, 829)
+        Panel2.Size = New Size(407, 622)
         Panel2.TabIndex = 3
         ' 
         ' Button3
         ' 
-        Button3.Location = New Point(253, 703)
+        Button3.Location = New Point(221, 527)
+        Button3.Margin = New Padding(3, 2, 3, 2)
         Button3.Name = "Button3"
         Button3.Size = New Size(78, 51)
         Button3.TabIndex = 37
@@ -470,7 +484,8 @@ Partial Class FormMenu
         ' 
         ' Button4
         ' 
-        Button4.Location = New Point(354, 703)
+        Button4.Location = New Point(310, 527)
+        Button4.Margin = New Padding(3, 2, 3, 2)
         Button4.Name = "Button4"
         Button4.Size = New Size(78, 51)
         Button4.TabIndex = 36
@@ -479,7 +494,8 @@ Partial Class FormMenu
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(139, 703)
+        Button2.Location = New Point(122, 527)
+        Button2.Margin = New Padding(3, 2, 3, 2)
         Button2.Name = "Button2"
         Button2.Size = New Size(94, 51)
         Button2.TabIndex = 34
@@ -488,7 +504,7 @@ Partial Class FormMenu
         ' 
         ' Button1
         ' 
-        Button1.Font = New Font("Segoe UI", 9F)
+        Button1.Font = New Font("Segoe UI", 9.0F)
         Button1.Location = New Point(41, 703)
         Button1.Name = "Button1"
         Button1.Size = New Size(94, 51)
@@ -498,10 +514,11 @@ Partial Class FormMenu
         ' 
         ' TextBox5
         ' 
-        TextBox5.Font = New Font("Segoe UI", 10F)
-        TextBox5.Location = New Point(254, 651)
+        TextBox5.Font = New Font("Segoe UI", 10.0F)
+        TextBox5.Location = New Point(222, 488)
+        TextBox5.Margin = New Padding(3, 2, 3, 2)
         TextBox5.Name = "TextBox5"
-        TextBox5.Size = New Size(178, 30)
+        TextBox5.Size = New Size(156, 25)
         TextBox5.TabIndex = 32
         ' 
         ' Panel15
@@ -509,9 +526,10 @@ Partial Class FormMenu
         Panel15.BackColor = SystemColors.MenuHighlight
         Panel15.BorderStyle = BorderStyle.FixedSingle
         Panel15.Controls.Add(Label20)
-        Panel15.Location = New Point(42, 650)
+        Panel15.Location = New Point(37, 488)
+        Panel15.Margin = New Padding(3, 2, 3, 2)
         Panel15.Name = "Panel15"
-        Panel15.Size = New Size(192, 31)
+        Panel15.Size = New Size(168, 24)
         Panel15.TabIndex = 31
         ' 
         ' Label20
@@ -522,7 +540,7 @@ Partial Class FormMenu
         Label20.ForeColor = SystemColors.Control
         Label20.Location = New Point(0, 0)
         Label20.Name = "Label20"
-        Label20.Size = New Size(109, 23)
+        Label20.Size = New Size(90, 19)
         Label20.TabIndex = 0
         Label20.Text = "No Referensi"
         Label20.TextAlign = ContentAlignment.BottomLeft
@@ -533,18 +551,20 @@ Partial Class FormMenu
         FlowLayoutPanel2.Controls.Add(RadioButton2)
         FlowLayoutPanel2.Controls.Add(RadioButton3)
         FlowLayoutPanel2.Controls.Add(RadioButton4)
-        FlowLayoutPanel2.Location = New Point(41, 604)
+        FlowLayoutPanel2.Location = New Point(36, 453)
+        FlowLayoutPanel2.Margin = New Padding(3, 2, 3, 2)
         FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        FlowLayoutPanel2.Size = New Size(390, 31)
+        FlowLayoutPanel2.Size = New Size(341, 23)
         FlowLayoutPanel2.TabIndex = 30
         ' 
         ' RadioButton1
         ' 
         RadioButton1.AutoSize = True
         RadioButton1.Dock = DockStyle.Bottom
-        RadioButton1.Location = New Point(3, 3)
+        RadioButton1.Location = New Point(3, 2)
+        RadioButton1.Margin = New Padding(3, 2, 3, 2)
         RadioButton1.Name = "RadioButton1"
-        RadioButton1.Size = New Size(61, 24)
+        RadioButton1.Size = New Size(51, 19)
         RadioButton1.TabIndex = 0
         RadioButton1.TabStop = True
         RadioButton1.Text = "Cash"
@@ -554,9 +574,10 @@ Partial Class FormMenu
         ' 
         RadioButton2.AutoSize = True
         RadioButton2.Dock = DockStyle.Bottom
-        RadioButton2.Location = New Point(70, 3)
+        RadioButton2.Location = New Point(60, 2)
+        RadioButton2.Margin = New Padding(3, 2, 3, 2)
         RadioButton2.Name = "RadioButton2"
-        RadioButton2.Size = New Size(62, 24)
+        RadioButton2.Size = New Size(50, 19)
         RadioButton2.TabIndex = 1
         RadioButton2.TabStop = True
         RadioButton2.Text = "QRIS"
@@ -566,9 +587,10 @@ Partial Class FormMenu
         ' 
         RadioButton3.AutoSize = True
         RadioButton3.Dock = DockStyle.Bottom
-        RadioButton3.Location = New Point(138, 3)
+        RadioButton3.Location = New Point(116, 2)
+        RadioButton3.Margin = New Padding(3, 2, 3, 2)
         RadioButton3.Name = "RadioButton3"
-        RadioButton3.Size = New Size(67, 24)
+        RadioButton3.Size = New Size(53, 19)
         RadioButton3.TabIndex = 2
         RadioButton3.TabStop = True
         RadioButton3.Text = "Debit"
@@ -578,9 +600,10 @@ Partial Class FormMenu
         ' 
         RadioButton4.AutoSize = True
         RadioButton4.Dock = DockStyle.Bottom
-        RadioButton4.Location = New Point(211, 3)
+        RadioButton4.Location = New Point(175, 2)
+        RadioButton4.Margin = New Padding(3, 2, 3, 2)
         RadioButton4.Name = "RadioButton4"
-        RadioButton4.Size = New Size(82, 24)
+        RadioButton4.Size = New Size(66, 19)
         RadioButton4.TabIndex = 3
         RadioButton4.TabStop = True
         RadioButton4.Text = "Transfer"
@@ -588,10 +611,11 @@ Partial Class FormMenu
         ' 
         ' TextBox4
         ' 
-        TextBox4.Font = New Font("Segoe UI", 10F)
-        TextBox4.Location = New Point(253, 559)
+        TextBox4.Font = New Font("Segoe UI", 10.0F)
+        TextBox4.Location = New Point(221, 419)
+        TextBox4.Margin = New Padding(3, 2, 3, 2)
         TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(178, 30)
+        TextBox4.Size = New Size(156, 25)
         TextBox4.TabIndex = 29
         ' 
         ' Panel14
@@ -599,9 +623,10 @@ Partial Class FormMenu
         Panel14.BackColor = SystemColors.MenuHighlight
         Panel14.BorderStyle = BorderStyle.FixedSingle
         Panel14.Controls.Add(Label19)
-        Panel14.Location = New Point(41, 558)
+        Panel14.Location = New Point(36, 418)
+        Panel14.Margin = New Padding(3, 2, 3, 2)
         Panel14.Name = "Panel14"
-        Panel14.Size = New Size(192, 31)
+        Panel14.Size = New Size(168, 24)
         Panel14.TabIndex = 28
         ' 
         ' Label19
@@ -612,17 +637,18 @@ Partial Class FormMenu
         Label19.ForeColor = SystemColors.Control
         Label19.Location = New Point(0, 0)
         Label19.Name = "Label19"
-        Label19.Size = New Size(174, 23)
+        Label19.Size = New Size(143, 19)
         Label19.TabIndex = 0
         Label19.Text = "Uang Kembalian (Rp)"
         Label19.TextAlign = ContentAlignment.BottomLeft
         ' 
         ' TextBox3
         ' 
-        TextBox3.Font = New Font("Segoe UI", 10F)
-        TextBox3.Location = New Point(253, 515)
+        TextBox3.Font = New Font("Segoe UI", 10.0F)
+        TextBox3.Location = New Point(221, 386)
+        TextBox3.Margin = New Padding(3, 2, 3, 2)
         TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(178, 30)
+        TextBox3.Size = New Size(156, 25)
         TextBox3.TabIndex = 27
         ' 
         ' Panel13
@@ -630,9 +656,10 @@ Partial Class FormMenu
         Panel13.BackColor = SystemColors.MenuHighlight
         Panel13.BorderStyle = BorderStyle.FixedSingle
         Panel13.Controls.Add(Label18)
-        Panel13.Location = New Point(41, 514)
+        Panel13.Location = New Point(36, 386)
+        Panel13.Margin = New Padding(3, 2, 3, 2)
         Panel13.Name = "Panel13"
-        Panel13.Size = New Size(192, 31)
+        Panel13.Size = New Size(168, 24)
         Panel13.TabIndex = 26
         ' 
         ' Label18
@@ -643,7 +670,7 @@ Partial Class FormMenu
         Label18.ForeColor = SystemColors.Control
         Label18.Location = New Point(0, 0)
         Label18.Name = "Label18"
-        Label18.Size = New Size(159, 23)
+        Label18.Size = New Size(131, 19)
         Label18.TabIndex = 0
         Label18.Text = "Uang Diterima (Rp)"
         Label18.TextAlign = ContentAlignment.BottomLeft
@@ -654,9 +681,10 @@ Partial Class FormMenu
         Panel12.BorderStyle = BorderStyle.FixedSingle
         Panel12.Controls.Add(Label16)
         Panel12.Controls.Add(Label17)
-        Panel12.Location = New Point(41, 477)
+        Panel12.Location = New Point(36, 358)
+        Panel12.Margin = New Padding(3, 2, 3, 2)
         Panel12.Name = "Panel12"
-        Panel12.Size = New Size(391, 30)
+        Panel12.Size = New Size(342, 23)
         Panel12.TabIndex = 25
         ' 
         ' Label16
@@ -665,9 +693,9 @@ Partial Class FormMenu
         Label16.Dock = DockStyle.Right
         Label16.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label16.ForeColor = SystemColors.Control
-        Label16.Location = New Point(265, 0)
+        Label16.Location = New Point(239, 0)
         Label16.Name = "Label16"
-        Label16.Size = New Size(124, 23)
+        Label16.Size = New Size(101, 19)
         Label16.TabIndex = 1
         Label16.Text = "FRENCH FRIES"
         Label16.TextAlign = ContentAlignment.BottomRight
@@ -680,7 +708,7 @@ Partial Class FormMenu
         Label17.ForeColor = SystemColors.Control
         Label17.Location = New Point(0, 0)
         Label17.Name = "Label17"
-        Label17.Size = New Size(46, 23)
+        Label17.Size = New Size(40, 19)
         Label17.TabIndex = 0
         Label17.Text = "Total"
         Label17.TextAlign = ContentAlignment.BottomLeft
@@ -691,9 +719,10 @@ Partial Class FormMenu
         Panel11.BorderStyle = BorderStyle.FixedSingle
         Panel11.Controls.Add(Label14)
         Panel11.Controls.Add(Label15)
-        Panel11.Location = New Point(41, 435)
+        Panel11.Location = New Point(36, 326)
+        Panel11.Margin = New Padding(3, 2, 3, 2)
         Panel11.Name = "Panel11"
-        Panel11.Size = New Size(391, 30)
+        Panel11.Size = New Size(342, 23)
         Panel11.TabIndex = 24
         ' 
         ' Label14
@@ -702,9 +731,9 @@ Partial Class FormMenu
         Label14.Dock = DockStyle.Right
         Label14.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label14.ForeColor = SystemColors.Control
-        Label14.Location = New Point(265, 0)
+        Label14.Location = New Point(239, 0)
         Label14.Name = "Label14"
-        Label14.Size = New Size(124, 23)
+        Label14.Size = New Size(101, 19)
         Label14.TabIndex = 1
         Label14.Text = "FRENCH FRIES"
         Label14.TextAlign = ContentAlignment.BottomRight
@@ -717,7 +746,7 @@ Partial Class FormMenu
         Label15.ForeColor = SystemColors.Control
         Label15.Location = New Point(0, 0)
         Label15.Name = "Label15"
-        Label15.Size = New Size(78, 23)
+        Label15.Size = New Size(66, 19)
         Label15.TabIndex = 0
         Label15.Text = "PPN 10%"
         Label15.TextAlign = ContentAlignment.BottomLeft
@@ -728,9 +757,10 @@ Partial Class FormMenu
         Panel10.BorderStyle = BorderStyle.FixedSingle
         Panel10.Controls.Add(Label12)
         Panel10.Controls.Add(Label13)
-        Panel10.Location = New Point(41, 388)
+        Panel10.Location = New Point(36, 291)
+        Panel10.Margin = New Padding(3, 2, 3, 2)
         Panel10.Name = "Panel10"
-        Panel10.Size = New Size(391, 30)
+        Panel10.Size = New Size(342, 23)
         Panel10.TabIndex = 23
         ' 
         ' Label12
@@ -739,9 +769,9 @@ Partial Class FormMenu
         Label12.Dock = DockStyle.Right
         Label12.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label12.ForeColor = SystemColors.Control
-        Label12.Location = New Point(265, 0)
+        Label12.Location = New Point(239, 0)
         Label12.Name = "Label12"
-        Label12.Size = New Size(124, 23)
+        Label12.Size = New Size(101, 19)
         Label12.TabIndex = 1
         Label12.Text = "FRENCH FRIES"
         Label12.TextAlign = ContentAlignment.BottomRight
@@ -754,7 +784,7 @@ Partial Class FormMenu
         Label13.ForeColor = SystemColors.Control
         Label13.Location = New Point(0, 0)
         Label13.Name = "Label13"
-        Label13.Size = New Size(74, 23)
+        Label13.Size = New Size(62, 19)
         Label13.TabIndex = 0
         Label13.Text = "Subtotal"
         Label13.TextAlign = ContentAlignment.BottomLeft
@@ -765,9 +795,10 @@ Partial Class FormMenu
         Panel9.BorderStyle = BorderStyle.FixedSingle
         Panel9.Controls.Add(Label10)
         Panel9.Controls.Add(Label11)
-        Panel9.Location = New Point(41, 343)
+        Panel9.Location = New Point(36, 257)
+        Panel9.Margin = New Padding(3, 2, 3, 2)
         Panel9.Name = "Panel9"
-        Panel9.Size = New Size(391, 30)
+        Panel9.Size = New Size(342, 23)
         Panel9.TabIndex = 22
         ' 
         ' Label10
@@ -776,9 +807,9 @@ Partial Class FormMenu
         Label10.Dock = DockStyle.Right
         Label10.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label10.ForeColor = SystemColors.Control
-        Label10.Location = New Point(265, 0)
+        Label10.Location = New Point(239, 0)
         Label10.Name = "Label10"
-        Label10.Size = New Size(124, 23)
+        Label10.Size = New Size(101, 19)
         Label10.TabIndex = 1
         Label10.Text = "FRENCH FRIES"
         Label10.TextAlign = ContentAlignment.BottomRight
@@ -791,7 +822,7 @@ Partial Class FormMenu
         Label11.ForeColor = SystemColors.Control
         Label11.Location = New Point(0, 0)
         Label11.Name = "Label11"
-        Label11.Size = New Size(102, 23)
+        Label11.Size = New Size(84, 19)
         Label11.TabIndex = 0
         Label11.Text = "Nama Tamu"
         Label11.TextAlign = ContentAlignment.BottomLeft
@@ -800,28 +831,29 @@ Partial Class FormMenu
         ' 
         DataGridView3.BackgroundColor = SystemColors.Control
         DataGridView3.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle6.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle6.ForeColor = SystemColors.Control
-        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
-        DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle3.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle3.ForeColor = SystemColors.Control
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView3.Columns.AddRange(New DataGridViewColumn() {idtransaksiFnB, namaTamuFnB})
         DataGridView3.EnableHeadersVisualStyles = False
-        DataGridView3.Location = New Point(40, 37)
+        DataGridView3.Location = New Point(35, 28)
+        DataGridView3.Margin = New Padding(3, 2, 3, 2)
         DataGridView3.Name = "DataGridView3"
         DataGridView3.RowHeadersVisible = False
         DataGridView3.RowHeadersWidth = 51
-        DataGridView3.Size = New Size(391, 300)
+        DataGridView3.Size = New Size(342, 225)
         DataGridView3.TabIndex = 21
         ' 
         ' idtransaksiFnB
         ' 
         idtransaksiFnB.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        idtransaksiFnB.FillWeight = 175F
+        idtransaksiFnB.FillWeight = 175.0F
         idtransaksiFnB.HeaderText = "ID Transaksi"
         idtransaksiFnB.MinimumWidth = 6
         idtransaksiFnB.Name = "idtransaksiFnB"
@@ -835,21 +867,22 @@ Partial Class FormMenu
         ' 
         ' Label8
         ' 
-        Label8.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label8.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label8.Location = New Point(0, 0)
         Label8.Name = "Label8"
-        Label8.Size = New Size(459, 28)
+        Label8.Size = New Size(402, 21)
         Label8.TabIndex = 20
         Label8.Text = "Daftar Menu"
         Label8.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' FormMenu
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1332, 853)
+        ClientSize = New Size(1166, 562)
         Controls.Add(Panel1)
         Controls.Add(Panel2)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "FormMenu"
         Text = "FormMenu"
         Panel1.ResumeLayout(False)

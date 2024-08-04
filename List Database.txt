@@ -1,0 +1,21 @@
+Tabel Order Temporary
+1. No order
+2. Harga Siang 
+3. Harga Malam
+4. Meja
+5. Staff
+6. Paket
+7. Perubahan Harga
+8. Waktu Akhir Harga Siang
+9. Waktu AKhir Harga Malam
+10. Durasi (JAM)
+
+Tabel FnB
+1. Id
+2. Nama FnB
+3. Kategori FnB
+4. Harga FnB
+
+Tabel Meja
+1. Id
+2. Nama Meja
