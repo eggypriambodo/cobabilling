@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class FormMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormMenu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -145,7 +145,7 @@ Partial Class FormMenu
         ' 
         ' Label63
         ' 
-        Label63.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label63.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label63.ForeColor = SystemColors.Control
         Label63.Location = New Point(3, 0)
         Label63.Name = "Label63"
@@ -156,7 +156,7 @@ Partial Class FormMenu
         ' 
         ' LabelTimerSaatIni
         ' 
-        LabelTimerSaatIni.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelTimerSaatIni.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         LabelTimerSaatIni.ForeColor = SystemColors.Control
         LabelTimerSaatIni.Location = New Point(144, 0)
         LabelTimerSaatIni.Name = "LabelTimerSaatIni"
@@ -179,7 +179,7 @@ Partial Class FormMenu
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = SystemColors.Control
         Label1.Location = New Point(3, 7)
         Label1.Name = "Label1"
@@ -189,8 +189,11 @@ Partial Class FormMenu
         ' 
         ' TextBox1
         ' 
-        TextBox1.Font = New Font("Segoe UI", 12.0F)
+        TextBox1.Font = New Font("Segoe UI", 12F)
+
         TextBox1.Location = New Point(123, 6)
+        TextBox1.Location = New Point(108, 7)
+        TextBox1.Margin = New Padding(3, 2, 3, 2)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(231, 29)
         TextBox1.TabIndex = 8
@@ -229,7 +232,7 @@ Partial Class FormMenu
         ' 
         ' TextBox2
         ' 
-        TextBox2.Font = New Font("Segoe UI", 10.0F)
+        TextBox2.Font = New Font("Segoe UI", 10F)
         TextBox2.Location = New Point(279, 496)
         TextBox2.Margin = New Padding(3, 2, 3, 2)
         TextBox2.Name = "TextBox2"
@@ -342,7 +345,7 @@ Partial Class FormMenu
         DataGridView2.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle1.ForeColor = SystemColors.Control
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
@@ -362,7 +365,7 @@ Partial Class FormMenu
         ' namaPesanan
         ' 
         namaPesanan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        namaPesanan.FillWeight = 150.0F
+        namaPesanan.FillWeight = 150F
         namaPesanan.HeaderText = "Nama Pesanan"
         namaPesanan.MinimumWidth = 6
         namaPesanan.Name = "namaPesanan"
@@ -377,7 +380,7 @@ Partial Class FormMenu
         ' qtyMenu
         ' 
         qtyMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        qtyMenu.FillWeight = 45.0F
+        qtyMenu.FillWeight = 45F
         qtyMenu.HeaderText = "Qty"
         qtyMenu.MinimumWidth = 6
         qtyMenu.Name = "qtyMenu"
@@ -391,7 +394,7 @@ Partial Class FormMenu
         ' 
         ' Label3
         ' 
-        Label3.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.Location = New Point(369, 78)
         Label3.Name = "Label3"
         Label3.Size = New Size(342, 21)
@@ -405,7 +408,7 @@ Partial Class FormMenu
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle2.ForeColor = SystemColors.Control
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -425,7 +428,7 @@ Partial Class FormMenu
         ' namaMenu
         ' 
         namaMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        namaMenu.FillWeight = 175.0F
+        namaMenu.FillWeight = 175F
         namaMenu.HeaderText = "Nama Menu"
         namaMenu.MinimumWidth = 6
         namaMenu.Name = "namaMenu"
@@ -439,7 +442,7 @@ Partial Class FormMenu
         ' 
         ' Label2
         ' 
-        Label2.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.Location = New Point(3, 78)
         Label2.Name = "Label2"
         Label2.Size = New Size(342, 21)
@@ -478,6 +481,7 @@ Partial Class FormMenu
         Button3.Margin = New Padding(3, 2, 3, 2)
         Button3.Name = "Button3"
         Button3.Size = New Size(78, 51)
+        Button3.Size = New Size(68, 22)
         Button3.TabIndex = 37
         Button3.Text = "CETAK"
         Button3.UseVisualStyleBackColor = True
@@ -488,6 +492,7 @@ Partial Class FormMenu
         Button4.Margin = New Padding(3, 2, 3, 2)
         Button4.Name = "Button4"
         Button4.Size = New Size(78, 51)
+        Button4.Size = New Size(68, 22)
         Button4.TabIndex = 36
         Button4.Text = "BAYAR"
         Button4.UseVisualStyleBackColor = True
@@ -498,23 +503,28 @@ Partial Class FormMenu
         Button2.Margin = New Padding(3, 2, 3, 2)
         Button2.Name = "Button2"
         Button2.Size = New Size(94, 51)
+        Button2.Size = New Size(82, 22)
         Button2.TabIndex = 34
         Button2.Text = "BATAL ORDER"
         Button2.UseVisualStyleBackColor = True
         ' 
         ' Button1
         ' 
-        Button1.Font = New Font("Segoe UI", 9.0F)
+        Button1.Font = New Font("Segoe UI", 9F)
         Button1.Location = New Point(41, 703)
         Button1.Name = "Button1"
         Button1.Size = New Size(94, 51)
+        Button1.Location = New Point(36, 527)
+        Button1.Margin = New Padding(3, 2, 3, 2)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(82, 22)
         Button1.TabIndex = 33
         Button1.Text = "ORDER BARU"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' TextBox5
         ' 
-        TextBox5.Font = New Font("Segoe UI", 10.0F)
+        TextBox5.Font = New Font("Segoe UI", 10F)
         TextBox5.Location = New Point(222, 488)
         TextBox5.Margin = New Padding(3, 2, 3, 2)
         TextBox5.Name = "TextBox5"
@@ -611,7 +621,7 @@ Partial Class FormMenu
         ' 
         ' TextBox4
         ' 
-        TextBox4.Font = New Font("Segoe UI", 10.0F)
+        TextBox4.Font = New Font("Segoe UI", 10F)
         TextBox4.Location = New Point(221, 419)
         TextBox4.Margin = New Padding(3, 2, 3, 2)
         TextBox4.Name = "TextBox4"
@@ -644,7 +654,7 @@ Partial Class FormMenu
         ' 
         ' TextBox3
         ' 
-        TextBox3.Font = New Font("Segoe UI", 10.0F)
+        TextBox3.Font = New Font("Segoe UI", 10F)
         TextBox3.Location = New Point(221, 386)
         TextBox3.Margin = New Padding(3, 2, 3, 2)
         TextBox3.Name = "TextBox3"
@@ -833,7 +843,7 @@ Partial Class FormMenu
         DataGridView3.BorderStyle = BorderStyle.None
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle3.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle3.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle3.ForeColor = SystemColors.Control
         DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
@@ -853,7 +863,7 @@ Partial Class FormMenu
         ' idtransaksiFnB
         ' 
         idtransaksiFnB.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        idtransaksiFnB.FillWeight = 175.0F
+        idtransaksiFnB.FillWeight = 175F
         idtransaksiFnB.HeaderText = "ID Transaksi"
         idtransaksiFnB.MinimumWidth = 6
         idtransaksiFnB.Name = "idtransaksiFnB"
@@ -867,7 +877,7 @@ Partial Class FormMenu
         ' 
         ' Label8
         ' 
-        Label8.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label8.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label8.Location = New Point(0, 0)
         Label8.Name = "Label8"
         Label8.Size = New Size(402, 21)
@@ -877,7 +887,7 @@ Partial Class FormMenu
         ' 
         ' FormMenu
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1166, 562)
         Controls.Add(Panel1)

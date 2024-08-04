@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class FormOpenTableDurasi
+    Private Form As FormBilling
 
     Sub tampilmeja()
         connect()
@@ -49,9 +50,12 @@ Public Class FormOpenTableDurasi
     End Sub
 
     Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
+
+        FormBilling.Instance.UbahStatusTableKosong()
         Close()
 
     End Sub
+
 
     Private Sub FormOpenTableDurasi_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tampilmeja()
@@ -59,13 +63,4 @@ Public Class FormOpenTableDurasi
         getNoOrder()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        Dim timeAkhirHargaSiang As String = DataGridView1.Rows(e.RowIndex).Cells(3).Value.ToString()
-        Dim timeAkhirHargaMalam As String = DataGridView1.Rows(e.RowIndex).Cells(4).Value.ToString()
-        labelPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(0).Value, String)
-        labelHargaSiang.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(1).Value, String)
-        labelisihargamalam.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(2).Value, String)
-        labelAkhirHargaSiang.Text = timeAkhirHargaSiang
-        labelAkhirHargaMalam.Text = timeAkhirHargaMalam
-    End Sub
 End Class

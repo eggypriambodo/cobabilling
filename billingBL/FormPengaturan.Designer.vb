@@ -22,126 +22,15 @@ Partial Class FormPengaturan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Label1 = New Label()
-        DataGridView1 = New DataGridView()
-        no = New DataGridViewTextBoxColumn()
-        jamMasuk = New DataGridViewTextBoxColumn()
-        jamKeluar = New DataGridViewTextBoxColumn()
-        durasi = New DataGridViewTextBoxColumn()
-        totalHarga = New DataGridViewTextBoxColumn()
-        bayar = New DataGridViewTextBoxColumn()
-        kembalian = New DataGridViewTextBoxColumn()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' Label1
-        ' 
-        Label1.Dock = DockStyle.Top
-        Label1.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(0, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(1332, 46)
-        Label1.TabIndex = 0
-        Label1.Text = "DATA TRANSAKSI"
-        Label1.TextAlign = ContentAlignment.MiddleCenter
-        Label1.UseCompatibleTextRendering = True
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.BackgroundColor = SystemColors.Control
-        DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle1.ForeColor = SystemColors.Control
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, jamMasuk, jamKeluar, durasi, totalHarga, bayar, kembalian})
-        DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(0, 49)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersVisible = False
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(1332, 499)
-        DataGridView1.TabIndex = 9
-        ' 
-        ' no
-        ' 
-        no.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        no.FillWeight = 30F
-        no.HeaderText = "No"
-        no.MinimumWidth = 6
-        no.Name = "no"
-        ' 
-        ' jamMasuk
-        ' 
-        jamMasuk.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        jamMasuk.FillWeight = 150F
-        jamMasuk.HeaderText = "Jam Masuk"
-        jamMasuk.MinimumWidth = 6
-        jamMasuk.Name = "jamMasuk"
-        ' 
-        ' jamKeluar
-        ' 
-        jamKeluar.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        jamKeluar.FillWeight = 150F
-        jamKeluar.HeaderText = "Jam Keluar"
-        jamKeluar.MinimumWidth = 6
-        jamKeluar.Name = "jamKeluar"
-        ' 
-        ' durasi
-        ' 
-        durasi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        durasi.FillWeight = 75F
-        durasi.HeaderText = "Durasi"
-        durasi.MinimumWidth = 6
-        durasi.Name = "durasi"
-        ' 
-        ' totalHarga
-        ' 
-        totalHarga.HeaderText = "Total Harga"
-        totalHarga.MinimumWidth = 6
-        totalHarga.Name = "totalHarga"
-        totalHarga.Width = 125
-        ' 
-        ' bayar
-        ' 
-        bayar.HeaderText = "Bayar"
-        bayar.MinimumWidth = 6
-        bayar.Name = "bayar"
-        bayar.Width = 125
-        ' 
-        ' kembalian
-        ' 
-        kembalian.HeaderText = "Kembali"
-        kembalian.MinimumWidth = 6
-        kembalian.Name = "kembalian"
-        kembalian.Width = 125
         ' 
         ' FormPengaturan
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1332, 853)
-        Controls.Add(DataGridView1)
-        Controls.Add(Label1)
         Name = "FormPengaturan"
         Text = "FormPengaturan"
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents Label1 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents no As DataGridViewTextBoxColumn
-    Friend WithEvents jamMasuk As DataGridViewTextBoxColumn
-    Friend WithEvents jamKeluar As DataGridViewTextBoxColumn
-    Friend WithEvents durasi As DataGridViewTextBoxColumn
-    Friend WithEvents totalHarga As DataGridViewTextBoxColumn
-    Friend WithEvents bayar As DataGridViewTextBoxColumn
-    Friend WithEvents kembalian As DataGridViewTextBoxColumn
 End Class

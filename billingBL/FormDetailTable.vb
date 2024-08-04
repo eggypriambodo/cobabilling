@@ -3,5 +3,7 @@
 
     End Sub
 
-
+    Private Sub btnBayar_Click(sender As Object, e As EventArgs) Handles btnBayar.Click
+        FormBilling.Instance.UbahStatusTableCheckout()
+    End Sub
 End Class
