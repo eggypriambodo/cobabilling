@@ -27,7 +27,6 @@ Public Class FormOpenTablePaket
             DataGridView1.Rows(i).Cells(1).Value = DT.Rows(i).Item(3)
             DataGridView1.Rows(i).Cells(2).Value = DT.Rows(i).Item(10)
             DataGridView1.Rows(i).Cells(3).Value = DT.Rows(i).Item(8)
-            DataGridView1.Rows(i).Cells(4).Value = DT.Rows(i).Item(9)
         Next
 
         disconnect()
@@ -62,7 +61,7 @@ Public Class FormOpenTablePaket
 
         Try
             connect()
-            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga) VALUES ('" & labelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(labelDurasiPaket.Text) & "', '" & harga & "')", Koneksi)
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table) VALUES ('" & labelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(labelDurasiPaket.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonPaket.Text) & "')", Koneksi)
             CMD.ExecuteNonQuery()
             disconnect()
         Catch ex As Exception
@@ -85,7 +84,7 @@ Public Class FormOpenTablePaket
         labelPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(0).Value, String)
         labelHargaPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(1).Value, String)
         labelDurasiPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(2).Value, String)
-
+        labelDiskonPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(3).Value, String)
 
     End Sub
 

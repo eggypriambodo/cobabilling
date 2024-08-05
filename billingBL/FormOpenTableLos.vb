@@ -25,9 +25,11 @@ Public Class FormOpenTableLos
 
         For i = 0 To DT.Rows.Count - 1
             DataGridView1.Rows.Add(DT.Rows(i).Item(1))
-            DataGridView1.Rows(i).Cells(1).Value = CInt(DT.Rows(i).Item(5) / 60)
-            DataGridView1.Rows(i).Cells(2).Value = DT.Rows(i).Item(8)
-            DataGridView1.Rows(i).Cells(3).Value = DT.Rows(i).Item(9)
+            DataGridView1.Rows(i).Cells(1).Value = DT.Rows(i).Item(4)
+            DataGridView1.Rows(i).Cells(2).Value = DT.Rows(i).Item(5)
+            DataGridView1.Rows(i).Cells(3).Value = DT.Rows(i).Item(6)
+            DataGridView1.Rows(i).Cells(4).Value = DT.Rows(i).Item(7)
+            DataGridView1.Rows(i).Cells(5).Value = DT.Rows(i).Item(8)
         Next
 
         disconnect()
@@ -43,16 +45,55 @@ Public Class FormOpenTableLos
 
         Dim noOrder As String = tanggal & angkaAcakString
 
-        labelNoOrder.Text = noOrder
+        LabelNoOrderLos.Text = noOrder
     End Sub
+
+    Sub inputOrder()
+        Dim mulai As DateTime = DateTime.Now
+        Dim mulaiString As String = mulai.ToString("HH:mm:ss")
+
+        Try
+            connect()
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, disc_table) VALUES ('" & LabelNoOrderLos.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaketLos.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & Convert.ToInt32(labelDiskonLos.Text) & "')", Koneksi)
+            CMD.ExecuteNonQuery()
+            disconnect()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Sub updateMeja()
+        Try
+            connect()
+            CMD = New MySqlCommand("UPDATE tb_meja SET status='isi' WHERE nama_meja='" & dropdownPilihTable.Text & "'", Koneksi)
+            CMD.ExecuteNonQuery()
+            disconnect()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Private Sub FormOpenTableLos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tampilmeja()
         tampilpaket()
         getNoOrder()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-        labelPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(0).Value, String)
-        labelHargaMenit.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(1).Value, String)
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        Dim akhirSiangString As String = DataGridView1.Rows(e.RowIndex).Cells(3).Value.ToString
+        Dim akhirMalamString As String = DataGridView1.Rows(e.RowIndex).Cells(4).Value.ToString
+        labelPaketLos.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(0).Value, String)
+        labelHargaSiangLos.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(1).Value, String)
+        labelisihargamalamLos.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(2).Value, String)
+        labelAkhirHargaSiangLos.Text = akhirSiangString
+        labelAkhirHargaMalamLos.Text = akhirMalamString
+        labelDiskonLos.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(5).Value, String)
+    End Sub
+
+    Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
+        inputOrder()
+        updateMeja()
+        FormBilling.Instance.ubahStatusMeja()
+        Close()
     End Sub
 End Class
