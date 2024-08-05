@@ -12,16 +12,16 @@
         TimerSaatIni.Enabled = True
         statusTable1.Text = "KOSONG"
         statusTable1.BackColor = Color.Lime
-
+        UbahStatusTableKosong()
 
 
     End Sub
 
+    Private countDownTime As New TimeSpan(6, 12, 0)
     Public Sub UbahStatusTableKosong()
-        If statusTable1.Text = "KOSONG" Then
-            statusTable1.Text = "AKTIF"
-            statusTable1.BackColor = Color.Red
-        End If
+
+
+        Timer1.Start()
     End Sub
 
     Public Sub UbahStatusTableCheckout()
@@ -64,5 +64,19 @@
         duration1.Text = durasi
     End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Dim timeRemaining = countDownTime - DateTime.Now.TimeOfDay
 
+        If timeRemaining < TimeSpan.Zero Then
+            timeRemaining = TimeSpan.Zero
+        End If
+
+        duration1.Text = timeRemaining.ToString("hh\:mm\:ss")
+
+        If timeRemaining = TimeSpan.Zero Then
+            Timer1.Stop()
+
+            MessageBox.Show("Countdown complete")
+        End If
+    End Sub
 End Class

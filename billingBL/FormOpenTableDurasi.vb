@@ -105,7 +105,7 @@ Public Class FormOpenTableDurasi
     Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
         inputOrder()
         updateMeja()
-        FormBilling
+        FormBilling.Instance.UbahStatusTableKosong()
         Close()
 
     End Sub
