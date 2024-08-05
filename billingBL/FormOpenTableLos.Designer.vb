@@ -22,7 +22,7 @@ Partial Class FormOpenTableLos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         TableLayoutPanel1 = New TableLayoutPanel()
         LabelOpenTable = New Label()
         FlowLayoutPanel1 = New FlowLayoutPanel()
@@ -45,10 +45,13 @@ Partial Class FormOpenTableLos
         Label4 = New Label()
         btnFixOrder = New Button()
         DataGridView1 = New DataGridView()
-        Label17 = New Label()
         namaPaket = New DataGridViewTextBoxColumn()
         hargaLos = New DataGridViewTextBoxColumn()
         discTable = New DataGridViewTextBoxColumn()
+        Label17 = New Label()
+        Panel6 = New Panel()
+        labelDiskonLos = New Label()
+        Label5 = New Label()
         TableLayoutPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
@@ -59,6 +62,7 @@ Partial Class FormOpenTableLos
         Panel14.SuspendLayout()
         Panel3.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel6.SuspendLayout()
         SuspendLayout()
         ' 
         ' TableLayoutPanel1
@@ -75,7 +79,7 @@ Partial Class FormOpenTableLos
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 45F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
-        TableLayoutPanel1.Size = New Size(671, 253)
+        TableLayoutPanel1.Size = New Size(1010, 253)
         TableLayoutPanel1.TabIndex = 3
         ' 
         ' LabelOpenTable
@@ -87,7 +91,7 @@ Partial Class FormOpenTableLos
         LabelOpenTable.ForeColor = SystemColors.Control
         LabelOpenTable.Location = New Point(3, 0)
         LabelOpenTable.Name = "LabelOpenTable"
-        LabelOpenTable.Size = New Size(665, 46)
+        LabelOpenTable.Size = New Size(1004, 46)
         LabelOpenTable.TabIndex = 0
         LabelOpenTable.Text = " OPEN TABLE LOS TIME"
         LabelOpenTable.TextAlign = ContentAlignment.MiddleCenter
@@ -102,10 +106,11 @@ Partial Class FormOpenTableLos
         FlowLayoutPanel1.Controls.Add(Panel13)
         FlowLayoutPanel1.Controls.Add(Panel14)
         FlowLayoutPanel1.Controls.Add(Panel3)
+        FlowLayoutPanel1.Controls.Add(Panel6)
         FlowLayoutPanel1.Controls.Add(btnFixOrder)
         FlowLayoutPanel1.Location = New Point(3, 49)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(665, 181)
+        FlowLayoutPanel1.Size = New Size(995, 181)
         FlowLayoutPanel1.TabIndex = 1
         ' 
         ' Panel1
@@ -185,7 +190,7 @@ Partial Class FormOpenTableLos
         Panel4.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel4.BorderStyle = BorderStyle.FixedSingle
         Panel4.Controls.Add(Label7)
-        Panel4.Location = New Point(3, 58)
+        Panel4.Location = New Point(661, 3)
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(151, 49)
         Panel4.TabIndex = 3
@@ -207,7 +212,7 @@ Partial Class FormOpenTableLos
         Panel5.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel5.BorderStyle = BorderStyle.FixedSingle
         Panel5.Controls.Add(dropdownPilihTable)
-        Panel5.Location = New Point(160, 58)
+        Panel5.Location = New Point(818, 3)
         Panel5.Name = "Panel5"
         Panel5.Size = New Size(165, 49)
         Panel5.TabIndex = 4
@@ -225,7 +230,7 @@ Partial Class FormOpenTableLos
         Panel13.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel13.BorderStyle = BorderStyle.FixedSingle
         Panel13.Controls.Add(Label18)
-        Panel13.Location = New Point(331, 58)
+        Panel13.Location = New Point(3, 58)
         Panel13.Name = "Panel13"
         Panel13.Size = New Size(151, 49)
         Panel13.TabIndex = 12
@@ -247,7 +252,7 @@ Partial Class FormOpenTableLos
         Panel14.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel14.BorderStyle = BorderStyle.FixedSingle
         Panel14.Controls.Add(textboxNamaTamu)
-        Panel14.Location = New Point(488, 58)
+        Panel14.Location = New Point(160, 58)
         Panel14.Name = "Panel14"
         Panel14.Size = New Size(167, 49)
         Panel14.TabIndex = 13
@@ -265,7 +270,7 @@ Partial Class FormOpenTableLos
         Panel3.BorderStyle = BorderStyle.FixedSingle
         Panel3.Controls.Add(labelHargaMenit)
         Panel3.Controls.Add(Label4)
-        Panel3.Location = New Point(3, 113)
+        Panel3.Location = New Point(333, 58)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(323, 49)
         Panel3.TabIndex = 16
@@ -299,7 +304,7 @@ Partial Class FormOpenTableLos
         ' 
         btnFixOrder.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnFixOrder.ForeColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        btnFixOrder.Location = New Point(332, 113)
+        btnFixOrder.Location = New Point(3, 113)
         btnFixOrder.Name = "btnFixOrder"
         btnFixOrder.Size = New Size(321, 48)
         btnFixOrder.TabIndex = 15
@@ -310,14 +315,14 @@ Partial Class FormOpenTableLos
         ' 
         DataGridView1.BackgroundColor = SystemColors.Control
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle1.ForeColor = SystemColors.Control
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.ForeColor = SystemColors.Control
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaLos, discTable})
         DataGridView1.Dock = DockStyle.Top
@@ -327,20 +332,8 @@ Partial Class FormOpenTableLos
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(671, 253)
+        DataGridView1.Size = New Size(1010, 253)
         DataGridView1.TabIndex = 8
-        ' 
-        ' Label17
-        ' 
-        Label17.BorderStyle = BorderStyle.FixedSingle
-        Label17.Dock = DockStyle.Top
-        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label17.Location = New Point(0, 253)
-        Label17.Name = "Label17"
-        Label17.Size = New Size(671, 38)
-        Label17.TabIndex = 7
-        Label17.Text = "Daftar Paket"
-        Label17.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' namaPaket
         ' 
@@ -365,11 +358,59 @@ Partial Class FormOpenTableLos
         discTable.MinimumWidth = 6
         discTable.Name = "discTable"
         ' 
+        ' Label17
+        ' 
+        Label17.BorderStyle = BorderStyle.FixedSingle
+        Label17.Dock = DockStyle.Top
+        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label17.Location = New Point(0, 253)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(1010, 38)
+        Label17.TabIndex = 7
+        Label17.Text = "Daftar Paket"
+        Label17.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Panel6
+        ' 
+        Panel6.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel6.BorderStyle = BorderStyle.FixedSingle
+        Panel6.Controls.Add(labelDiskonLos)
+        Panel6.Controls.Add(Label5)
+        Panel6.Location = New Point(662, 58)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(323, 49)
+        Panel6.TabIndex = 17
+        ' 
+        ' labelDiskonLos
+        ' 
+        labelDiskonLos.Dock = DockStyle.Right
+        labelDiskonLos.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        labelDiskonLos.ForeColor = SystemColors.Control
+        labelDiskonLos.Location = New Point(162, 0)
+        labelDiskonLos.Margin = New Padding(3, 7, 3, 0)
+        labelDiskonLos.Name = "labelDiskonLos"
+        labelDiskonLos.Size = New Size(159, 47)
+        labelDiskonLos.TabIndex = 1
+        labelDiskonLos.Text = "-;-;-"
+        labelDiskonLos.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' Label5
+        ' 
+        Label5.Dock = DockStyle.Left
+        Label5.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label5.ForeColor = SystemColors.Control
+        Label5.Location = New Point(0, 0)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(155, 47)
+        Label5.TabIndex = 0
+        Label5.Text = "Diskon Paket (%)"
+        Label5.TextAlign = ContentAlignment.MiddleLeft
+        ' 
         ' FormOpenTableLos
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(671, 544)
+        ClientSize = New Size(1010, 544)
         Controls.Add(DataGridView1)
         Controls.Add(Label17)
         Controls.Add(TableLayoutPanel1)
@@ -389,6 +430,7 @@ Partial Class FormOpenTableLos
         Panel14.PerformLayout()
         Panel3.ResumeLayout(False)
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        Panel6.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -422,4 +464,7 @@ Partial Class FormOpenTableLos
     Friend WithEvents namaPaket As DataGridViewTextBoxColumn
     Friend WithEvents hargaLos As DataGridViewTextBoxColumn
     Friend WithEvents discTable As DataGridViewTextBoxColumn
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents labelDiskonLos As Label
+    Friend WithEvents Label5 As Label
 End Class

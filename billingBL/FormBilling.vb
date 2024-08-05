@@ -17,6 +17,7 @@ Public Class FormBilling
         Instance = Me
         TimerSaatIni.Enabled = True
         ubahStatusMeja()
+        UbahStatusTableCheckout()
     End Sub
 
     Private countDownTime1, countDownTime2, countDownTime3, countDownTime4, countDownTime5, countDownTime6, countDownTime7, countDownTime8 As TimeSpan
