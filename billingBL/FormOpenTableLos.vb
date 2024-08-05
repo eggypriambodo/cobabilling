@@ -51,7 +51,7 @@ Public Class FormOpenTableLos
         getNoOrder()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
         labelPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(0).Value, String)
         labelHargaMenit.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(1).Value, String)
     End Sub

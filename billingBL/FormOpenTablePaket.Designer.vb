@@ -46,6 +46,9 @@ Partial Class FormOpenTablePaket
         Panel6 = New Panel()
         labelDurasiPaket = New Label()
         Label5 = New Label()
+        Panel7 = New Panel()
+        labelDiskonPaket = New Label()
+        Label6 = New Label()
         btnFixOrder = New Button()
         DataGridView1 = New DataGridView()
         namaPaket = New DataGridViewTextBoxColumn()
@@ -53,9 +56,6 @@ Partial Class FormOpenTablePaket
         duration = New DataGridViewTextBoxColumn()
         discTable = New DataGridViewTextBoxColumn()
         Label17 = New Label()
-        Panel7 = New Panel()
-        labelDiskonPaket = New Label()
-        Label6 = New Label()
         TableLayoutPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
@@ -66,8 +66,8 @@ Partial Class FormOpenTablePaket
         Panel14.SuspendLayout()
         Panel3.SuspendLayout()
         Panel6.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel7.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TableLayoutPanel1
@@ -342,6 +342,42 @@ Partial Class FormOpenTablePaket
         Label5.Text = "Durasi"
         Label5.TextAlign = ContentAlignment.MiddleLeft
         ' 
+        ' Panel7
+        ' 
+        Panel7.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel7.BorderStyle = BorderStyle.FixedSingle
+        Panel7.Controls.Add(labelDiskonPaket)
+        Panel7.Controls.Add(Label6)
+        Panel7.Location = New Point(3, 168)
+        Panel7.Name = "Panel7"
+        Panel7.Size = New Size(323, 49)
+        Panel7.TabIndex = 18
+        ' 
+        ' labelDiskonPaket
+        ' 
+        labelDiskonPaket.Dock = DockStyle.Right
+        labelDiskonPaket.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        labelDiskonPaket.ForeColor = SystemColors.Control
+        labelDiskonPaket.Location = New Point(166, 0)
+        labelDiskonPaket.Margin = New Padding(3, 7, 3, 0)
+        labelDiskonPaket.Name = "labelDiskonPaket"
+        labelDiskonPaket.Size = New Size(155, 47)
+        labelDiskonPaket.TabIndex = 1
+        labelDiskonPaket.Text = "-;-;-"
+        labelDiskonPaket.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' Label6
+        ' 
+        Label6.Dock = DockStyle.Left
+        Label6.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label6.ForeColor = SystemColors.Control
+        Label6.Location = New Point(0, 0)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(150, 47)
+        Label6.TabIndex = 0
+        Label6.Text = "Diskon Table (%)"
+        Label6.TextAlign = ContentAlignment.MiddleLeft
+        ' 
         ' btnFixOrder
         ' 
         btnFixOrder.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
@@ -374,7 +410,7 @@ Partial Class FormOpenTablePaket
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(677, 291)
+        DataGridView1.Size = New Size(677, 211)
         DataGridView1.TabIndex = 10
         ' 
         ' namaPaket
@@ -419,42 +455,6 @@ Partial Class FormOpenTablePaket
         Label17.Text = "Daftar Paket"
         Label17.TextAlign = ContentAlignment.MiddleCenter
         ' 
-        ' Panel7
-        ' 
-        Panel7.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        Panel7.BorderStyle = BorderStyle.FixedSingle
-        Panel7.Controls.Add(labelDiskonPaket)
-        Panel7.Controls.Add(Label6)
-        Panel7.Location = New Point(3, 168)
-        Panel7.Name = "Panel7"
-        Panel7.Size = New Size(323, 49)
-        Panel7.TabIndex = 18
-        ' 
-        ' labelDiskonPaket
-        ' 
-        labelDiskonPaket.Dock = DockStyle.Right
-        labelDiskonPaket.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
-        labelDiskonPaket.ForeColor = SystemColors.Control
-        labelDiskonPaket.Location = New Point(166, 0)
-        labelDiskonPaket.Margin = New Padding(3, 7, 3, 0)
-        labelDiskonPaket.Name = "labelDiskonPaket"
-        labelDiskonPaket.Size = New Size(155, 47)
-        labelDiskonPaket.TabIndex = 1
-        labelDiskonPaket.Text = "-;-;-"
-        labelDiskonPaket.TextAlign = ContentAlignment.MiddleRight
-        ' 
-        ' Label6
-        ' 
-        Label6.Dock = DockStyle.Left
-        Label6.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label6.ForeColor = SystemColors.Control
-        Label6.Location = New Point(0, 0)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(150, 47)
-        Label6.TabIndex = 0
-        Label6.Text = "Diskon Table (%)"
-        Label6.TextAlign = ContentAlignment.MiddleLeft
-        ' 
         ' FormOpenTablePaket
         ' 
         AutoScaleDimensions = New SizeF(8.0F, 20.0F)
@@ -479,8 +479,8 @@ Partial Class FormOpenTablePaket
         Panel14.PerformLayout()
         Panel3.ResumeLayout(False)
         Panel6.ResumeLayout(False)
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         Panel7.ResumeLayout(False)
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub

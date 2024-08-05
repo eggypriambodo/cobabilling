@@ -22,47 +22,63 @@ Partial Class FormOpenTableLos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         TableLayoutPanel1 = New TableLayoutPanel()
         LabelOpenTable = New Label()
+        Label17 = New Label()
+        Label1 = New Label()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         Panel1 = New Panel()
-        labelNoOrder = New Label()
-        Label1 = New Label()
+        LabelNoOrder = New Label()
+        Label2 = New Label()
         Panel2 = New Panel()
         labelPaket = New Label()
         Label3 = New Label()
+        Panel3 = New Panel()
+        labelAkhirHargaSiang = New Label()
+        Label5 = New Label()
         Panel4 = New Panel()
         Label7 = New Label()
         Panel5 = New Panel()
         dropdownPilihTable = New ComboBox()
+        Panel6 = New Panel()
+        labelHargaSiang = New Label()
+        Label9 = New Label()
+        Panel7 = New Panel()
+        labelAkhirHargaMalam = New Label()
+        Label11 = New Label()
+        labelHargaMalam = New Panel()
+        labelisihargamalam = New Label()
+        Label15 = New Label()
         Panel13 = New Panel()
         Label18 = New Label()
         Panel14 = New Panel()
         textboxNamaTamu = New TextBox()
-        Panel3 = New Panel()
-        labelHargaMenit = New Label()
-        Label4 = New Label()
+        Panel15 = New Panel()
+        labelDiskonDurasi = New Label()
+        Label21 = New Label()
         btnFixOrder = New Button()
         DataGridView1 = New DataGridView()
         namaPaket = New DataGridViewTextBoxColumn()
-        hargaLos = New DataGridViewTextBoxColumn()
+        hargaSiang = New DataGridViewTextBoxColumn()
+        hargaMalam = New DataGridViewTextBoxColumn()
+        akhirsiang = New DataGridViewTextBoxColumn()
+        akhirMalam = New DataGridViewTextBoxColumn()
         discTable = New DataGridViewTextBoxColumn()
-        Label17 = New Label()
-        Panel6 = New Panel()
-        labelDiskonLos = New Label()
-        Label5 = New Label()
         TableLayoutPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
+        Panel3.SuspendLayout()
         Panel4.SuspendLayout()
         Panel5.SuspendLayout()
+        Panel6.SuspendLayout()
+        Panel7.SuspendLayout()
+        labelHargaMalam.SuspendLayout()
         Panel13.SuspendLayout()
         Panel14.SuspendLayout()
-        Panel3.SuspendLayout()
+        Panel15.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
-        Panel6.SuspendLayout()
         SuspendLayout()
         ' 
         ' TableLayoutPanel1
@@ -70,8 +86,8 @@ Partial Class FormOpenTableLos
         TableLayoutPanel1.AutoSize = True
         TableLayoutPanel1.ColumnCount = 1
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TableLayoutPanel1.Controls.Add(LabelOpenTable, 0, 0)
         TableLayoutPanel1.Controls.Add(FlowLayoutPanel1, 0, 1)
+        TableLayoutPanel1.Controls.Add(LabelOpenTable, 0, 0)
         TableLayoutPanel1.Dock = DockStyle.Top
         TableLayoutPanel1.Location = New Point(0, 0)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -79,7 +95,7 @@ Partial Class FormOpenTableLos
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 45F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
-        TableLayoutPanel1.Size = New Size(1010, 253)
+        TableLayoutPanel1.Size = New Size(1001, 277)
         TableLayoutPanel1.TabIndex = 3
         ' 
         ' LabelOpenTable
@@ -91,63 +107,85 @@ Partial Class FormOpenTableLos
         LabelOpenTable.ForeColor = SystemColors.Control
         LabelOpenTable.Location = New Point(3, 0)
         LabelOpenTable.Name = "LabelOpenTable"
-        LabelOpenTable.Size = New Size(1004, 46)
+        LabelOpenTable.Size = New Size(995, 50)
         LabelOpenTable.TabIndex = 0
         LabelOpenTable.Text = " OPEN TABLE LOS TIME"
         LabelOpenTable.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label17
+        ' 
+        Label17.BorderStyle = BorderStyle.FixedSingle
+        Label17.Dock = DockStyle.Top
+        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label17.Location = New Point(0, 277)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(1001, 38)
+        Label17.TabIndex = 7
+        Label17.Text = "Daftar Paket"
+        Label17.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label1
+        ' 
+        Label1.Location = New Point(0, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(100, 23)
+        Label1.TabIndex = 0
         ' 
         ' FlowLayoutPanel1
         ' 
         FlowLayoutPanel1.BackColor = SystemColors.Control
         FlowLayoutPanel1.Controls.Add(Panel1)
         FlowLayoutPanel1.Controls.Add(Panel2)
+        FlowLayoutPanel1.Controls.Add(Panel3)
         FlowLayoutPanel1.Controls.Add(Panel4)
         FlowLayoutPanel1.Controls.Add(Panel5)
+        FlowLayoutPanel1.Controls.Add(Panel6)
+        FlowLayoutPanel1.Controls.Add(Panel7)
         FlowLayoutPanel1.Controls.Add(Panel13)
         FlowLayoutPanel1.Controls.Add(Panel14)
-        FlowLayoutPanel1.Controls.Add(Panel3)
-        FlowLayoutPanel1.Controls.Add(Panel6)
+        FlowLayoutPanel1.Controls.Add(labelHargaMalam)
+        FlowLayoutPanel1.Controls.Add(Panel15)
         FlowLayoutPanel1.Controls.Add(btnFixOrder)
-        FlowLayoutPanel1.Location = New Point(3, 49)
+        FlowLayoutPanel1.Location = New Point(3, 53)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(995, 181)
-        FlowLayoutPanel1.TabIndex = 1
+        FlowLayoutPanel1.Size = New Size(993, 221)
+        FlowLayoutPanel1.TabIndex = 2
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel1.BorderStyle = BorderStyle.FixedSingle
-        Panel1.Controls.Add(labelNoOrder)
-        Panel1.Controls.Add(Label1)
+        Panel1.Controls.Add(LabelNoOrder)
+        Panel1.Controls.Add(Label2)
         Panel1.Location = New Point(3, 3)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(323, 49)
         Panel1.TabIndex = 0
         ' 
-        ' labelNoOrder
+        ' LabelNoOrder
         ' 
-        labelNoOrder.Dock = DockStyle.Right
-        labelNoOrder.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
-        labelNoOrder.ForeColor = SystemColors.Control
-        labelNoOrder.Location = New Point(120, 0)
-        labelNoOrder.Margin = New Padding(3, 7, 3, 0)
-        labelNoOrder.Name = "labelNoOrder"
-        labelNoOrder.Size = New Size(201, 47)
-        labelNoOrder.TabIndex = 1
-        labelNoOrder.Text = "123456789"
-        labelNoOrder.TextAlign = ContentAlignment.MiddleRight
+        LabelNoOrder.Dock = DockStyle.Right
+        LabelNoOrder.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        LabelNoOrder.ForeColor = SystemColors.Control
+        LabelNoOrder.Location = New Point(120, 0)
+        LabelNoOrder.Margin = New Padding(3, 7, 3, 0)
+        LabelNoOrder.Name = "LabelNoOrder"
+        LabelNoOrder.Size = New Size(201, 47)
+        LabelNoOrder.TabIndex = 1
+        LabelNoOrder.Text = "-;-;-"
+        LabelNoOrder.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' Label1
+        ' Label2
         ' 
-        Label1.Dock = DockStyle.Left
-        Label1.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = SystemColors.Control
-        Label1.Location = New Point(0, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(114, 47)
-        Label1.TabIndex = 0
-        Label1.Text = "No. Order"
-        Label1.TextAlign = ContentAlignment.MiddleLeft
+        Label2.Dock = DockStyle.Left
+        Label2.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.ForeColor = SystemColors.Control
+        Label2.Location = New Point(0, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(114, 47)
+        Label2.TabIndex = 0
+        Label2.Text = "No. Order"
+        Label2.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel2
         ' 
@@ -185,12 +223,48 @@ Partial Class FormOpenTableLos
         Label3.Text = "Paket"
         Label3.TextAlign = ContentAlignment.MiddleLeft
         ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel3.BorderStyle = BorderStyle.FixedSingle
+        Panel3.Controls.Add(labelAkhirHargaSiang)
+        Panel3.Controls.Add(Label5)
+        Panel3.Location = New Point(661, 3)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(323, 49)
+        Panel3.TabIndex = 2
+        ' 
+        ' labelAkhirHargaSiang
+        ' 
+        labelAkhirHargaSiang.Dock = DockStyle.Right
+        labelAkhirHargaSiang.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        labelAkhirHargaSiang.ForeColor = SystemColors.Control
+        labelAkhirHargaSiang.Location = New Point(208, 0)
+        labelAkhirHargaSiang.Margin = New Padding(3, 7, 3, 0)
+        labelAkhirHargaSiang.Name = "labelAkhirHargaSiang"
+        labelAkhirHargaSiang.Size = New Size(113, 47)
+        labelAkhirHargaSiang.TabIndex = 1
+        labelAkhirHargaSiang.Text = "-;-;-"
+        labelAkhirHargaSiang.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' Label5
+        ' 
+        Label5.Dock = DockStyle.Left
+        Label5.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label5.ForeColor = SystemColors.Control
+        Label5.Location = New Point(0, 0)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(202, 47)
+        Label5.TabIndex = 0
+        Label5.Text = "Akhir Harga Siang"
+        Label5.TextAlign = ContentAlignment.MiddleLeft
+        ' 
         ' Panel4
         ' 
         Panel4.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel4.BorderStyle = BorderStyle.FixedSingle
         Panel4.Controls.Add(Label7)
-        Panel4.Location = New Point(661, 3)
+        Panel4.Location = New Point(3, 58)
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(151, 49)
         Panel4.TabIndex = 3
@@ -212,7 +286,7 @@ Partial Class FormOpenTableLos
         Panel5.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel5.BorderStyle = BorderStyle.FixedSingle
         Panel5.Controls.Add(dropdownPilihTable)
-        Panel5.Location = New Point(818, 3)
+        Panel5.Location = New Point(160, 58)
         Panel5.Name = "Panel5"
         Panel5.Size = New Size(165, 49)
         Panel5.TabIndex = 4
@@ -225,12 +299,120 @@ Partial Class FormOpenTableLos
         dropdownPilihTable.Size = New Size(151, 28)
         dropdownPilihTable.TabIndex = 0
         ' 
+        ' Panel6
+        ' 
+        Panel6.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel6.BorderStyle = BorderStyle.FixedSingle
+        Panel6.Controls.Add(labelHargaSiang)
+        Panel6.Controls.Add(Label9)
+        Panel6.Location = New Point(331, 58)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(323, 49)
+        Panel6.TabIndex = 5
+        ' 
+        ' labelHargaSiang
+        ' 
+        labelHargaSiang.Dock = DockStyle.Right
+        labelHargaSiang.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        labelHargaSiang.ForeColor = SystemColors.Control
+        labelHargaSiang.Location = New Point(120, 0)
+        labelHargaSiang.Margin = New Padding(3, 7, 3, 0)
+        labelHargaSiang.Name = "labelHargaSiang"
+        labelHargaSiang.Size = New Size(201, 47)
+        labelHargaSiang.TabIndex = 1
+        labelHargaSiang.Text = "-;-;-"
+        labelHargaSiang.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' Label9
+        ' 
+        Label9.Dock = DockStyle.Left
+        Label9.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label9.ForeColor = SystemColors.Control
+        Label9.Location = New Point(0, 0)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(114, 47)
+        Label9.TabIndex = 0
+        Label9.Text = "Harga Siang"
+        Label9.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel7
+        ' 
+        Panel7.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel7.BorderStyle = BorderStyle.FixedSingle
+        Panel7.Controls.Add(labelAkhirHargaMalam)
+        Panel7.Controls.Add(Label11)
+        Panel7.Location = New Point(660, 58)
+        Panel7.Name = "Panel7"
+        Panel7.Size = New Size(323, 49)
+        Panel7.TabIndex = 6
+        ' 
+        ' labelAkhirHargaMalam
+        ' 
+        labelAkhirHargaMalam.Dock = DockStyle.Right
+        labelAkhirHargaMalam.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        labelAkhirHargaMalam.ForeColor = SystemColors.Control
+        labelAkhirHargaMalam.Location = New Point(208, 0)
+        labelAkhirHargaMalam.Margin = New Padding(3, 7, 3, 0)
+        labelAkhirHargaMalam.Name = "labelAkhirHargaMalam"
+        labelAkhirHargaMalam.Size = New Size(113, 47)
+        labelAkhirHargaMalam.TabIndex = 2
+        labelAkhirHargaMalam.Text = "-;-;-"
+        labelAkhirHargaMalam.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' Label11
+        ' 
+        Label11.Dock = DockStyle.Left
+        Label11.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label11.ForeColor = SystemColors.Control
+        Label11.Location = New Point(0, 0)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(213, 47)
+        Label11.TabIndex = 0
+        Label11.Text = "Akhir Harga Malam"
+        Label11.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' labelHargaMalam
+        ' 
+        labelHargaMalam.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        labelHargaMalam.BorderStyle = BorderStyle.FixedSingle
+        labelHargaMalam.Controls.Add(labelisihargamalam)
+        labelHargaMalam.Controls.Add(Label15)
+        labelHargaMalam.Location = New Point(333, 113)
+        labelHargaMalam.Name = "labelHargaMalam"
+        labelHargaMalam.Size = New Size(323, 49)
+        labelHargaMalam.TabIndex = 9
+        ' 
+        ' labelisihargamalam
+        ' 
+        labelisihargamalam.Dock = DockStyle.Right
+        labelisihargamalam.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        labelisihargamalam.ForeColor = SystemColors.Control
+        labelisihargamalam.Location = New Point(121, 0)
+        labelisihargamalam.Margin = New Padding(3, 7, 3, 0)
+        labelisihargamalam.Name = "labelisihargamalam"
+        labelisihargamalam.Size = New Size(200, 47)
+        labelisihargamalam.TabIndex = 1
+        labelisihargamalam.Text = "-;-;-"
+        labelisihargamalam.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' Label15
+        ' 
+        Label15.Dock = DockStyle.Left
+        Label15.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label15.ForeColor = SystemColors.Control
+        Label15.Location = New Point(0, 0)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(123, 47)
+        Label15.TabIndex = 0
+        Label15.Text = "Harga Malam"
+        Label15.TextAlign = ContentAlignment.MiddleLeft
+        ' 
         ' Panel13
         ' 
         Panel13.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel13.BorderStyle = BorderStyle.FixedSingle
         Panel13.Controls.Add(Label18)
-        Panel13.Location = New Point(3, 58)
+        Panel13.Location = New Point(3, 113)
         Panel13.Name = "Panel13"
         Panel13.Size = New Size(151, 49)
         Panel13.TabIndex = 12
@@ -252,7 +434,7 @@ Partial Class FormOpenTableLos
         Panel14.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
         Panel14.BorderStyle = BorderStyle.FixedSingle
         Panel14.Controls.Add(textboxNamaTamu)
-        Panel14.Location = New Point(160, 58)
+        Panel14.Location = New Point(160, 113)
         Panel14.Name = "Panel14"
         Panel14.Size = New Size(167, 49)
         Panel14.TabIndex = 13
@@ -264,47 +446,47 @@ Partial Class FormOpenTableLos
         textboxNamaTamu.Size = New Size(125, 27)
         textboxNamaTamu.TabIndex = 1
         ' 
-        ' Panel3
+        ' Panel15
         ' 
-        Panel3.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        Panel3.BorderStyle = BorderStyle.FixedSingle
-        Panel3.Controls.Add(labelHargaMenit)
-        Panel3.Controls.Add(Label4)
-        Panel3.Location = New Point(333, 58)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(323, 49)
-        Panel3.TabIndex = 16
+        Panel15.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel15.BorderStyle = BorderStyle.FixedSingle
+        Panel15.Controls.Add(labelDiskonDurasi)
+        Panel15.Controls.Add(Label21)
+        Panel15.Location = New Point(662, 113)
+        Panel15.Name = "Panel15"
+        Panel15.Size = New Size(323, 49)
+        Panel15.TabIndex = 14
         ' 
-        ' labelHargaMenit
+        ' labelDiskonDurasi
         ' 
-        labelHargaMenit.Dock = DockStyle.Right
-        labelHargaMenit.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
-        labelHargaMenit.ForeColor = SystemColors.Control
-        labelHargaMenit.Location = New Point(162, 0)
-        labelHargaMenit.Margin = New Padding(3, 7, 3, 0)
-        labelHargaMenit.Name = "labelHargaMenit"
-        labelHargaMenit.Size = New Size(159, 47)
-        labelHargaMenit.TabIndex = 1
-        labelHargaMenit.Text = "-;-;-"
-        labelHargaMenit.TextAlign = ContentAlignment.MiddleRight
+        labelDiskonDurasi.Dock = DockStyle.Right
+        labelDiskonDurasi.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        labelDiskonDurasi.ForeColor = SystemColors.Control
+        labelDiskonDurasi.Location = New Point(255, 0)
+        labelDiskonDurasi.Margin = New Padding(3, 7, 3, 0)
+        labelDiskonDurasi.Name = "labelDiskonDurasi"
+        labelDiskonDurasi.Size = New Size(66, 47)
+        labelDiskonDurasi.TabIndex = 1
+        labelDiskonDurasi.Text = "-;-;-"
+        labelDiskonDurasi.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' Label4
+        ' Label21
         ' 
-        Label4.Dock = DockStyle.Left
-        Label4.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label4.ForeColor = SystemColors.Control
-        Label4.Location = New Point(0, 0)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(155, 47)
-        Label4.TabIndex = 0
-        Label4.Text = "Harga/Menit (Rp)"
-        Label4.TextAlign = ContentAlignment.MiddleLeft
+        Label21.Dock = DockStyle.Left
+        Label21.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label21.ForeColor = SystemColors.Control
+        Label21.Location = New Point(0, 0)
+        Label21.Name = "Label21"
+        Label21.Size = New Size(185, 47)
+        Label21.TabIndex = 0
+        Label21.Text = "Diskon Paket (%)"
+        Label21.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' btnFixOrder
         ' 
         btnFixOrder.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnFixOrder.ForeColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        btnFixOrder.Location = New Point(3, 113)
+        btnFixOrder.Location = New Point(3, 168)
         btnFixOrder.Name = "btnFixOrder"
         btnFixOrder.Size = New Size(321, 48)
         btnFixOrder.TabIndex = 15
@@ -315,24 +497,24 @@ Partial Class FormOpenTableLos
         ' 
         DataGridView1.BackgroundColor = SystemColors.Control
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.Control
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaLos, discTable})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaSiang, hargaMalam, akhirsiang, akhirMalam, discTable})
         DataGridView1.Dock = DockStyle.Top
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(0, 291)
-        DataGridView1.Margin = New Padding(3, 4, 3, 4)
+        DataGridView1.Location = New Point(0, 315)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(1010, 253)
+        DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView1.Size = New Size(1001, 226)
         DataGridView1.TabIndex = 8
         ' 
         ' namaPaket
@@ -343,12 +525,33 @@ Partial Class FormOpenTableLos
         namaPaket.MinimumWidth = 6
         namaPaket.Name = "namaPaket"
         ' 
-        ' hargaLos
+        ' hargaSiang
         ' 
-        hargaLos.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        hargaLos.HeaderText = "Harga per Menit (Rp)"
-        hargaLos.MinimumWidth = 6
-        hargaLos.Name = "hargaLos"
+        hargaSiang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        hargaSiang.HeaderText = "Harga Siang "
+        hargaSiang.MinimumWidth = 6
+        hargaSiang.Name = "hargaSiang"
+        ' 
+        ' hargaMalam
+        ' 
+        hargaMalam.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        hargaMalam.HeaderText = "Harga Malam "
+        hargaMalam.MinimumWidth = 6
+        hargaMalam.Name = "hargaMalam"
+        ' 
+        ' akhirsiang
+        ' 
+        akhirsiang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        akhirsiang.HeaderText = "Jam Akhir Harga Siang"
+        akhirsiang.MinimumWidth = 6
+        akhirsiang.Name = "akhirsiang"
+        ' 
+        ' akhirMalam
+        ' 
+        akhirMalam.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        akhirMalam.HeaderText = "Jam Akhir Harga Malam"
+        akhirMalam.MinimumWidth = 6
+        akhirMalam.Name = "akhirMalam"
         ' 
         ' discTable
         ' 
@@ -358,59 +561,11 @@ Partial Class FormOpenTableLos
         discTable.MinimumWidth = 6
         discTable.Name = "discTable"
         ' 
-        ' Label17
-        ' 
-        Label17.BorderStyle = BorderStyle.FixedSingle
-        Label17.Dock = DockStyle.Top
-        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label17.Location = New Point(0, 253)
-        Label17.Name = "Label17"
-        Label17.Size = New Size(1010, 38)
-        Label17.TabIndex = 7
-        Label17.Text = "Daftar Paket"
-        Label17.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' Panel6
-        ' 
-        Panel6.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        Panel6.BorderStyle = BorderStyle.FixedSingle
-        Panel6.Controls.Add(labelDiskonLos)
-        Panel6.Controls.Add(Label5)
-        Panel6.Location = New Point(662, 58)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(323, 49)
-        Panel6.TabIndex = 17
-        ' 
-        ' labelDiskonLos
-        ' 
-        labelDiskonLos.Dock = DockStyle.Right
-        labelDiskonLos.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
-        labelDiskonLos.ForeColor = SystemColors.Control
-        labelDiskonLos.Location = New Point(162, 0)
-        labelDiskonLos.Margin = New Padding(3, 7, 3, 0)
-        labelDiskonLos.Name = "labelDiskonLos"
-        labelDiskonLos.Size = New Size(159, 47)
-        labelDiskonLos.TabIndex = 1
-        labelDiskonLos.Text = "-;-;-"
-        labelDiskonLos.TextAlign = ContentAlignment.MiddleRight
-        ' 
-        ' Label5
-        ' 
-        Label5.Dock = DockStyle.Left
-        Label5.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label5.ForeColor = SystemColors.Control
-        Label5.Location = New Point(0, 0)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(155, 47)
-        Label5.TabIndex = 0
-        Label5.Text = "Diskon Paket (%)"
-        Label5.TextAlign = ContentAlignment.MiddleLeft
-        ' 
         ' FormOpenTableLos
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1010, 544)
+        ClientSize = New Size(1001, 544)
         Controls.Add(DataGridView1)
         Controls.Add(Label17)
         Controls.Add(TableLayoutPanel1)
@@ -423,48 +578,60 @@ Partial Class FormOpenTableLos
         FlowLayoutPanel1.ResumeLayout(False)
         Panel1.ResumeLayout(False)
         Panel2.ResumeLayout(False)
+        Panel3.ResumeLayout(False)
         Panel4.ResumeLayout(False)
         Panel5.ResumeLayout(False)
+        Panel6.ResumeLayout(False)
+        Panel7.ResumeLayout(False)
+        labelHargaMalam.ResumeLayout(False)
         Panel13.ResumeLayout(False)
         Panel14.ResumeLayout(False)
         Panel14.PerformLayout()
-        Panel3.ResumeLayout(False)
+        Panel15.ResumeLayout(False)
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
-        Panel6.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents LabelOpenTable As Label
+    Friend WithEvents Label17 As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents labelNoOrder As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LabelNoOrder As Label
+    Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents labelPaket As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents labelAkhirHargaSiang As Label
+    Friend WithEvents Label5 As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents dropdownPilihTable As ComboBox
-    Friend WithEvents Panel11 As Panel
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Panel12 As Panel
-    Friend WithEvents textboxDurasiMain As TextBox
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents labelHargaSiang As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents labelAkhirHargaMalam As Label
+    Friend WithEvents Label11 As Label
     Friend WithEvents Panel13 As Panel
     Friend WithEvents Label18 As Label
     Friend WithEvents Panel14 As Panel
     Friend WithEvents textboxNamaTamu As TextBox
+    Friend WithEvents labelHargaMalam As Panel
+    Friend WithEvents labelisihargamalam As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Panel15 As Panel
+    Friend WithEvents labelDiskonDurasi As Label
+    Friend WithEvents Label21 As Label
     Friend WithEvents btnFixOrder As Button
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents labelHargaMenit As Label
-    Friend WithEvents Label4 As Label
+    Friend WithEvents Label1 As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Label17 As Label
     Friend WithEvents namaPaket As DataGridViewTextBoxColumn
-    Friend WithEvents hargaLos As DataGridViewTextBoxColumn
+    Friend WithEvents hargaSiang As DataGridViewTextBoxColumn
+    Friend WithEvents hargaMalam As DataGridViewTextBoxColumn
+    Friend WithEvents akhirsiang As DataGridViewTextBoxColumn
+    Friend WithEvents akhirMalam As DataGridViewTextBoxColumn
     Friend WithEvents discTable As DataGridViewTextBoxColumn
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents labelDiskonLos As Label
-    Friend WithEvents Label5 As Label
 End Class
