@@ -136,6 +136,17 @@ Partial Class FormBilling
         Label63 = New Label()
         TimerSaatIni = New Timer(components)
         LabelTimerSaatIni = New Label()
+        timerTable1 = New Timer(components)
+        Timer1 = New Timer(components)
+        Timer2 = New Timer(components)
+        Timer3 = New Timer(components)
+        timerTable2 = New Timer(components)
+        timerTable3 = New Timer(components)
+        timerTable4 = New Timer(components)
+        timerTable5 = New Timer(components)
+        timerTable6 = New Timer(components)
+        timerTable7 = New Timer(components)
+        timerTable8 = New Timer(components)
         FlowLayoutPanel2.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
@@ -1627,6 +1638,9 @@ Partial Class FormBilling
         LabelTimerSaatIni.TabIndex = 4
         LabelTimerSaatIni.TextAlign = ContentAlignment.MiddleRight
         ' 
+        ' timerTable1
+        ' 
+        ' 
         ' FormBilling
         ' 
         AutoScaleDimensions = New SizeF(8.0F, 20.0F)
@@ -1795,4 +1809,15 @@ Partial Class FormBilling
     Friend WithEvents LabelTimerSaatIni As Label
     Friend WithEvents btnOpenPaket As Button
     Friend WithEvents btnOpenDurasi As Button
+    Friend WithEvents timerTable1 As Timer
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents Timer3 As Timer
+    Friend WithEvents timerTable2 As Timer
+    Friend WithEvents timerTable3 As Timer
+    Friend WithEvents timerTable4 As Timer
+    Friend WithEvents timerTable5 As Timer
+    Friend WithEvents timerTable6 As Timer
+    Friend WithEvents timerTable7 As Timer
+    Friend WithEvents timerTable8 As Timer
 End Class

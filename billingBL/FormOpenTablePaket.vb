@@ -4,7 +4,7 @@ Public Class FormOpenTablePaket
     Sub tampilmeja()
         connect()
 
-        DA = New MySqlDataAdapter("SELECT * FROM tb_meja", Koneksi)
+        DA = New MySqlDataAdapter("SELECT * FROM tb_meja WHERE status='kosong'", Koneksi)
         DT = New DataTable
         DA.Fill(DT)
         For i = 0 To DT.Rows.Count - 1
@@ -52,6 +52,35 @@ Public Class FormOpenTablePaket
         getNoOrder()
     End Sub
 
+    Sub inputOrder()
+        Dim mulai As DateTime = DateTime.Now
+        Dim mulaiString As String = mulai.ToString("HH:mm:ss")
+        'Dim durasi As TimeSpan = New TimeSpan(Convert.ToInt32(textboxDurasiMain.Text), 0, 0)
+        Dim selesai As DateTime = mulai.AddHours(Convert.ToDouble(labelDurasiPaket.Text))
+        Dim selesaiString As String = selesai.ToString("HH:mm:ss")
+        Dim harga As Integer = Integer.Parse(labelHargaPaket.Text)
+
+        Try
+            connect()
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga) VALUES ('" & labelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(labelDurasiPaket.Text) & "', '" & harga & "')", Koneksi)
+            CMD.ExecuteNonQuery()
+            disconnect()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Sub updateMeja()
+        Try
+            connect()
+            CMD = New MySqlCommand("UPDATE tb_meja SET status='isi' WHERE nama_meja='" & dropdownPilihTable.Text & "'", Koneksi)
+            CMD.ExecuteNonQuery()
+            disconnect()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         labelPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(0).Value, String)
         labelHargaPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(1).Value, String)
@@ -60,4 +89,9 @@ Public Class FormOpenTablePaket
 
     End Sub
 
+    Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
+        inputOrder()
+        updateMeja()
+        Close()
+    End Sub
 End Class
