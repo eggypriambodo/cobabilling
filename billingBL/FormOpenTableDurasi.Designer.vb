@@ -550,6 +550,7 @@ Partial Class FormOpenTableDurasi
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.Location = New Point(0, 307)
         DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -563,6 +564,7 @@ Partial Class FormOpenTableDurasi
         namaPaket.HeaderText = "Nama Paket"
         namaPaket.MinimumWidth = 6
         namaPaket.Name = "namaPaket"
+        namaPaket.ReadOnly = True
         ' 
         ' hargaSiang
         ' 
@@ -570,6 +572,7 @@ Partial Class FormOpenTableDurasi
         hargaSiang.HeaderText = "Harga Siang "
         hargaSiang.MinimumWidth = 6
         hargaSiang.Name = "hargaSiang"
+        hargaSiang.ReadOnly = True
         ' 
         ' hargaMalam
         ' 
@@ -577,6 +580,7 @@ Partial Class FormOpenTableDurasi
         hargaMalam.HeaderText = "Harga Malam "
         hargaMalam.MinimumWidth = 6
         hargaMalam.Name = "hargaMalam"
+        hargaMalam.ReadOnly = True
         ' 
         ' akhirsiang
         ' 
@@ -584,6 +588,7 @@ Partial Class FormOpenTableDurasi
         akhirsiang.HeaderText = "Jam Akhir Harga Siang"
         akhirsiang.MinimumWidth = 6
         akhirsiang.Name = "akhirsiang"
+        akhirsiang.ReadOnly = True
         ' 
         ' akhirMalam
         ' 
@@ -591,6 +596,7 @@ Partial Class FormOpenTableDurasi
         akhirMalam.HeaderText = "Jam Akhir Harga Malam"
         akhirMalam.MinimumWidth = 6
         akhirMalam.Name = "akhirMalam"
+        akhirMalam.ReadOnly = True
         ' 
         ' discTable
         ' 
@@ -599,6 +605,7 @@ Partial Class FormOpenTableDurasi
         discTable.HeaderText = "Disc Table (%)"
         discTable.MinimumWidth = 6
         discTable.Name = "discTable"
+        discTable.ReadOnly = True
         ' 
         ' FormOpenTableDurasi
         ' 

@@ -13,15 +13,18 @@ Module ModuleDB
 
     Public Sub connect()
         Try
-            If Koneksi Is Nothing Then Koneksi.Close()
-            Koneksi.Open()
+            If Koneksi.State = ConnectionState.Closed Then
+                Koneksi.Open()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
 
     Function disconnect()
-        Koneksi.Close()
+        If Koneksi.State = ConnectionState.Open Then
+            Koneksi.Close()
+        End If
         Return Koneksi
     End Function
 End Module

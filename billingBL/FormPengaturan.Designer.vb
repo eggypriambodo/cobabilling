@@ -64,6 +64,10 @@ Partial Class FormPengaturan
         hargaLos = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn2 = New DataGridViewTextBoxColumn()
         Label3 = New Label()
+        btnEditAdmin = New Button()
+        btnEditLos = New Button()
+        btnEditDurasi = New Button()
+        btnEditPromo = New Button()
         Panel1.SuspendLayout()
         Panel4.SuspendLayout()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
@@ -102,6 +106,7 @@ Partial Class FormPengaturan
         ' 
         ' Panel4
         ' 
+        Panel4.Controls.Add(btnEditPromo)
         Panel4.Controls.Add(btnTambahPromo)
         Panel4.Controls.Add(btnHapusPromo)
         Panel4.Dock = DockStyle.Top
@@ -113,7 +118,7 @@ Partial Class FormPengaturan
         ' btnTambahPromo
         ' 
         btnTambahPromo.Dock = DockStyle.Right
-        btnTambahPromo.Location = New Point(475, 0)
+        btnTambahPromo.Location = New Point(569, 0)
         btnTambahPromo.Name = "btnTambahPromo"
         btnTambahPromo.Size = New Size(94, 46)
         btnTambahPromo.TabIndex = 1
@@ -122,8 +127,8 @@ Partial Class FormPengaturan
         ' 
         ' btnHapusPromo
         ' 
-        btnHapusPromo.Dock = DockStyle.Right
-        btnHapusPromo.Location = New Point(569, 0)
+        btnHapusPromo.Dock = DockStyle.Left
+        btnHapusPromo.Location = New Point(0, 0)
         btnHapusPromo.Name = "btnHapusPromo"
         btnHapusPromo.Size = New Size(94, 46)
         btnHapusPromo.TabIndex = 0
@@ -197,6 +202,7 @@ Partial Class FormPengaturan
         ' 
         ' Panel3
         ' 
+        Panel3.Controls.Add(btnEditAdmin)
         Panel3.Controls.Add(btnTambahAdmin)
         Panel3.Controls.Add(btnHapusAdmin)
         Panel3.Dock = DockStyle.Top
@@ -208,7 +214,7 @@ Partial Class FormPengaturan
         ' btnTambahAdmin
         ' 
         btnTambahAdmin.Dock = DockStyle.Right
-        btnTambahAdmin.Location = New Point(475, 0)
+        btnTambahAdmin.Location = New Point(569, 0)
         btnTambahAdmin.Name = "btnTambahAdmin"
         btnTambahAdmin.Size = New Size(94, 46)
         btnTambahAdmin.TabIndex = 1
@@ -217,8 +223,8 @@ Partial Class FormPengaturan
         ' 
         ' btnHapusAdmin
         ' 
-        btnHapusAdmin.Dock = DockStyle.Right
-        btnHapusAdmin.Location = New Point(569, 0)
+        btnHapusAdmin.Dock = DockStyle.Left
+        btnHapusAdmin.Location = New Point(0, 0)
         btnHapusAdmin.Name = "btnHapusAdmin"
         btnHapusAdmin.Size = New Size(94, 46)
         btnHapusAdmin.TabIndex = 0
@@ -291,6 +297,7 @@ Partial Class FormPengaturan
         ' 
         ' Panel6
         ' 
+        Panel6.Controls.Add(btnEditDurasi)
         Panel6.Controls.Add(btnTambahDurasi)
         Panel6.Controls.Add(btnHapusDurasi)
         Panel6.Dock = DockStyle.Top
@@ -302,7 +309,7 @@ Partial Class FormPengaturan
         ' btnTambahDurasi
         ' 
         btnTambahDurasi.Dock = DockStyle.Right
-        btnTambahDurasi.Location = New Point(475, 0)
+        btnTambahDurasi.Location = New Point(569, 0)
         btnTambahDurasi.Name = "btnTambahDurasi"
         btnTambahDurasi.Size = New Size(94, 46)
         btnTambahDurasi.TabIndex = 1
@@ -311,8 +318,8 @@ Partial Class FormPengaturan
         ' 
         ' btnHapusDurasi
         ' 
-        btnHapusDurasi.Dock = DockStyle.Right
-        btnHapusDurasi.Location = New Point(569, 0)
+        btnHapusDurasi.Dock = DockStyle.Left
+        btnHapusDurasi.Location = New Point(0, 0)
         btnHapusDurasi.Name = "btnHapusDurasi"
         btnHapusDurasi.Size = New Size(94, 46)
         btnHapusDurasi.TabIndex = 0
@@ -400,6 +407,7 @@ Partial Class FormPengaturan
         ' 
         ' Panel5
         ' 
+        Panel5.Controls.Add(btnEditLos)
         Panel5.Controls.Add(btnTambahLos)
         Panel5.Controls.Add(btnHapusLos)
         Panel5.Dock = DockStyle.Top
@@ -411,7 +419,7 @@ Partial Class FormPengaturan
         ' btnTambahLos
         ' 
         btnTambahLos.Dock = DockStyle.Right
-        btnTambahLos.Location = New Point(475, 0)
+        btnTambahLos.Location = New Point(569, 0)
         btnTambahLos.Name = "btnTambahLos"
         btnTambahLos.Size = New Size(94, 46)
         btnTambahLos.TabIndex = 1
@@ -420,8 +428,8 @@ Partial Class FormPengaturan
         ' 
         ' btnHapusLos
         ' 
-        btnHapusLos.Dock = DockStyle.Right
-        btnHapusLos.Location = New Point(569, 0)
+        btnHapusLos.Dock = DockStyle.Left
+        btnHapusLos.Location = New Point(0, 0)
         btnHapusLos.Name = "btnHapusLos"
         btnHapusLos.Size = New Size(94, 46)
         btnHapusLos.TabIndex = 0
@@ -487,6 +495,46 @@ Partial Class FormPengaturan
         Label3.Text = "Daftar Paket Los Time"
         Label3.TextAlign = ContentAlignment.MiddleCenter
         ' 
+        ' btnEditAdmin
+        ' 
+        btnEditAdmin.Dock = DockStyle.Left
+        btnEditAdmin.Location = New Point(94, 0)
+        btnEditAdmin.Name = "btnEditAdmin"
+        btnEditAdmin.Size = New Size(94, 46)
+        btnEditAdmin.TabIndex = 2
+        btnEditAdmin.Text = "Edit"
+        btnEditAdmin.UseVisualStyleBackColor = True
+        ' 
+        ' btnEditLos
+        ' 
+        btnEditLos.Dock = DockStyle.Left
+        btnEditLos.Location = New Point(94, 0)
+        btnEditLos.Name = "btnEditLos"
+        btnEditLos.Size = New Size(94, 46)
+        btnEditLos.TabIndex = 3
+        btnEditLos.Text = "Edit"
+        btnEditLos.UseVisualStyleBackColor = True
+        ' 
+        ' btnEditDurasi
+        ' 
+        btnEditDurasi.Dock = DockStyle.Left
+        btnEditDurasi.Location = New Point(94, 0)
+        btnEditDurasi.Name = "btnEditDurasi"
+        btnEditDurasi.Size = New Size(94, 46)
+        btnEditDurasi.TabIndex = 4
+        btnEditDurasi.Text = "Edit"
+        btnEditDurasi.UseVisualStyleBackColor = True
+        ' 
+        ' btnEditPromo
+        ' 
+        btnEditPromo.Dock = DockStyle.Left
+        btnEditPromo.Location = New Point(94, 0)
+        btnEditPromo.Name = "btnEditPromo"
+        btnEditPromo.Size = New Size(94, 46)
+        btnEditPromo.TabIndex = 4
+        btnEditPromo.Text = "Edit"
+        btnEditPromo.UseVisualStyleBackColor = True
+        ' 
         ' FormPengaturan
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -548,4 +596,8 @@ Partial Class FormPengaturan
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents hargaLos As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents btnEditPromo As Button
+    Friend WithEvents btnEditAdmin As Button
+    Friend WithEvents btnEditDurasi As Button
+    Friend WithEvents btnEditLos As Button
 End Class

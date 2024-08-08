@@ -1,14 +1,18 @@
 ﻿Imports System.Drawing.Printing
+Imports System.Globalization
 Imports System.Runtime.CompilerServices
 Imports MySql.Data.MySqlClient
 
 Public Class FormDetailTable
 
     Public Shared Instance As FormDetailTable
+    Private Form As FormBilling
 
     Dim WithEvents PD As New PrintDocument
     Dim PPD As New PrintPreviewDialog
     Dim longpaper As Integer
+    Dim grandTotal As Integer = 0
+    Dim metodePembayaran As String
 
 
     Private Sub btnCetak_Click(sender As Object, e As EventArgs) Handles btnCetak.Click
@@ -18,7 +22,9 @@ Public Class FormDetailTable
     End Sub
 
     Private Sub btnBayar_Click(sender As Object, e As EventArgs) Handles btnBayar.Click
+
         FormBilling.Instance.UbahStatusTableCheckout()
+        MessageBox.Show("Pembayaran berhasil, meja telah kosong kembali.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Sub changelongpaper()
@@ -67,42 +73,129 @@ Public Class FormDetailTable
         e.Graphics.DrawString("Telp. 031-1234567", f10, Brushes.Black, centermargin, 60, center)
         e.Graphics.DrawString(line, f10, Brushes.Black, 0, 75)
 
-        e.Graphics.DrawString("Tanggal : " & Date.Now.ToString("dd MMM yyyy HH:mm:ss"), f10, Brushes.Black, 5, 100)
-        e.Graphics.DrawString("No. Order : " & labelNoOrder.Text, f10, Brushes.Black, 5, 115)
+        e.Graphics.DrawString(labelNoTable.Text & "                                             " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
+        e.Graphics.DrawString("No. Order : " & labelNoOrder.Text, f10, Brushes.Black, 5, 125)
+        e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 140)
+        e.Graphics.DrawString("Paket : " & labelPaket.Text, f10, Brushes.Black, 5, 155)
+        e.Graphics.DrawString("No. Meja : " & labelNoTable.Text, f10, Brushes.Black, 5, 170)
+        e.Graphics.DrawString("Waktu Mulai : " & labelWaktuMulai.Text, f10, Brushes.Black, 5, 185)
+        e.Graphics.DrawString("Waktu Selesai : " & labelWaktuSelesai.Text, f10, Brushes.Black, 5, 200)
+        e.Graphics.DrawString("Durasi : " & labelDuration.Text, f10, Brushes.Black, 5, 215)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 230)
+
+        e.Graphics.DrawString("Metode Pembayaran :" & metodePembayaran, f10, Brushes.Black, 5, 250)
+        e.Graphics.DrawString("Subtotal : " & labelSubtotalTable.Text, f10, Brushes.Black, 5, 265)
+        e.Graphics.DrawString("Diskon : " & labelDiskonTable.Text & "%", f10, Brushes.Black, 5, 280)
+        e.Graphics.DrawString("Total : " & labelTotalTable.Text, f10, Brushes.Black, 5, 295)
+        e.Graphics.DrawString("Tax Service : " & labelTaxService.Text, f10, Brushes.Black, 5, 310)
+        e.Graphics.DrawString("PPn : " & labelPPn.Text, f10, Brushes.Black, 5, 325)
+        e.Graphics.DrawString("Grand Total : " & tboxGrandTotal.Text, f10, Brushes.Black, 5, 340)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 360)
 
     End Sub
 
     Public Sub ambilData(meja As String)
 
+        Try
+            connect()
 
-        connect()
+            DA = New MySqlDataAdapter("SELECT * FROM tb_detailbilling WHERE no_meja = '" & meja & "'", Koneksi)
+            DT = New DataTable
+            DA.Fill(DT)
 
-        DA = New MySqlDataAdapter("SELECT * FROM tb_detailbilling WHERE no_meja = '" & meja & "'", Koneksi)
-        DT = New DataTable
-        DA.Fill(DT)
+            For i = 0 To DT.Rows.Count - 1
 
-        For i = 0 To DT.Rows.Count - 1
-            labelTanggal.Text = Date.Now.ToString("dd MMM yyyy HH:mm:ss")
-            labelNoOrder.Text = DT.Rows(i).Item(0)
-            labelPaket.Text = DT.Rows(i).Item(2)
-            labelNoTable.Text = DT.Rows(i).Item(3)
-            labelWaktuMulai.Text = DT.Rows(i).Item(4)
-            labelWaktuSelesai.Text = DT.Rows(i).Item(5)
-            labelDuration.Text = DT.Rows(i).Item(6) & "Jam"
-            labelSubtotalTable.Text = "Rp. " & DT.Rows(i).Item(7)
-            labelDiskonTable.Text = "-"
-            labelTotalTable.Text = "Rp. " & Integer.Parse(labelSubtotalTable.Text).ToString
-            labelTaxService.Text = "Rp. " & (Integer.Parse(labelTotalTable.Text) * 0.05).ToString
-            labelPPn.Text = "Rp. " & Integer.Parse(labelTotalTable.Text) * 0.1
-            tboxGrandTotal.Text = "Rp. " & Integer.Parse(labelTotalTable.Text) + Integer.Parse(labelTaxService.Text) + Integer.Parse(labelPPn.Text)
-            tbUangKembalian.Text = "Rp. " & Integer.Parse(tboxGrandTotal.Text) - Integer.Parse(tbUangDiterima.Text)
-            tbNamaTamu.Text = DT.Rows(i).Item(1)
-
-        Next
+                Dim subtotal As Integer = DT.Rows(i).Item(7)
+                Dim total As Integer = subtotal - (subtotal * DT.Rows(i).Item(8))
+                Dim taxservice As Integer = total * 0.05
+                Dim ppn As Integer = total * 0.1
+                grandTotal = total + taxservice + ppn
 
 
+                labelTanggal.Text = Date.Now.ToString("dd MMM yyyy HH:mm:ss")
+                labelNoOrder.Text = DT.Rows(i).Item(0)
+                labelPaket.Text = DT.Rows(i).Item(2)
+                labelNoTable.Text = DT.Rows(i).Item(3)
+                labelWaktuMulai.Text = DT.Rows(i).Item(4)
+                labelWaktuSelesai.Text = DT.Rows(i).Item(5)
+                labelDuration.Text = DT.Rows(i).Item(6) & "Jam"
+                labelSubtotalTable.Text = "Rp. " & subtotal
+                labelDiskonTable.Text = DT.Rows(i).Item(8)
+                labelTotalTable.Text = "Rp. " & total
+                labelTaxService.Text = "Rp. " & taxservice
+                labelPPn.Text = "Rp. " & ppn
+                tboxGrandTotal.Text = "Rp. " & FormatNumber(grandTotal, 0, TriState.True, TriState.False, TriState.True)
+                tbNamaTamu.Text = DT.Rows(i).Item(1)
 
-        disconnect()
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+
+            disconnect()
+        End Try
+
     End Sub
 
+
+    Private Sub HitungKembalian()
+        Dim uangKembalian As Integer
+        Dim uangDiterima As Integer = FormatNumber(uangDiterima, 0, TriState.True, TriState.False, TriState.True)
+
+
+        If Integer.TryParse(tbUangDiterima.Text, uangDiterima) Then
+
+            If uangDiterima >= grandTotal Then
+                uangKembalian = uangDiterima - grandTotal
+                tbUangKembalian.Text = FormatNumber(uangKembalian, 0, TriState.True, TriState.False, TriState.True)
+            Else
+                tbUangKembalian.Text = "Uang Kurang"
+            End If
+        Else
+            tbUangKembalian.Text = "Input Tidak Valid"
+        End If
+    End Sub
+
+    Private Sub tbUangDiterima_TextChanged(sender As Object, e As EventArgs) Handles tbUangDiterima.TextChanged
+
+        If tbUangDiterima.Text = "" Then
+            tbUangKembalian.Text = "0"
+        Else
+            tbUangDiterima.Text = tbUangDiterima.Text
+        End If
+        HitungKembalian()
+    End Sub
+
+    Private Function FormatCurrency(ByVal nilai As Decimal) As String
+        Return nilai.ToString("N0", CultureInfo.CreateSpecificCulture("id-ID"))
+    End Function
+    Private Sub rbtnQRIS_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnQRIS.CheckedChanged
+        tbUangDiterima.Enabled = False
+        tbUangDiterima.Text = grandTotal
+        tbUangKembalian.Text = "0"
+        metodePembayaran = "QRIS"
+
+
+    End Sub
+
+    Private Sub rbtnDebit_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnDebit.CheckedChanged
+        tbUangDiterima.Enabled = False
+        tbUangDiterima.Text = grandTotal
+        tbUangKembalian.Text = "0"
+        metodePembayaran = "Debit"
+    End Sub
+
+    Private Sub rbtnTransfer_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnTransfer.CheckedChanged
+        tbUangDiterima.Enabled = False
+        tbUangDiterima.Text = grandTotal
+        tbUangKembalian.Text = "0"
+        metodePembayaran = "Transfer"
+    End Sub
+
+    Private Sub rbtnCash_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnCash.CheckedChanged
+        tbUangDiterima.Enabled = True
+        tbUangKembalian.Text = "0"
+        tbUangDiterima.Text = 0
+        metodePembayaran = "Cash"
+    End Sub
 End Class

@@ -91,9 +91,34 @@ Public Class FormOpenTableLos
     End Sub
 
     Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
-        inputOrder()
-        updateMeja()
-        FormBilling.Instance.ubahStatusMeja()
-        Close()
+        Dim allValid As Boolean = True
+        allValid = TextBox_Validating(textboxNamaTamu, New System.ComponentModel.CancelEventArgs()) And allValid
+
+        If String.IsNullOrEmpty(dropdownPilihTable.Text) Then
+            MessageBox.Show("Pilih meja terlebih dahulu.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            allValid = False
+        End If
+
+        If String.IsNullOrEmpty(labelPaketLos.Text) OrElse labelPaketLos.Text = "-;-;-" Then
+            MessageBox.Show("Pilih paket terlebih dahulu.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            allValid = False
+        End If
+
+        If allValid Then
+            inputOrder()
+            updateMeja()
+            FormBilling.Instance.ubahStatusMeja()
+            Close()
+        End If
     End Sub
+
+    Private Function TextBox_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) As Boolean Handles textboxNamaTamu.Validating
+        Dim textBox As TextBox = DirectCast(sender, TextBox)
+        If String.IsNullOrWhiteSpace(textBox.Text) Then
+            MessageBox.Show("Nama Tamu Harus Diisi", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            e.Cancel = True
+            Return False
+        End If
+        Return True
+    End Function
 End Class
