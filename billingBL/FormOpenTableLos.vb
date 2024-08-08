@@ -4,7 +4,7 @@ Public Class FormOpenTableLos
     Sub tampilmeja()
         connect()
 
-        DA = New MySqlDataAdapter("SELECT * FROM tb_meja", Koneksi)
+        DA = New MySqlDataAdapter("SELECT * FROM tb_meja WHERE status='kosong'", Koneksi)
         DT = New DataTable
         DA.Fill(DT)
         For i = 0 To DT.Rows.Count - 1

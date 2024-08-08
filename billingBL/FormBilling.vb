@@ -78,18 +78,24 @@ Public Class FormBilling
                     statusTable2.BackColor = Color.Red
                     btnDetail2.Enabled = True
                     btnStopTable2.Enabled = True
-
-                    labTimeStart2.Text = DT.Rows(i).Item(4)
-                    labTimeStop2.Text = DT.Rows(i).Item(5)
-
-                    Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
-                    Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
-                    If waktuSelesai < waktuMulai Then
-                        Dim waktuTambah As New TimeSpan(24, 0, 0)
-                        countDownTime2 = waktuSelesai.Add(waktuTambah)
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        jenisPaket2 = "PAKET LOSTIME"
+                        labTimeStart2.Text = DT.Rows(i).Item(4)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        countDownTime2 = waktuMulai
                     Else
-                        countDownTime2 = waktuSelesai
+                        labTimeStart2.Text = DT.Rows(i).Item(4)
+                        labTimeStop2.Text = DT.Rows(i).Item(5)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
+                        If waktuSelesai < waktuMulai Then
+                            Dim waktuTambah As New TimeSpan(24, 0, 0)
+                            countDownTime2 = waktuSelesai.Add(waktuTambah)
+                        Else
+                            countDownTime2 = waktuSelesai
+                        End If
                     End If
+
                     timerTable2.Start()
                 End If
 
@@ -98,18 +104,24 @@ Public Class FormBilling
                     statusTable3.BackColor = Color.Red
                     btnDetail3.Enabled = True
                     btnStopTable3.Enabled = True
-
-                    labTimeStart3.Text = DT.Rows(i).Item(4)
-                    labTimeStop3.Text = DT.Rows(i).Item(5)
-
-                    Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
-                    Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
-                    If waktuSelesai < waktuMulai Then
-                        Dim waktuTambah As New TimeSpan(24, 0, 0)
-                        countDownTime3 = waktuSelesai.Add(waktuTambah)
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        jenisPaket3 = "PAKET LOSTIME"
+                        labTimeStart3.Text = DT.Rows(i).Item(4)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        countDownTime3 = waktuMulai
                     Else
-                        countDownTime3 = waktuSelesai
+                        labTimeStart3.Text = DT.Rows(i).Item(4)
+                        labTimeStop3.Text = DT.Rows(i).Item(5)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
+                        If waktuSelesai < waktuMulai Then
+                            Dim waktuTambah As New TimeSpan(24, 0, 0)
+                            countDownTime3 = waktuSelesai.Add(waktuTambah)
+                        Else
+                            countDownTime3 = waktuSelesai
+                        End If
                     End If
+
                     timerTable3.Start()
                 End If
 
@@ -118,18 +130,24 @@ Public Class FormBilling
                     statusTable4.BackColor = Color.Red
                     btnDetail4.Enabled = True
                     btnStopTable4.Enabled = True
-
-                    labTimeStart4.Text = DT.Rows(i).Item(4)
-                    labTimeStop4.Text = DT.Rows(i).Item(5)
-
-                    Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
-                    Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
-                    If waktuSelesai < waktuMulai Then
-                        Dim waktuTambah As New TimeSpan(24, 0, 0)
-                        countDownTime4 = waktuSelesai.Add(waktuTambah)
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        jenisPaket4 = "PAKET LOSTIME"
+                        labTimeStart4.Text = DT.Rows(i).Item(4)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        countDownTime4 = waktuMulai
                     Else
-                        countDownTime4 = waktuSelesai
+                        labTimeStart4.Text = DT.Rows(i).Item(4)
+                        labTimeStop4.Text = DT.Rows(i).Item(5)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
+                        If waktuSelesai < waktuMulai Then
+                            Dim waktuTambah As New TimeSpan(24, 0, 0)
+                            countDownTime4 = waktuSelesai.Add(waktuTambah)
+                        Else
+                            countDownTime4 = waktuSelesai
+                        End If
                     End If
+
                     timerTable4.Start()
                 End If
 
@@ -138,18 +156,24 @@ Public Class FormBilling
                     statusTable5.BackColor = Color.Red
                     btnDetail5.Enabled = True
                     btnStopTable5.Enabled = True
-
-                    labTimeStart5.Text = DT.Rows(i).Item(4)
-                    labTimeStop5.Text = DT.Rows(i).Item(5)
-
-                    Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
-                    Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
-                    If waktuSelesai < waktuMulai Then
-                        Dim waktuTambah As New TimeSpan(24, 0, 0)
-                        countDownTime5 = waktuSelesai.Add(waktuTambah)
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        jenisPaket5 = "PAKET LOSTIME"
+                        labTimeStart5.Text = DT.Rows(i).Item(4)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        countDownTime5 = waktuMulai
                     Else
-                        countDownTime5 = waktuSelesai
+                        labTimeStart5.Text = DT.Rows(i).Item(4)
+                        labTimeStop5.Text = DT.Rows(i).Item(5)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
+                        If waktuSelesai < waktuMulai Then
+                            Dim waktuTambah As New TimeSpan(24, 0, 0)
+                            countDownTime5 = waktuSelesai.Add(waktuTambah)
+                        Else
+                            countDownTime5 = waktuSelesai
+                        End If
                     End If
+
                     timerTable5.Start()
                 End If
 
@@ -158,18 +182,24 @@ Public Class FormBilling
                     statusTable6.BackColor = Color.Red
                     btnDetail6.Enabled = True
                     btnStopTable6.Enabled = True
-
-                    labTimeStart6.Text = DT.Rows(i).Item(4)
-                    labTimeStop6.Text = DT.Rows(i).Item(5)
-
-                    Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
-                    Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
-                    If waktuSelesai < waktuMulai Then
-                        Dim waktuTambah As New TimeSpan(24, 0, 0)
-                        countDownTime6 = waktuSelesai.Add(waktuTambah)
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        jenisPaket6 = "PAKET LOSTIME"
+                        labTimeStart6.Text = DT.Rows(i).Item(4)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        countDownTime6 = waktuMulai
                     Else
-                        countDownTime6 = waktuSelesai
+                        labTimeStart6.Text = DT.Rows(i).Item(4)
+                        labTimeStop6.Text = DT.Rows(i).Item(5)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
+                        If waktuSelesai < waktuMulai Then
+                            Dim waktuTambah As New TimeSpan(24, 0, 0)
+                            countDownTime6 = waktuSelesai.Add(waktuTambah)
+                        Else
+                            countDownTime6 = waktuSelesai
+                        End If
                     End If
+
                     timerTable6.Start()
                 End If
 
@@ -178,18 +208,24 @@ Public Class FormBilling
                     statusTable7.BackColor = Color.Red
                     btnDetail7.Enabled = True
                     btnStopTable7.Enabled = True
-
-                    labTimeStart7.Text = DT.Rows(i).Item(4)
-                    labTimeStop7.Text = DT.Rows(i).Item(5)
-
-                    Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
-                    Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
-                    If waktuSelesai < waktuMulai Then
-                        Dim waktuTambah As New TimeSpan(24, 0, 0)
-                        countDownTime7 = waktuSelesai.Add(waktuTambah)
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        jenisPaket7 = "PAKET LOSTIME"
+                        labTimeStart7.Text = DT.Rows(i).Item(4)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        countDownTime7 = waktuMulai
                     Else
-                        countDownTime7 = waktuSelesai
+                        labTimeStart7.Text = DT.Rows(i).Item(4)
+                        labTimeStop7.Text = DT.Rows(i).Item(5)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
+                        If waktuSelesai < waktuMulai Then
+                            Dim waktuTambah As New TimeSpan(24, 0, 0)
+                            countDownTime7 = waktuSelesai.Add(waktuTambah)
+                        Else
+                            countDownTime7 = waktuSelesai
+                        End If
                     End If
+
                     timerTable7.Start()
                 End If
 
@@ -198,18 +234,24 @@ Public Class FormBilling
                     statusTable8.BackColor = Color.Red
                     btnDetail8.Enabled = True
                     btnStopTable8.Enabled = True
-
-                    labTimeStart8.Text = DT.Rows(i).Item(4)
-                    labTimeStop8.Text = DT.Rows(i).Item(5)
-
-                    Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
-                    Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
-                    If waktuSelesai < waktuMulai Then
-                        Dim waktuTambah As New TimeSpan(24, 0, 0)
-                        countDownTime8 = waktuSelesai.Add(waktuTambah)
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        jenisPaket8 = "PAKET LOSTIME"
+                        labTimeStart8.Text = DT.Rows(i).Item(4)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        countDownTime8 = waktuMulai
                     Else
-                        countDownTime8 = waktuSelesai
+                        labTimeStart8.Text = DT.Rows(i).Item(4)
+                        labTimeStop8.Text = DT.Rows(i).Item(5)
+                        Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
+                        Dim waktuSelesai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(5))
+                        If waktuSelesai < waktuMulai Then
+                            Dim waktuTambah As New TimeSpan(24, 0, 0)
+                            countDownTime8 = waktuSelesai.Add(waktuTambah)
+                        Else
+                            countDownTime8 = waktuSelesai
+                        End If
                     End If
+
                     timerTable8.Start()
                 End If
 
@@ -312,102 +354,153 @@ Public Class FormBilling
     End Sub
 
     Public Sub timerTable2_Tick(sender As Object, e As EventArgs) Handles timerTable2.Tick
-        Dim timeRemaining = countDownTime2 - Date.Now.TimeOfDay
+        If jenisPaket2 = "PAKET LOSTIME" Then
+            timeRemaining = Date.Now.TimeOfDay - countDownTime2
+        Else
+            timeRemaining = countDownTime2 - Date.Now.TimeOfDay
 
-        If timeRemaining < TimeSpan.Zero Then
-            timeRemaining = TimeSpan.Zero
+            If timeRemaining < TimeSpan.Zero Then
+                timeRemaining = TimeSpan.Zero
+            End If
+
+            If timeRemaining = TimeSpan.Zero Then
+                timerTable2.Stop()
+                statusTable2.Text = "CHECKOUT"
+                statusTable2.BackColor = Color.LightGray
+                btnStopTable2.Enabled = False
+            End If
         End If
 
         duration2.Text = timeRemaining.ToString("hh\:mm\:ss")
-
-        If timeRemaining = TimeSpan.Zero Then
-            timerTable2.Stop()
-        End If
     End Sub
 
     Public Sub timerTable3_Tick(sender As Object, e As EventArgs) Handles timerTable3.Tick
-        Dim timeRemaining = countDownTime3 - Date.Now.TimeOfDay
+        If jenisPaket3 = "PAKET LOSTIME" Then
+            timeRemaining = Date.Now.TimeOfDay - countDownTime3
+        Else
+            timeRemaining = countDownTime3 - Date.Now.TimeOfDay
 
-        If timeRemaining < TimeSpan.Zero Then
-            timeRemaining = TimeSpan.Zero
+            If timeRemaining < TimeSpan.Zero Then
+                timeRemaining = TimeSpan.Zero
+            End If
+
+            If timeRemaining = TimeSpan.Zero Then
+                timerTable3.Stop()
+                statusTable3.Text = "CHECKOUT"
+                statusTable3.BackColor = Color.LightGray
+                btnStopTable3.Enabled = False
+            End If
         End If
 
         duration3.Text = timeRemaining.ToString("hh\:mm\:ss")
-
-        If timeRemaining = TimeSpan.Zero Then
-            timerTable3.Stop()
-        End If
     End Sub
 
     Public Sub timerTable4_Tick(sender As Object, e As EventArgs) Handles timerTable4.Tick
-        Dim timeRemaining = countDownTime4 - Date.Now.TimeOfDay
+        If jenisPaket4 = "PAKET LOSTIME" Then
+            timeRemaining = Date.Now.TimeOfDay - countDownTime4
+        Else
+            timeRemaining = countDownTime4 - Date.Now.TimeOfDay
 
-        If timeRemaining < TimeSpan.Zero Then
-            timeRemaining = TimeSpan.Zero
+            If timeRemaining < TimeSpan.Zero Then
+                timeRemaining = TimeSpan.Zero
+            End If
+
+            If timeRemaining = TimeSpan.Zero Then
+                timerTable4.Stop()
+                statusTable4.Text = "CHECKOUT"
+                statusTable4.BackColor = Color.LightGray
+                btnStopTable4.Enabled = False
+            End If
         End If
 
         duration4.Text = timeRemaining.ToString("hh\:mm\:ss")
-
-        If timeRemaining = TimeSpan.Zero Then
-            timerTable4.Stop()
-        End If
     End Sub
 
     Public Sub timerTable5_Tick(sender As Object, e As EventArgs) Handles timerTable5.Tick
-        Dim timeRemaining = countDownTime5 - Date.Now.TimeOfDay
+        If jenisPaket5 = "PAKET LOSTIME" Then
+            timeRemaining = Date.Now.TimeOfDay - countDownTime5
+        Else
+            timeRemaining = countDownTime5 - Date.Now.TimeOfDay
 
-        If timeRemaining < TimeSpan.Zero Then
-            timeRemaining = TimeSpan.Zero
+            If timeRemaining < TimeSpan.Zero Then
+                timeRemaining = TimeSpan.Zero
+            End If
+
+            If timeRemaining = TimeSpan.Zero Then
+                timerTable5.Stop()
+                statusTable5.Text = "CHECKOUT"
+                statusTable5.BackColor = Color.LightGray
+                btnStopTable5.Enabled = False
+            End If
         End If
 
         duration5.Text = timeRemaining.ToString("hh\:mm\:ss")
-
-        If timeRemaining = TimeSpan.Zero Then
-            timerTable5.Stop()
-        End If
     End Sub
 
     Public Sub timerTable6_Tick(sender As Object, e As EventArgs) Handles timerTable6.Tick
-        Dim timeRemaining = countDownTime6 - Date.Now.TimeOfDay
+        If jenisPaket6 = "PAKET LOSTIME" Then
+            timeRemaining = Date.Now.TimeOfDay - countDownTime6
+        Else
+            timeRemaining = countDownTime6 - Date.Now.TimeOfDay
 
-        If timeRemaining < TimeSpan.Zero Then
-            timeRemaining = TimeSpan.Zero
+            If timeRemaining < TimeSpan.Zero Then
+                timeRemaining = TimeSpan.Zero
+            End If
+
+            If timeRemaining = TimeSpan.Zero Then
+                timerTable6.Stop()
+                statusTable6.Text = "CHECKOUT"
+                statusTable6.BackColor = Color.LightGray
+                btnStopTable6.Enabled = False
+            End If
         End If
 
         duration6.Text = timeRemaining.ToString("hh\:mm\:ss")
-
-        If timeRemaining = TimeSpan.Zero Then
-            timerTable6.Stop()
-        End If
     End Sub
 
     Public Sub timerTable7_Tick(sender As Object, e As EventArgs) Handles timerTable7.Tick
-        Dim timeRemaining = countDownTime7 - Date.Now.TimeOfDay
+        If jenisPaket7 = "PAKET LOSTIME" Then
+            timeRemaining = Date.Now.TimeOfDay - countDownTime7
+        Else
+            timeRemaining = countDownTime7 - Date.Now.TimeOfDay
 
-        If timeRemaining < TimeSpan.Zero Then
-            timeRemaining = TimeSpan.Zero
+            If timeRemaining < TimeSpan.Zero Then
+                timeRemaining = TimeSpan.Zero
+            End If
+
+            If timeRemaining = TimeSpan.Zero Then
+                timerTable7.Stop()
+                statusTable7.Text = "CHECKOUT"
+                statusTable7.BackColor = Color.LightGray
+                btnStopTable7.Enabled = False
+            End If
         End If
 
         duration7.Text = timeRemaining.ToString("hh\:mm\:ss")
-
-        If timeRemaining = TimeSpan.Zero Then
-            timerTable7.Stop()
-        End If
     End Sub
 
     Public Sub timerTable8_Tick(sender As Object, e As EventArgs) Handles timerTable8.Tick
-        Dim timeRemaining = countDownTime8 - Date.Now.TimeOfDay
+        If jenisPaket8 = "PAKET LOSTIME" Then
+            timeRemaining = Date.Now.TimeOfDay - countDownTime8
+        Else
+            timeRemaining = countDownTime8 - Date.Now.TimeOfDay
 
-        If timeRemaining < TimeSpan.Zero Then
-            timeRemaining = TimeSpan.Zero
+            If timeRemaining < TimeSpan.Zero Then
+                timeRemaining = TimeSpan.Zero
+            End If
+
+            If timeRemaining = TimeSpan.Zero Then
+                timerTable8.Stop()
+                statusTable8.Text = "CHECKOUT"
+                statusTable8.BackColor = Color.LightGray
+                btnStopTable8.Enabled = False
+            End If
         End If
 
         duration8.Text = timeRemaining.ToString("hh\:mm\:ss")
-
-        If timeRemaining = TimeSpan.Zero Then
-            timerTable8.Stop()
-        End If
     End Sub
+
+
 
 
     '==========================================TF & DEL DATA UNTUK MENGOSONGKAN MEJA====================================================='

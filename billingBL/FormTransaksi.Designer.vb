@@ -22,15 +22,13 @@ Partial Class FormTransaksi
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         DataGridView1 = New DataGridView()
         no = New DataGridViewTextBoxColumn()
-        jamMasuk = New DataGridViewTextBoxColumn()
-        jamKeluar = New DataGridViewTextBoxColumn()
+        noOrder = New DataGridViewTextBoxColumn()
         durasi = New DataGridViewTextBoxColumn()
         totalHarga = New DataGridViewTextBoxColumn()
         bayar = New DataGridViewTextBoxColumn()
-        kembalian = New DataGridViewTextBoxColumn()
         Label1 = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -39,23 +37,23 @@ Partial Class FormTransaksi
         ' 
         DataGridView1.BackgroundColor = SystemColors.Control
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.Control
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, jamMasuk, jamKeluar, durasi, totalHarga, bayar, kembalian})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, noOrder, durasi, totalHarga, bayar})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(59, 99)
+        DataGridView1.Location = New Point(165, 99)
         DataGridView1.Margin = New Padding(50, 3, 3, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(1273, 499)
+        DataGridView1.Size = New Size(1167, 499)
         DataGridView1.TabIndex = 11
         ' 
         ' no
@@ -66,21 +64,13 @@ Partial Class FormTransaksi
         no.MinimumWidth = 6
         no.Name = "no"
         ' 
-        ' jamMasuk
+        ' noOrder
         ' 
-        jamMasuk.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        jamMasuk.FillWeight = 150F
-        jamMasuk.HeaderText = "Jam Masuk"
-        jamMasuk.MinimumWidth = 6
-        jamMasuk.Name = "jamMasuk"
-        ' 
-        ' jamKeluar
-        ' 
-        jamKeluar.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        jamKeluar.FillWeight = 150F
-        jamKeluar.HeaderText = "Jam Keluar"
-        jamKeluar.MinimumWidth = 6
-        jamKeluar.Name = "jamKeluar"
+        noOrder.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        noOrder.FillWeight = 150F
+        noOrder.HeaderText = "No Order"
+        noOrder.MinimumWidth = 6
+        noOrder.Name = "noOrder"
         ' 
         ' durasi
         ' 
@@ -104,19 +94,12 @@ Partial Class FormTransaksi
         bayar.Name = "bayar"
         bayar.Width = 125
         ' 
-        ' kembalian
-        ' 
-        kembalian.HeaderText = "Kembali"
-        kembalian.MinimumWidth = 6
-        kembalian.Name = "kembalian"
-        kembalian.Width = 125
-        ' 
         ' Label1
         ' 
         Label1.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(59, 36)
+        Label1.Location = New Point(165, 36)
         Label1.Name = "Label1"
-        Label1.Size = New Size(1273, 46)
+        Label1.Size = New Size(1167, 46)
         Label1.TabIndex = 10
         Label1.Text = "DATA TRANSAKSI"
         Label1.TextAlign = ContentAlignment.MiddleCenter
@@ -136,12 +119,10 @@ Partial Class FormTransaksi
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label1 As Label
     Friend WithEvents no As DataGridViewTextBoxColumn
-    Friend WithEvents jamMasuk As DataGridViewTextBoxColumn
-    Friend WithEvents jamKeluar As DataGridViewTextBoxColumn
+    Friend WithEvents noOrder As DataGridViewTextBoxColumn
     Friend WithEvents durasi As DataGridViewTextBoxColumn
     Friend WithEvents totalHarga As DataGridViewTextBoxColumn
     Friend WithEvents bayar As DataGridViewTextBoxColumn
-    Friend WithEvents kembalian As DataGridViewTextBoxColumn
-    Friend WithEvents Label1 As Label
 End Class
