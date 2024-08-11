@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2024 at 08:58 PM
+-- Generation Time: Aug 11, 2024 at 07:53 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,7 +36,7 @@ CREATE TABLE `tb_daftarpaket` (
   `harga_malam` int(11) NOT NULL,
   `akhir_siang` time NOT NULL,
   `akhir_malam` time NOT NULL,
-  `disc_table` float NOT NULL,
+  `disc_table` int(11) NOT NULL,
   `disc_fnb` float NOT NULL,
   `durasi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -46,9 +46,10 @@ CREATE TABLE `tb_daftarpaket` (
 --
 
 INSERT INTO `tb_daftarpaket` (`id`, `nama_paket`, `jenis_paket`, `harga_paket`, `harga_siang`, `harga_malam`, `akhir_siang`, `akhir_malam`, `disc_table`, `disc_fnb`, `durasi`) VALUES
-(1, 'PAKET LOSTIME', 'LOSTIME', 0, 35000, 40000, '16:30:00', '00:00:00', 0, 0, 0),
-(2, 'PAKET WEEKDAY 2 JAM', 'PAKET', 60000, 0, 0, '00:00:00', '00:00:00', 0, 0, 2),
-(3, 'PAKET DURASI', 'DURASI', 0, 35000, 40000, '16:30:00', '00:00:00', 0, 0, 0);
+(8, 'PAKET DURASI', 'DURASI', 0, 35000, 45000, '16:00:00', '00:00:00', 0, 0, 0),
+(12, 'PAKET LOSTIME', 'LOSTIME', 0, 30000, 45000, '16:00:00', '00:00:00', 0, 0, 0),
+(13, 'PROMO WEEKDAYS 2 JAM', 'PAKET', 45000, 0, 0, '00:00:00', '00:00:00', 0, 0, 2),
+(14, 'PROMO WEEKEND 2 JAM', 'PAKET', 60000, 0, 0, '00:00:00', '00:00:00', 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -60,11 +61,17 @@ CREATE TABLE `tb_detailbilling` (
   `no_order` varchar(15) NOT NULL,
   `nama_tamu` varchar(50) NOT NULL,
   `paket` varchar(50) NOT NULL,
-  `no_meja` int(11) NOT NULL,
+  `no_meja` varchar(11) NOT NULL,
   `mulai` varchar(50) NOT NULL,
   `selesai` varchar(50) NOT NULL,
   `durasi` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
+  `harga` int(11) NOT NULL,
+  `disc_table` int(11) NOT NULL,
+  `durasi_siang` int(11) NOT NULL,
+  `durasi_malam` int(11) NOT NULL,
+  `harga_siang` int(11) NOT NULL,
+  `harga_malam` int(11) NOT NULL,
+  `status_bayar` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -130,6 +137,38 @@ INSERT INTO `tb_meja` (`id`, `nama_meja`, `status`) VALUES
 (7, 'Meja 7', 'kosong'),
 (8, 'Meja 8', 'kosong');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_transaksi`
+--
+
+CREATE TABLE `tb_transaksi` (
+  `no_order` varchar(15) NOT NULL,
+  `nama_tamu` varchar(50) NOT NULL,
+  `paket` varchar(50) NOT NULL,
+  `no_meja` varchar(11) NOT NULL,
+  `mulai` varchar(50) NOT NULL,
+  `selesai` varchar(50) NOT NULL,
+  `durasi` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `disc_table` int(11) NOT NULL,
+  `durasi_siang` int(11) NOT NULL,
+  `durasi_malam` int(11) NOT NULL,
+  `metode_pembayaran` varchar(15) NOT NULL,
+  `tanggal_transaksi` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_transaksi`
+--
+
+INSERT INTO `tb_transaksi` (`no_order`, `nama_tamu`, `paket`, `no_meja`, `mulai`, `selesai`, `durasi`, `harga`, `disc_table`, `durasi_siang`, `durasi_malam`, `metode_pembayaran`, `tanggal_transaksi`) VALUES
+('20240809618793', 'juta', 'PAKET DURASI', 'Meja 2', '02:04:35', '04:04:35', 2, 80000, 0, 0, 120, 'QRIS', '2024-08-09'),
+('20240809767055', 'huhuhu', 'PAKET WEEKDAY 2 JAM', 'Meja 1', '02:04:15', '04:04:15', 2, 60000, 0, 120, 0, 'Cash', '2024-08-09'),
+('20240810313350', 'huhuhu', 'PAKET DURASI', 'Meja 1', '04:45:17', '05:45:17', 1, 35000, 0, 60, 0, 'QRIS', '2024-08-10'),
+('20240810433495', 'udin', 'PAKET DURASI', 'Meja 1', '01:16:24', '02:16:24', 1, 40000, 0, 0, 60, 'QRIS', '2024-08-10');
+
 --
 -- Indexes for dumped tables
 --
@@ -165,6 +204,12 @@ ALTER TABLE `tb_meja`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_transaksi`
+--
+ALTER TABLE `tb_transaksi`
+  ADD UNIQUE KEY `no_order` (`no_order`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -172,7 +217,7 @@ ALTER TABLE `tb_meja`
 -- AUTO_INCREMENT for table `tb_daftarpaket`
 --
 ALTER TABLE `tb_daftarpaket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_fnb`
