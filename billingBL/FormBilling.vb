@@ -30,7 +30,6 @@ Public Class FormBilling
         btnDetail7.Enabled = False
         btnDetail8.Enabled = False
         ubahStatusMeja()
-        UbahStatusTableCheckout()
     End Sub
 
     Private countDownTime1, countDownTime2, countDownTime3, countDownTime4, countDownTime5, countDownTime6, countDownTime7, countDownTime8 As TimeSpan
@@ -46,7 +45,7 @@ Public Class FormBilling
             DA.Fill(DT)
 
             For i = 0 To DT.Rows.Count - 1
-                If DT.Rows(i).Item(3) = "Meja 1" Then
+                If DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "" Then
 
                     statusTable1.Text = "AKTIF"
                     statusTable1.BackColor = Color.Red
@@ -58,6 +57,7 @@ Public Class FormBilling
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
                         countDownTime1 = waktuMulai
                     Else
+                        jenisPaket1 = ""
                         labTimeStart1.Text = DT.Rows(i).Item(4)
                         labTimeStop1.Text = DT.Rows(i).Item(5)
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
@@ -71,9 +71,20 @@ Public Class FormBilling
                     End If
 
                     timerTable1.Start()
+                ElseIf DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "checkout" Then
+                    statusTable1.Text = "CHECKOUT"
+                    statusTable1.BackColor = Color.LightGray
+                    btnStopTable1.Enabled = False
+                    btnDetail1.Enabled = True
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        labTimeStart1.Text = DT.Rows(i).Item(4)
+                    Else
+                        labTimeStart1.Text = DT.Rows(i).Item(4)
+                        labTimeStop1.Text = DT.Rows(i).Item(5)
+                    End If
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 2" Then
+                If DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(13) = "" Then
                     statusTable2.Text = "AKTIF"
                     statusTable2.BackColor = Color.Red
                     btnDetail2.Enabled = True
@@ -84,6 +95,7 @@ Public Class FormBilling
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
                         countDownTime2 = waktuMulai
                     Else
+                        jenisPaket2 = ""
                         labTimeStart2.Text = DT.Rows(i).Item(4)
                         labTimeStop2.Text = DT.Rows(i).Item(5)
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
@@ -97,9 +109,20 @@ Public Class FormBilling
                     End If
 
                     timerTable2.Start()
+                ElseIf DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(13) = "checkout" Then
+                    statusTable2.Text = "CHECKOUT"
+                    statusTable2.BackColor = Color.LightGray
+                    btnStopTable2.Enabled = False
+                    btnDetail2.Enabled = True
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        labTimeStart2.Text = DT.Rows(i).Item(4)
+                    Else
+                        labTimeStart2.Text = DT.Rows(i).Item(4)
+                        labTimeStop2.Text = DT.Rows(i).Item(5)
+                    End If
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 3" Then
+                If DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(13) = "" Then
                     statusTable3.Text = "AKTIF"
                     statusTable3.BackColor = Color.Red
                     btnDetail3.Enabled = True
@@ -110,6 +133,7 @@ Public Class FormBilling
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
                         countDownTime3 = waktuMulai
                     Else
+                        jenisPaket3 = ""
                         labTimeStart3.Text = DT.Rows(i).Item(4)
                         labTimeStop3.Text = DT.Rows(i).Item(5)
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
@@ -123,9 +147,20 @@ Public Class FormBilling
                     End If
 
                     timerTable3.Start()
+                ElseIf DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(13) = "checkout" Then
+                    statusTable3.Text = "CHECKOUT"
+                    statusTable3.BackColor = Color.LightGray
+                    btnStopTable3.Enabled = False
+                    btnDetail3.Enabled = True
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        labTimeStart3.Text = DT.Rows(i).Item(4)
+                    Else
+                        labTimeStart3.Text = DT.Rows(i).Item(4)
+                        labTimeStop3.Text = DT.Rows(i).Item(5)
+                    End If
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 4" Then
+                If DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(13) = "" Then
                     statusTable4.Text = "AKTIF"
                     statusTable4.BackColor = Color.Red
                     btnDetail4.Enabled = True
@@ -136,6 +171,7 @@ Public Class FormBilling
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
                         countDownTime4 = waktuMulai
                     Else
+                        jenisPaket4 = ""
                         labTimeStart4.Text = DT.Rows(i).Item(4)
                         labTimeStop4.Text = DT.Rows(i).Item(5)
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
@@ -149,9 +185,20 @@ Public Class FormBilling
                     End If
 
                     timerTable4.Start()
+                ElseIf DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(13) = "checkout" Then
+                    statusTable4.Text = "CHECKOUT"
+                    statusTable4.BackColor = Color.LightGray
+                    btnStopTable4.Enabled = False
+                    btnDetail4.Enabled = True
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        labTimeStart4.Text = DT.Rows(i).Item(4)
+                    Else
+                        labTimeStart4.Text = DT.Rows(i).Item(4)
+                        labTimeStop4.Text = DT.Rows(i).Item(5)
+                    End If
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 5" Then
+                If DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(13) = "" Then
                     statusTable5.Text = "AKTIF"
                     statusTable5.BackColor = Color.Red
                     btnDetail5.Enabled = True
@@ -162,6 +209,7 @@ Public Class FormBilling
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
                         countDownTime5 = waktuMulai
                     Else
+                        jenisPaket5 = ""
                         labTimeStart5.Text = DT.Rows(i).Item(4)
                         labTimeStop5.Text = DT.Rows(i).Item(5)
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
@@ -175,9 +223,20 @@ Public Class FormBilling
                     End If
 
                     timerTable5.Start()
+                ElseIf DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(13) = "checkout" Then
+                    statusTable5.Text = "CHECKOUT"
+                    statusTable5.BackColor = Color.LightGray
+                    btnStopTable5.Enabled = False
+                    btnDetail5.Enabled = True
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        labTimeStart5.Text = DT.Rows(i).Item(4)
+                    Else
+                        labTimeStart5.Text = DT.Rows(i).Item(4)
+                        labTimeStop5.Text = DT.Rows(i).Item(5)
+                    End If
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 6" Then
+                If DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(13) = "" Then
                     statusTable6.Text = "AKTIF"
                     statusTable6.BackColor = Color.Red
                     btnDetail6.Enabled = True
@@ -188,6 +247,7 @@ Public Class FormBilling
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
                         countDownTime6 = waktuMulai
                     Else
+                        jenisPaket6 = ""
                         labTimeStart6.Text = DT.Rows(i).Item(4)
                         labTimeStop6.Text = DT.Rows(i).Item(5)
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
@@ -201,9 +261,20 @@ Public Class FormBilling
                     End If
 
                     timerTable6.Start()
+                ElseIf DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(13) = "checkout" Then
+                    statusTable6.Text = "CHECKOUT"
+                    statusTable6.BackColor = Color.LightGray
+                    btnStopTable6.Enabled = False
+                    btnDetail6.Enabled = True
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        labTimeStart6.Text = DT.Rows(i).Item(4)
+                    Else
+                        labTimeStart6.Text = DT.Rows(i).Item(4)
+                        labTimeStop6.Text = DT.Rows(i).Item(5)
+                    End If
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 7" Then
+                If DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(13) = "" Then
                     statusTable7.Text = "AKTIF"
                     statusTable7.BackColor = Color.Red
                     btnDetail7.Enabled = True
@@ -214,6 +285,7 @@ Public Class FormBilling
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
                         countDownTime7 = waktuMulai
                     Else
+                        jenisPaket7 = ""
                         labTimeStart7.Text = DT.Rows(i).Item(4)
                         labTimeStop7.Text = DT.Rows(i).Item(5)
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
@@ -227,9 +299,20 @@ Public Class FormBilling
                     End If
 
                     timerTable7.Start()
+                ElseIf DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(13) = "checkout" Then
+                    statusTable7.Text = "CHECKOUT"
+                    statusTable7.BackColor = Color.LightGray
+                    btnStopTable7.Enabled = False
+                    btnDetail7.Enabled = True
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        labTimeStart7.Text = DT.Rows(i).Item(4)
+                    Else
+                        labTimeStart7.Text = DT.Rows(i).Item(4)
+                        labTimeStop7.Text = DT.Rows(i).Item(5)
+                    End If
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 8" Then
+                If DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(13) = "" Then
                     statusTable8.Text = "AKTIF"
                     statusTable8.BackColor = Color.Red
                     btnDetail8.Enabled = True
@@ -240,6 +323,7 @@ Public Class FormBilling
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
                         countDownTime8 = waktuMulai
                     Else
+                        jenisPaket8 = ""
                         labTimeStart8.Text = DT.Rows(i).Item(4)
                         labTimeStop8.Text = DT.Rows(i).Item(5)
                         Dim waktuMulai As TimeSpan = TimeSpan.Parse(DT.Rows(i).Item(4))
@@ -253,6 +337,17 @@ Public Class FormBilling
                     End If
 
                     timerTable8.Start()
+                ElseIf DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(13) = "checkout" Then
+                    statusTable8.Text = "CHECKOUT"
+                    statusTable8.BackColor = Color.LightGray
+                    btnStopTable8.Enabled = False
+                    btnDetail8.Enabled = True
+                    If DT.Rows(i).Item(2) = "PAKET LOSTIME" Then
+                        labTimeStart8.Text = DT.Rows(i).Item(4)
+                    Else
+                        labTimeStart8.Text = DT.Rows(i).Item(4)
+                        labTimeStop8.Text = DT.Rows(i).Item(5)
+                    End If
                 End If
 
             Next
@@ -269,6 +364,15 @@ Public Class FormBilling
         Dim mulai As TimeSpan = waktuMulai
         Dim totalWaktu As TimeSpan
         Dim totalWaktuInt As Integer = 0
+        Dim selisihmulaiInt As Integer = 0
+        Dim selisihselesaiInt As Integer = 0
+        Dim hargaSiang As Integer = 0
+        Dim hargaMalam As Integer = 0
+        Dim akhirWaktuSiangString As String
+        Dim akhirWaktuMalamString As String
+        Dim akhirWaktuSiang As DateTime
+        Dim akhirWaktuMalam As DateTime
+
         If selesai < mulai Then
             Dim waktuTambah As New TimeSpan(24, 0, 0)
             selesai = selesai.Add(waktuTambah)
@@ -288,28 +392,35 @@ Public Class FormBilling
             DA.Fill(DT)
 
             For i = 0 To DT.Rows.Count - 1
-                If mulai.Hours >= 9 AndAlso mulai.Hours < 17 Then
-                    If selesai.Hours >= 17 Then
-                        Dim bataswaktu As New TimeSpan(17, 0, 0)
+                akhirWaktuSiangString = DT.Rows(i).Item(6)
+                akhirWaktuMalamString = DT.Rows(i).Item(7)
+                akhirWaktuSiang = DateTime.Parse(akhirWaktuSiangString)
+                akhirWaktuMalam = DateTime.Parse(akhirWaktuMalamString)
+
+                If mulai.Hours >= akhirWaktuMalam.Hour AndAlso mulai.Hours < akhirWaktuSiang.Hour Then
+                    If selesai.Hours >= akhirWaktuSiang.Hour Then
+                        Dim bataswaktu As New TimeSpan(akhirWaktuSiang.Hour, 0, 0)
                         Dim selisihmulai As TimeSpan = bataswaktu - mulai
-                        Dim selisihmulaiInt As Integer = selisihmulai.TotalMinutes
-                        Dim hargaSiang As Integer = DT.Rows(i).Item(4)
+                        selisihmulaiInt = selisihmulai.TotalMinutes
+                        hargaSiang = DT.Rows(i).Item(4)
                         Dim hargaSelisihMulai As Integer = (hargaSiang / 60) * selisihmulaiInt
 
                         Dim waktuselesai As TimeSpan = selesai
                         Dim selisihselesai As TimeSpan = waktuselesai - bataswaktu
-                        Dim selisihselesaiInt As Integer = selisihselesai.TotalMinutes
-                        Dim hargaMalam As Integer = DT.Rows(i).Item(5)
+                        selisihselesaiInt = selisihselesai.TotalMinutes
+                        hargaMalam = DT.Rows(i).Item(5)
                         Dim hargaSelisihSelesai As Integer = (hargaMalam / 60) * selisihselesaiInt
 
                         harga = hargaSelisihMulai + hargaSelisihSelesai
-                    ElseIf selesai.Hours < 17 Then
-                        Dim hargaSiang As Integer = DT.Rows(i).Item(4) * totalWaktuInt
-                        harga = hargaSiang / 60
+                    ElseIf selesai.Hours < akhirWaktuSiang.Hour Then
+                        hargaSiang = DT.Rows(i).Item(4)
+                        harga = (hargaSiang * totalWaktuInt) / 60
+                        selisihmulaiInt = totalWaktuInt
                     End If
-                ElseIf mulai.Hours >= 17 OrElse mulai.Hours < 9 Then
-                    Dim hargaMalam As Integer = DT.Rows(i).Item(5) * totalWaktuInt
-                    harga = hargaMalam / 60
+                ElseIf mulai.Hours >= akhirWaktuSiang.Hour OrElse mulai.Hours < akhirWaktuMalam.Hour Then
+                    hargaMalam = DT.Rows(i).Item(5)
+                    harga = (hargaMalam * totalWaktuInt) / 60
+                    selisihselesaiInt = totalWaktuInt
                 End If
             Next
         Catch ex As Exception
@@ -321,7 +432,19 @@ Public Class FormBilling
 
         Try
             connect()
-            CMD = New MySqlCommand("UPDATE tb_detailbilling SET selesai='" & selesaiString & "', harga='" & harga & "' WHERE no_meja='" & meja & "'", Koneksi)
+            CMD = New MySqlCommand("UPDATE tb_detailbilling SET selesai='" & selesaiString & "', harga='" & harga & "', durasi_siang='" & selisihmulaiInt & "', durasi_malam='" & selisihselesaiInt & "' WHERE no_meja='" & meja & "'", Koneksi)
+            CMD.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            disconnect()
+        End Try
+    End Sub
+
+    Sub updateStatusBayar(meja As String)
+        Try
+            connect()
+            CMD = New MySqlCommand("UPDATE tb_detailbilling SET status_bayar='checkout' WHERE no_meja='" & meja & "'", Koneksi)
             CMD.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -346,6 +469,7 @@ Public Class FormBilling
                 statusTable1.Text = "CHECKOUT"
                 statusTable1.BackColor = Color.LightGray
                 btnStopTable1.Enabled = False
+                updateStatusBayar("Meja 1")
             End If
         End If
 
@@ -368,6 +492,7 @@ Public Class FormBilling
                 statusTable2.Text = "CHECKOUT"
                 statusTable2.BackColor = Color.LightGray
                 btnStopTable2.Enabled = False
+                updateStatusBayar("Meja 2")
             End If
         End If
 
@@ -389,6 +514,7 @@ Public Class FormBilling
                 statusTable3.Text = "CHECKOUT"
                 statusTable3.BackColor = Color.LightGray
                 btnStopTable3.Enabled = False
+                updateStatusBayar("Meja 3")
             End If
         End If
 
@@ -410,6 +536,7 @@ Public Class FormBilling
                 statusTable4.Text = "CHECKOUT"
                 statusTable4.BackColor = Color.LightGray
                 btnStopTable4.Enabled = False
+                updateStatusBayar("Meja 4")
             End If
         End If
 
@@ -431,6 +558,7 @@ Public Class FormBilling
                 statusTable5.Text = "CHECKOUT"
                 statusTable5.BackColor = Color.LightGray
                 btnStopTable5.Enabled = False
+                updateStatusBayar("Meja 5")
             End If
         End If
 
@@ -452,6 +580,7 @@ Public Class FormBilling
                 statusTable6.Text = "CHECKOUT"
                 statusTable6.BackColor = Color.LightGray
                 btnStopTable6.Enabled = False
+                updateStatusBayar("Meja 6")
             End If
         End If
 
@@ -473,6 +602,7 @@ Public Class FormBilling
                 statusTable7.Text = "CHECKOUT"
                 statusTable7.BackColor = Color.LightGray
                 btnStopTable7.Enabled = False
+                updateStatusBayar("Meja 7")
             End If
         End If
 
@@ -494,6 +624,7 @@ Public Class FormBilling
                 statusTable8.Text = "CHECKOUT"
                 statusTable8.BackColor = Color.LightGray
                 btnStopTable8.Enabled = False
+                updateStatusBayar("Meja 8")
             End If
         End If
 
@@ -504,7 +635,8 @@ Public Class FormBilling
 
 
     '==========================================TF & DEL DATA UNTUK MENGOSONGKAN MEJA====================================================='
-    Public Sub TransferAndDeleteData(meja As String)
+    Public Sub TransferAndDeleteData(meja As String, metodePembayaran As String)
+        Dim tanggal_transaksi As String = Date.Now.ToString("yyyy-MM-dd")
         Try
             connect()
 
@@ -515,7 +647,7 @@ Public Class FormBilling
 
             ' Pindahkan data ke tb_transaksi
             For Each row As DataRow In DT.Rows
-                CMD = New MySqlCommand("INSERT INTO tb_transaksi (no_order, nama_tamu, paket,no_meja,mulai, selesai, durasi, harga, disc_table) VALUES (@no_order, @nama_tamu, @paket,@no_meja, @mulai, @selesai, @durasi, @harga,@disc_table)", Koneksi)
+                CMD = New MySqlCommand("INSERT INTO tb_transaksi (no_order, nama_tamu, paket,no_meja,mulai, selesai, durasi, harga, disc_table, metode_pembayaran, durasi_siang, durasi_malam, tanggal_transaksi) VALUES (@no_order, @nama_tamu, @paket,@no_meja, @mulai, @selesai, @durasi, @harga,@disc_table, @metode_pembayaran, @durasi_siang, @durasi_malam, @tanggal_transaksi)", Koneksi)
                 ' Ganti @value1, @value2, @value3 dengan nama kolom yang sesuai
                 CMD.Parameters.AddWithValue("@no_order", row("no_order"))
                 CMD.Parameters.AddWithValue("@nama_tamu", row("nama_tamu"))
@@ -526,6 +658,10 @@ Public Class FormBilling
                 CMD.Parameters.AddWithValue("@durasi", row("durasi"))
                 CMD.Parameters.AddWithValue("@harga", row("harga"))
                 CMD.Parameters.AddWithValue("@disc_table", row("disc_table"))
+                CMD.Parameters.AddWithValue("@metode_pembayaran", metodePembayaran)
+                CMD.Parameters.AddWithValue("@durasi_siang", row("durasi_siang"))
+                CMD.Parameters.AddWithValue("@durasi_malam", row("durasi_malam"))
+                CMD.Parameters.AddWithValue("@tanggal_transaksi", tanggal_transaksi)
                 CMD.ExecuteNonQuery()
             Next
 
@@ -539,40 +675,41 @@ Public Class FormBilling
         End Try
     End Sub
     '==========================================UBAH STATUS CHECKOUT UNTUK BUTTON BAYAR====================================================='
-    Public Sub UbahStatusTableCheckout()
-        If statusTable1.Text = "CHECKOUT" Then
-            ResetTable("Meja 1", labTimeStart1, labTimeStop1, timerTable1, statusTable1, duration1, btnDetail1, btnStopTable1)
+    Public Sub UbahStatusTableCheckout(meja As String, metodePembayaran As String)
+
+        If meja = "Meja 1" Then
+            ResetTable("Meja 1", labTimeStart1, labTimeStop1, timerTable1, statusTable1, duration1, btnDetail1, btnStopTable1, metodePembayaran)
         End If
-        If statusTable2.Text = "CHECKOUT" Then
-            ResetTable("Meja 2", labTimeStart2, labTimeStop2, timerTable2, statusTable2, duration2, btnDetail2, btnStopTable2)
+        If meja = "Meja 2" Then
+            ResetTable("Meja 2", labTimeStart2, labTimeStop2, timerTable2, statusTable2, duration2, btnDetail2, btnStopTable2, metodePembayaran)
         End If
-        If statusTable3.Text = "CHECKOUT" Then
-            ResetTable("Meja 3", labTimeStart3, labTimeStop3, timerTable3, statusTable3, duration3, btnDetail3, btnStopTable3)
+        If meja = "Meja 3" Then
+            ResetTable("Meja 3", labTimeStart3, labTimeStop3, timerTable3, statusTable3, duration3, btnDetail3, btnStopTable3, metodePembayaran)
         End If
-        If statusTable4.Text = "CHECKOUT" Then
-            ResetTable("Meja 4", labTimeStart4, labTimeStop4, timerTable4, statusTable4, duration4, btnDetail4, btnStopTable4)
+        If meja = "Meja 4" Then
+            ResetTable("Meja 4", labTimeStart4, labTimeStop4, timerTable4, statusTable4, duration4, btnDetail4, btnStopTable4, metodePembayaran)
         End If
-        If statusTable5.Text = "CHECKOUT" Then
-            ResetTable("Meja 5", labTimeStart5, labTimeStop5, timerTable5, statusTable5, duration5, btnDetail5, btnStopTable5)
+        If meja = "Meja 5" Then
+            ResetTable("Meja 5", labTimeStart5, labTimeStop5, timerTable5, statusTable5, duration5, btnDetail5, btnStopTable5, metodePembayaran)
         End If
-        If statusTable6.Text = "CHECKOUT" Then
-            ResetTable("Meja 6", labTimeStart6, labTimeStop6, timerTable6, statusTable6, duration6, btnDetail6, btnStopTable6)
+        If meja = "Meja 6" Then
+            ResetTable("Meja 6", labTimeStart6, labTimeStop6, timerTable6, statusTable6, duration6, btnDetail6, btnStopTable6, metodePembayaran)
         End If
-        If statusTable7.Text = "CHECKOUT" Then
-            ResetTable("Meja 7", labTimeStart7, labTimeStop7, timerTable7, statusTable7, duration7, btnDetail7, btnStopTable7)
+        If meja = "Meja 7" Then
+            ResetTable("Meja 7", labTimeStart7, labTimeStop7, timerTable7, statusTable7, duration7, btnDetail7, btnStopTable7, metodePembayaran)
         End If
-        If statusTable8.Text = "CHECKOUT" Then
-            ResetTable("Meja 8", labTimeStart8, labTimeStop8, timerTable8, statusTable8, duration8, btnDetail8, btnStopTable8)
+        If meja = "Meja 8" Then
+            ResetTable("Meja 8", labTimeStart8, labTimeStop8, timerTable8, statusTable8, duration8, btnDetail8, btnStopTable8, metodePembayaran)
         End If
     End Sub
 
-    Private Sub ResetTable(meja As String, ByRef labTimeStart As Label, ByRef labTimeStop As Label, ByRef timer As Timer, ByRef statusLabel As Label, ByRef durationLabel As Label, ByRef btnDetail As Button, ByRef btnStopTable As Button)
+    Private Sub ResetTable(meja As String, ByRef labTimeStart As Label, ByRef labTimeStop As Label, ByRef timer As Timer, ByRef statusLabel As Label, ByRef durationLabel As Label, ByRef btnDetail As Button, ByRef btnStopTable As Button, metodePembayaran As String)
         Try
             connect()
             CMD = New MySqlCommand("UPDATE tb_meja SET status='kosong' WHERE nama_meja='" & meja & "'", Koneksi)
             CMD.ExecuteNonQuery()
             disconnect()
-            TransferAndDeleteData(meja)
+            TransferAndDeleteData(meja, metodePembayaran)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -617,7 +754,9 @@ Public Class FormBilling
             Else
                 timerTable1.Stop()
             End If
+            updateStatusBayar("Meja 1")
         End If
+
 
     End Sub
 
@@ -627,10 +766,11 @@ Public Class FormBilling
             statusTable2.BackColor = Color.LightGray
             If jenisPaket2 = "PAKET LOSTIME" Then
                 jenisPaket2 = ""
-                updateStopPaketLos("Meja 2", countDownTime1)
+                updateStopPaketLos("Meja 2", countDownTime2)
             Else
                 timerTable2.Stop()
             End If
+            updateStatusBayar("Meja 2")
         End If
 
     End Sub
@@ -641,10 +781,11 @@ Public Class FormBilling
             statusTable3.BackColor = Color.LightGray
             If jenisPaket3 = "PAKET LOSTIME" Then
                 jenisPaket3 = ""
-                updateStopPaketLos("Meja 3", countDownTime1)
+                updateStopPaketLos("Meja 3", countDownTime3)
             Else
                 timerTable3.Stop()
             End If
+            updateStatusBayar("Meja 3")
         End If
 
     End Sub
@@ -655,10 +796,11 @@ Public Class FormBilling
             statusTable4.BackColor = Color.LightGray
             If jenisPaket4 = "PAKET LOSTIME" Then
                 jenisPaket4 = ""
-                updateStopPaketLos("Meja 4", countDownTime1)
+                updateStopPaketLos("Meja 4", countDownTime4)
             Else
                 timerTable4.Stop()
             End If
+            updateStatusBayar("Meja 4")
         End If
 
     End Sub
@@ -669,10 +811,11 @@ Public Class FormBilling
             statusTable5.BackColor = Color.LightGray
             If jenisPaket5 = "PAKET LOSTIME" Then
                 jenisPaket5 = ""
-                updateStopPaketLos("Meja 5", countDownTime1)
+                updateStopPaketLos("Meja 5", countDownTime5)
             Else
                 timerTable5.Stop()
             End If
+            updateStatusBayar("Meja 5")
         End If
 
     End Sub
@@ -683,10 +826,11 @@ Public Class FormBilling
             statusTable6.BackColor = Color.LightGray
             If jenisPaket6 = "PAKET LOSTIME" Then
                 jenisPaket6 = ""
-                updateStopPaketLos("Meja 6", countDownTime1)
+                updateStopPaketLos("Meja 6", countDownTime6)
             Else
                 timerTable6.Stop()
             End If
+            updateStatusBayar("Meja 6")
         End If
 
     End Sub
@@ -697,10 +841,11 @@ Public Class FormBilling
             statusTable7.BackColor = Color.LightGray
             If jenisPaket7 = "PAKET LOSTIME" Then
                 jenisPaket7 = ""
-                updateStopPaketLos("Meja 7", countDownTime1)
+                updateStopPaketLos("Meja 7", countDownTime7)
             Else
                 timerTable7.Stop()
             End If
+            updateStatusBayar("Meja 7")
         End If
 
     End Sub
@@ -711,10 +856,11 @@ Public Class FormBilling
             statusTable8.BackColor = Color.LightGray
             If jenisPaket8 = "PAKET LOSTIME" Then
                 jenisPaket8 = ""
-                updateStopPaketLos("Meja 8", countDownTime1)
+                updateStopPaketLos("Meja 8", countDownTime8)
             Else
                 timerTable8.Stop()
             End If
+            updateStatusBayar("Meja 8")
         End If
 
     End Sub

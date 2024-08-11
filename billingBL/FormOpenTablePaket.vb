@@ -69,10 +69,11 @@ Public Class FormOpenTablePaket
         Dim selesai As DateTime = mulai.AddHours(Convert.ToDouble(labelDurasiPaket.Text))
         Dim selesaiString As String = selesai.ToString("HH:mm:ss")
         Dim harga As Integer = Integer.Parse(labelHargaPaket.Text)
+        Dim durasiMain As Integer = Integer.Parse(labelDurasiPaket.Text) * 60
 
         Try
             connect()
-            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table) VALUES ('" & labelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(labelDurasiPaket.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonPaket.Text) & "')", Koneksi)
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table, durasi_siang) VALUES ('" & labelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(labelDurasiPaket.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonPaket.Text) & "', '" & durasiMain & "')", Koneksi)
             CMD.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.Message)

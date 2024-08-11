@@ -22,29 +22,11 @@ Partial Class FormPengaturan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
-        Panel4 = New Panel()
-        btnTambahPromo = New Button()
-        btnHapusPromo = New Button()
-        DataGridView2 = New DataGridView()
-        namaPaket = New DataGridViewTextBoxColumn()
-        hargaPaket = New DataGridViewTextBoxColumn()
-        durationPaket = New DataGridViewTextBoxColumn()
-        discPaket = New DataGridViewTextBoxColumn()
-        Label2 = New Label()
-        Panel3 = New Panel()
-        btnTambahAdmin = New Button()
-        btnHapusAdmin = New Button()
-        DataGridView1 = New DataGridView()
-        nomor = New DataGridViewTextBoxColumn()
-        namaAdmin = New DataGridViewTextBoxColumn()
-        Label17 = New Label()
-        Panel2 = New Panel()
         Panel6 = New Panel()
         btnTambahDurasi = New Button()
         btnHapusDurasi = New Button()
@@ -56,26 +38,33 @@ Partial Class FormPengaturan
         akhirMalam = New DataGridViewTextBoxColumn()
         discDurasi = New DataGridViewTextBoxColumn()
         Label4 = New Label()
+        Panel4 = New Panel()
+        btnTambahPromo = New Button()
+        btnHapusPromo = New Button()
+        DataGridView2 = New DataGridView()
+        namaPaket = New DataGridViewTextBoxColumn()
+        hargaPaket = New DataGridViewTextBoxColumn()
+        durationPaket = New DataGridViewTextBoxColumn()
+        discPaket = New DataGridViewTextBoxColumn()
+        Label2 = New Label()
+        Panel2 = New Panel()
         Panel5 = New Panel()
         btnTambahLos = New Button()
         btnHapusLos = New Button()
         DataGridView3 = New DataGridView()
-        DataGridViewTextBoxColumn1 = New DataGridViewTextBoxColumn()
-        hargaLos = New DataGridViewTextBoxColumn()
-        DataGridViewTextBoxColumn2 = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn3 = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn4 = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn5 = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn6 = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn7 = New DataGridViewTextBoxColumn()
+        discTable = New DataGridViewTextBoxColumn()
         Label3 = New Label()
-        btnEditAdmin = New Button()
-        btnEditLos = New Button()
-        btnEditDurasi = New Button()
-        btnEditPromo = New Button()
         Panel1.SuspendLayout()
-        Panel4.SuspendLayout()
-        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
-        Panel3.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
-        Panel2.SuspendLayout()
         Panel6.SuspendLayout()
         CType(DataGridView4, ComponentModel.ISupportInitialize).BeginInit()
+        Panel4.SuspendLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
+        Panel2.SuspendLayout()
         Panel5.SuspendLayout()
         CType(DataGridView3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -86,51 +75,175 @@ Partial Class FormPengaturan
         Label1.Font = New Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(1332, 55)
+        Label1.Size = New Size(1184, 41)
         Label1.TabIndex = 2
         Label1.Text = "Menu Admin"
         Label1.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Panel1
         ' 
+        Panel1.Controls.Add(Panel6)
+        Panel1.Controls.Add(DataGridView4)
+        Panel1.Controls.Add(Label4)
         Panel1.Controls.Add(Panel4)
         Panel1.Controls.Add(DataGridView2)
         Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Panel3)
-        Panel1.Controls.Add(DataGridView1)
-        Panel1.Controls.Add(Label17)
-        Panel1.Location = New Point(0, 58)
+        Panel1.Location = New Point(0, 44)
+        Panel1.Margin = New Padding(3, 2, 3, 2)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(663, 794)
+        Panel1.Size = New Size(580, 596)
         Panel1.TabIndex = 3
+        ' 
+        ' Panel6
+        ' 
+        Panel6.Controls.Add(btnTambahDurasi)
+        Panel6.Controls.Add(btnHapusDurasi)
+        Panel6.Dock = DockStyle.Top
+        Panel6.Location = New Point(0, 460)
+        Panel6.Margin = New Padding(3, 2, 3, 2)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(580, 34)
+        Panel6.TabIndex = 18
+        ' 
+        ' btnTambahDurasi
+        ' 
+        btnTambahDurasi.Dock = DockStyle.Right
+        btnTambahDurasi.Location = New Point(416, 0)
+        btnTambahDurasi.Margin = New Padding(3, 2, 3, 2)
+        btnTambahDurasi.Name = "btnTambahDurasi"
+        btnTambahDurasi.Size = New Size(82, 34)
+        btnTambahDurasi.TabIndex = 1
+        btnTambahDurasi.Text = "Tambah"
+        btnTambahDurasi.UseVisualStyleBackColor = True
+        ' 
+        ' btnHapusDurasi
+        ' 
+        btnHapusDurasi.Dock = DockStyle.Right
+        btnHapusDurasi.Location = New Point(498, 0)
+        btnHapusDurasi.Margin = New Padding(3, 2, 3, 2)
+        btnHapusDurasi.Name = "btnHapusDurasi"
+        btnHapusDurasi.Size = New Size(82, 34)
+        btnHapusDurasi.TabIndex = 0
+        btnHapusDurasi.Text = "Hapus"
+        btnHapusDurasi.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView4
+        ' 
+        DataGridView4.BackgroundColor = SystemColors.Control
+        DataGridView4.BorderStyle = BorderStyle.None
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle4.ForeColor = SystemColors.Control
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        DataGridView4.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView4.Columns.AddRange(New DataGridViewColumn() {namaDurasi, hargaSiang, hargaMalam, akhirsiang, akhirMalam, discDurasi})
+        DataGridView4.Dock = DockStyle.Top
+        DataGridView4.EnableHeadersVisualStyles = False
+        DataGridView4.Location = New Point(0, 270)
+        DataGridView4.Margin = New Padding(3, 2, 3, 2)
+        DataGridView4.Name = "DataGridView4"
+        DataGridView4.ReadOnly = True
+        DataGridView4.RowHeadersVisible = False
+        DataGridView4.RowHeadersWidth = 51
+        DataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView4.Size = New Size(580, 190)
+        DataGridView4.TabIndex = 17
+        ' 
+        ' namaDurasi
+        ' 
+        namaDurasi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        namaDurasi.FillWeight = 175F
+        namaDurasi.HeaderText = "Nama Paket"
+        namaDurasi.MinimumWidth = 6
+        namaDurasi.Name = "namaDurasi"
+        namaDurasi.ReadOnly = True
+        ' 
+        ' hargaSiang
+        ' 
+        hargaSiang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        hargaSiang.HeaderText = "Harga Siang "
+        hargaSiang.MinimumWidth = 6
+        hargaSiang.Name = "hargaSiang"
+        hargaSiang.ReadOnly = True
+        ' 
+        ' hargaMalam
+        ' 
+        hargaMalam.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        hargaMalam.HeaderText = "Harga Malam "
+        hargaMalam.MinimumWidth = 6
+        hargaMalam.Name = "hargaMalam"
+        hargaMalam.ReadOnly = True
+        ' 
+        ' akhirsiang
+        ' 
+        akhirsiang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        akhirsiang.HeaderText = "Jam Akhir Harga Siang"
+        akhirsiang.MinimumWidth = 6
+        akhirsiang.Name = "akhirsiang"
+        akhirsiang.ReadOnly = True
+        ' 
+        ' akhirMalam
+        ' 
+        akhirMalam.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        akhirMalam.HeaderText = "Jam Akhir Harga Malam"
+        akhirMalam.MinimumWidth = 6
+        akhirMalam.Name = "akhirMalam"
+        akhirMalam.ReadOnly = True
+        ' 
+        ' discDurasi
+        ' 
+        discDurasi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        discDurasi.FillWeight = 50F
+        discDurasi.HeaderText = "Disc Table (%)"
+        discDurasi.MinimumWidth = 6
+        discDurasi.Name = "discDurasi"
+        discDurasi.ReadOnly = True
+        ' 
+        ' Label4
+        ' 
+        Label4.BorderStyle = BorderStyle.FixedSingle
+        Label4.Dock = DockStyle.Top
+        Label4.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label4.Location = New Point(0, 247)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(580, 23)
+        Label4.TabIndex = 16
+        Label4.Text = "Daftar Paket Durasi"
+        Label4.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Panel4
         ' 
-        Panel4.Controls.Add(btnEditPromo)
         Panel4.Controls.Add(btnTambahPromo)
         Panel4.Controls.Add(btnHapusPromo)
         Panel4.Dock = DockStyle.Top
-        Panel4.Location = New Point(0, 745)
+        Panel4.Location = New Point(0, 213)
+        Panel4.Margin = New Padding(3, 2, 3, 2)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(663, 46)
+        Panel4.Size = New Size(580, 34)
         Panel4.TabIndex = 14
         ' 
         ' btnTambahPromo
         ' 
         btnTambahPromo.Dock = DockStyle.Right
-        btnTambahPromo.Location = New Point(569, 0)
+        btnTambahPromo.Location = New Point(416, 0)
+        btnTambahPromo.Margin = New Padding(3, 2, 3, 2)
         btnTambahPromo.Name = "btnTambahPromo"
-        btnTambahPromo.Size = New Size(94, 46)
+        btnTambahPromo.Size = New Size(82, 34)
         btnTambahPromo.TabIndex = 1
         btnTambahPromo.Text = "Tambah"
         btnTambahPromo.UseVisualStyleBackColor = True
         ' 
         ' btnHapusPromo
         ' 
-        btnHapusPromo.Dock = DockStyle.Left
-        btnHapusPromo.Location = New Point(0, 0)
+        btnHapusPromo.Dock = DockStyle.Right
+        btnHapusPromo.Location = New Point(498, 0)
+        btnHapusPromo.Margin = New Padding(3, 2, 3, 2)
         btnHapusPromo.Name = "btnHapusPromo"
-        btnHapusPromo.Size = New Size(94, 46)
+        btnHapusPromo.Size = New Size(82, 34)
         btnHapusPromo.TabIndex = 0
         btnHapusPromo.Text = "Hapus"
         btnHapusPromo.UseVisualStyleBackColor = True
@@ -139,23 +252,26 @@ Partial Class FormPengaturan
         ' 
         DataGridView2.BackgroundColor = SystemColors.Control
         DataGridView2.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle1.ForeColor = SystemColors.Control
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle5.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle5.ForeColor = SystemColors.Control
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView2.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaPaket, durationPaket, discPaket})
         DataGridView2.Dock = DockStyle.Top
         DataGridView2.EnableHeadersVisualStyles = False
-        DataGridView2.Location = New Point(0, 423)
+        DataGridView2.Location = New Point(0, 23)
+        DataGridView2.Margin = New Padding(3, 2, 3, 2)
         DataGridView2.Name = "DataGridView2"
+        DataGridView2.ReadOnly = True
         DataGridView2.RowHeadersVisible = False
         DataGridView2.RowHeadersWidth = 51
-        DataGridView2.Size = New Size(663, 322)
+        DataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView2.Size = New Size(580, 190)
         DataGridView2.TabIndex = 13
         ' 
         ' namaPaket
@@ -165,6 +281,7 @@ Partial Class FormPengaturan
         namaPaket.HeaderText = "Nama Paket"
         namaPaket.MinimumWidth = 6
         namaPaket.Name = "namaPaket"
+        namaPaket.ReadOnly = True
         ' 
         ' hargaPaket
         ' 
@@ -172,12 +289,14 @@ Partial Class FormPengaturan
         hargaPaket.HeaderText = "Harga (Rp)"
         hargaPaket.MinimumWidth = 6
         hargaPaket.Name = "hargaPaket"
+        hargaPaket.ReadOnly = True
         ' 
         ' durationPaket
         ' 
         durationPaket.HeaderText = "Durasi"
         durationPaket.MinimumWidth = 6
         durationPaket.Name = "durationPaket"
+        durationPaket.ReadOnly = True
         durationPaket.Width = 125
         ' 
         ' discPaket
@@ -187,251 +306,60 @@ Partial Class FormPengaturan
         discPaket.HeaderText = "Disc Table (%)"
         discPaket.MinimumWidth = 6
         discPaket.Name = "discPaket"
+        discPaket.ReadOnly = True
         ' 
         ' Label2
         ' 
         Label2.BorderStyle = BorderStyle.FixedSingle
         Label2.Dock = DockStyle.Top
         Label2.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(0, 393)
+        Label2.Location = New Point(0, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(663, 30)
+        Label2.Size = New Size(580, 23)
         Label2.TabIndex = 12
         Label2.Text = "Daftar Paket Promo"
         Label2.TextAlign = ContentAlignment.MiddleCenter
         ' 
-        ' Panel3
-        ' 
-        Panel3.Controls.Add(btnEditAdmin)
-        Panel3.Controls.Add(btnTambahAdmin)
-        Panel3.Controls.Add(btnHapusAdmin)
-        Panel3.Dock = DockStyle.Top
-        Panel3.Location = New Point(0, 347)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(663, 46)
-        Panel3.TabIndex = 11
-        ' 
-        ' btnTambahAdmin
-        ' 
-        btnTambahAdmin.Dock = DockStyle.Right
-        btnTambahAdmin.Location = New Point(569, 0)
-        btnTambahAdmin.Name = "btnTambahAdmin"
-        btnTambahAdmin.Size = New Size(94, 46)
-        btnTambahAdmin.TabIndex = 1
-        btnTambahAdmin.Text = "Tambah"
-        btnTambahAdmin.UseVisualStyleBackColor = True
-        ' 
-        ' btnHapusAdmin
-        ' 
-        btnHapusAdmin.Dock = DockStyle.Left
-        btnHapusAdmin.Location = New Point(0, 0)
-        btnHapusAdmin.Name = "btnHapusAdmin"
-        btnHapusAdmin.Size = New Size(94, 46)
-        btnHapusAdmin.TabIndex = 0
-        btnHapusAdmin.Text = "Hapus"
-        btnHapusAdmin.UseVisualStyleBackColor = True
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.BackgroundColor = SystemColors.Control
-        DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {nomor, namaAdmin})
-        DataGridView1.Dock = DockStyle.Top
-        DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(0, 38)
-        DataGridView1.Margin = New Padding(3, 4, 3, 4)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersVisible = False
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(663, 309)
-        DataGridView1.TabIndex = 10
-        ' 
-        ' nomor
-        ' 
-        nomor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        nomor.FillWeight = 50F
-        nomor.HeaderText = "No"
-        nomor.MinimumWidth = 6
-        nomor.Name = "nomor"
-        ' 
-        ' namaAdmin
-        ' 
-        namaAdmin.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        namaAdmin.HeaderText = "Nama User"
-        namaAdmin.MinimumWidth = 6
-        namaAdmin.Name = "namaAdmin"
-        ' 
-        ' Label17
-        ' 
-        Label17.BorderStyle = BorderStyle.FixedSingle
-        Label17.Dock = DockStyle.Top
-        Label17.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label17.Location = New Point(0, 0)
-        Label17.Name = "Label17"
-        Label17.Size = New Size(663, 38)
-        Label17.TabIndex = 9
-        Label17.Text = "List Admin"
-        Label17.TextAlign = ContentAlignment.MiddleCenter
-        ' 
         ' Panel2
         ' 
-        Panel2.Controls.Add(Panel6)
-        Panel2.Controls.Add(DataGridView4)
-        Panel2.Controls.Add(Label4)
         Panel2.Controls.Add(Panel5)
         Panel2.Controls.Add(DataGridView3)
         Panel2.Controls.Add(Label3)
-        Panel2.Location = New Point(669, 58)
+        Panel2.Location = New Point(585, 44)
+        Panel2.Margin = New Padding(3, 2, 3, 2)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(663, 794)
+        Panel2.Size = New Size(580, 596)
         Panel2.TabIndex = 4
-        ' 
-        ' Panel6
-        ' 
-        Panel6.Controls.Add(btnEditDurasi)
-        Panel6.Controls.Add(btnTambahDurasi)
-        Panel6.Controls.Add(btnHapusDurasi)
-        Panel6.Dock = DockStyle.Top
-        Panel6.Location = New Point(0, 745)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(663, 46)
-        Panel6.TabIndex = 15
-        ' 
-        ' btnTambahDurasi
-        ' 
-        btnTambahDurasi.Dock = DockStyle.Right
-        btnTambahDurasi.Location = New Point(569, 0)
-        btnTambahDurasi.Name = "btnTambahDurasi"
-        btnTambahDurasi.Size = New Size(94, 46)
-        btnTambahDurasi.TabIndex = 1
-        btnTambahDurasi.Text = "Tambah"
-        btnTambahDurasi.UseVisualStyleBackColor = True
-        ' 
-        ' btnHapusDurasi
-        ' 
-        btnHapusDurasi.Dock = DockStyle.Left
-        btnHapusDurasi.Location = New Point(0, 0)
-        btnHapusDurasi.Name = "btnHapusDurasi"
-        btnHapusDurasi.Size = New Size(94, 46)
-        btnHapusDurasi.TabIndex = 0
-        btnHapusDurasi.Text = "Hapus"
-        btnHapusDurasi.UseVisualStyleBackColor = True
-        ' 
-        ' DataGridView4
-        ' 
-        DataGridView4.BackgroundColor = SystemColors.Control
-        DataGridView4.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle3.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle3.ForeColor = SystemColors.Control
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        DataGridView4.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        DataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView4.Columns.AddRange(New DataGridViewColumn() {namaDurasi, hargaSiang, hargaMalam, akhirsiang, akhirMalam, discDurasi})
-        DataGridView4.Dock = DockStyle.Top
-        DataGridView4.EnableHeadersVisualStyles = False
-        DataGridView4.Location = New Point(0, 423)
-        DataGridView4.Name = "DataGridView4"
-        DataGridView4.RowHeadersVisible = False
-        DataGridView4.RowHeadersWidth = 51
-        DataGridView4.Size = New Size(663, 322)
-        DataGridView4.TabIndex = 14
-        ' 
-        ' namaDurasi
-        ' 
-        namaDurasi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        namaDurasi.FillWeight = 175F
-        namaDurasi.HeaderText = "Nama Paket"
-        namaDurasi.MinimumWidth = 6
-        namaDurasi.Name = "namaDurasi"
-        ' 
-        ' hargaSiang
-        ' 
-        hargaSiang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        hargaSiang.HeaderText = "Harga Siang "
-        hargaSiang.MinimumWidth = 6
-        hargaSiang.Name = "hargaSiang"
-        ' 
-        ' hargaMalam
-        ' 
-        hargaMalam.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        hargaMalam.HeaderText = "Harga Malam "
-        hargaMalam.MinimumWidth = 6
-        hargaMalam.Name = "hargaMalam"
-        ' 
-        ' akhirsiang
-        ' 
-        akhirsiang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        akhirsiang.HeaderText = "Jam Akhir Harga Siang"
-        akhirsiang.MinimumWidth = 6
-        akhirsiang.Name = "akhirsiang"
-        ' 
-        ' akhirMalam
-        ' 
-        akhirMalam.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        akhirMalam.HeaderText = "Jam Akhir Harga Malam"
-        akhirMalam.MinimumWidth = 6
-        akhirMalam.Name = "akhirMalam"
-        ' 
-        ' discDurasi
-        ' 
-        discDurasi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        discDurasi.FillWeight = 50F
-        discDurasi.HeaderText = "Disc Table (%)"
-        discDurasi.MinimumWidth = 6
-        discDurasi.Name = "discDurasi"
-        ' 
-        ' Label4
-        ' 
-        Label4.BorderStyle = BorderStyle.FixedSingle
-        Label4.Dock = DockStyle.Top
-        Label4.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label4.Location = New Point(0, 393)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(663, 30)
-        Label4.TabIndex = 13
-        Label4.Text = "Daftar Paket Durasi"
-        Label4.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Panel5
         ' 
-        Panel5.Controls.Add(btnEditLos)
         Panel5.Controls.Add(btnTambahLos)
         Panel5.Controls.Add(btnHapusLos)
         Panel5.Dock = DockStyle.Top
-        Panel5.Location = New Point(0, 347)
+        Panel5.Location = New Point(0, 213)
+        Panel5.Margin = New Padding(3, 2, 3, 2)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(663, 46)
-        Panel5.TabIndex = 12
+        Panel5.Size = New Size(580, 34)
+        Panel5.TabIndex = 14
         ' 
         ' btnTambahLos
         ' 
         btnTambahLos.Dock = DockStyle.Right
-        btnTambahLos.Location = New Point(569, 0)
+        btnTambahLos.Location = New Point(416, 0)
+        btnTambahLos.Margin = New Padding(3, 2, 3, 2)
         btnTambahLos.Name = "btnTambahLos"
-        btnTambahLos.Size = New Size(94, 46)
+        btnTambahLos.Size = New Size(82, 34)
         btnTambahLos.TabIndex = 1
         btnTambahLos.Text = "Tambah"
         btnTambahLos.UseVisualStyleBackColor = True
         ' 
         ' btnHapusLos
         ' 
-        btnHapusLos.Dock = DockStyle.Left
-        btnHapusLos.Location = New Point(0, 0)
+        btnHapusLos.Dock = DockStyle.Right
+        btnHapusLos.Location = New Point(498, 0)
+        btnHapusLos.Margin = New Padding(3, 2, 3, 2)
         btnHapusLos.Name = "btnHapusLos"
-        btnHapusLos.Size = New Size(94, 46)
+        btnHapusLos.Size = New Size(82, 34)
         btnHapusLos.TabIndex = 0
         btnHapusLos.Text = "Hapus"
         btnHapusLos.UseVisualStyleBackColor = True
@@ -440,48 +368,77 @@ Partial Class FormPengaturan
         ' 
         DataGridView3.BackgroundColor = SystemColors.Control
         DataGridView3.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle4.ForeColor = SystemColors.Control
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle6.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle6.ForeColor = SystemColors.Control
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
+        DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         DataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView3.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, hargaLos, DataGridViewTextBoxColumn2})
+        DataGridView3.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn3, DataGridViewTextBoxColumn4, DataGridViewTextBoxColumn5, DataGridViewTextBoxColumn6, DataGridViewTextBoxColumn7, discTable})
         DataGridView3.Dock = DockStyle.Top
         DataGridView3.EnableHeadersVisualStyles = False
-        DataGridView3.Location = New Point(0, 38)
-        DataGridView3.Margin = New Padding(3, 4, 3, 4)
+        DataGridView3.Location = New Point(0, 23)
+        DataGridView3.Margin = New Padding(3, 2, 3, 2)
         DataGridView3.Name = "DataGridView3"
+        DataGridView3.ReadOnly = True
         DataGridView3.RowHeadersVisible = False
         DataGridView3.RowHeadersWidth = 51
-        DataGridView3.Size = New Size(663, 309)
-        DataGridView3.TabIndex = 10
+        DataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView3.Size = New Size(580, 190)
+        DataGridView3.TabIndex = 13
         ' 
-        ' DataGridViewTextBoxColumn1
+        ' DataGridViewTextBoxColumn3
         ' 
-        DataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn1.FillWeight = 175F
-        DataGridViewTextBoxColumn1.HeaderText = "Nama Paket"
-        DataGridViewTextBoxColumn1.MinimumWidth = 6
-        DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        DataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn3.FillWeight = 175F
+        DataGridViewTextBoxColumn3.HeaderText = "Nama Paket"
+        DataGridViewTextBoxColumn3.MinimumWidth = 6
+        DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        DataGridViewTextBoxColumn3.ReadOnly = True
         ' 
-        ' hargaLos
+        ' DataGridViewTextBoxColumn4
         ' 
-        hargaLos.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        hargaLos.HeaderText = "Harga per Menit (Rp)"
-        hargaLos.MinimumWidth = 6
-        hargaLos.Name = "hargaLos"
+        DataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn4.HeaderText = "Harga Siang "
+        DataGridViewTextBoxColumn4.MinimumWidth = 6
+        DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        DataGridViewTextBoxColumn4.ReadOnly = True
         ' 
-        ' DataGridViewTextBoxColumn2
+        ' DataGridViewTextBoxColumn5
         ' 
-        DataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn2.FillWeight = 50F
-        DataGridViewTextBoxColumn2.HeaderText = "Disc Table (%)"
-        DataGridViewTextBoxColumn2.MinimumWidth = 6
-        DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        DataGridViewTextBoxColumn5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn5.HeaderText = "Harga Malam "
+        DataGridViewTextBoxColumn5.MinimumWidth = 6
+        DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        DataGridViewTextBoxColumn5.ReadOnly = True
+        ' 
+        ' DataGridViewTextBoxColumn6
+        ' 
+        DataGridViewTextBoxColumn6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn6.HeaderText = "Jam Akhir Harga Siang"
+        DataGridViewTextBoxColumn6.MinimumWidth = 6
+        DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        DataGridViewTextBoxColumn6.ReadOnly = True
+        ' 
+        ' DataGridViewTextBoxColumn7
+        ' 
+        DataGridViewTextBoxColumn7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn7.HeaderText = "Jam Akhir Harga Malam"
+        DataGridViewTextBoxColumn7.MinimumWidth = 6
+        DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        DataGridViewTextBoxColumn7.ReadOnly = True
+        ' 
+        ' discTable
+        ' 
+        discTable.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        discTable.FillWeight = 50F
+        discTable.HeaderText = "Disc Table (%)"
+        discTable.MinimumWidth = 6
+        discTable.Name = "discTable"
+        discTable.ReadOnly = True
         ' 
         ' Label3
         ' 
@@ -490,70 +447,29 @@ Partial Class FormPengaturan
         Label3.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.Location = New Point(0, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(663, 38)
+        Label3.Size = New Size(580, 23)
         Label3.TabIndex = 9
         Label3.Text = "Daftar Paket Los Time"
         Label3.TextAlign = ContentAlignment.MiddleCenter
         ' 
-        ' btnEditAdmin
-        ' 
-        btnEditAdmin.Dock = DockStyle.Left
-        btnEditAdmin.Location = New Point(94, 0)
-        btnEditAdmin.Name = "btnEditAdmin"
-        btnEditAdmin.Size = New Size(94, 46)
-        btnEditAdmin.TabIndex = 2
-        btnEditAdmin.Text = "Edit"
-        btnEditAdmin.UseVisualStyleBackColor = True
-        ' 
-        ' btnEditLos
-        ' 
-        btnEditLos.Dock = DockStyle.Left
-        btnEditLos.Location = New Point(94, 0)
-        btnEditLos.Name = "btnEditLos"
-        btnEditLos.Size = New Size(94, 46)
-        btnEditLos.TabIndex = 3
-        btnEditLos.Text = "Edit"
-        btnEditLos.UseVisualStyleBackColor = True
-        ' 
-        ' btnEditDurasi
-        ' 
-        btnEditDurasi.Dock = DockStyle.Left
-        btnEditDurasi.Location = New Point(94, 0)
-        btnEditDurasi.Name = "btnEditDurasi"
-        btnEditDurasi.Size = New Size(94, 46)
-        btnEditDurasi.TabIndex = 4
-        btnEditDurasi.Text = "Edit"
-        btnEditDurasi.UseVisualStyleBackColor = True
-        ' 
-        ' btnEditPromo
-        ' 
-        btnEditPromo.Dock = DockStyle.Left
-        btnEditPromo.Location = New Point(94, 0)
-        btnEditPromo.Name = "btnEditPromo"
-        btnEditPromo.Size = New Size(94, 46)
-        btnEditPromo.TabIndex = 4
-        btnEditPromo.Text = "Edit"
-        btnEditPromo.UseVisualStyleBackColor = True
-        ' 
         ' FormPengaturan
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1332, 853)
+        ClientSize = New Size(1184, 561)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         Controls.Add(Label1)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "FormPengaturan"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FormPengaturan"
         Panel1.ResumeLayout(False)
-        Panel4.ResumeLayout(False)
-        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
-        Panel3.ResumeLayout(False)
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
-        Panel2.ResumeLayout(False)
         Panel6.ResumeLayout(False)
         CType(DataGridView4, ComponentModel.ISupportInitialize).EndInit()
+        Panel4.ResumeLayout(False)
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
+        Panel2.ResumeLayout(False)
         Panel5.ResumeLayout(False)
         CType(DataGridView3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -561,43 +477,35 @@ Partial Class FormPengaturan
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents nomor As DataGridViewTextBoxColumn
-    Friend WithEvents namaAdmin As DataGridViewTextBoxColumn
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents btnTambahAdmin As Button
-    Friend WithEvents btnHapusAdmin As Button
     Friend WithEvents Panel4 As Panel
     Friend WithEvents btnTambahPromo As Button
     Friend WithEvents btnHapusPromo As Button
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label2 As Label
-    Friend WithEvents DataGridView3 As DataGridView
     Friend WithEvents Label3 As Label
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents btnTambahLos As Button
-    Friend WithEvents btnHapusLos As Button
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents btnTambahDurasi As Button
-    Friend WithEvents btnHapusDurasi As Button
-    Friend WithEvents DataGridView4 As DataGridView
-    Friend WithEvents Label4 As Label
     Friend WithEvents namaPaket As DataGridViewTextBoxColumn
     Friend WithEvents hargaPaket As DataGridViewTextBoxColumn
     Friend WithEvents durationPaket As DataGridViewTextBoxColumn
     Friend WithEvents discPaket As DataGridViewTextBoxColumn
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents btnTambahDurasi As Button
+    Friend WithEvents btnHapusDurasi As Button
+    Friend WithEvents DataGridView4 As DataGridView
     Friend WithEvents namaDurasi As DataGridViewTextBoxColumn
     Friend WithEvents hargaSiang As DataGridViewTextBoxColumn
     Friend WithEvents hargaMalam As DataGridViewTextBoxColumn
     Friend WithEvents akhirsiang As DataGridViewTextBoxColumn
     Friend WithEvents akhirMalam As DataGridViewTextBoxColumn
     Friend WithEvents discDurasi As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents hargaLos As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents btnEditPromo As Button
-    Friend WithEvents btnEditAdmin As Button
-    Friend WithEvents btnEditDurasi As Button
-    Friend WithEvents btnEditLos As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents btnTambahLos As Button
+    Friend WithEvents btnHapusLos As Button
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents discTable As DataGridViewTextBoxColumn
 End Class

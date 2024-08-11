@@ -66,34 +66,47 @@ Public Class FormOpenTableDurasi
         Dim selesai As DateTime = mulai.AddHours(Convert.ToDouble(textboxDurasiMain.Text))
         Dim selesaiString As String = selesai.ToString("HH:mm:ss")
         Dim harga As Integer = 0
-        If mulai.Hour >= 9 AndAlso mulai.Hour < 17 Then
-            If selesai.Hour >= 17 Then
-                Dim bataswaktu As New TimeSpan(17, 0, 0)
+        Dim selisihmulaiInt As Integer = 0
+        Dim selisihselesaiInt As Integer = 0
+        Dim hargaSiang As Integer = 0
+        Dim hargaMalam As Integer = 0
+        Dim akhirWaktuSiangString As String = labelAkhirHargaSiang.Text
+        Dim akhirWaktuSiang As DateTime = DateTime.Parse(akhirWaktuSiangString)
+        Dim akhirWaktuMalamString As String = labelAkhirHargaMalam.Text
+        Dim akhirWaktuMalam As DateTime = DateTime.Parse(akhirWaktuMalamString)
+
+        If mulai.Hour >= akhirWaktuMalam.Hour AndAlso mulai.Hour < akhirWaktuSiang.Hour Then
+            If selesai.Hour >= akhirWaktuSiang.Hour Then
+                Dim bataswaktu As New TimeSpan(akhirWaktuSiang.Hour, 0, 0)
                 Dim waktumulai As TimeSpan = TimeSpan.Parse(mulaiString)
                 Dim selisihmulai As TimeSpan = bataswaktu - waktumulai
-                Dim selisihmulaiInt As Integer = selisihmulai.TotalMinutes
-                Dim hargaSiang As Integer = Integer.Parse(labelHargaSiang.Text)
+                selisihmulaiInt = selisihmulai.TotalMinutes
+                hargaSiang = Integer.Parse(labelHargaSiang.Text)
                 Dim hargaSelisihMulai As Integer = (hargaSiang / 60) * selisihmulaiInt
 
                 Dim waktuselesai As TimeSpan = TimeSpan.Parse(selesaiString)
                 Dim selisihselesai As TimeSpan = waktuselesai - bataswaktu
-                Dim selisihselesaiInt As Integer = selisihselesai.TotalMinutes
-                Dim hargaMalam As Integer = Integer.Parse(labelisihargamalam.Text)
+                selisihselesaiInt = selisihselesai.TotalMinutes
+                hargaMalam = Integer.Parse(labelisihargamalam.Text)
                 Dim hargaSelisihSelesai As Integer = (hargaMalam / 60) * selisihselesaiInt
 
                 harga = hargaSelisihMulai + hargaSelisihSelesai
-            ElseIf selesai.Hour < 17 Then
-                Dim hargaSiang As Integer = Integer.Parse(labelHargaSiang.Text) * Integer.Parse(textboxDurasiMain.Text)
-                harga = hargaSiang
+            ElseIf selesai.Hour < akhirWaktuSiang.Hour Then
+                hargaSiang = Integer.Parse(labelHargaSiang.Text)
+                Dim durasiMain As Integer = Integer.Parse(textboxDurasiMain.Text)
+                selisihmulaiInt = durasiMain * 60
+                harga = hargaSiang * durasiMain
             End If
-        ElseIf mulai.Hour >= 17 OrElse mulai.Hour < 9 Then
-            Dim hargaMalam As Integer = Integer.Parse(labelisihargamalam.Text) * Integer.Parse(textboxDurasiMain.Text)
-            harga = hargaMalam
+        ElseIf mulai.Hour >= akhirWaktuSiang.Hour OrElse mulai.Hour < akhirWaktuMalam.Hour Then
+            hargaMalam = Integer.Parse(labelisihargamalam.Text)
+            Dim durasiMain As Integer = Integer.Parse(textboxDurasiMain.Text)
+            selisihselesaiInt = durasiMain * 60
+            harga = hargaMalam * durasiMain
         End If
         Console.WriteLine("Harga: " & harga)
         Try
             connect()
-            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table) VALUES ('" & LabelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(textboxDurasiMain.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonDurasi.Text) & "')", Koneksi)
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table, durasi_siang, durasi_malam, harga_siang, harga_malam) VALUES ('" & LabelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(textboxDurasiMain.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonDurasi.Text) & "', '" & selisihmulaiInt & "', '" & selisihselesaiInt & "', '" & hargaSiang & "', '" & hargaMalam & "')", Koneksi)
             CMD.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.Message)

@@ -54,7 +54,7 @@ Public Class FormOpenTableLos
 
         Try
             connect()
-            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, disc_table) VALUES ('" & LabelNoOrderLos.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaketLos.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & Convert.ToInt32(labelDiskonLos.Text) & "')", Koneksi)
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, disc_table, harga_siang, harga_malam) VALUES ('" & LabelNoOrderLos.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaketLos.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & Convert.ToInt32(labelDiskonLos.Text) & "', '" & Convert.ToInt32(labelHargaSiangLos.Text) & "', '" & Convert.ToInt32(labelisihargamalamLos.Text) & "')", Koneksi)
             CMD.ExecuteNonQuery()
             disconnect()
         Catch ex As Exception

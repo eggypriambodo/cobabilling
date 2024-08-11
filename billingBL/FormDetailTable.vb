@@ -13,6 +13,11 @@ Public Class FormDetailTable
     Dim longpaper As Integer
     Dim grandTotal As Integer = 0
     Dim metodePembayaran As String
+    Dim hargaSiang As Integer = 0
+    Dim hargaMalam As Integer = 0
+    Dim durasiSiang As Integer = 0
+    Dim durasiMalam As Integer = 0
+    Dim currentMeja As String
 
 
     Private Sub btnCetak_Click(sender As Object, e As EventArgs) Handles btnCetak.Click
@@ -22,9 +27,13 @@ Public Class FormDetailTable
     End Sub
 
     Private Sub btnBayar_Click(sender As Object, e As EventArgs) Handles btnBayar.Click
+        If Not (rbtnCash.Checked Or rbtnDebit.Checked Or rbtnQRIS.Checked Or rbtnTransfer.Checked) Then
+            MessageBox.Show("Metode Pembayaran Harus Diisi", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            FormBilling.Instance.UbahStatusTableCheckout(currentMeja, metodePembayaran)
+            MessageBox.Show("Pembayaran berhasil, meja telah kosong kembali.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
 
-        FormBilling.Instance.UbahStatusTableCheckout()
-        MessageBox.Show("Pembayaran berhasil, meja telah kosong kembali.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Sub changelongpaper()
@@ -73,24 +82,38 @@ Public Class FormDetailTable
         e.Graphics.DrawString("Telp. 031-1234567", f10, Brushes.Black, centermargin, 60, center)
         e.Graphics.DrawString(line, f10, Brushes.Black, 0, 75)
 
-        e.Graphics.DrawString(labelNoTable.Text & "                                             " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
+        e.Graphics.DrawString(labelNoTable.Text & "                                          " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
         e.Graphics.DrawString("No. Order : " & labelNoOrder.Text, f10, Brushes.Black, 5, 125)
         e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 140)
         e.Graphics.DrawString("Paket : " & labelPaket.Text, f10, Brushes.Black, 5, 155)
         e.Graphics.DrawString("No. Meja : " & labelNoTable.Text, f10, Brushes.Black, 5, 170)
         e.Graphics.DrawString("Waktu Mulai : " & labelWaktuMulai.Text, f10, Brushes.Black, 5, 185)
         e.Graphics.DrawString("Waktu Selesai : " & labelWaktuSelesai.Text, f10, Brushes.Black, 5, 200)
-        e.Graphics.DrawString("Durasi : " & labelDuration.Text, f10, Brushes.Black, 5, 215)
-        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 230)
+        e.Graphics.DrawString("Durasi : " & durasiSiang + durasiMalam & " menit", f10, Brushes.Black, 5, 215)
+        If labelPaket.Text <> "PAKET DURASI" AndAlso labelPaket.Text <> "PAKET LOSTIME" Then
+            e.Graphics.DrawString("TABLE CHARGES STANDART", f10, Brushes.Black, 5, 235)
+            e.Graphics.DrawString("0 menit X Rp. " & Format(0, "0.00"), f10, Brushes.Black, 5, 250)
+            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 5, 250)
+            e.Graphics.DrawString("0 menit X Rp. " & Format(0, "0.00"), f10, Brushes.Black, 5, 265)
+            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 5, 265)
+        Else
+            e.Graphics.DrawString("TABLE CHARGES STANDART", f10, Brushes.Black, 5, 235)
+            e.Graphics.DrawString(durasiSiang & " menit X Rp. " & Format(hargaSiang / 60, "0.00"), f10, Brushes.Black, 5, 250)
+            e.Graphics.DrawString("                                                     " & Format((hargaSiang / 60) * durasiSiang, "0"), f10, Brushes.Black, 5, 250)
+            e.Graphics.DrawString(durasiMalam & " menit X Rp. " & Format(hargaMalam / 60, "0.00"), f10, Brushes.Black, 5, 265)
+            e.Graphics.DrawString("                                                     " & Format((hargaMalam / 60) * durasiMalam, "0"), f10, Brushes.Black, 5, 265)
+        End If
 
-        e.Graphics.DrawString("Metode Pembayaran :" & metodePembayaran, f10, Brushes.Black, 5, 250)
-        e.Graphics.DrawString("Subtotal : " & labelSubtotalTable.Text, f10, Brushes.Black, 5, 265)
-        e.Graphics.DrawString("Diskon : " & labelDiskonTable.Text & "%", f10, Brushes.Black, 5, 280)
-        e.Graphics.DrawString("Total : " & labelTotalTable.Text, f10, Brushes.Black, 5, 295)
-        e.Graphics.DrawString("Tax Service : " & labelTaxService.Text, f10, Brushes.Black, 5, 310)
-        e.Graphics.DrawString("PPn : " & labelPPn.Text, f10, Brushes.Black, 5, 325)
-        e.Graphics.DrawString("Grand Total : " & tboxGrandTotal.Text, f10, Brushes.Black, 5, 340)
-        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 360)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 280)
+
+        e.Graphics.DrawString("Metode Pembayaran :" & metodePembayaran, f10, Brushes.Black, 5, 295)
+        e.Graphics.DrawString("Subtotal : " & labelSubtotalTable.Text, f10, Brushes.Black, 5, 310)
+        e.Graphics.DrawString("Diskon : " & labelDiskonTable.Text & "%", f10, Brushes.Black, 5, 325)
+        e.Graphics.DrawString("Total : " & labelTotalTable.Text, f10, Brushes.Black, 5, 340)
+        e.Graphics.DrawString("Tax Service : " & labelTaxService.Text, f10, Brushes.Black, 5, 355)
+        e.Graphics.DrawString("PPn : " & labelPPn.Text, f10, Brushes.Black, 5, 370)
+        e.Graphics.DrawString("Grand Total : " & tboxGrandTotal.Text, f10, Brushes.Black, 5, 385)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 400)
 
     End Sub
 
@@ -104,7 +127,7 @@ Public Class FormDetailTable
             DA.Fill(DT)
 
             For i = 0 To DT.Rows.Count - 1
-
+                currentMeja = meja
                 Dim subtotal As Integer = DT.Rows(i).Item(7)
                 Dim total As Integer = subtotal - (subtotal * DT.Rows(i).Item(8))
                 Dim taxservice As Integer = total * 0.05
@@ -118,7 +141,6 @@ Public Class FormDetailTable
                 labelNoTable.Text = DT.Rows(i).Item(3)
                 labelWaktuMulai.Text = DT.Rows(i).Item(4)
                 labelWaktuSelesai.Text = DT.Rows(i).Item(5)
-                labelDuration.Text = DT.Rows(i).Item(6) & "Jam"
                 labelSubtotalTable.Text = "Rp. " & subtotal
                 labelDiskonTable.Text = DT.Rows(i).Item(8)
                 labelTotalTable.Text = "Rp. " & total
@@ -126,7 +148,11 @@ Public Class FormDetailTable
                 labelPPn.Text = "Rp. " & ppn
                 tboxGrandTotal.Text = "Rp. " & FormatNumber(grandTotal, 0, TriState.True, TriState.False, TriState.True)
                 tbNamaTamu.Text = DT.Rows(i).Item(1)
-
+                durasiSiang = DT.Rows(i).Item(9)
+                durasiMalam = DT.Rows(i).Item(10)
+                hargaSiang = DT.Rows(i).Item(11)
+                hargaMalam = DT.Rows(i).Item(12)
+                labelDuration.Text = durasiSiang + durasiMalam & " Menit"
             Next
         Catch ex As Exception
             MsgBox(ex.Message)

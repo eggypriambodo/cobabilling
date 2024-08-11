@@ -24,12 +24,12 @@ Partial Class FormTransaksi
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         DataGridView1 = New DataGridView()
+        Label1 = New Label()
         no = New DataGridViewTextBoxColumn()
         noOrder = New DataGridViewTextBoxColumn()
         durasi = New DataGridViewTextBoxColumn()
         totalHarga = New DataGridViewTextBoxColumn()
-        bayar = New DataGridViewTextBoxColumn()
-        Label1 = New Label()
+        metodebayar = New DataGridViewTextBoxColumn()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -46,15 +46,26 @@ Partial Class FormTransaksi
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, noOrder, durasi, totalHarga, bayar})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, noOrder, durasi, totalHarga, metodebayar})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(165, 99)
-        DataGridView1.Margin = New Padding(50, 3, 3, 3)
+        DataGridView1.Location = New Point(81, 65)
+        DataGridView1.Margin = New Padding(44, 2, 3, 2)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(1167, 499)
+        DataGridView1.Size = New Size(1021, 374)
         DataGridView1.TabIndex = 11
+        ' 
+        ' Label1
+        ' 
+        Label1.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(81, 29)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(1021, 34)
+        Label1.TabIndex = 10
+        Label1.Text = "DATA TRANSAKSI"
+        Label1.TextAlign = ContentAlignment.MiddleCenter
+        Label1.UseCompatibleTextRendering = True
         ' 
         ' no
         ' 
@@ -69,14 +80,14 @@ Partial Class FormTransaksi
         noOrder.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         noOrder.FillWeight = 150F
         noOrder.HeaderText = "No Order"
-        noOrder.MinimumWidth = 6
+        noOrder.MinimumWidth = 4
         noOrder.Name = "noOrder"
         ' 
         ' durasi
         ' 
         durasi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         durasi.FillWeight = 75F
-        durasi.HeaderText = "Durasi"
+        durasi.HeaderText = "Durasi (menit)"
         durasi.MinimumWidth = 6
         durasi.Name = "durasi"
         ' 
@@ -87,31 +98,21 @@ Partial Class FormTransaksi
         totalHarga.Name = "totalHarga"
         totalHarga.Width = 125
         ' 
-        ' bayar
+        ' metodebayar
         ' 
-        bayar.HeaderText = "Bayar"
-        bayar.MinimumWidth = 6
-        bayar.Name = "bayar"
-        bayar.Width = 125
-        ' 
-        ' Label1
-        ' 
-        Label1.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(165, 36)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(1167, 46)
-        Label1.TabIndex = 10
-        Label1.Text = "DATA TRANSAKSI"
-        Label1.TextAlign = ContentAlignment.MiddleCenter
-        Label1.UseCompatibleTextRendering = True
+        metodebayar.HeaderText = "Metode Bayar"
+        metodebayar.MinimumWidth = 6
+        metodebayar.Name = "metodebayar"
+        metodebayar.Width = 125
         ' 
         ' FormTransaksi
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1332, 853)
+        ClientSize = New Size(1166, 562)
         Controls.Add(DataGridView1)
         Controls.Add(Label1)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "FormTransaksi"
         Text = "FormTransaksi"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
@@ -120,9 +121,10 @@ Partial Class FormTransaksi
 
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents bayar As DataGridViewTextBoxColumn
     Friend WithEvents no As DataGridViewTextBoxColumn
     Friend WithEvents noOrder As DataGridViewTextBoxColumn
     Friend WithEvents durasi As DataGridViewTextBoxColumn
     Friend WithEvents totalHarga As DataGridViewTextBoxColumn
-    Friend WithEvents bayar As DataGridViewTextBoxColumn
+    Friend WithEvents metodebayar As DataGridViewTextBoxColumn
 End Class
