@@ -22,7 +22,7 @@ Partial Class FormAddLosTime
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         akhirMalam = New DataGridViewTextBoxColumn()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         Panel13 = New Panel()
@@ -40,9 +40,11 @@ Partial Class FormAddLosTime
         Panel7 = New Panel()
         Label4 = New Label()
         Panel8 = New Panel()
+        cbAkhirSiang = New ComboBox()
         Panel9 = New Panel()
         Label5 = New Label()
         Panel10 = New Panel()
+        cbAkhirMalam = New ComboBox()
         Panel5 = New Panel()
         Label3 = New Label()
         Panel6 = New Panel()
@@ -63,8 +65,6 @@ Partial Class FormAddLosTime
         DataGridViewTextBoxColumn4 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn5 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn6 = New DataGridViewTextBoxColumn()
-        cbAkhirSiang = New ComboBox()
-        cbAkhirMalam = New ComboBox()
         FlowLayoutPanel1.SuspendLayout()
         Panel13.SuspendLayout()
         Panel14.SuspendLayout()
@@ -258,7 +258,7 @@ Partial Class FormAddLosTime
         Label4.Name = "Label4"
         Label4.Size = New Size(128, 35)
         Label4.TabIndex = 0
-        Label4.Text = "Akhir Harga Siang (hh:hh:hh)"
+        Label4.Text = "Akhir Harga Siang"
         Label4.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel8
@@ -271,6 +271,14 @@ Partial Class FormAddLosTime
         Panel8.Name = "Panel8"
         Panel8.Size = New Size(146, 37)
         Panel8.TabIndex = 22
+        ' 
+        ' cbAkhirSiang
+        ' 
+        cbAkhirSiang.FormattingEnabled = True
+        cbAkhirSiang.Location = New Point(12, 6)
+        cbAkhirSiang.Name = "cbAkhirSiang"
+        cbAkhirSiang.Size = New Size(121, 23)
+        cbAkhirSiang.TabIndex = 0
         ' 
         ' Panel9
         ' 
@@ -292,7 +300,7 @@ Partial Class FormAddLosTime
         Label5.Name = "Label5"
         Label5.Size = New Size(131, 35)
         Label5.TabIndex = 0
-        Label5.Text = "Akhir Harga Malam (hh:hh:hh)"
+        Label5.Text = "Akhir Harga Malam"
         Label5.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel10
@@ -305,6 +313,14 @@ Partial Class FormAddLosTime
         Panel10.Name = "Panel10"
         Panel10.Size = New Size(146, 37)
         Panel10.TabIndex = 24
+        ' 
+        ' cbAkhirMalam
+        ' 
+        cbAkhirMalam.FormattingEnabled = True
+        cbAkhirMalam.Location = New Point(12, 7)
+        cbAkhirMalam.Name = "cbAkhirMalam"
+        cbAkhirMalam.Size = New Size(121, 23)
+        cbAkhirMalam.TabIndex = 25
         ' 
         ' Panel5
         ' 
@@ -450,14 +466,14 @@ Partial Class FormAddLosTime
         ' 
         DataGridView1.BackgroundColor = SystemColors.Control
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.Control
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, DataGridViewTextBoxColumn3, DataGridViewTextBoxColumn4, DataGridViewTextBoxColumn5, DataGridViewTextBoxColumn6})
         DataGridView1.Dock = DockStyle.Top
@@ -521,22 +537,6 @@ Partial Class FormAddLosTime
         DataGridViewTextBoxColumn6.MinimumWidth = 6
         DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         DataGridViewTextBoxColumn6.ReadOnly = True
-        ' 
-        ' cbAkhirSiang
-        ' 
-        cbAkhirSiang.FormattingEnabled = True
-        cbAkhirSiang.Location = New Point(12, 6)
-        cbAkhirSiang.Name = "cbAkhirSiang"
-        cbAkhirSiang.Size = New Size(121, 23)
-        cbAkhirSiang.TabIndex = 0
-        ' 
-        ' cbAkhirMalam
-        ' 
-        cbAkhirMalam.FormattingEnabled = True
-        cbAkhirMalam.Location = New Point(12, 7)
-        cbAkhirMalam.Name = "cbAkhirMalam"
-        cbAkhirMalam.Size = New Size(121, 23)
-        cbAkhirMalam.TabIndex = 25
         ' 
         ' FormAddLosTime
         ' 

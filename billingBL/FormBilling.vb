@@ -82,6 +82,7 @@ Public Class FormBilling
                         labTimeStart1.Text = DT.Rows(i).Item(4)
                         labTimeStop1.Text = DT.Rows(i).Item(5)
                     End If
+
                 End If
 
                 If DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -120,6 +121,7 @@ Public Class FormBilling
                         labTimeStart2.Text = DT.Rows(i).Item(4)
                         labTimeStop2.Text = DT.Rows(i).Item(5)
                     End If
+
                 End If
 
                 If DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -158,6 +160,7 @@ Public Class FormBilling
                         labTimeStart3.Text = DT.Rows(i).Item(4)
                         labTimeStop3.Text = DT.Rows(i).Item(5)
                     End If
+
                 End If
 
                 If DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -196,6 +199,7 @@ Public Class FormBilling
                         labTimeStart4.Text = DT.Rows(i).Item(4)
                         labTimeStop4.Text = DT.Rows(i).Item(5)
                     End If
+
                 End If
 
                 If DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -234,6 +238,7 @@ Public Class FormBilling
                         labTimeStart5.Text = DT.Rows(i).Item(4)
                         labTimeStop5.Text = DT.Rows(i).Item(5)
                     End If
+
                 End If
 
                 If DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -272,6 +277,7 @@ Public Class FormBilling
                         labTimeStart6.Text = DT.Rows(i).Item(4)
                         labTimeStop6.Text = DT.Rows(i).Item(5)
                     End If
+
                 End If
 
                 If DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -310,6 +316,7 @@ Public Class FormBilling
                         labTimeStart7.Text = DT.Rows(i).Item(4)
                         labTimeStop7.Text = DT.Rows(i).Item(5)
                     End If
+
                 End If
 
                 If DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -348,6 +355,7 @@ Public Class FormBilling
                         labTimeStart8.Text = DT.Rows(i).Item(4)
                         labTimeStop8.Text = DT.Rows(i).Item(5)
                     End If
+
                 End If
 
             Next
@@ -358,7 +366,7 @@ Public Class FormBilling
         End Try
     End Sub
 
-    Sub updateStopPaketLos(meja As String, waktuMulai As TimeSpan)
+    Private Sub updateStopPaketLos(meja As String, waktuMulai As TimeSpan)
         Dim selesai As TimeSpan = Date.Now.TimeOfDay
         Dim selesaiString As String = selesai.ToString("hh\:mm\:ss")
         Dim mulai As TimeSpan = waktuMulai
@@ -370,55 +378,51 @@ Public Class FormBilling
         Dim hargaMalam As Integer = 0
         Dim akhirWaktuSiangString As String
         Dim akhirWaktuMalamString As String
-        Dim akhirWaktuSiang As DateTime
-        Dim akhirWaktuMalam As DateTime
+        Dim akhirWaktuSiang As TimeSpan
+        Dim akhirWaktuMalam As TimeSpan
+        Dim harga As Integer = 0
 
         If selesai < mulai Then
-            Dim waktuTambah As New TimeSpan(24, 0, 0)
-            selesai = selesai.Add(waktuTambah)
-            totalWaktu = selesai - mulai
-            totalWaktuInt = totalWaktu.TotalMinutes
-        Else
-            totalWaktu = selesai - mulai
-            totalWaktuInt = totalWaktu.TotalMinutes
+            selesai = selesai.Add(New TimeSpan(24, 0, 0))
         End If
 
-        Dim harga As Integer = 0
+        totalWaktu = selesai - mulai
+        totalWaktuInt = totalWaktu.TotalMinutes
+
         Try
             connect()
 
             DA = New MySqlDataAdapter("SELECT * FROM tb_daftarpaket WHERE jenis_paket='LOSTIME'", Koneksi)
-            DT = New DataTable
+            DT = New DataTable()
             DA.Fill(DT)
 
             For i = 0 To DT.Rows.Count - 1
-                akhirWaktuSiangString = DT.Rows(i).Item(6)
-                akhirWaktuMalamString = DT.Rows(i).Item(7)
-                akhirWaktuSiang = DateTime.Parse(akhirWaktuSiangString)
-                akhirWaktuMalam = DateTime.Parse(akhirWaktuMalamString)
+                akhirWaktuSiangString = DT.Rows(i).Item("akhir_siang").ToString()
+                akhirWaktuMalamString = DT.Rows(i).Item("akhir_malam").ToString()
+                akhirWaktuSiang = TimeSpan.Parse(akhirWaktuSiangString)
+                akhirWaktuMalam = TimeSpan.Parse(akhirWaktuMalamString)
 
-                If mulai.Hours >= akhirWaktuMalam.Hour AndAlso mulai.Hours < akhirWaktuSiang.Hour Then
-                    If selesai.Hours >= akhirWaktuSiang.Hour Then
-                        Dim bataswaktu As New TimeSpan(akhirWaktuSiang.Hour, 0, 0)
+                If mulai >= akhirWaktuMalam AndAlso mulai < akhirWaktuSiang Then
+                    If selesai >= akhirWaktuSiang Then
+                        Dim bataswaktu As New TimeSpan(akhirWaktuSiang.Hours, 0, 0)
                         Dim selisihmulai As TimeSpan = bataswaktu - mulai
                         selisihmulaiInt = selisihmulai.TotalMinutes
-                        hargaSiang = DT.Rows(i).Item(4)
+                        hargaSiang = Convert.ToInt32(DT.Rows(i).Item("harga_siang"))
                         Dim hargaSelisihMulai As Integer = (hargaSiang / 60) * selisihmulaiInt
 
-                        Dim waktuselesai As TimeSpan = selesai
-                        Dim selisihselesai As TimeSpan = waktuselesai - bataswaktu
+                        Dim selisihselesai As TimeSpan = selesai - bataswaktu
                         selisihselesaiInt = selisihselesai.TotalMinutes
-                        hargaMalam = DT.Rows(i).Item(5)
+                        hargaMalam = Convert.ToInt32(DT.Rows(i).Item("harga_malam"))
                         Dim hargaSelisihSelesai As Integer = (hargaMalam / 60) * selisihselesaiInt
 
                         harga = hargaSelisihMulai + hargaSelisihSelesai
-                    ElseIf selesai.Hours < akhirWaktuSiang.Hour Then
-                        hargaSiang = DT.Rows(i).Item(4)
+                    ElseIf selesai < akhirWaktuSiang Then
+                        hargaSiang = Convert.ToInt32(DT.Rows(i).Item("harga_siang"))
                         harga = (hargaSiang * totalWaktuInt) / 60
                         selisihmulaiInt = totalWaktuInt
                     End If
-                ElseIf mulai.Hours >= akhirWaktuSiang.Hour OrElse mulai.Hours < akhirWaktuMalam.Hour Then
-                    hargaMalam = DT.Rows(i).Item(5)
+                ElseIf mulai >= akhirWaktuSiang AndAlso mulai < akhirWaktuMalam Then
+                    hargaMalam = Convert.ToInt32(DT.Rows(i).Item("harga_malam"))
                     harga = (hargaMalam * totalWaktuInt) / 60
                     selisihselesaiInt = totalWaktuInt
                 End If
@@ -427,12 +431,18 @@ Public Class FormBilling
             MsgBox(ex.Message)
         Finally
             disconnect()
-
         End Try
 
         Try
             connect()
-            CMD = New MySqlCommand("UPDATE tb_detailbilling SET selesai='" & selesaiString & "', harga='" & harga & "', durasi_siang='" & selisihmulaiInt & "', durasi_malam='" & selisihselesaiInt & "' WHERE no_meja='" & meja & "'", Koneksi)
+
+            CMD = New MySqlCommand("UPDATE tb_detailbilling SET selesai=@selesai, harga=@harga, durasi_siang=@durasi_siang, durasi_malam=@durasi_malam WHERE no_meja=@no_meja", Koneksi)
+            CMD.Parameters.AddWithValue("@selesai", selesaiString)
+            CMD.Parameters.AddWithValue("@harga", harga)
+            CMD.Parameters.AddWithValue("@durasi_siang", selisihmulaiInt)
+            CMD.Parameters.AddWithValue("@durasi_malam", selisihselesaiInt)
+            CMD.Parameters.AddWithValue("@no_meja", meja)
+
             CMD.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -441,10 +451,14 @@ Public Class FormBilling
         End Try
     End Sub
 
+
     Sub updateStatusBayar(meja As String)
         Try
             connect()
             CMD = New MySqlCommand("UPDATE tb_detailbilling SET status_bayar='checkout' WHERE no_meja='" & meja & "'", Koneksi)
+            CMD.ExecuteNonQuery()
+
+            CMD = New MySqlCommand("UPDATE tb_meja SET status='checkout' WHERE nama_meja='" & meja & "'", Koneksi)
             CMD.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.Message)

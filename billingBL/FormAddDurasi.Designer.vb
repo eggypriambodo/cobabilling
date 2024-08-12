@@ -45,9 +45,11 @@ Partial Class FormAddDurasi
         Panel7 = New Panel()
         Label4 = New Label()
         Panel8 = New Panel()
+        cbAkhirSiang = New ComboBox()
         Panel9 = New Panel()
         Label5 = New Label()
         Panel10 = New Panel()
+        cbAkhirMalam = New ComboBox()
         Label17 = New Label()
         TableLayoutPanel1 = New TableLayoutPanel()
         DataGridView1 = New DataGridView()
@@ -57,8 +59,6 @@ Partial Class FormAddDurasi
         akhirsiang = New DataGridViewTextBoxColumn()
         akhirMalam = New DataGridViewTextBoxColumn()
         discTable = New DataGridViewTextBoxColumn()
-        cbAkhirSiang = New ComboBox()
-        cbAkhirMalam = New ComboBox()
         Panel6.SuspendLayout()
         Panel5.SuspendLayout()
         Panel4.SuspendLayout()
@@ -312,7 +312,7 @@ Partial Class FormAddDurasi
         Label4.Name = "Label4"
         Label4.Size = New Size(128, 35)
         Label4.TabIndex = 0
-        Label4.Text = "Akhir Harga Siang (hh:hh:hh)"
+        Label4.Text = "Akhir Harga Siang"
         Label4.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel8
@@ -325,6 +325,14 @@ Partial Class FormAddDurasi
         Panel8.Name = "Panel8"
         Panel8.Size = New Size(146, 37)
         Panel8.TabIndex = 22
+        ' 
+        ' cbAkhirSiang
+        ' 
+        cbAkhirSiang.FormattingEnabled = True
+        cbAkhirSiang.Location = New Point(13, 6)
+        cbAkhirSiang.Name = "cbAkhirSiang"
+        cbAkhirSiang.Size = New Size(121, 23)
+        cbAkhirSiang.TabIndex = 0
         ' 
         ' Panel9
         ' 
@@ -346,7 +354,7 @@ Partial Class FormAddDurasi
         Label5.Name = "Label5"
         Label5.Size = New Size(131, 35)
         Label5.TabIndex = 0
-        Label5.Text = "Akhir Harga Malam (hh:hh:hh)"
+        Label5.Text = "Akhir Harga Malam"
         Label5.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel10
@@ -359,6 +367,14 @@ Partial Class FormAddDurasi
         Panel10.Name = "Panel10"
         Panel10.Size = New Size(146, 37)
         Panel10.TabIndex = 24
+        ' 
+        ' cbAkhirMalam
+        ' 
+        cbAkhirMalam.FormattingEnabled = True
+        cbAkhirMalam.Location = New Point(12, 6)
+        cbAkhirMalam.Name = "cbAkhirMalam"
+        cbAkhirMalam.Size = New Size(121, 23)
+        cbAkhirMalam.TabIndex = 1
         ' 
         ' Label17
         ' 
@@ -465,22 +481,6 @@ Partial Class FormAddDurasi
         discTable.MinimumWidth = 6
         discTable.Name = "discTable"
         discTable.ReadOnly = True
-        ' 
-        ' cbAkhirSiang
-        ' 
-        cbAkhirSiang.FormattingEnabled = True
-        cbAkhirSiang.Location = New Point(13, 6)
-        cbAkhirSiang.Name = "cbAkhirSiang"
-        cbAkhirSiang.Size = New Size(121, 23)
-        cbAkhirSiang.TabIndex = 0
-        ' 
-        ' cbAkhirMalam
-        ' 
-        cbAkhirMalam.FormattingEnabled = True
-        cbAkhirMalam.Location = New Point(12, 6)
-        cbAkhirMalam.Name = "cbAkhirMalam"
-        cbAkhirMalam.Size = New Size(121, 23)
-        cbAkhirMalam.TabIndex = 1
         ' 
         ' FormAddDurasi
         ' 

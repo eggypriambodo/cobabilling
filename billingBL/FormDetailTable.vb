@@ -129,7 +129,7 @@ Public Class FormDetailTable
             For i = 0 To DT.Rows.Count - 1
                 currentMeja = meja
                 Dim subtotal As Integer = DT.Rows(i).Item(7)
-                Dim total As Integer = subtotal - (subtotal * DT.Rows(i).Item(8))
+                Dim total As Integer = subtotal - (subtotal * (DT.Rows(i).Item(8) / 100))
                 Dim taxservice As Integer = total * 0.05
                 Dim ppn As Integer = total * 0.1
                 grandTotal = total + taxservice + ppn
@@ -154,12 +154,28 @@ Public Class FormDetailTable
                 hargaMalam = DT.Rows(i).Item(12)
                 labelDuration.Text = durasiSiang + durasiMalam & " Menit"
             Next
+
+            DA = New MySqlDataAdapter("SELECT * FROM tb_meja WHERE nama_meja = '" & meja & "'", Koneksi)
+            DT = New DataTable
+            DA.Fill(DT)
+
+            For i = 0 To DT.Rows.Count - 1
+                If (DT.Rows(i).Item("status") = "isi") Then
+                    disableButton()
+                Else
+                    enableButton()
+                End If
+            Next
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
 
             disconnect()
         End Try
+
+    End Sub
+
+    Public Sub ubahTombolBayardanCetak()
 
     End Sub
 
@@ -223,5 +239,15 @@ Public Class FormDetailTable
         tbUangKembalian.Text = "0"
         tbUangDiterima.Text = 0
         metodePembayaran = "Cash"
+    End Sub
+
+    Public Sub disableButton()
+        btnBayar.Enabled = False
+        btnCetak.Enabled = False
+    End Sub
+
+    Public Sub enableButton()
+        btnBayar.Enabled = True
+        btnCetak.Enabled = True
     End Sub
 End Class

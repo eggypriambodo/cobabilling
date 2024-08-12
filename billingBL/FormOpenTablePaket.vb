@@ -105,34 +105,31 @@ Public Class FormOpenTablePaket
     End Sub
 
     Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click
-        Dim allValid As Boolean = True
-        allValid = TextBox_Validating(textboxNamaTamu, New System.ComponentModel.CancelEventArgs()) And allValid
-
-        If String.IsNullOrEmpty(dropdownPilihTable.Text) Then
-            MessageBox.Show("Pilih meja terlebih dahulu.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            allValid = False
-        End If
-
-        If String.IsNullOrEmpty(labelPaket.Text) OrElse labelPaket.Text = "-;-;-" Then
-            MessageBox.Show("Pilih paket terlebih dahulu.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            allValid = False
-        End If
-
-        If allValid Then
+        If ValidateInputs() Then
             inputOrder()
             updateMeja()
             FormBilling.Instance.ubahStatusMeja()
             Close()
+        Else
+            MessageBox.Show("Pastikan semua kolom terisi dengan benar!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 
-    Private Function TextBox_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) As Boolean Handles textboxNamaTamu.Validating
-        Dim textBox As TextBox = DirectCast(sender, TextBox)
+    Private Function ValidateTextBox(textBox As TextBox) As Boolean
         If String.IsNullOrWhiteSpace(textBox.Text) Then
-            MessageBox.Show("Nama Tamu Harus Diisi", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            e.Cancel = True
             Return False
         End If
         Return True
+    End Function
+
+    Private Function ValidateInputs() As Boolean
+        Dim allInputsValid As Boolean = True
+
+        ' Validasi setiap TextBox
+        allInputsValid = allInputsValid And ValidateTextBox(textboxNamaTamu)
+        allInputsValid = allInputsValid And dropdownPilihTable.Text <> ""
+        allInputsValid = allInputsValid And labelPaket.Text <> "-;-;-"
+
+        Return allInputsValid
     End Function
 End Class
