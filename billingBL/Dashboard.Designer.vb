@@ -28,6 +28,7 @@ Partial Class Dashboard
         btnPengaturan = New IconButton()
         btnLaporan = New IconButton()
         btnTransaksi = New IconButton()
+        btnFnB = New IconButton()
         btnBilling = New IconButton()
         btnDashboard = New IconButton()
         Panel1 = New Panel()
@@ -37,6 +38,7 @@ Partial Class Dashboard
         LabelAlamat = New Label()
         LabelNamaTempat = New Label()
         PanelDesktop = New Panel()
+        btnExit = New Button()
         SideNavbar.SuspendLayout()
         Panel1.SuspendLayout()
         CType(imgboxlogo, ComponentModel.ISupportInitialize).BeginInit()
@@ -46,9 +48,11 @@ Partial Class Dashboard
         ' SideNavbar
         ' 
         SideNavbar.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        SideNavbar.Controls.Add(btnExit)
         SideNavbar.Controls.Add(btnPengaturan)
         SideNavbar.Controls.Add(btnLaporan)
         SideNavbar.Controls.Add(btnTransaksi)
+        SideNavbar.Controls.Add(btnFnB)
         SideNavbar.Controls.Add(btnBilling)
         SideNavbar.Controls.Add(btnDashboard)
         SideNavbar.Controls.Add(Panel1)
@@ -70,12 +74,12 @@ Partial Class Dashboard
         btnPengaturan.IconFont = IconFont.Auto
         btnPengaturan.IconSize = 32
         btnPengaturan.ImageAlign = ContentAlignment.MiddleLeft
-        btnPengaturan.Location = New Point(0, 612)
+        btnPengaturan.Location = New Point(0, 705)
         btnPengaturan.Margin = New Padding(3, 4, 3, 4)
         btnPengaturan.Name = "btnPengaturan"
         btnPengaturan.Padding = New Padding(11, 0, 0, 0)
         btnPengaturan.Size = New Size(257, 93)
-        btnPengaturan.TabIndex = 7
+        btnPengaturan.TabIndex = 8
         btnPengaturan.Text = "Pengaturan"
         btnPengaturan.TextAlign = ContentAlignment.MiddleLeft
         btnPengaturan.TextImageRelation = TextImageRelation.ImageBeforeText
@@ -87,17 +91,17 @@ Partial Class Dashboard
         btnLaporan.FlatAppearance.BorderSize = 0
         btnLaporan.FlatStyle = FlatStyle.Flat
         btnLaporan.ForeColor = SystemColors.ButtonHighlight
-        btnLaporan.IconChar = IconChar.Receipt
+        btnLaporan.IconChar = IconChar.Cog
         btnLaporan.IconColor = Color.White
         btnLaporan.IconFont = IconFont.Auto
         btnLaporan.IconSize = 32
         btnLaporan.ImageAlign = ContentAlignment.MiddleLeft
-        btnLaporan.Location = New Point(0, 519)
+        btnLaporan.Location = New Point(0, 612)
         btnLaporan.Margin = New Padding(3, 4, 3, 4)
         btnLaporan.Name = "btnLaporan"
         btnLaporan.Padding = New Padding(11, 0, 0, 0)
         btnLaporan.Size = New Size(257, 93)
-        btnLaporan.TabIndex = 6
+        btnLaporan.TabIndex = 7
         btnLaporan.Text = "Laporan"
         btnLaporan.TextAlign = ContentAlignment.MiddleLeft
         btnLaporan.TextImageRelation = TextImageRelation.ImageBeforeText
@@ -109,21 +113,43 @@ Partial Class Dashboard
         btnTransaksi.FlatAppearance.BorderSize = 0
         btnTransaksi.FlatStyle = FlatStyle.Flat
         btnTransaksi.ForeColor = SystemColors.ButtonHighlight
-        btnTransaksi.IconChar = IconChar.CartFlatbed
+        btnTransaksi.IconChar = IconChar.Receipt
         btnTransaksi.IconColor = Color.White
         btnTransaksi.IconFont = IconFont.Auto
         btnTransaksi.IconSize = 32
         btnTransaksi.ImageAlign = ContentAlignment.MiddleLeft
-        btnTransaksi.Location = New Point(0, 426)
+        btnTransaksi.Location = New Point(0, 519)
         btnTransaksi.Margin = New Padding(3, 4, 3, 4)
         btnTransaksi.Name = "btnTransaksi"
         btnTransaksi.Padding = New Padding(11, 0, 0, 0)
         btnTransaksi.Size = New Size(257, 93)
-        btnTransaksi.TabIndex = 5
+        btnTransaksi.TabIndex = 6
         btnTransaksi.Text = "Transaksi"
         btnTransaksi.TextAlign = ContentAlignment.MiddleLeft
         btnTransaksi.TextImageRelation = TextImageRelation.ImageBeforeText
         btnTransaksi.UseVisualStyleBackColor = True
+        ' 
+        ' btnFnB
+        ' 
+        btnFnB.Dock = DockStyle.Top
+        btnFnB.FlatAppearance.BorderSize = 0
+        btnFnB.FlatStyle = FlatStyle.Flat
+        btnFnB.ForeColor = SystemColors.ButtonHighlight
+        btnFnB.IconChar = IconChar.CartFlatbed
+        btnFnB.IconColor = Color.White
+        btnFnB.IconFont = IconFont.Auto
+        btnFnB.IconSize = 32
+        btnFnB.ImageAlign = ContentAlignment.MiddleLeft
+        btnFnB.Location = New Point(0, 426)
+        btnFnB.Margin = New Padding(3, 4, 3, 4)
+        btnFnB.Name = "btnFnB"
+        btnFnB.Padding = New Padding(11, 0, 0, 0)
+        btnFnB.Size = New Size(257, 93)
+        btnFnB.TabIndex = 5
+        btnFnB.Text = "FnB"
+        btnFnB.TextAlign = ContentAlignment.MiddleLeft
+        btnFnB.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnFnB.UseVisualStyleBackColor = True
         ' 
         ' btnBilling
         ' 
@@ -257,6 +283,19 @@ Partial Class Dashboard
         PanelDesktop.Size = New Size(1149, 641)
         PanelDesktop.TabIndex = 2
         ' 
+        ' btnExit
+        ' 
+        btnExit.BackColor = Color.Red
+        btnExit.Dock = DockStyle.Bottom
+        btnExit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExit.ForeColor = Color.White
+        btnExit.Location = New Point(0, 794)
+        btnExit.Name = "btnExit"
+        btnExit.Size = New Size(257, 43)
+        btnExit.TabIndex = 9
+        btnExit.Text = "EXIT "
+        btnExit.UseVisualStyleBackColor = False
+        ' 
         ' Dashboard
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -282,13 +321,15 @@ Partial Class Dashboard
     Friend WithEvents imgboxlogo As PictureBox
     Friend WithEvents btnDashboard As FontAwesome.Sharp.IconButton
     Friend WithEvents PanelJudul As Panel
-    Friend WithEvents btnPengaturan As FontAwesome.Sharp.IconButton
     Friend WithEvents btnLaporan As FontAwesome.Sharp.IconButton
     Friend WithEvents btnTransaksi As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnFnB As FontAwesome.Sharp.IconButton
     Private btnLogout As IconButton
     Friend WithEvents btnBilling As FontAwesome.Sharp.IconButton
     Friend WithEvents btn As FontAwesome.Sharp.IconButton
     Friend WithEvents PanelDesktop As Panel
     Friend WithEvents LabelAlamat As Label
     Friend WithEvents LabelNamaTempat As Label
+    Friend WithEvents btnPengaturan As IconButton
+    Friend WithEvents btnExit As Button
 End Class

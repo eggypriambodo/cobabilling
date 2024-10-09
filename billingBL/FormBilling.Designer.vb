@@ -1671,6 +1671,7 @@ Partial Class FormBilling
         Controls.Add(Label63)
         Controls.Add(FlowLayoutPanel1)
         Name = "FormBilling"
+        Padding = New Padding(15)
         Text = "Form1"
         FlowLayoutPanel2.ResumeLayout(False)
         FlowLayoutPanel2.PerformLayout()

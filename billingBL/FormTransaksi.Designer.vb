@@ -24,12 +24,12 @@ Partial Class FormTransaksi
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         DataGridView1 = New DataGridView()
-        Label1 = New Label()
         no = New DataGridViewTextBoxColumn()
         noOrder = New DataGridViewTextBoxColumn()
         durasi = New DataGridViewTextBoxColumn()
         totalHarga = New DataGridViewTextBoxColumn()
         metodebayar = New DataGridViewTextBoxColumn()
+        Label1 = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -48,24 +48,13 @@ Partial Class FormTransaksi
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, noOrder, durasi, totalHarga, metodebayar})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(81, 65)
-        DataGridView1.Margin = New Padding(44, 2, 3, 2)
+        DataGridView1.Location = New Point(93, 87)
+        DataGridView1.Margin = New Padding(50, 3, 3, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(1021, 374)
+        DataGridView1.Size = New Size(1167, 499)
         DataGridView1.TabIndex = 11
-        ' 
-        ' Label1
-        ' 
-        Label1.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(81, 29)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(1021, 34)
-        Label1.TabIndex = 10
-        Label1.Text = "DATA TRANSAKSI"
-        Label1.TextAlign = ContentAlignment.MiddleCenter
-        Label1.UseCompatibleTextRendering = True
         ' 
         ' no
         ' 
@@ -105,15 +94,26 @@ Partial Class FormTransaksi
         metodebayar.Name = "metodebayar"
         metodebayar.Width = 125
         ' 
+        ' Label1
+        ' 
+        Label1.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(93, 39)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(1167, 45)
+        Label1.TabIndex = 10
+        Label1.Text = "DATA TRANSAKSI"
+        Label1.TextAlign = ContentAlignment.MiddleCenter
+        Label1.UseCompatibleTextRendering = True
+        ' 
         ' FormTransaksi
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1166, 562)
+        ClientSize = New Size(1333, 749)
         Controls.Add(DataGridView1)
         Controls.Add(Label1)
-        Margin = New Padding(3, 2, 3, 2)
         Name = "FormTransaksi"
+        Padding = New Padding(15)
         Text = "FormTransaksi"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

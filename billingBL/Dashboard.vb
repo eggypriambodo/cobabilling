@@ -89,9 +89,9 @@ Public Class Dashboard
         OpenChildForm(New FormBilling)
     End Sub
 
-    Private Sub btnMenu_Click(sender As Object, e As EventArgs)
+    Private Sub btnFnB_Click(sender As Object, e As EventArgs) Handles btnFnB.Click
         ActivateButton(sender, RGBColors.color)
-        OpenChildForm(New FormMenu)
+        OpenChildForm(New FormFnB)
     End Sub
 
     Private Sub btnTransaksi_Click(sender As Object, e As EventArgs) Handles btnTransaksi.Click
@@ -134,6 +134,15 @@ Public Class Dashboard
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'ActivateButton(sender, RGBColors.color)'
         OpenChildForm(New FormDashboard)
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        If MsgBox("Are you sure Exit !", vbQuestion + vbYesNo) = vbYes Then
+            End
+        Else
+            Return
+        End If
+        End
     End Sub
 
     'LOGIC DATA'

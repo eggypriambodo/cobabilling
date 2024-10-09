@@ -33,17 +33,19 @@ Partial Class FormDashboard
         ' TextBox1
         ' 
         TextBox1.Enabled = False
-        TextBox1.Location = New Point(340, 399)
+        TextBox1.Location = New Point(389, 532)
+        TextBox1.Margin = New Padding(3, 4, 3, 4)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(152, 23)
+        TextBox1.Size = New Size(173, 27)
         TextBox1.TabIndex = 7
         ' 
         ' cbSerialPort
         ' 
         cbSerialPort.FormattingEnabled = True
-        cbSerialPort.Location = New Point(667, 399)
+        cbSerialPort.Location = New Point(762, 532)
+        cbSerialPort.Margin = New Padding(3, 4, 3, 4)
         cbSerialPort.Name = "cbSerialPort"
-        cbSerialPort.Size = New Size(152, 23)
+        cbSerialPort.Size = New Size(173, 28)
         cbSerialPort.TabIndex = 6
         ' 
         ' btnToOnSerialPorts
@@ -55,9 +57,10 @@ Partial Class FormDashboard
         btnToOnSerialPorts.IconColor = Color.Black
         btnToOnSerialPorts.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnToOnSerialPorts.IconSize = 128
-        btnToOnSerialPorts.Location = New Point(667, 216)
+        btnToOnSerialPorts.Location = New Point(762, 288)
+        btnToOnSerialPorts.Margin = New Padding(3, 4, 3, 4)
         btnToOnSerialPorts.Name = "btnToOnSerialPorts"
-        btnToOnSerialPorts.Size = New Size(152, 177)
+        btnToOnSerialPorts.Size = New Size(174, 236)
         btnToOnSerialPorts.TabIndex = 5
         btnToOnSerialPorts.TextImageRelation = TextImageRelation.ImageAboveText
         btnToOnSerialPorts.UseVisualStyleBackColor = True
@@ -71,23 +74,26 @@ Partial Class FormDashboard
         btnToOffSerialPorts.IconColor = Color.Black
         btnToOffSerialPorts.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnToOffSerialPorts.IconSize = 128
-        btnToOffSerialPorts.Location = New Point(340, 216)
+        btnToOffSerialPorts.Location = New Point(389, 288)
+        btnToOffSerialPorts.Margin = New Padding(3, 4, 3, 4)
         btnToOffSerialPorts.Name = "btnToOffSerialPorts"
-        btnToOffSerialPorts.Size = New Size(152, 177)
+        btnToOffSerialPorts.Size = New Size(174, 236)
         btnToOffSerialPorts.TabIndex = 4
         btnToOffSerialPorts.TextImageRelation = TextImageRelation.ImageAboveText
         btnToOffSerialPorts.UseVisualStyleBackColor = True
         ' 
         ' FormDashboard
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1370, 749)
+        ClientSize = New Size(1566, 999)
         Controls.Add(TextBox1)
         Controls.Add(cbSerialPort)
         Controls.Add(btnToOnSerialPorts)
         Controls.Add(btnToOffSerialPorts)
+        Margin = New Padding(3, 4, 3, 4)
         Name = "FormDashboard"
+        Padding = New Padding(15)
         Text = "FormDashboard"
         ResumeLayout(False)
         PerformLayout()

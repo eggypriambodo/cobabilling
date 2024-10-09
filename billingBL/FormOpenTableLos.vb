@@ -30,6 +30,8 @@ Public Class FormOpenTableLos
             DataGridView1.Rows(i).Cells(3).Value = DT.Rows(i).Item(6)
             DataGridView1.Rows(i).Cells(4).Value = DT.Rows(i).Item(7)
             DataGridView1.Rows(i).Cells(5).Value = DT.Rows(i).Item(8)
+            DataGridView1.Rows(i).Cells(6).Value = DT.Rows(i).Item(2)
+
         Next
 
         disconnect()
@@ -54,7 +56,7 @@ Public Class FormOpenTableLos
 
         Try
             connect()
-            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, disc_table, harga_siang, harga_malam) VALUES ('" & LabelNoOrderLos.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaketLos.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & Convert.ToInt32(labelDiskonLos.Text) & "', '" & Convert.ToInt32(labelHargaSiangLos.Text) & "', '" & Convert.ToInt32(labelisihargamalamLos.Text) & "')", Koneksi)
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, disc_table, harga_siang, harga_malam, jenis_paket) VALUES ('" & LabelNoOrderLos.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaketLos.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & Convert.ToInt32(labelDiskonLos.Text) & "', '" & Convert.ToInt32(labelHargaSiangLos.Text) & "', '" & Convert.ToInt32(labelisihargamalamLos.Text) & "', '" & labelJenisPaket.Text & "')", Koneksi)
             CMD.ExecuteNonQuery()
             disconnect()
         Catch ex As Exception
@@ -88,6 +90,7 @@ Public Class FormOpenTableLos
         labelAkhirHargaSiangLos.Text = akhirSiangString
         labelAkhirHargaMalamLos.Text = akhirMalamString
         labelDiskonLos.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(5).Value, String)
+        labelJenisPaket.Text = CType(DataGridView1.Rows(e.RowIndex).Cells(6).Value, String)
     End Sub
 
     Private Sub btnFixOrder_Click(sender As Object, e As EventArgs) Handles btnFixOrder.Click

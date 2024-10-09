@@ -59,12 +59,16 @@ Partial Class FormOpenTableLos
         Label17 = New Label()
         Label1 = New Label()
         DataGridView1 = New DataGridView()
+        Panel8 = New Panel()
+        labelJenisPaket = New Label()
+        jenisPaket = New Label()
         namaPaket = New DataGridViewTextBoxColumn()
         hargaSiang = New DataGridViewTextBoxColumn()
         hargaMalam = New DataGridViewTextBoxColumn()
         akhirsiang = New DataGridViewTextBoxColumn()
         akhirMalam = New DataGridViewTextBoxColumn()
         discTable = New DataGridViewTextBoxColumn()
+        jenis_paket = New DataGridViewTextBoxColumn()
         TableLayoutPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         Panel1.SuspendLayout()
@@ -79,6 +83,7 @@ Partial Class FormOpenTableLos
         labelHargaMalam.SuspendLayout()
         Panel15.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel8.SuspendLayout()
         SuspendLayout()
         ' 
         ' TableLayoutPanel1
@@ -112,6 +117,7 @@ Partial Class FormOpenTableLos
         FlowLayoutPanel1.Controls.Add(Panel14)
         FlowLayoutPanel1.Controls.Add(labelHargaMalam)
         FlowLayoutPanel1.Controls.Add(Panel15)
+        FlowLayoutPanel1.Controls.Add(Panel8)
         FlowLayoutPanel1.Controls.Add(btnFixOrder)
         FlowLayoutPanel1.Location = New Point(3, 53)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
@@ -453,7 +459,7 @@ Partial Class FormOpenTableLos
         ' 
         btnFixOrder.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnFixOrder.ForeColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        btnFixOrder.Location = New Point(3, 168)
+        btnFixOrder.Location = New Point(332, 168)
         btnFixOrder.Name = "btnFixOrder"
         btnFixOrder.Size = New Size(321, 48)
         btnFixOrder.TabIndex = 15
@@ -506,7 +512,7 @@ Partial Class FormOpenTableLos
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaSiang, hargaMalam, akhirsiang, akhirMalam, discTable})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {namaPaket, hargaSiang, hargaMalam, akhirsiang, akhirMalam, discTable, jenis_paket})
         DataGridView1.Dock = DockStyle.Top
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.Location = New Point(0, 315)
@@ -517,6 +523,42 @@ Partial Class FormOpenTableLos
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridView1.Size = New Size(1001, 227)
         DataGridView1.TabIndex = 8
+        ' 
+        ' Panel8
+        ' 
+        Panel8.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
+        Panel8.BorderStyle = BorderStyle.FixedSingle
+        Panel8.Controls.Add(labelJenisPaket)
+        Panel8.Controls.Add(jenisPaket)
+        Panel8.Location = New Point(3, 168)
+        Panel8.Name = "Panel8"
+        Panel8.Size = New Size(323, 49)
+        Panel8.TabIndex = 16
+        ' 
+        ' labelJenisPaket
+        ' 
+        labelJenisPaket.Dock = DockStyle.Right
+        labelJenisPaket.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        labelJenisPaket.ForeColor = SystemColors.Control
+        labelJenisPaket.Location = New Point(255, 0)
+        labelJenisPaket.Margin = New Padding(3, 7, 3, 0)
+        labelJenisPaket.Name = "labelJenisPaket"
+        labelJenisPaket.Size = New Size(66, 47)
+        labelJenisPaket.TabIndex = 1
+        labelJenisPaket.Text = "-;-;-"
+        labelJenisPaket.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' jenisPaket
+        ' 
+        jenisPaket.Dock = DockStyle.Left
+        jenisPaket.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        jenisPaket.ForeColor = SystemColors.Control
+        jenisPaket.Location = New Point(0, 0)
+        jenisPaket.Name = "jenisPaket"
+        jenisPaket.Size = New Size(185, 47)
+        jenisPaket.TabIndex = 0
+        jenisPaket.Text = "Jenis Paket"
+        jenisPaket.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' namaPaket
         ' 
@@ -568,6 +610,14 @@ Partial Class FormOpenTableLos
         discTable.Name = "discTable"
         discTable.ReadOnly = True
         ' 
+        ' jenis_paket
+        ' 
+        jenis_paket.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        jenis_paket.HeaderText = "Jenis Paket"
+        jenis_paket.MinimumWidth = 6
+        jenis_paket.Name = "jenis_paket"
+        jenis_paket.ReadOnly = True
+        ' 
         ' FormOpenTableLos
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -596,6 +646,7 @@ Partial Class FormOpenTableLos
         labelHargaMalam.ResumeLayout(False)
         Panel15.ResumeLayout(False)
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        Panel8.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -635,10 +686,14 @@ Partial Class FormOpenTableLos
     Friend WithEvents btnFixOrder As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents labelJenisPaket As Label
+    Friend WithEvents jenisPaket As Label
     Friend WithEvents namaPaket As DataGridViewTextBoxColumn
     Friend WithEvents hargaSiang As DataGridViewTextBoxColumn
     Friend WithEvents hargaMalam As DataGridViewTextBoxColumn
     Friend WithEvents akhirsiang As DataGridViewTextBoxColumn
     Friend WithEvents akhirMalam As DataGridViewTextBoxColumn
     Friend WithEvents discTable As DataGridViewTextBoxColumn
+    Friend WithEvents jenis_paket As DataGridViewTextBoxColumn
 End Class

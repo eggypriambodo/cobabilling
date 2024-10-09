@@ -82,20 +82,20 @@ Public Class FormDetailTable
         e.Graphics.DrawString("Telp. 031-1234567", f10, Brushes.Black, centermargin, 60, center)
         e.Graphics.DrawString(line, f10, Brushes.Black, 0, 75)
 
-        e.Graphics.DrawString(labelNoTable.Text & "                                          " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
+        e.Graphics.DrawString(labelJenisPaket.Text & "                                          " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
         e.Graphics.DrawString("No. Order : " & labelNoOrder.Text, f10, Brushes.Black, 5, 125)
         e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 140)
         e.Graphics.DrawString("Paket : " & labelPaket.Text, f10, Brushes.Black, 5, 155)
-        e.Graphics.DrawString("No. Meja : " & labelNoTable.Text, f10, Brushes.Black, 5, 170)
+        e.Graphics.DrawString("No. Meja : " & labelJenisPaket.Text, f10, Brushes.Black, 5, 170)
         e.Graphics.DrawString("Waktu Mulai : " & labelWaktuMulai.Text, f10, Brushes.Black, 5, 185)
         e.Graphics.DrawString("Waktu Selesai : " & labelWaktuSelesai.Text, f10, Brushes.Black, 5, 200)
         e.Graphics.DrawString("Durasi : " & durasiSiang + durasiMalam & " menit", f10, Brushes.Black, 5, 215)
-        If labelPaket.Text <> "PAKET DURASI" AndAlso labelPaket.Text <> "PAKET LOSTIME" Then
+        If labelJenisPaket.Text <> "DURASI" AndAlso labelJenisPaket.Text <> "LOSTIME" Then
             e.Graphics.DrawString("TABLE CHARGES STANDART", f10, Brushes.Black, 5, 235)
             e.Graphics.DrawString("0 menit X Rp. " & Format(0, "0.00"), f10, Brushes.Black, 5, 250)
-            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 5, 250)
+            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 7, 250)
             e.Graphics.DrawString("0 menit X Rp. " & Format(0, "0.00"), f10, Brushes.Black, 5, 265)
-            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 5, 265)
+            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 7, 265)
         Else
             e.Graphics.DrawString("TABLE CHARGES STANDART", f10, Brushes.Black, 5, 235)
             e.Graphics.DrawString(durasiSiang & " menit X Rp. " & Format(hargaSiang / 60, "0.00"), f10, Brushes.Black, 5, 250)
@@ -138,9 +138,11 @@ Public Class FormDetailTable
                 labelTanggal.Text = Date.Now.ToString("dd MMM yyyy HH:mm:ss")
                 labelNoOrder.Text = DT.Rows(i).Item(0)
                 labelPaket.Text = DT.Rows(i).Item(2)
-                labelNoTable.Text = DT.Rows(i).Item(3)
+                labelJenisPaket.Text = DT.Rows(i).Item(14)
                 labelWaktuMulai.Text = DT.Rows(i).Item(4)
                 labelWaktuSelesai.Text = DT.Rows(i).Item(5)
+                labelNoTable.Text = DT.Rows(i).Item(3)
+                labelDuration.Text = DT.Rows(i).Item(6)
                 labelSubtotalTable.Text = "Rp. " & subtotal
                 labelDiskonTable.Text = DT.Rows(i).Item(8)
                 labelTotalTable.Text = "Rp. " & total
@@ -152,7 +154,7 @@ Public Class FormDetailTable
                 durasiMalam = DT.Rows(i).Item(10)
                 hargaSiang = DT.Rows(i).Item(11)
                 hargaMalam = DT.Rows(i).Item(12)
-                labelDuration.Text = durasiSiang + durasiMalam & " Menit"
+                labelNoTable.Text = durasiSiang + durasiMalam & " Menit"
             Next
 
             DA = New MySqlDataAdapter("SELECT * FROM tb_meja WHERE nama_meja = '" & meja & "'", Koneksi)
