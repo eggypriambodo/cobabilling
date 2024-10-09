@@ -13,6 +13,25 @@ Public Class FormFnB
 
     End Sub
 
+    Sub Load_Foods()
+        FlowLayoutPanel1.Controls.Clear()
+        FlowLayoutPanel1.AutoScroll = True
+        Try
+            conn.Open()
+            CMD = New MySqlCommand("SELECT `image_fnb`, `nama_fnb`, `harga_fnb` FROM `tb_fnb`", conn)
+            DR = CMD.ExecuteReader
+            While DR.Read
+                LoadControls()
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        conn.Close()
+    End Sub
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        TimerSaatIni.Text = Date.Now.ToString("dd MMM yyyy")
+    End Sub
+
     Private Sub LoadControls()
         Dim len As Long = DR.GetBytes(0, 0, Nothing, 0, 0)
         Dim array(CInt(len)) As Byte
@@ -50,7 +69,7 @@ Public Class FormFnB
             .Font = New Font("Segoe UI", 8, FontStyle.Bold)
             .TextAlign = ContentAlignment.MiddleLeft
             .Dock = DockStyle.Top
-            .Tag = DR.Item("foodcode").ToString
+            .Tag = DR.Item("nama_fnb").ToString
         End With
 
         harga_fnb = New Label
@@ -59,15 +78,15 @@ Public Class FormFnB
             .Font = New Font("Segoe UI", 8, FontStyle.Bold)
             .TextAlign = ContentAlignment.MiddleLeft
             .Dock = DockStyle.Top
-            .Tag = DR.Item("foodcode").ToString
+            .Tag = DR.Item("nama_fnb").ToString
         End With
 
         Dim ms As New System.IO.MemoryStream(array)
         Dim bitmap As New System.Drawing.Bitmap(ms)
         image_fnb.BackgroundImage = bitmap
 
-        nama_fnb.Text = " Food Name  : " & DR.Item("foodname").ToString
-        harga_fnb.Text = " Price              : ₹ " & DR.Item("price").ToString
+        nama_fnb.Text = " Food Name  : " & DR.Item("nama_fnb").ToString
+        harga_fnb.Text = " Price              : ₹ " & DR.Item("harga_fnb").ToString
 
         pan.Controls.Add(harga_fnb)
         pan.Controls.Add(nama_fnb)
@@ -86,7 +105,7 @@ Public Class FormFnB
     Public Sub Selectimg_Click(sender As Object, e As EventArgs)
         conn.Open()
         Try
-            CMD = New MySqlCommand("SELECT `nama_fnb`, `kategori_fnb`, `harga_fnb` FROM `tbl_food` WHERE `nama_fnb` like '" & sender.tag.ToString & "%' ", conn)
+            CMD = New MySqlCommand("SELECT `nama_fnb`, `harga_fnb` FROM `tb_fnb` WHERE `nama_fnb` like '" & sender.tag.ToString & "%' ", conn)
             DR = CMD.ExecuteReader
             While DR.Read
                 Dim exist As Boolean = False, numrow As Integer = 0, numtext As Integer
@@ -135,4 +154,7 @@ Public Class FormFnB
         conn.Close()
     End Sub
 
+    Private Sub btnManageMenu_Click(sender As Object, e As EventArgs) Handles btnManageMenu.Click
+        FormAddMenu.Show()
+    End Sub
 End Class

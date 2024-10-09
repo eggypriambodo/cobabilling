@@ -26,30 +26,29 @@ Partial Class FormAddMenu
         Label1 = New Label()
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
-        TabPage2 = New TabPage()
-        Panel17 = New Panel()
         DataGridView1 = New DataGridView()
         DataGridViewTextBoxColumn1 = New DataGridViewTextBoxColumn()
-        DataGridViewTextBoxColumn2 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn3 = New DataGridViewTextBoxColumn()
         Panel2 = New Panel()
         TextBox1 = New TextBox()
         PictureBox2 = New PictureBox()
-        CirclePicturBox1 = New CirclePicturBox()
-        Label2 = New Label()
-        TextBox2 = New TextBox()
-        TextBox4 = New TextBox()
+        TabPage2 = New TabPage()
+        Panel17 = New Panel()
+        btnAddMenu = New Button()
+        tbHargaMenu = New TextBox()
         Label4 = New Label()
-        Button1 = New Button()
+        tbNamaMenu = New TextBox()
+        Label2 = New Label()
+        picFoodImg = New CirclePicturBox()
         Panel1.SuspendLayout()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
-        TabPage2.SuspendLayout()
-        Panel17.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
-        CType(CirclePicturBox1, ComponentModel.ISupportInitialize).BeginInit()
+        TabPage2.SuspendLayout()
+        Panel17.SuspendLayout()
+        CType(picFoodImg, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -97,36 +96,11 @@ Partial Class FormAddMenu
         TabPage1.Text = "LIST MENU"
         TabPage1.UseVisualStyleBackColor = True
         ' 
-        ' TabPage2
-        ' 
-        TabPage2.Controls.Add(Panel17)
-        TabPage2.Location = New Point(4, 29)
-        TabPage2.Name = "TabPage2"
-        TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(615, 430)
-        TabPage2.TabIndex = 1
-        TabPage2.Text = "TAMBAH MENU"
-        TabPage2.UseVisualStyleBackColor = True
-        ' 
-        ' Panel17
-        ' 
-        Panel17.Controls.Add(Button1)
-        Panel17.Controls.Add(TextBox4)
-        Panel17.Controls.Add(Label4)
-        Panel17.Controls.Add(TextBox2)
-        Panel17.Controls.Add(Label2)
-        Panel17.Controls.Add(CirclePicturBox1)
-        Panel17.Dock = DockStyle.Top
-        Panel17.Location = New Point(3, 3)
-        Panel17.Name = "Panel17"
-        Panel17.Size = New Size(609, 424)
-        Panel17.TabIndex = 11
-        ' 
         ' DataGridView1
         ' 
         DataGridView1.BackgroundColor = SystemColors.ControlLightLight
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, DataGridViewTextBoxColumn3})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn3})
         DataGridView1.Dock = DockStyle.Fill
         DataGridView1.Location = New Point(3, 67)
         DataGridView1.Name = "DataGridView1"
@@ -141,21 +115,12 @@ Partial Class FormAddMenu
         DataGridViewTextBoxColumn1.MinimumWidth = 6
         DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         ' 
-        ' DataGridViewTextBoxColumn2
-        ' 
-        DataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewTextBoxColumn2.HeaderText = "Kategori"
-        DataGridViewTextBoxColumn2.MinimumWidth = 6
-        DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        DataGridViewTextBoxColumn2.Width = 95
-        ' 
         ' DataGridViewTextBoxColumn3
         ' 
-        DataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         DataGridViewTextBoxColumn3.HeaderText = "Harga"
         DataGridViewTextBoxColumn3.MinimumWidth = 6
         DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        DataGridViewTextBoxColumn3.Width = 79
         ' 
         ' Panel2
         ' 
@@ -185,40 +150,50 @@ Partial Class FormAddMenu
         PictureBox2.TabIndex = 4
         PictureBox2.TabStop = False
         ' 
-        ' CirclePicturBox1
+        ' TabPage2
         ' 
-        CirclePicturBox1.BackColor = Color.LightGray
-        CirclePicturBox1.Location = New Point(104, 100)
-        CirclePicturBox1.Name = "CirclePicturBox1"
-        CirclePicturBox1.Size = New Size(155, 136)
-        CirclePicturBox1.TabIndex = 0
-        CirclePicturBox1.TabStop = False
+        TabPage2.Controls.Add(Panel17)
+        TabPage2.Location = New Point(4, 29)
+        TabPage2.Name = "TabPage2"
+        TabPage2.Padding = New Padding(3)
+        TabPage2.Size = New Size(615, 430)
+        TabPage2.TabIndex = 1
+        TabPage2.Text = "TAMBAH MENU"
+        TabPage2.UseVisualStyleBackColor = True
         ' 
-        ' Label2
+        ' Panel17
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(338, 100)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(106, 23)
-        Label2.TabIndex = 1
-        Label2.Text = "Nama Menu"
+        Panel17.Controls.Add(btnAddMenu)
+        Panel17.Controls.Add(tbHargaMenu)
+        Panel17.Controls.Add(Label4)
+        Panel17.Controls.Add(tbNamaMenu)
+        Panel17.Controls.Add(Label2)
+        Panel17.Controls.Add(picFoodImg)
+        Panel17.Dock = DockStyle.Top
+        Panel17.Location = New Point(3, 3)
+        Panel17.Name = "Panel17"
+        Panel17.Size = New Size(609, 424)
+        Panel17.TabIndex = 11
         ' 
-        ' TextBox2
+        ' btnAddMenu
         ' 
-        TextBox2.Font = New Font("Segoe UI", 10F)
-        TextBox2.Location = New Point(338, 123)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(220, 30)
-        TextBox2.TabIndex = 2
+        btnAddMenu.BackColor = SystemColors.MenuHighlight
+        btnAddMenu.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnAddMenu.ForeColor = SystemColors.Control
+        btnAddMenu.Location = New Point(338, 249)
+        btnAddMenu.Name = "btnAddMenu"
+        btnAddMenu.Size = New Size(197, 53)
+        btnAddMenu.TabIndex = 7
+        btnAddMenu.Text = "ADD MENU"
+        btnAddMenu.UseVisualStyleBackColor = False
         ' 
-        ' TextBox4
+        ' tbHargaMenu
         ' 
-        TextBox4.Font = New Font("Segoe UI", 10F)
-        TextBox4.Location = New Point(338, 186)
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(220, 30)
-        TextBox4.TabIndex = 6
+        tbHargaMenu.Font = New Font("Segoe UI", 10F)
+        tbHargaMenu.Location = New Point(338, 186)
+        tbHargaMenu.Name = "tbHargaMenu"
+        tbHargaMenu.Size = New Size(220, 30)
+        tbHargaMenu.TabIndex = 6
         ' 
         ' Label4
         ' 
@@ -230,17 +205,32 @@ Partial Class FormAddMenu
         Label4.TabIndex = 5
         Label4.Text = "Harga"
         ' 
-        ' Button1
+        ' tbNamaMenu
         ' 
-        Button1.BackColor = SystemColors.MenuHighlight
-        Button1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.ForeColor = SystemColors.Control
-        Button1.Location = New Point(338, 249)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(197, 53)
-        Button1.TabIndex = 7
-        Button1.Text = "ADD MENU"
-        Button1.UseVisualStyleBackColor = False
+        tbNamaMenu.Font = New Font("Segoe UI", 10F)
+        tbNamaMenu.Location = New Point(338, 123)
+        tbNamaMenu.Name = "tbNamaMenu"
+        tbNamaMenu.Size = New Size(220, 30)
+        tbNamaMenu.TabIndex = 2
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(338, 100)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(106, 23)
+        Label2.TabIndex = 1
+        Label2.Text = "Nama Menu"
+        ' 
+        ' picFoodImg
+        ' 
+        picFoodImg.BackColor = Color.LightGray
+        picFoodImg.Location = New Point(104, 100)
+        picFoodImg.Name = "picFoodImg"
+        picFoodImg.Size = New Size(155, 136)
+        picFoodImg.TabIndex = 0
+        picFoodImg.TabStop = False
         ' 
         ' FormAddMenu
         ' 
@@ -249,19 +239,21 @@ Partial Class FormAddMenu
         ClientSize = New Size(623, 524)
         Controls.Add(TabControl1)
         Controls.Add(Panel1)
+        MaximizeBox = False
         Name = "FormAddMenu"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "FormAddMenu"
         Panel1.ResumeLayout(False)
         TabControl1.ResumeLayout(False)
         TabPage1.ResumeLayout(False)
-        TabPage2.ResumeLayout(False)
-        Panel17.ResumeLayout(False)
-        Panel17.PerformLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
-        CType(CirclePicturBox1, ComponentModel.ISupportInitialize).EndInit()
+        TabPage2.ResumeLayout(False)
+        Panel17.ResumeLayout(False)
+        Panel17.PerformLayout()
+        CType(picFoodImg, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -271,17 +263,16 @@ Partial Class FormAddMenu
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Panel17 As Panel
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents tbHargaMenu As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents tbNamaMenu As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents CirclePicturBox1 As CirclePicturBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents picFoodImg As CirclePicturBox
+    Friend WithEvents btnAddMenu As Button
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
 End Class

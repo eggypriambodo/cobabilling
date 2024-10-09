@@ -22,10 +22,11 @@ Partial Class FormFnB
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Panel16 = New Panel()
         labGrandTotal = New Label()
         labTotalAtas = New Label()
-        labDate = New Label()
+        TimerSaatIni = New Label()
         Label21 = New Label()
         tbSearch = New TextBox()
         PictureBox1 = New PictureBox()
@@ -72,6 +73,7 @@ Partial Class FormFnB
         Panel10 = New Panel()
         labSubtotal = New Label()
         Label13 = New Label()
+        Timer1 = New Timer(components)
         Panel16.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         TableLayoutPanel1.SuspendLayout()
@@ -91,7 +93,7 @@ Partial Class FormFnB
         Panel16.BackColor = SystemColors.MenuHighlight
         Panel16.Controls.Add(labGrandTotal)
         Panel16.Controls.Add(labTotalAtas)
-        Panel16.Controls.Add(labDate)
+        Panel16.Controls.Add(TimerSaatIni)
         Panel16.Controls.Add(Label21)
         Panel16.Controls.Add(tbSearch)
         Panel16.Controls.Add(PictureBox1)
@@ -127,15 +129,14 @@ Partial Class FormFnB
         labTotalAtas.Text = "Rp. 100.000,00"
         labTotalAtas.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' labDate
+        ' TimerSaatIni
         ' 
-        labDate.AutoSize = True
-        labDate.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        labDate.Location = New Point(482, 24)
-        labDate.Name = "labDate"
-        labDate.Size = New Size(28, 20)
-        labDate.TabIndex = 5
-        labDate.Text = "tgl"
+        TimerSaatIni.AutoSize = True
+        TimerSaatIni.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        TimerSaatIni.Location = New Point(482, 24)
+        TimerSaatIni.Name = "TimerSaatIni"
+        TimerSaatIni.Size = New Size(0, 20)
+        TimerSaatIni.TabIndex = 5
         ' 
         ' Label21
         ' 
@@ -685,6 +686,9 @@ Partial Class FormFnB
         Label13.Text = "SUBTOTAL"
         Label13.TextAlign = ContentAlignment.BottomLeft
         ' 
+        ' Timer1
+        ' 
+        ' 
         ' FormFnB
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -722,7 +726,7 @@ Partial Class FormFnB
     End Sub
     Friend WithEvents Panel16 As Panel
     Friend WithEvents labTotalAtas As Label
-    Friend WithEvents labDate As Label
+    Friend WithEvents TimerSaatIni As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents tbSearch As TextBox
     Friend WithEvents PictureBox1 As PictureBox
@@ -770,4 +774,5 @@ Partial Class FormFnB
     Friend WithEvents rbtnTransfer As RadioButton
     Friend WithEvents tbUangKembalian As TextBox
     Friend WithEvents tbUangDiterima As TextBox
+    Friend WithEvents Timer1 As Timer
 End Class

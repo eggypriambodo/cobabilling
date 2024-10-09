@@ -12,7 +12,6 @@ Public Class FormBilling
 
     Private Sub FormBilling_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Instance = Me
-        TimerSaatIni.Enabled = True
         btnStopTable1.Enabled = False
         btnStopTable2.Enabled = False
         btnStopTable3.Enabled = False
@@ -927,9 +926,5 @@ Public Class FormBilling
         FormDetailTable.Show()
         FormDetailTable.Instance.ambilData("Meja 8")
     End Sub
-
-
-
-
 
 End Class
