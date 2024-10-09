@@ -48,12 +48,12 @@ Public Class FormLaporan
         End Try
     End Sub
 
-    Private Sub comboBoxYears_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboBoxYears.SelectedIndexChanged
-        If comboBoxYears.SelectedItem IsNot Nothing Then
-            Dim selectedYear As Integer = Convert.ToInt32(comboBoxYears.SelectedItem)
-            DisplayTransactionsByYear(selectedYear)
-        End If
-    End Sub
+    'Private Sub comboBoxYears_SelectedIndexChanged(sender As Object, e As EventArgs)
+    '    If comboBoxYears.SelectedItem IsNot Nothing Then
+    '        Dim selectedYear = Convert.ToInt32(comboBoxYears.SelectedItem)
+    '        DisplayTransactionsByYear(selectedYear)
+    '    End If
+    'End Sub
 
     Private Sub LoadYearsIntoComboBox()
         Try
@@ -66,10 +66,10 @@ Public Class FormLaporan
             DA.Fill(DT)
 
             ' Mengisi comboBoxYears dengan tahun-tahun
-            comboBoxYears.Items.Clear()
-            For Each row As DataRow In DT.Rows
-                comboBoxYears.Items.Add(row("Tahun"))
-            Next
+            'comboBoxYears.Items.Clear()
+            'For Each row As DataRow In DT.Rows
+            '    comboBoxYears.Items.Add(row("Tahun"))
+            'Next
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

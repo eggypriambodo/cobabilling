@@ -41,6 +41,11 @@ Partial Class FormFnB
         FlowLayoutPanel1 = New FlowLayoutPanel()
         Timer1 = New Timer(components)
         DataGridView1 = New DataGridView()
+        Column5 = New DataGridViewTextBoxColumn()
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
         Panel18 = New Panel()
         FlowLayoutPanel2 = New FlowLayoutPanel()
         rbtnCash = New RadioButton()
@@ -70,11 +75,6 @@ Partial Class FormFnB
         Panel29 = New Panel()
         labSubtotal = New Label()
         Label26 = New Label()
-        Column5 = New DataGridViewTextBoxColumn()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
         Panel16.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         TableLayoutPanel1.SuspendLayout()
@@ -111,7 +111,7 @@ Partial Class FormFnB
         ' labDate
         ' 
         labDate.AutoSize = True
-        labDate.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        labDate.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         labDate.Location = New Point(482, 25)
         labDate.Name = "labDate"
         labDate.Size = New Size(0, 23)
@@ -121,7 +121,7 @@ Partial Class FormFnB
         ' 
         labGrandTotal.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         labGrandTotal.AutoSize = True
-        labGrandTotal.Font = New Font("Segoe UI", 22F, FontStyle.Bold)
+        labGrandTotal.Font = New Font("Segoe UI", 22.0F, FontStyle.Bold)
         labGrandTotal.Location = New Point(1081, 43)
         labGrandTotal.Name = "labGrandTotal"
         labGrandTotal.Size = New Size(308, 50)
@@ -132,7 +132,7 @@ Partial Class FormFnB
         ' labTotalAtas
         ' 
         labTotalAtas.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        labTotalAtas.Font = New Font("Segoe UI", 26F, FontStyle.Bold)
+        labTotalAtas.Font = New Font("Segoe UI", 26.0F, FontStyle.Bold)
         labTotalAtas.Location = New Point(3256, 44)
         labTotalAtas.Name = "labTotalAtas"
         labTotalAtas.Size = New Size(363, 71)
@@ -143,7 +143,7 @@ Partial Class FormFnB
         ' TimerSaatIni
         ' 
         TimerSaatIni.AutoSize = True
-        TimerSaatIni.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        TimerSaatIni.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         TimerSaatIni.Location = New Point(482, 24)
         TimerSaatIni.Name = "TimerSaatIni"
         TimerSaatIni.Size = New Size(0, 20)
@@ -152,7 +152,7 @@ Partial Class FormFnB
         ' Label21
         ' 
         Label21.AutoSize = True
-        Label21.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        Label21.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         Label21.Location = New Point(402, 24)
         Label21.Name = "Label21"
         Label21.Size = New Size(74, 23)
@@ -187,7 +187,7 @@ Partial Class FormFnB
         ' Label22
         ' 
         Label22.AutoSize = True
-        Label22.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        Label22.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         Label22.Location = New Point(10, 21)
         Label22.Name = "Label22"
         Label22.Size = New Size(85, 23)
@@ -211,7 +211,7 @@ Partial Class FormFnB
         TableLayoutPanel1.Location = New Point(15, 807)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel1.Size = New Size(1392, 57)
         TableLayoutPanel1.TabIndex = 10
         ' 
@@ -219,7 +219,7 @@ Partial Class FormFnB
         ' 
         btnBatal.BackColor = Color.IndianRed
         btnBatal.Dock = DockStyle.Fill
-        btnBatal.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnBatal.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnBatal.ForeColor = Color.White
         btnBatal.Location = New Point(993, 3)
         btnBatal.Name = "btnBatal"
@@ -232,7 +232,7 @@ Partial Class FormFnB
         ' 
         btnBayar.BackColor = SystemColors.MenuHighlight
         btnBayar.Dock = DockStyle.Fill
-        btnBayar.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnBayar.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnBayar.ForeColor = Color.White
         btnBayar.Location = New Point(1191, 3)
         btnBayar.Name = "btnBayar"
@@ -245,7 +245,7 @@ Partial Class FormFnB
         ' 
         btnManageMenu.BackColor = SystemColors.MenuHighlight
         btnManageMenu.Dock = DockStyle.Fill
-        btnManageMenu.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnManageMenu.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnManageMenu.ForeColor = Color.White
         btnManageMenu.Location = New Point(3, 3)
         btnManageMenu.Name = "btnManageMenu"
@@ -268,7 +268,7 @@ Partial Class FormFnB
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle1.ForeColor = SystemColors.Control
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
@@ -285,6 +285,44 @@ Partial Class FormFnB
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.Size = New Size(511, 332)
         DataGridView1.TabIndex = 12
+        ' 
+        ' Column5
+        ' 
+        Column5.HeaderText = "No"
+        Column5.MinimumWidth = 6
+        Column5.Name = "Column5"
+        Column5.Width = 50
+        ' 
+        ' Column1
+        ' 
+        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column1.HeaderText = "Nama Menu"
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        ' 
+        ' Column2
+        ' 
+        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column2.HeaderText = "Harga"
+        Column2.MinimumWidth = 6
+        Column2.Name = "Column2"
+        Column2.Width = 80
+        ' 
+        ' Column3
+        ' 
+        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column3.HeaderText = "Qty"
+        Column3.MinimumWidth = 6
+        Column3.Name = "Column3"
+        Column3.Width = 62
+        ' 
+        ' Column4
+        ' 
+        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column4.HeaderText = "Subtotal"
+        Column4.MinimumWidth = 6
+        Column4.Name = "Column4"
+        Column4.Width = 95
         ' 
         ' Panel18
         ' 
@@ -322,7 +360,7 @@ Partial Class FormFnB
         ' 
         rbtnCash.AutoSize = True
         rbtnCash.Dock = DockStyle.Bottom
-        rbtnCash.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        rbtnCash.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         rbtnCash.Location = New Point(3, 3)
         rbtnCash.Name = "rbtnCash"
         rbtnCash.Size = New Size(85, 32)
@@ -335,7 +373,7 @@ Partial Class FormFnB
         ' 
         rbtnQris.AutoSize = True
         rbtnQris.Dock = DockStyle.Bottom
-        rbtnQris.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        rbtnQris.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         rbtnQris.Location = New Point(94, 3)
         rbtnQris.Name = "rbtnQris"
         rbtnQris.Size = New Size(78, 32)
@@ -348,7 +386,7 @@ Partial Class FormFnB
         ' 
         rbtnDebit.AutoSize = True
         rbtnDebit.Dock = DockStyle.Bottom
-        rbtnDebit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        rbtnDebit.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         rbtnDebit.Location = New Point(178, 3)
         rbtnDebit.Name = "rbtnDebit"
         rbtnDebit.Size = New Size(90, 32)
@@ -361,7 +399,7 @@ Partial Class FormFnB
         ' 
         rbtnTransfer.AutoSize = True
         rbtnTransfer.Dock = DockStyle.Bottom
-        rbtnTransfer.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        rbtnTransfer.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         rbtnTransfer.Location = New Point(274, 3)
         rbtnTransfer.Name = "rbtnTransfer"
         rbtnTransfer.Size = New Size(133, 32)
@@ -387,7 +425,7 @@ Partial Class FormFnB
         ' 
         tbUangKembalian.Dock = DockStyle.Right
         tbUangKembalian.Enabled = False
-        tbUangKembalian.Font = New Font("Segoe UI", 12F)
+        tbUangKembalian.Font = New Font("Segoe UI", 12.0F)
         tbUangKembalian.Location = New Point(280, 0)
         tbUangKembalian.Name = "tbUangKembalian"
         tbUangKembalian.Size = New Size(229, 34)
@@ -397,7 +435,7 @@ Partial Class FormFnB
         ' 
         Label1.AutoSize = True
         Label1.Dock = DockStyle.Left
-        Label1.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        Label1.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         Label1.ForeColor = SystemColors.Control
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
@@ -433,7 +471,7 @@ Partial Class FormFnB
         ' tbUangDiterima
         ' 
         tbUangDiterima.Dock = DockStyle.Right
-        tbUangDiterima.Font = New Font("Segoe UI", 12F)
+        tbUangDiterima.Font = New Font("Segoe UI", 12.0F)
         tbUangDiterima.Location = New Point(280, 0)
         tbUangDiterima.Name = "tbUangDiterima"
         tbUangDiterima.Size = New Size(229, 34)
@@ -479,7 +517,7 @@ Partial Class FormFnB
         ' tbNamaTamu
         ' 
         tbNamaTamu.Dock = DockStyle.Right
-        tbNamaTamu.Font = New Font("Segoe UI", 15F)
+        tbNamaTamu.Font = New Font("Segoe UI", 15.0F)
         tbNamaTamu.Location = New Point(280, 0)
         tbNamaTamu.Name = "tbNamaTamu"
         tbNamaTamu.Size = New Size(229, 41)
@@ -489,7 +527,7 @@ Partial Class FormFnB
         ' 
         Label23.AutoSize = True
         Label23.Dock = DockStyle.Left
-        Label23.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        Label23.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         Label23.ForeColor = SystemColors.Control
         Label23.Location = New Point(0, 0)
         Label23.Name = "Label23"
@@ -647,44 +685,6 @@ Partial Class FormFnB
         Label26.TabIndex = 0
         Label26.Text = "SUBTOTAL"
         Label26.TextAlign = ContentAlignment.BottomLeft
-        ' 
-        ' Column5
-        ' 
-        Column5.HeaderText = "No"
-        Column5.MinimumWidth = 6
-        Column5.Name = "Column5"
-        Column5.Width = 50
-        ' 
-        ' Column1
-        ' 
-        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column1.HeaderText = "Nama Menu"
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
-        ' 
-        ' Column2
-        ' 
-        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column2.HeaderText = "Harga"
-        Column2.MinimumWidth = 6
-        Column2.Name = "Column2"
-        Column2.Width = 80
-        ' 
-        ' Column3
-        ' 
-        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column3.HeaderText = "Qty"
-        Column3.MinimumWidth = 6
-        Column3.Name = "Column3"
-        Column3.Width = 62
-        ' 
-        ' Column4
-        ' 
-        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column4.HeaderText = "Subtotal"
-        Column4.MinimumWidth = 6
-        Column4.Name = "Column4"
-        Column4.Width = 95
         ' 
         ' FormFnB
         ' 

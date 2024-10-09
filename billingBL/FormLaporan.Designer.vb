@@ -23,7 +23,6 @@ Partial Class FormLaporan
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        comboBoxYears = New ComboBox()
         Label1 = New Label()
         Label2 = New Label()
         DataGridView1 = New DataGridView()
@@ -33,27 +32,25 @@ Partial Class FormLaporan
         totalHarga = New DataGridViewTextBoxColumn()
         metodebayar = New DataGridViewTextBoxColumn()
         TanggalTransaksi = New DataGridViewTextBoxColumn()
-        Label3 = New Label()
         labelTotalPemasukan = New Label()
+        datePickerBefore = New DateTimePicker()
+        datePickerAfter = New DateTimePicker()
+        btnFilter = New Button()
+        Panel1 = New Panel()
+        Label3 = New Label()
+        btnExport = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel1.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' comboBoxYears
-        ' 
-        comboBoxYears.FormattingEnabled = True
-        comboBoxYears.Location = New Point(550, 88)
-        comboBoxYears.Name = "comboBoxYears"
-        comboBoxYears.Size = New Size(180, 23)
-        comboBoxYears.TabIndex = 0
         ' 
         ' Label1
         ' 
         Label1.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(67, 33)
+        Label1.Location = New Point(77, 44)
         Label1.Name = "Label1"
-        Label1.Size = New Size(1021, 34)
+        Label1.Size = New Size(1167, 45)
         Label1.TabIndex = 11
-        Label1.Text = "DATA LAPORAN PER TAHUN"
+        Label1.Text = "DATA LAPORAN"
         Label1.TextAlign = ContentAlignment.MiddleCenter
         Label1.UseCompatibleTextRendering = True
         ' 
@@ -61,9 +58,9 @@ Partial Class FormLaporan
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(427, 90)
+        Label2.Location = New Point(77, 178)
         Label2.Name = "Label2"
-        Label2.Size = New Size(85, 21)
+        Label2.Size = New Size(105, 28)
         Label2.TabIndex = 12
         Label2.Text = "Pilih Tahun"
         ' 
@@ -82,13 +79,13 @@ Partial Class FormLaporan
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, noOrder, durasi, totalHarga, metodebayar, TanggalTransaksi})
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(67, 177)
-        DataGridView1.Margin = New Padding(44, 2, 3, 2)
+        DataGridView1.Location = New Point(77, 236)
+        DataGridView1.Margin = New Padding(50, 3, 3, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(1021, 374)
+        DataGridView1.Size = New Size(1167, 499)
         DataGridView1.TabIndex = 13
         ' 
         ' no
@@ -137,51 +134,106 @@ Partial Class FormLaporan
         ' TanggalTransaksi
         ' 
         TanggalTransaksi.HeaderText = "Tanggal Transaksi"
+        TanggalTransaksi.MinimumWidth = 6
         TanggalTransaksi.Name = "TanggalTransaksi"
         TanggalTransaksi.ReadOnly = True
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(818, 150)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(132, 21)
-        Label3.TabIndex = 14
-        Label3.Text = "Total Pemasukan :"
+        TanggalTransaksi.Width = 125
         ' 
         ' labelTotalPemasukan
         ' 
         labelTotalPemasukan.AutoSize = True
-        labelTotalPemasukan.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        labelTotalPemasukan.Location = New Point(956, 150)
+        labelTotalPemasukan.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        labelTotalPemasukan.ForeColor = SystemColors.ControlLightLight
+        labelTotalPemasukan.Location = New Point(32, 53)
         labelTotalPemasukan.Name = "labelTotalPemasukan"
-        labelTotalPemasukan.Size = New Size(0, 21)
+        labelTotalPemasukan.Size = New Size(0, 25)
         labelTotalPemasukan.TabIndex = 15
+        ' 
+        ' datePickerBefore
+        ' 
+        datePickerBefore.Location = New Point(209, 178)
+        datePickerBefore.Name = "datePickerBefore"
+        datePickerBefore.Size = New Size(166, 27)
+        datePickerBefore.TabIndex = 16
+        ' 
+        ' datePickerAfter
+        ' 
+        datePickerAfter.Location = New Point(392, 178)
+        datePickerAfter.Name = "datePickerAfter"
+        datePickerAfter.Size = New Size(166, 27)
+        datePickerAfter.TabIndex = 17
+        ' 
+        ' btnFilter
+        ' 
+        btnFilter.BackColor = SystemColors.MenuHighlight
+        btnFilter.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnFilter.ForeColor = SystemColors.Control
+        btnFilter.Location = New Point(564, 173)
+        btnFilter.Name = "btnFilter"
+        btnFilter.Size = New Size(103, 41)
+        btnFilter.TabIndex = 0
+        btnFilter.Text = "FILTER"
+        btnFilter.UseVisualStyleBackColor = False
+        ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = SystemColors.MenuHighlight
+        Panel1.Controls.Add(Label3)
+        Panel1.Controls.Add(labelTotalPemasukan)
+        Panel1.Location = New Point(1047, 132)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(197, 98)
+        Panel1.TabIndex = 20
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        Label3.ForeColor = SystemColors.ControlLightLight
+        Label3.Location = New Point(32, 9)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(165, 28)
+        Label3.TabIndex = 16
+        Label3.Text = "Total Pemasukan"
+        Label3.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' btnExport
+        ' 
+        btnExport.BackColor = Color.Green
+        btnExport.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExport.ForeColor = SystemColors.Control
+        btnExport.Location = New Point(673, 173)
+        btnExport.Name = "btnExport"
+        btnExport.Size = New Size(103, 41)
+        btnExport.TabIndex = 21
+        btnExport.Text = "EXPORT"
+        btnExport.UseVisualStyleBackColor = False
         ' 
         ' FormLaporan
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1166, 562)
-        Controls.Add(labelTotalPemasukan)
-        Controls.Add(Label3)
+        ClientSize = New Size(1333, 749)
+        Controls.Add(btnExport)
+        Controls.Add(Panel1)
+        Controls.Add(btnFilter)
+        Controls.Add(datePickerAfter)
+        Controls.Add(datePickerBefore)
         Controls.Add(DataGridView1)
         Controls.Add(Label2)
         Controls.Add(Label1)
-        Controls.Add(comboBoxYears)
+        Margin = New Padding(3, 4, 3, 4)
         Name = "FormLaporan"
         Text = "FormLaporan"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents comboBoxYears As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Label3 As Label
     Friend WithEvents labelTotalPemasukan As Label
     Friend WithEvents no As DataGridViewTextBoxColumn
     Friend WithEvents noOrder As DataGridViewTextBoxColumn
@@ -189,4 +241,10 @@ Partial Class FormLaporan
     Friend WithEvents totalHarga As DataGridViewTextBoxColumn
     Friend WithEvents metodebayar As DataGridViewTextBoxColumn
     Friend WithEvents TanggalTransaksi As DataGridViewTextBoxColumn
+    Friend WithEvents datePickerBefore As DateTimePicker
+    Friend WithEvents datePickerAfter As DateTimePicker
+    Friend WithEvents btnFilter As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents btnExport As Button
 End Class
