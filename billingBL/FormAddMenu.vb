@@ -60,10 +60,10 @@ Public Class FormAddMenu
         DataGridView1.Rows.Clear()
         Try
             conn.Open()
-            'CMD = New MySqlCommand("SELECT `transno`, `transdate`, `transmonth`, `foodcode`, `foodname`, `price`, `qty`, `totalprice`, `grandtotal`, `nooffoods` FROM `tbl_pos` GROUP BY transno", conn)
+            CMD = New MySqlCommand("SELECT `nama_fnb`, `harga_fnb`, `image_fnb` FROM `tb_fnb` GROUP BY nama_fnb", conn)
             DR = CMD.ExecuteReader
             While DR.Read
-                DataGridView1.Rows.Add(DataGridView1.Rows.Count + 1, DR.Item("transdate"), DR.Item("transno"), DR.Item("grandtotal"))
+                DataGridView1.Rows.Add(DataGridView1.Rows.Count, DR.Item("nama_fnb"), DR.Item("harga_fnb"), DR.Item("image_fnb"))
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
