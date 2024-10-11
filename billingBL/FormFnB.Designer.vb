@@ -27,7 +27,6 @@ Partial Class FormFnB
         Panel16 = New Panel()
         labDate = New Label()
         labGrandTotal = New Label()
-        labTotalAtas = New Label()
         TimerSaatIni = New Label()
         Label21 = New Label()
         tbSearch = New TextBox()
@@ -94,7 +93,6 @@ Partial Class FormFnB
         Panel16.BackColor = SystemColors.MenuHighlight
         Panel16.Controls.Add(labDate)
         Panel16.Controls.Add(labGrandTotal)
-        Panel16.Controls.Add(labTotalAtas)
         Panel16.Controls.Add(TimerSaatIni)
         Panel16.Controls.Add(Label21)
         Panel16.Controls.Add(tbSearch)
@@ -111,7 +109,7 @@ Partial Class FormFnB
         ' labDate
         ' 
         labDate.AutoSize = True
-        labDate.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
+        labDate.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         labDate.Location = New Point(482, 25)
         labDate.Name = "labDate"
         labDate.Size = New Size(0, 23)
@@ -121,24 +119,13 @@ Partial Class FormFnB
         ' 
         labGrandTotal.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         labGrandTotal.AutoSize = True
-        labGrandTotal.Font = New Font("Segoe UI", 22.0F, FontStyle.Bold)
+        labGrandTotal.Font = New Font("Segoe UI", 22F, FontStyle.Bold)
         labGrandTotal.Location = New Point(1081, 43)
         labGrandTotal.Name = "labGrandTotal"
         labGrandTotal.Size = New Size(308, 50)
         labGrandTotal.TabIndex = 7
         labGrandTotal.Text = "Rp. 9.999.999,00"
         labGrandTotal.TextAlign = ContentAlignment.MiddleRight
-        ' 
-        ' labTotalAtas
-        ' 
-        labTotalAtas.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        labTotalAtas.Font = New Font("Segoe UI", 26.0F, FontStyle.Bold)
-        labTotalAtas.Location = New Point(3256, 44)
-        labTotalAtas.Name = "labTotalAtas"
-        labTotalAtas.Size = New Size(363, 71)
-        labTotalAtas.TabIndex = 6
-        labTotalAtas.Text = "Rp. 100.000,00"
-        labTotalAtas.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' TimerSaatIni
         ' 
@@ -722,7 +709,6 @@ Partial Class FormFnB
         ResumeLayout(False)
     End Sub
     Friend WithEvents Panel16 As Panel
-    Friend WithEvents labTotalAtas As Label
     Friend WithEvents TimerSaatIni As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents tbSearch As TextBox

@@ -34,8 +34,7 @@ Public Class FormAddMenu
             CMD = New MySqlCommand("SELECT `nama_fnb`, `harga_fnb` FROM `tb_fnb`", conn)
             DR = CMD.ExecuteReader
             While DR.Read
-                'DataGridView1.Rows.Add(DataGridView1.Rows.Count, DR.Item("nama_fnb"), DR.Item("harga_fnb"))
-                DataGridView1.Rows.Add(DR.Item("nama_fnb"), DR.Item("harga_fnb"))
+                DataGridView1.Rows.Add(DataGridView1.Rows.Count, DR.Item("nama_fnb"), DR.Item("harga_fnb"))
             End While
         Catch ex As Exception
             MsgBox(ex.Message)
