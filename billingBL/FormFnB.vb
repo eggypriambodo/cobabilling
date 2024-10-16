@@ -10,6 +10,13 @@ Public Class FormFnB
     Private WithEvents harga_fnb As Label
     Private WithEvents image_fnb As CirclePicturBox
 
+    Dim WithEvents PD As New PrintDocument
+    Dim PPD As New PrintPreviewDialog
+    Dim longpaper As Integer
+    Dim grandTotal As Integer = 0
+    Dim metodePembayaran As String
+    Dim hargaMenu As Integer = 0
+
     Private Sub FormFnB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbconn()
         labDate.Text = Date.Now.ToString("yyyy-MMMM-dd")
@@ -151,6 +158,34 @@ Public Class FormFnB
 
     End Sub
 
+    Sub Get_grandTotal()
+        Try
+            Dim grandtotal As Double = 0
+            For i As Double = 0 To DataGridView1.Rows.Count() - 1 Step +1
+                grandtotal = grandtotal + Convert.ToDouble(DataGridView1.Rows(i).Cells(4).Value)
+
+            Next
+            labSubtotal.Text = "Rp. " + FormatNumber(grandtotal, 0, TriState.True, TriState.False, TriState.True)
+            Dim ppn As Double = grandtotal * 0.11
+            grandtotal = grandtotal + ppn
+            labTotal.Text = "Rp. " + FormatNumber(grandtotal, 0, TriState.True, TriState.False, TriState.True)
+            labGrandTotal.Text = "Rp. " + FormatNumber(grandtotal, 0, TriState.True, TriState.False, TriState.True)
+            labPPN.Text = "Rp. " + FormatNumber(ppn, 0, TriState.True, TriState.False, TriState.True)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Sub new_order()
+        Load_Foods()
+        labDate.Text = Date.Now.ToString("yyyy-MMMM-dd")
+        getNoOrder()
+        DataGridView1.Rows.Clear()
+        tbNamaTamu.Clear()
+        tbUangDiterima.Clear()
+        tbUangKembalian.Clear()
+    End Sub
+
     Sub Load_Menus()
         FlowLayoutPanel1.Controls.Clear()
         FlowLayoutPanel1.AutoScroll = True
@@ -172,23 +207,55 @@ Public Class FormFnB
     End Sub
 
     Private Sub btnBayar_Click(sender As Object, e As EventArgs) Handles btnBayar.Click
-        FormPrintBillFNB.ShowDialog()
+        If MsgBox("Are You Sure Order Conform ?", vbQuestion + vbYesNo) = vbYes Then
+            If tbUangDiterima.Text = String.Empty Then
+                MsgBox("Please Enter Receive Amount !", vbExclamation)
+                Return
+            ElseIf tbUangKembalian.Text < 0 Then
+                MsgBox("Uang Diterima Kurang !" & vbNewLine & tbUangDiterima.Text & " Rp.", MsgBoxStyle.Exclamation)
+                Return
+            ElseIf Not (rbtnCash.Checked Or rbtnDebit.Checked Or rbtnQris.Checked Or rbtnTransfer.Checked) Then
+                MsgBox("Metode Pembayaran Harus Diisi", MsgBoxStyle.Exclamation)
+            Else
+                Try
+                    Dim tanggal_transaksi As String = Date.Now.ToString("yyyy-MM-dd")
+                    conn.Open()
+                    CMD = New MySqlCommand("INSERT INTO tb_fnb_transaksi(no_order, nama_menu, harga_menu, qty_menu, subtotal, nama_tamu, tanggal_transaksi, metode_pembayaran) VALUES (@no_order,@nama_menu,@harga_menu,@qty_menu,@subtotal,@nama_tamu,@tanggal_transaksi,@metode_pembayaran)", conn)
+                    For j As Integer = 0 To DataGridView1.Rows.Count - 1 Step +1
+                        CMD.Parameters.Clear()
+                        CMD.Parameters.AddWithValue("@no_order", tbNoOrder.Text)
+                        CMD.Parameters.AddWithValue("@nama_menu", DataGridView1.Rows(j).Cells(1).Value)
+                        CMD.Parameters.AddWithValue("@harga_menu", DataGridView1.Rows(j).Cells(2).Value)
+                        CMD.Parameters.AddWithValue("@qty_menu", DataGridView1.Rows(j).Cells(3).Value)
+                        CMD.Parameters.AddWithValue("@subtotal", DataGridView1.Rows(j).Cells(4).Value)
+                        CMD.Parameters.AddWithValue("@nama_tamu", tbNamaTamu.Text)
+                        CMD.Parameters.AddWithValue("@tanggal_transaksi", tanggal_transaksi)
+                        CMD.Parameters.AddWithValue("@metode_pembayaran", metodePembayaran)
+                        i = CMD.ExecuteNonQuery
+                    Next
+                    If i > 0 Then
+                        If MsgBox("Print Bill ?", vbQuestion + vbYesNo) = vbYes Then
+                            changelongpaper()
+                            PPD.Document = PD
+                            PPD.ShowDialog()
+                        End If
+                        new_order()
+                    Else
+                        MsgBox("Warning : Some Failure !", vbExclamation)
+                    End If
+                Catch ex As Exception
+
+                End Try
+                conn.Close()
+            End If
+        Else
+            Return
+        End If
     End Sub
 
     '================================================PRINT BILL==========================================
 
-    Dim WithEvents PD As New PrintDocument
-    Dim PPD As New PrintPreviewDialog
-    Dim longpaper As Integer
-    Dim grandTotal As Integer = 0
-    Dim metodePembayaran As String
-    Dim hargaMenu As Integer = 0
 
-    Private Sub FormPrintBillFNB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        changelongpaper()
-        PPD.Document = PD
-        PPD.ShowDialog()
-    End Sub
 
     Sub changelongpaper()
         Dim rowcount1 As Integer
@@ -274,6 +341,55 @@ Public Class FormFnB
         yPos += 15
         e.Graphics.DrawString(line, f10, Brushes.Black, 0, yPos)
 
+    End Sub
+
+    Private Sub rbtnQRIS_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnQris.CheckedChanged
+        tbUangDiterima.Enabled = False
+        tbUangDiterima.Text = grandTotal
+        tbUangKembalian.Text = "0"
+        metodePembayaran = "QRIS"
+
+
+    End Sub
+
+    Private Sub rbtnDebit_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnDebit.CheckedChanged
+        tbUangDiterima.Enabled = False
+        tbUangDiterima.Text = grandTotal
+        tbUangKembalian.Text = "0"
+        metodePembayaran = "Debit"
+    End Sub
+
+    Private Sub rbtnTransfer_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnTransfer.CheckedChanged
+        tbUangDiterima.Enabled = False
+        tbUangDiterima.Text = grandTotal
+        tbUangKembalian.Text = "0"
+        metodePembayaran = "Transfer"
+    End Sub
+
+    Private Sub rbtnCash_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnCash.CheckedChanged
+        tbUangDiterima.Enabled = True
+        tbUangKembalian.Text = "0"
+        tbUangDiterima.Text = 0
+        metodePembayaran = "Cash"
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Get_grandTotal()
+    End Sub
+
+    Private Sub tbUangDiterima_TextChanged(sender As Object, e As EventArgs) Handles tbUangDiterima.TextChanged
+        Try
+            Dim grandtotal As Double = 0
+            For i As Double = 0 To DataGridView1.Rows.Count() - 1 Step +1
+                grandtotal = grandtotal + DataGridView1.Rows(i).Cells(4).Value
+
+            Next
+            Dim ppn As Integer = grandtotal * 0.11
+            grandtotal = grandtotal + ppn
+            tbUangKembalian.Text = tbUangDiterima.Text - Format(CDec(grandtotal), "#,##0.00")
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
 

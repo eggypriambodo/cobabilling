@@ -18,7 +18,7 @@ Public Class FormDashboard
         For Each AvailableSerialPorts As String In System.IO.Ports.SerialPort.GetPortNames()
             cbSerialPort.Items.Add(AvailableSerialPorts)
             cbSerialPort.Text = AvailableSerialPorts
-            _serialPort.ReadTimeout = 2000
+            '_serialPort.ReadTimeout = 2000
 
             TextBox1.ScrollBars = ScrollBars.Vertical
         Next

@@ -63,7 +63,7 @@ Public Class FormAddDurasi
             CMD.Parameters.AddWithValue("@disc_table", Convert.ToInt32(tbDiscTable.Text))
             CMD.ExecuteNonQuery()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox(ex.Message + "Ini Error")
         Finally
 
             disconnect()
