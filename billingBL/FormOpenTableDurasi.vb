@@ -74,6 +74,7 @@ Public Class FormOpenTableDurasi
         Dim akhirWaktuSiang As DateTime = DateTime.Parse(akhirWaktuSiangString)
         Dim akhirWaktuMalamString As String = labelAkhirHargaMalam.Text
         Dim akhirWaktuMalam As DateTime = DateTime.Parse(akhirWaktuMalamString)
+        Dim jenisPaket As String = "DURASI"
 
         If mulai.Hour >= akhirWaktuMalam.Hour AndAlso mulai.Hour < akhirWaktuSiang.Hour Then
             If selesai.Hour >= akhirWaktuSiang.Hour Then
@@ -106,7 +107,7 @@ Public Class FormOpenTableDurasi
         Console.WriteLine("Harga: " & harga)
         Try
             connect()
-            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table, durasi_siang, durasi_malam, harga_siang, harga_malam) VALUES ('" & LabelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(textboxDurasiMain.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonDurasi.Text) & "', '" & selisihmulaiInt & "', '" & selisihselesaiInt & "', '" & hargaSiang & "', '" & hargaMalam & "')", Koneksi)
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table, durasi_siang, durasi_malam, harga_siang, harga_malam, jenis_paket) VALUES ('" & LabelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(textboxDurasiMain.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonDurasi.Text) & "', '" & selisihmulaiInt & "', '" & selisihselesaiInt & "', '" & hargaSiang & "', '" & hargaMalam & "' ,'" & jenisPaket & "' )", Koneksi)
             CMD.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.Message)

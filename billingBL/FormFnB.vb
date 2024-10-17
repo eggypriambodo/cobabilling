@@ -13,7 +13,6 @@ Public Class FormFnB
     Dim WithEvents PD As New PrintDocument
     Dim PPD As New PrintPreviewDialog
     Dim longpaper As Integer
-    Dim grandTotal As Integer = 0
     Dim metodePembayaran As String
     Dim hargaMenu As Integer = 0
 
@@ -158,9 +157,11 @@ Public Class FormFnB
 
     End Sub
 
+
+
     Sub Get_grandTotal()
+        Dim grandtotal As Double = 0
         Try
-            Dim grandtotal As Double = 0
             For i As Double = 0 To DataGridView1.Rows.Count() - 1 Step +1
                 grandtotal = grandtotal + Convert.ToDouble(DataGridView1.Rows(i).Cells(4).Value)
 
@@ -174,7 +175,26 @@ Public Class FormFnB
         Catch ex As Exception
 
         End Try
+
     End Sub
+
+    Function GetValueGrandTotal()
+        Dim grandtotal As Double = 0
+        Try
+            For i As Double = 0 To DataGridView1.Rows.Count() - 1 Step +1
+                grandtotal = grandtotal + Convert.ToDouble(DataGridView1.Rows(i).Cells(4).Value)
+
+            Next
+            Dim ppn As Double = grandtotal * 0.11
+            grandtotal = grandtotal + ppn
+        Catch ex As Exception
+
+        End Try
+
+        Return grandtotal
+    End Function
+
+
 
     Sub new_order()
         Load_Foods()
@@ -345,25 +365,23 @@ Public Class FormFnB
 
     Private Sub rbtnQRIS_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnQris.CheckedChanged
         tbUangDiterima.Enabled = False
-        tbUangDiterima.Text = grandTotal
         tbUangKembalian.Text = "0"
         metodePembayaran = "QRIS"
-
-
+        tbUangDiterima.Text = GetValueGrandTotal()
     End Sub
 
     Private Sub rbtnDebit_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnDebit.CheckedChanged
         tbUangDiterima.Enabled = False
-        tbUangDiterima.Text = grandTotal
         tbUangKembalian.Text = "0"
         metodePembayaran = "Debit"
+        tbUangDiterima.Text = GetValueGrandTotal()
     End Sub
 
     Private Sub rbtnTransfer_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnTransfer.CheckedChanged
         tbUangDiterima.Enabled = False
-        tbUangDiterima.Text = grandTotal
         tbUangKembalian.Text = "0"
         metodePembayaran = "Transfer"
+        tbUangDiterima.Text = GetValueGrandTotal()
     End Sub
 
     Private Sub rbtnCash_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnCash.CheckedChanged
