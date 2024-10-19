@@ -245,7 +245,7 @@ Partial Class FormFnB
         FlowLayoutPanel1.Dock = DockStyle.Left
         FlowLayoutPanel1.Location = New Point(15, 124)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(881, 681)
+        FlowLayoutPanel1.Size = New Size(929, 681)
         FlowLayoutPanel1.TabIndex = 11
         ' 
         ' Timer1
@@ -268,12 +268,12 @@ Partial Class FormFnB
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column5, Column1, Column2, Column3, Column4})
         DataGridView1.Dock = DockStyle.Top
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(896, 124)
+        DataGridView1.Location = New Point(944, 124)
         DataGridView1.Margin = New Padding(50, 3, 3, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(459, 332)
+        DataGridView1.Size = New Size(411, 332)
         DataGridView1.TabIndex = 12
         ' 
         ' Column5
@@ -329,9 +329,9 @@ Partial Class FormFnB
         Panel18.Controls.Add(Panel28)
         Panel18.Controls.Add(Panel29)
         Panel18.Dock = DockStyle.Fill
-        Panel18.Location = New Point(896, 456)
+        Panel18.Location = New Point(944, 456)
         Panel18.Name = "Panel18"
-        Panel18.Size = New Size(459, 349)
+        Panel18.Size = New Size(411, 349)
         Panel18.TabIndex = 16
         ' 
         ' FlowLayoutPanel2
@@ -343,7 +343,7 @@ Partial Class FormFnB
         FlowLayoutPanel2.Dock = DockStyle.Top
         FlowLayoutPanel2.Location = New Point(0, 286)
         FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        FlowLayoutPanel2.Size = New Size(459, 31)
+        FlowLayoutPanel2.Size = New Size(411, 31)
         FlowLayoutPanel2.TabIndex = 44
         ' 
         ' rbtnCash
@@ -408,7 +408,7 @@ Partial Class FormFnB
         Panel19.Location = New Point(0, 249)
         Panel19.Margin = New Padding(7)
         Panel19.Name = "Panel19"
-        Panel19.Size = New Size(459, 37)
+        Panel19.Size = New Size(411, 37)
         Panel19.TabIndex = 43
         ' 
         ' tbUangKembalian
@@ -416,7 +416,7 @@ Partial Class FormFnB
         tbUangKembalian.Dock = DockStyle.Right
         tbUangKembalian.Enabled = False
         tbUangKembalian.Font = New Font("Segoe UI", 12.0F)
-        tbUangKembalian.Location = New Point(228, 0)
+        tbUangKembalian.Location = New Point(180, 0)
         tbUangKembalian.Name = "tbUangKembalian"
         tbUangKembalian.Size = New Size(229, 34)
         tbUangKembalian.TabIndex = 29
@@ -443,7 +443,7 @@ Partial Class FormFnB
         Panel20.Location = New Point(0, 234)
         Panel20.Margin = New Padding(7)
         Panel20.Name = "Panel20"
-        Panel20.Size = New Size(459, 15)
+        Panel20.Size = New Size(411, 15)
         Panel20.TabIndex = 42
         ' 
         ' Panel21
@@ -456,14 +456,14 @@ Partial Class FormFnB
         Panel21.Location = New Point(0, 196)
         Panel21.Margin = New Padding(7)
         Panel21.Name = "Panel21"
-        Panel21.Size = New Size(459, 38)
+        Panel21.Size = New Size(411, 38)
         Panel21.TabIndex = 41
         ' 
         ' tbUangDiterima
         ' 
         tbUangDiterima.Dock = DockStyle.Right
         tbUangDiterima.Font = New Font("Segoe UI", 12.0F)
-        tbUangDiterima.Location = New Point(228, 0)
+        tbUangDiterima.Location = New Point(180, 0)
         tbUangDiterima.Name = "tbUangDiterima"
         tbUangDiterima.Size = New Size(229, 34)
         tbUangDiterima.TabIndex = 29
@@ -490,7 +490,7 @@ Partial Class FormFnB
         Panel22.Location = New Point(0, 181)
         Panel22.Margin = New Padding(7)
         Panel22.Name = "Panel22"
-        Panel22.Size = New Size(459, 15)
+        Panel22.Size = New Size(411, 15)
         Panel22.TabIndex = 40
         ' 
         ' Panel23
@@ -503,14 +503,14 @@ Partial Class FormFnB
         Panel23.Location = New Point(0, 135)
         Panel23.Margin = New Padding(7)
         Panel23.Name = "Panel23"
-        Panel23.Size = New Size(459, 46)
+        Panel23.Size = New Size(411, 46)
         Panel23.TabIndex = 39
         ' 
         ' tbNamaTamu
         ' 
         tbNamaTamu.Dock = DockStyle.Right
         tbNamaTamu.Font = New Font("Segoe UI", 15.0F)
-        tbNamaTamu.Location = New Point(228, 0)
+        tbNamaTamu.Location = New Point(180, 0)
         tbNamaTamu.Name = "tbNamaTamu"
         tbNamaTamu.Size = New Size(229, 41)
         tbNamaTamu.TabIndex = 28
@@ -537,7 +537,7 @@ Partial Class FormFnB
         Panel24.Location = New Point(0, 120)
         Panel24.Margin = New Padding(7)
         Panel24.Name = "Panel24"
-        Panel24.Size = New Size(459, 15)
+        Panel24.Size = New Size(411, 15)
         Panel24.TabIndex = 38
         ' 
         ' Panel25
@@ -550,7 +550,7 @@ Partial Class FormFnB
         Panel25.Location = New Point(0, 90)
         Panel25.Margin = New Padding(7)
         Panel25.Name = "Panel25"
-        Panel25.Size = New Size(459, 30)
+        Panel25.Size = New Size(411, 30)
         Panel25.TabIndex = 37
         ' 
         ' labTotal
@@ -559,7 +559,7 @@ Partial Class FormFnB
         labTotal.Dock = DockStyle.Right
         labTotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         labTotal.ForeColor = SystemColors.Control
-        labTotal.Location = New Point(440, 0)
+        labTotal.Location = New Point(392, 0)
         labTotal.Name = "labTotal"
         labTotal.Size = New Size(17, 23)
         labTotal.TabIndex = 1
@@ -587,7 +587,7 @@ Partial Class FormFnB
         Panel26.Location = New Point(0, 75)
         Panel26.Margin = New Padding(7)
         Panel26.Name = "Panel26"
-        Panel26.Size = New Size(459, 15)
+        Panel26.Size = New Size(411, 15)
         Panel26.TabIndex = 36
         ' 
         ' Panel27
@@ -600,7 +600,7 @@ Partial Class FormFnB
         Panel27.Location = New Point(0, 45)
         Panel27.Margin = New Padding(7)
         Panel27.Name = "Panel27"
-        Panel27.Size = New Size(459, 30)
+        Panel27.Size = New Size(411, 30)
         Panel27.TabIndex = 35
         ' 
         ' labPPN
@@ -609,7 +609,7 @@ Partial Class FormFnB
         labPPN.Dock = DockStyle.Right
         labPPN.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         labPPN.ForeColor = SystemColors.Control
-        labPPN.Location = New Point(440, 0)
+        labPPN.Location = New Point(392, 0)
         labPPN.Name = "labPPN"
         labPPN.Size = New Size(17, 23)
         labPPN.TabIndex = 1
@@ -637,7 +637,7 @@ Partial Class FormFnB
         Panel28.Location = New Point(0, 30)
         Panel28.Margin = New Padding(7)
         Panel28.Name = "Panel28"
-        Panel28.Size = New Size(459, 15)
+        Panel28.Size = New Size(411, 15)
         Panel28.TabIndex = 34
         ' 
         ' Panel29
@@ -650,7 +650,7 @@ Partial Class FormFnB
         Panel29.Location = New Point(0, 0)
         Panel29.Margin = New Padding(7)
         Panel29.Name = "Panel29"
-        Panel29.Size = New Size(459, 30)
+        Panel29.Size = New Size(411, 30)
         Panel29.TabIndex = 33
         ' 
         ' labSubtotal
@@ -659,7 +659,7 @@ Partial Class FormFnB
         labSubtotal.Dock = DockStyle.Right
         labSubtotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         labSubtotal.ForeColor = SystemColors.Control
-        labSubtotal.Location = New Point(440, 0)
+        labSubtotal.Location = New Point(392, 0)
         labSubtotal.Name = "labSubtotal"
         labSubtotal.Size = New Size(17, 23)
         labSubtotal.TabIndex = 1

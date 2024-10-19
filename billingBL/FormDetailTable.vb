@@ -12,7 +12,7 @@ Public Class FormDetailTable
     Dim PPD As New PrintPreviewDialog
     Dim longpaper As Integer
     Dim grandTotal As Integer = 0
-    Dim metodePembayaran As String
+    Dim metodePembayaran As String = ""
     Dim hargaSiang As Integer = 0
     Dim hargaMalam As Integer = 0
     Dim durasiSiang As Integer = 0

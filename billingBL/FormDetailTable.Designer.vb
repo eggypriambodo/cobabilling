@@ -104,7 +104,7 @@ Partial Class FormDetailTable
         ' Label1
         ' 
         Label1.Dock = DockStyle.Top
-        Label1.Font = New Font("Segoe UI Semibold", 25.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        Label1.Font = New Font("Segoe UI Semibold", 25.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = SystemColors.Control
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
@@ -355,7 +355,7 @@ Partial Class FormDetailTable
         ' 
         tbNamaTamu.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         tbNamaTamu.Enabled = False
-        tbNamaTamu.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        tbNamaTamu.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         tbNamaTamu.Location = New Point(183, 268)
         tbNamaTamu.Margin = New Padding(3, 12, 3, 3)
         tbNamaTamu.Name = "tbNamaTamu"
@@ -379,7 +379,7 @@ Partial Class FormDetailTable
         ' 
         tbUangKembalian.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         tbUangKembalian.Enabled = False
-        tbUangKembalian.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        tbUangKembalian.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         tbUangKembalian.Location = New Point(183, 204)
         tbUangKembalian.Margin = New Padding(3, 12, 3, 3)
         tbUangKembalian.Name = "tbUangKembalian"
@@ -402,7 +402,7 @@ Partial Class FormDetailTable
         ' tbUangDiterima
         ' 
         tbUangDiterima.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        tbUangDiterima.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        tbUangDiterima.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         tbUangDiterima.Location = New Point(183, 140)
         tbUangDiterima.Margin = New Padding(3, 12, 3, 3)
         tbUangDiterima.Name = "tbUangDiterima"
@@ -425,7 +425,7 @@ Partial Class FormDetailTable
         ' tboxKeterangan
         ' 
         tboxKeterangan.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        tboxKeterangan.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        tboxKeterangan.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         tboxKeterangan.Location = New Point(183, 76)
         tboxKeterangan.Margin = New Padding(3, 12, 3, 3)
         tboxKeterangan.Multiline = True
@@ -438,7 +438,7 @@ Partial Class FormDetailTable
         ' 
         Label19.AutoSize = True
         Label19.Dock = DockStyle.Fill
-        Label19.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        Label19.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label19.Location = New Point(3, 0)
         Label19.Name = "Label19"
         Label19.Size = New Size(174, 64)
@@ -450,7 +450,7 @@ Partial Class FormDetailTable
         ' 
         tboxGrandTotal.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         tboxGrandTotal.Enabled = False
-        tboxGrandTotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        tboxGrandTotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         tboxGrandTotal.Location = New Point(183, 12)
         tboxGrandTotal.Margin = New Padding(3, 12, 3, 3)
         tboxGrandTotal.Name = "tboxGrandTotal"

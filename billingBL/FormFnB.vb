@@ -4,6 +4,9 @@ Imports System.IO
 Imports Windows.Win32.UI.Input
 
 Public Class FormFnB
+
+    Public Shared Instance As FormFnB
+
     Private WithEvents pan As Panel
     Private WithEvents pan_top As Panel
     Private WithEvents nama_fnb As Label
@@ -23,22 +26,6 @@ Public Class FormFnB
         Load_Foods()
     End Sub
 
-    Sub Load_Foods()
-        FlowLayoutPanel1.Controls.Clear()
-        FlowLayoutPanel1.AutoScroll = True
-        Try
-            conn.Open()
-            CMD = New MySqlCommand("SELECT `image_fnb`, `nama_fnb`, `harga_fnb` FROM `tb_fnb`", conn)
-            DR = CMD.ExecuteReader
-            While DR.Read
-                LoadControls()
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        conn.Close()
-    End Sub
-
     Sub getNoOrder()
         Dim random As New Random()
 
@@ -50,75 +37,94 @@ Public Class FormFnB
         tbNoOrder.Text = noOrder
     End Sub
 
-    Private Sub LoadControls()
-        Dim len As Long = DR.GetBytes(0, 0, Nothing, 0, 0)
-        Dim array(CInt(len)) As Byte
-        DR.GetBytes(0, 0, array, 0, CInt(len))
+    Sub Load_Foods()
+        FlowLayoutPanel1.Controls.Clear()
+        FlowLayoutPanel1.AutoScroll = True
+        Try
+            conn.Open()
+            CMD = New MySqlCommand("SELECT `image_fnb`, `nama_fnb`, `harga_fnb` FROM `tb_fnb`", conn)
+            Using DR As MySqlDataReader = CMD.ExecuteReader()
+                While DR.Read()
+                    LoadControls(DR) ' Pass the DataReader to LoadControls
+                End While
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close() ' Ensure the connection is closed in case of an error
+        End Try
+    End Sub
 
 
-        pan = New Panel
-        With pan
-            .Width = 150
-            .Height = 180
-            .BackColor = Color.FromArgb(30, 144, 255)
-            .Tag = DR.Item("nama_fnb")
-        End With
+    Sub LoadControls(dr As MySqlDataReader)
+        ' Fetch image byte array from DataReader
+        Dim len As Long = dr.GetBytes(0, 0, Nothing, 0, 0)
+        Dim array(CInt(len - 1)) As Byte  ' Fix for zero-based array indexing
+        dr.GetBytes(0, 0, array, 0, CInt(len))
 
-        pan_top = New Panel
-        With pan_top
-            .Width = 150
-            .Height = 10
-            .BackColor = Color.FromArgb(30, 144, 255)
-            .Dock = DockStyle.Top
-            .Tag = DR.Item("nama_fnb")
-        End With
+        ' Initialize panel to hold the controls
+        Dim pan As New Panel With {
+        .Width = 150,
+        .Height = 180,
+        .BackColor = Color.FromArgb(30, 144, 255),
+        .Tag = dr.Item("nama_fnb")
+    }
 
-        image_fnb = New CirclePicturBox
-        With image_fnb
-            .Height = 115
-            .BackgroundImageLayout = ImageLayout.Stretch
-            .Dock = DockStyle.Top
-            .Tag = DR.Item("nama_fnb")
-        End With
+        ' Optional top panel
+        Dim pan_top As New Panel With {
+        .Width = 150,
+        .Height = 10,
+        .BackColor = Color.FromArgb(30, 144, 255),
+        .Dock = DockStyle.Top,
+        .Tag = dr.Item("nama_fnb")
+    }
 
-        nama_fnb = New Label
-        With nama_fnb
-            .ForeColor = Color.White
-            .Font = New Font("Segoe UI", 8, FontStyle.Bold)
-            .TextAlign = ContentAlignment.MiddleLeft
-            .Dock = DockStyle.Top
-            .Tag = DR.Item("nama_fnb").ToString
-        End With
+        ' CirclePictureBox to display the image
+        Dim image_fnb As New CirclePicturBox With {
+        .Height = 120,
+        .SizeMode = PictureBoxSizeMode.StretchImage,  ' Set to StretchImage for proper scaling
+        .Dock = DockStyle.Top,
+        .Tag = dr.Item("nama_fnb").ToString
+    }
 
-        harga_fnb = New Label
-        With harga_fnb
-            .ForeColor = Color.White
-            .Font = New Font("Segoe UI", 8, FontStyle.Bold)
-            .TextAlign = ContentAlignment.MiddleLeft
-            .Dock = DockStyle.Top
-            .Tag = DR.Item("nama_fnb").ToString
-        End With
+        ' Labels for name and price
+        Dim nama_fnb As New Label With {
+        .ForeColor = Color.White,
+        .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+        .TextAlign = ContentAlignment.MiddleCenter,
+        .Dock = DockStyle.Top,
+        .Tag = dr.Item("nama_fnb").ToString,
+        .AutoSize = False,  ' Disable auto-sizing
+        .MaximumSize = New Size(140, 0),  ' Set maximum width (with some margin)
+        .Height = 40
+    }
 
-        Dim ms As New System.IO.MemoryStream(array)
-        Dim bitmap As New System.Drawing.Bitmap(ms)
-        image_fnb.BackgroundImage = bitmap
 
-        nama_fnb.Text = " Nama Menu  : " & DR.Item("nama_fnb").ToString
-        harga_fnb.Text = " Harga              : Rp " & DR.Item("harga_fnb").ToString
+        ' Load image from byte array into MemoryStream
+        If array.Length > 0 Then
+            Using ms As New System.IO.MemoryStream(array)
+                image_fnb.Image = New Bitmap(ms)
+            End Using
+        End If
 
-        pan.Controls.Add(harga_fnb)
+        ' Set text for the name and price labels
+        nama_fnb.Text = dr.Item("nama_fnb").ToString
+
+        ' Add the controls to the panel
         pan.Controls.Add(nama_fnb)
         pan.Controls.Add(image_fnb)
-
-
         pan.Controls.Add(pan_top)
+
+        ' Add the panel to the FlowLayoutPanel
         FlowLayoutPanel1.Controls.Add(pan)
 
+        ' Add event handlers
         AddHandler nama_fnb.Click, AddressOf Selectimg_Click
-        AddHandler harga_fnb.Click, AddressOf Selectimg_Click
         AddHandler image_fnb.Click, AddressOf Selectimg_Click
         AddHandler pan.Click, AddressOf Selectimg_Click
     End Sub
+
+
 
     Public Sub Selectimg_Click(sender As Object, e As EventArgs)
         conn.Open()
@@ -204,22 +210,6 @@ Public Class FormFnB
         tbNamaTamu.Clear()
         tbUangDiterima.Clear()
         tbUangKembalian.Clear()
-    End Sub
-
-    Sub Load_Menus()
-        FlowLayoutPanel1.Controls.Clear()
-        FlowLayoutPanel1.AutoScroll = True
-        Try
-            conn.Open()
-            CMD = New MySqlCommand("SELECT `image_fnb`, `nama_fnb`, `harga_fnb` FROM `tb_fnb`", conn)
-            DR = CMD.ExecuteReader
-            While DR.Read
-                LoadControls()
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        conn.Close()
     End Sub
 
     Private Sub btnManageMenu_Click(sender As Object, e As EventArgs) Handles btnManageMenu.Click
@@ -409,6 +399,34 @@ Public Class FormFnB
 
         End Try
     End Sub
+
+    Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
+        new_order()
+    End Sub
+
+    Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
+        FlowLayoutPanel1.Controls.Clear()
+        FlowLayoutPanel1.AutoScroll = True
+        Try
+            conn.Open()
+
+            ' Use parameterized query for safety and correctness
+            CMD = New MySqlCommand("SELECT `image_fnb`, `nama_fnb`, `harga_fnb` FROM `tb_fnb` WHERE `nama_fnb` LIKE @search", conn)
+            CMD.Parameters.AddWithValue("@search", "%" & tbSearch.Text & "%") ' Use parameter to prevent SQL injection
+
+            Using DR As MySqlDataReader = CMD.ExecuteReader()
+                While DR.Read()
+                    LoadControls(DR) ' Pass the DataReader to LoadControls
+                End While
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close() ' Ensure the connection is closed in case of an error
+        End Try
+    End Sub
+
+
 End Class
 
 

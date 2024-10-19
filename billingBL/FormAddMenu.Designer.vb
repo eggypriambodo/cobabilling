@@ -24,11 +24,17 @@ Partial Class FormAddMenu
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
+        btnClose = New Button()
         Label1 = New Label()
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
+        DataGridView1 = New DataGridView()
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewButtonColumn()
         Panel2 = New Panel()
-        TextBox1 = New TextBox()
+        tbSearch = New TextBox()
         PictureBox2 = New PictureBox()
         TabPage2 = New TabPage()
         Panel17 = New Panel()
@@ -38,24 +44,22 @@ Partial Class FormAddMenu
         tbNamaMenu = New TextBox()
         Label2 = New Label()
         picFoodImg = New CirclePicturBox()
-        DataGridView1 = New DataGridView()
-        Column5 = New DataGridViewTextBoxColumn()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
         Panel17.SuspendLayout()
         CType(picFoodImg, ComponentModel.ISupportInitialize).BeginInit()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.MenuHighlight
+        Panel1.BorderStyle = BorderStyle.Fixed3D
+        Panel1.Controls.Add(btnClose)
         Panel1.Controls.Add(Label1)
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
@@ -63,14 +67,27 @@ Partial Class FormAddMenu
         Panel1.Size = New Size(623, 61)
         Panel1.TabIndex = 0
         ' 
+        ' btnClose
+        ' 
+        btnClose.BackColor = Color.Red
+        btnClose.FlatStyle = FlatStyle.Flat
+        btnClose.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnClose.ForeColor = SystemColors.Control
+        btnClose.Location = New Point(529, 0)
+        btnClose.Name = "btnClose"
+        btnClose.Size = New Size(94, 61)
+        btnClose.TabIndex = 1
+        btnClose.Text = "CLOSE"
+        btnClose.UseVisualStyleBackColor = False
+        ' 
         ' Label1
         ' 
-        Label1.Dock = DockStyle.Fill
+        Label1.Dock = DockStyle.Left
         Label1.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = SystemColors.Control
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(623, 61)
+        Label1.Size = New Size(523, 57)
         Label1.TabIndex = 0
         Label1.Text = "List Menu"
         Label1.TextAlign = ContentAlignment.MiddleCenter
@@ -88,6 +105,7 @@ Partial Class FormAddMenu
         ' 
         ' TabPage1
         ' 
+        TabPage1.BorderStyle = BorderStyle.Fixed3D
         TabPage1.Controls.Add(DataGridView1)
         TabPage1.Controls.Add(Panel2)
         TabPage1.Location = New Point(4, 29)
@@ -98,23 +116,79 @@ Partial Class FormAddMenu
         TabPage1.Text = "LIST MENU"
         TabPage1.UseVisualStyleBackColor = True
         ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.BackgroundColor = SystemColors.Control
+        DataGridView1.BorderStyle = BorderStyle.None
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.Control
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column4})
+        DataGridView1.Dock = DockStyle.Top
+        DataGridView1.EnableHeadersVisualStyles = False
+        DataGridView1.Location = New Point(3, 67)
+        DataGridView1.Margin = New Padding(50, 3, 3, 3)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.Size = New Size(605, 332)
+        DataGridView1.TabIndex = 13
+        ' 
+        ' Column1
+        ' 
+        Column1.HeaderText = "No"
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        Column1.Width = 50
+        ' 
+        ' Column2
+        ' 
+        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column2.HeaderText = "Nama Menu"
+        Column2.MinimumWidth = 6
+        Column2.Name = "Column2"
+        ' 
+        ' Column3
+        ' 
+        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column3.HeaderText = "Harga"
+        Column3.MinimumWidth = 6
+        Column3.Name = "Column3"
+        Column3.Width = 80
+        ' 
+        ' Column4
+        ' 
+        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column4.HeaderText = ""
+        Column4.MinimumWidth = 6
+        Column4.Name = "Column4"
+        Column4.Text = "Delete"
+        Column4.UseColumnTextForButtonValue = True
+        Column4.Width = 24
+        ' 
         ' Panel2
         ' 
-        Panel2.Controls.Add(TextBox1)
+        Panel2.Controls.Add(tbSearch)
         Panel2.Controls.Add(PictureBox2)
         Panel2.Dock = DockStyle.Top
         Panel2.Location = New Point(3, 3)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(609, 64)
+        Panel2.Size = New Size(605, 64)
         Panel2.TabIndex = 11
         ' 
-        ' TextBox1
+        ' tbSearch
         ' 
-        TextBox1.Font = New Font("Segoe UI", 10F)
-        TextBox1.Location = New Point(60, 19)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(273, 30)
-        TextBox1.TabIndex = 5
+        tbSearch.Font = New Font("Segoe UI", 10F)
+        tbSearch.Location = New Point(60, 19)
+        tbSearch.Name = "tbSearch"
+        tbSearch.Size = New Size(273, 30)
+        tbSearch.TabIndex = 5
         ' 
         ' PictureBox2
         ' 
@@ -205,54 +279,9 @@ Partial Class FormAddMenu
         picFoodImg.Location = New Point(104, 100)
         picFoodImg.Name = "picFoodImg"
         picFoodImg.Size = New Size(155, 136)
+        picFoodImg.SizeMode = PictureBoxSizeMode.Zoom
         picFoodImg.TabIndex = 0
         picFoodImg.TabStop = False
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.BackgroundColor = SystemColors.Control
-        DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle1.ForeColor = SystemColors.Control
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column5, Column1, Column2})
-        DataGridView1.Dock = DockStyle.Top
-        DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(3, 67)
-        DataGridView1.Margin = New Padding(50, 3, 3, 3)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersVisible = False
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(609, 332)
-        DataGridView1.TabIndex = 13
-        ' 
-        ' Column5
-        ' 
-        Column5.HeaderText = "No"
-        Column5.MinimumWidth = 6
-        Column5.Name = "Column5"
-        Column5.Width = 50
-        ' 
-        ' Column1
-        ' 
-        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column1.HeaderText = "Nama Menu"
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
-        ' 
-        ' Column2
-        ' 
-        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column2.HeaderText = "Harga"
-        Column2.MinimumWidth = 6
-        Column2.Name = "Column2"
-        Column2.Width = 80
         ' 
         ' FormAddMenu
         ' 
@@ -261,13 +290,13 @@ Partial Class FormAddMenu
         ClientSize = New Size(623, 524)
         Controls.Add(TabControl1)
         Controls.Add(Panel1)
-        MaximizeBox = False
+        MinimizeBox = False
         Name = "FormAddMenu"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "FormAddMenu"
         Panel1.ResumeLayout(False)
         TabControl1.ResumeLayout(False)
         TabPage1.ResumeLayout(False)
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
@@ -275,7 +304,6 @@ Partial Class FormAddMenu
         Panel17.ResumeLayout(False)
         Panel17.PerformLayout()
         CType(picFoodImg, ComponentModel.ISupportInitialize).EndInit()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -285,7 +313,7 @@ Partial Class FormAddMenu
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents tbSearch As TextBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Panel17 As Panel
     Friend WithEvents tbHargaMenu As TextBox
@@ -295,7 +323,9 @@ Partial Class FormAddMenu
     Friend WithEvents picFoodImg As CirclePicturBox
     Friend WithEvents btnAddMenu As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewButtonColumn
+    Friend WithEvents btnClose As Button
 End Class
