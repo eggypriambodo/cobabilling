@@ -33,9 +33,6 @@ Public Class FormDashboard
                     If response.Contains("ACK") Then ' Adjust "ACK" to the expected response
                         correctPortName = portName
                         Console.WriteLine($"Correct port found: {correctPortName}")
-                        _serialPort = New SerialPort(correctPortName)
-                        _serialPort.BaudRate = 9600  ' Set your device's baud rate here
-                        _serialPort.Open()
                         Exit For
                     Else
                         _serialPort.Close()
@@ -52,6 +49,8 @@ Public Class FormDashboard
         Else
             Console.WriteLine("Command not recognized.")
         End If
+
+
     End Sub
 
     Private Sub FormDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
