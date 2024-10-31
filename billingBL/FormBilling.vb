@@ -28,6 +28,14 @@ Public Class FormBilling
         btnDetail6.Enabled = False
         btnDetail7.Enabled = False
         btnDetail8.Enabled = False
+        btnPindahMeja1.Enabled = False
+        btnPindahMeja2.Enabled = False
+        btnPindahMeja3.Enabled = False
+        btnPindahMeja4.Enabled = False
+        btnPindahMeja5.Enabled = False
+        btnPindahMeja6.Enabled = False
+        btnPindahMeja7.Enabled = False
+        btnPindahMeja8.Enabled = False
         ubahStatusMeja()
     End Sub
 
@@ -51,6 +59,7 @@ Public Class FormBilling
                     statusTable1.BackColor = Color.Red
                     btnDetail1.Enabled = True
                     btnStopTable1.Enabled = True
+                    btnPindahMeja1.Enabled = True
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         jenisPaket1 = DT.Rows(i).Item(14)
                         namaPaket1 = DT.Rows(i).Item(2)
@@ -77,6 +86,7 @@ Public Class FormBilling
                     statusTable1.BackColor = Color.LightGray
                     btnStopTable1.Enabled = False
                     btnDetail1.Enabled = True
+                    btnPindahMeja1.Enabled = False
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart1.Text = DT.Rows(i).Item(4)
                     Else
@@ -91,6 +101,7 @@ Public Class FormBilling
                     statusTable2.BackColor = Color.Red
                     btnDetail2.Enabled = True
                     btnStopTable2.Enabled = True
+                    btnPindahMeja2.Enabled = True
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         jenisPaket2 = DT.Rows(i).Item(14)
                         namaPaket2 = DT.Rows(i).Item(2)
@@ -117,6 +128,7 @@ Public Class FormBilling
                     statusTable2.BackColor = Color.LightGray
                     btnStopTable2.Enabled = False
                     btnDetail2.Enabled = True
+                    btnPindahMeja2.Enabled = False
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart2.Text = DT.Rows(i).Item(4)
                     Else
@@ -131,6 +143,7 @@ Public Class FormBilling
                     statusTable3.BackColor = Color.Red
                     btnDetail3.Enabled = True
                     btnStopTable3.Enabled = True
+                    btnPindahMeja3.Enabled = True
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         jenisPaket3 = DT.Rows(i).Item(14)
                         namaPaket3 = DT.Rows(i).Item(2)
@@ -157,6 +170,7 @@ Public Class FormBilling
                     statusTable3.BackColor = Color.LightGray
                     btnStopTable3.Enabled = False
                     btnDetail3.Enabled = True
+                    btnPindahMeja3.Enabled = False
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart3.Text = DT.Rows(i).Item(4)
                     Else
@@ -171,6 +185,7 @@ Public Class FormBilling
                     statusTable4.BackColor = Color.Red
                     btnDetail4.Enabled = True
                     btnStopTable4.Enabled = True
+                    btnPindahMeja4.Enabled = True
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         jenisPaket4 = DT.Rows(i).Item(14)
                         namaPaket4 = DT.Rows(i).Item(2)
@@ -197,6 +212,7 @@ Public Class FormBilling
                     statusTable4.BackColor = Color.LightGray
                     btnStopTable4.Enabled = False
                     btnDetail4.Enabled = True
+                    btnPindahMeja4.Enabled = False
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart4.Text = DT.Rows(i).Item(4)
                     Else
@@ -211,6 +227,7 @@ Public Class FormBilling
                     statusTable5.BackColor = Color.Red
                     btnDetail5.Enabled = True
                     btnStopTable5.Enabled = True
+                    btnPindahMeja5.Enabled = True
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         jenisPaket5 = DT.Rows(i).Item(14)
                         namaPaket5 = DT.Rows(i).Item(2)
@@ -237,6 +254,7 @@ Public Class FormBilling
                     statusTable5.BackColor = Color.LightGray
                     btnStopTable5.Enabled = False
                     btnDetail5.Enabled = True
+                    btnPindahMeja5.Enabled = False
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart5.Text = DT.Rows(i).Item(4)
                     Else
@@ -251,6 +269,7 @@ Public Class FormBilling
                     statusTable6.BackColor = Color.Red
                     btnDetail6.Enabled = True
                     btnStopTable6.Enabled = True
+                    btnPindahMeja6.Enabled = True
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         jenisPaket6 = DT.Rows(i).Item(14)
                         namaPaket6 = DT.Rows(i).Item(2)
@@ -277,6 +296,7 @@ Public Class FormBilling
                     statusTable6.BackColor = Color.LightGray
                     btnStopTable6.Enabled = False
                     btnDetail6.Enabled = True
+                    btnPindahMeja6.Enabled = False
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart6.Text = DT.Rows(i).Item(4)
                     Else
@@ -291,6 +311,7 @@ Public Class FormBilling
                     statusTable7.BackColor = Color.Red
                     btnDetail7.Enabled = True
                     btnStopTable7.Enabled = True
+                    btnPindahMeja7.Enabled = True
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         jenisPaket7 = DT.Rows(i).Item(14)
                         namaPaket7 = DT.Rows(i).Item(2)
@@ -331,6 +352,7 @@ Public Class FormBilling
                     statusTable8.BackColor = Color.Red
                     btnDetail8.Enabled = True
                     btnStopTable8.Enabled = True
+                    btnPindahMeja8.Enabled = True
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         jenisPaket8 = DT.Rows(i).Item(14)
                         namaPaket8 = DT.Rows(i).Item(2)
@@ -357,6 +379,7 @@ Public Class FormBilling
                     statusTable8.BackColor = Color.LightGray
                     btnStopTable8.Enabled = False
                     btnDetail8.Enabled = True
+                    btnPindahMeja8.Enabled = False
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart8.Text = DT.Rows(i).Item(4)
                     Else
@@ -925,6 +948,86 @@ Public Class FormBilling
     Private Sub btnDetail8_Click(sender As Object, e As EventArgs) Handles btnDetail8.Click
         FormDetailTable.Show()
         FormDetailTable.Instance.ambilData("Meja 8")
+    End Sub
+
+    Private Sub ShowCustomMessageBox()
+        ' Buat form secara dinamis
+        Dim customDialog As New Form()
+        customDialog.Text = "Pindah Meja"
+        customDialog.FormBorderStyle = FormBorderStyle.FixedDialog
+        customDialog.StartPosition = FormStartPosition.CenterScreen
+        customDialog.ClientSize = New Size(250, 150)
+        customDialog.MaximizeBox = False
+        customDialog.MinimizeBox = False
+        customDialog.ShowInTaskbar = False
+
+        ' Label untuk deskripsi
+        Dim label As New Label()
+        label.Text = "Pindah Meja:"
+        label.Location = New Point(10, 20)
+        label.AutoSize = True
+        customDialog.Controls.Add(label)
+
+        ' ComboBox untuk pilihan meja
+        Dim comboBox As New ComboBox()
+        comboBox.DropDownStyle = ComboBoxStyle.DropDownList
+        comboBox.Location = New Point(10, 50)
+        comboBox.Width = 200
+
+        Try
+            connect()
+            DA = New MySqlDataAdapter("SELECT * FROM tb_meja WHERE status='kosong'", Koneksi)
+            DT = New DataTable
+            DA.Fill(DT)
+            For i = 0 To DT.Rows.Count - 1
+                comboBox.Items.Add(DT.Rows(i).Item(1))
+            Next
+            comboBox.Text = DT.Rows(0).Item(1)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+
+            disconnect()
+
+        End Try
+
+
+
+        comboBox.SelectedIndex = 0
+        customDialog.Controls.Add(comboBox)
+
+        ' Tombol OK
+        Dim okButton As New Button()
+        okButton.Text = "OK"
+        okButton.DialogResult = DialogResult.OK
+        okButton.Location = New Point(40, 100)
+        customDialog.Controls.Add(okButton)
+
+        ' Tombol Cancel
+        Dim cancelButton As New Button()
+        cancelButton.Text = "Cancel"
+        cancelButton.DialogResult = DialogResult.Cancel
+        cancelButton.Location = New Point(130, 100)
+        customDialog.Controls.Add(cancelButton)
+
+        ' Atur tombol OK sebagai default accept button dan Cancel sebagai cancel button
+        customDialog.AcceptButton = okButton
+        customDialog.CancelButton = cancelButton
+
+        ' Tampilkan dialog dan proses hasilnya
+        If customDialog.ShowDialog() = DialogResult.OK Then
+            Dim selectedTable As String = comboBox.SelectedItem.ToString()
+            MessageBox.Show("Meja telah dipindah ke: " & selectedTable)
+            'KODE PINDAH DATA KE MEJA
+            FormDetailTable.PindahMeja(mejaBaru:=selectedTable)
+        Else
+            MessageBox.Show("Pindah meja dibatalkan.")
+        End If
+    End Sub
+
+
+    Private Sub btnPindahMeja1_Click(sender As Object, e As EventArgs) Handles btnPindahMeja1.Click
+        ShowCustomMessageBox()
     End Sub
 
 End Class

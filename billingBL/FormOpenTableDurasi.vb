@@ -179,4 +179,5 @@ Public Class FormOpenTableDurasi
         Return allInputsValid
     End Function
 
+
 End Class

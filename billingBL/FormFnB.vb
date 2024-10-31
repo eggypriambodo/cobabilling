@@ -27,13 +27,9 @@ Public Class FormFnB
     End Sub
 
     Sub getNoOrder()
-        Dim random As New Random()
-
         Dim sekarang As DateTime = DateTime.Now
         Dim tanggal As String = sekarang.ToString("ddMMyyyyHHmmss")
-
         Dim noOrder As String = tanggal
-
         tbNoOrder.Text = noOrder
     End Sub
 
@@ -45,17 +41,15 @@ Public Class FormFnB
             CMD = New MySqlCommand("SELECT `image_fnb`, `nama_fnb`, `harga_fnb` FROM `tb_fnb`", conn)
             Using DR As MySqlDataReader = CMD.ExecuteReader()
                 While DR.Read()
-                    LoadControls(DR) ' Pass the DataReader to LoadControls
+                    LoadControls(DR)
                 End While
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
-            conn.Close() ' Ensure the connection is closed in case of an error
+            conn.Close()
         End Try
     End Sub
-
-
     Sub LoadControls(dr As MySqlDataReader)
         ' Fetch image byte array from DataReader
         Dim len As Long = dr.GetBytes(0, 0, Nothing, 0, 0)
@@ -99,7 +93,6 @@ Public Class FormFnB
         .Height = 40
     }
 
-
         ' Load image from byte array into MemoryStream
         If array.Length > 0 Then
             Using ms As New System.IO.MemoryStream(array)
@@ -123,65 +116,42 @@ Public Class FormFnB
         AddHandler image_fnb.Click, AddressOf Selectimg_Click
         AddHandler pan.Click, AddressOf Selectimg_Click
     End Sub
-
-
-
     Public Sub Selectimg_Click(sender As Object, e As EventArgs)
         conn.Open()
         Try
-            CMD = New MySqlCommand("SELECT `nama_fnb`, `harga_fnb` FROM `tb_fnb` WHERE `nama_fnb` like '" & sender.tag.ToString & "%' ", conn)
-            DR = CMD.ExecuteReader
-            While DR.Read
-                Dim exist As Boolean = False, numrow As Integer = 0, numtext As Integer
-                For Each itm As DataGridViewRow In DataGridView1.Rows
-                    If itm.Cells(1).Value IsNot Nothing Then
-                        If itm.Cells(1).Value.ToString = DR.Item("nama_fnb") Then
-                            exist = True
-                            numrow = itm.Index
-                            numtext = CInt(itm.Cells(3).Value)
-                            Exit For
-                        End If
-                    End If
-                Next
-                If exist = False Then
-                    Dim price As Decimal = DR("harga_fnb")
-                    Dim subtotalprice As Double
-                    subtotalprice = price * 1
-                    DataGridView1.Rows.Add(DataGridView1.Rows.Count, DR.Item("nama_fnb"), DR.Item("harga_fnb"), 1, subtotalprice)
-
-                Else
-                    DataGridView1.Rows(numrow).Cells(3).Value = CInt("1") + numtext
-                    DataGridView1.Rows(numrow).Cells(4).Value = DataGridView1.Rows(numrow).Cells(2).Value * DataGridView1.Rows(numrow).Cells(3).Value
-                End If
-
-            End While
+            CMD = New MySqlCommand("SELECT `nama_fnb`, `harga_fnb` FROM `tb_fnb` WHERE `nama_fnb` = @nama", conn)
+            CMD.Parameters.AddWithValue("@nama", sender.tag.ToString)
+            Using DR = CMD.ExecuteReader()
+                While DR.Read()
+                    AddToGrid(DR("nama_fnb").ToString(), CDec(DR("harga_fnb")))
+                End While
+            End Using
         Catch ex As Exception
             MsgBox(ex.Message)
+        Finally
+            conn.Close()
         End Try
-        DR.Dispose()
-        conn.Close()
-
+    End Sub
+    Private Sub AddToGrid(name As String, price As Decimal)
+        Dim row = DataGridView1.Rows.Cast(Of DataGridViewRow)().FirstOrDefault(Function(itm) itm.Cells(1).Value?.ToString() = name)
+        If row Is Nothing Then
+            Dim subtotal = price
+            DataGridView1.Rows.Add(DataGridView1.Rows.Count, name, price, 1, subtotal)
+        Else
+            Dim qty = CInt(row.Cells(3).Value) + 1
+            row.Cells(3).Value = qty
+            row.Cells(4).Value = qty * price
+        End If
     End Sub
 
-
-
     Sub Get_grandTotal()
-        Dim grandtotal As Double = 0
-        Try
-            For i As Double = 0 To DataGridView1.Rows.Count() - 1 Step +1
-                grandtotal = grandtotal + Convert.ToDouble(DataGridView1.Rows(i).Cells(4).Value)
-
-            Next
-            labSubtotal.Text = "Rp. " + FormatNumber(grandtotal, 0, TriState.True, TriState.False, TriState.True)
-            Dim ppn As Double = grandtotal * 0.11
-            grandtotal = grandtotal + ppn
-            labTotal.Text = "Rp. " + FormatNumber(grandtotal, 0, TriState.True, TriState.False, TriState.True)
-            labGrandTotal.Text = "Rp. " + FormatNumber(grandtotal, 0, TriState.True, TriState.False, TriState.True)
-            labPPN.Text = "Rp. " + FormatNumber(ppn, 0, TriState.True, TriState.False, TriState.True)
-        Catch ex As Exception
-
-        End Try
-
+        Dim grandTotal As Double = DataGridView1.Rows.Cast(Of DataGridViewRow)().Sum(Function(row) CDbl(row.Cells(4).Value))
+        Dim ppn = grandTotal * 0.11
+        labSubtotal.Text = $"Rp. {FormatNumber(grandTotal, 0, TriState.True, TriState.False, TriState.True)}"
+        grandTotal += ppn
+        labTotal.Text = $"Rp. {FormatNumber(grandTotal, 0, TriState.True, TriState.False, TriState.True)}"
+        labGrandTotal.Text = labTotal.Text
+        labPPN.Text = $"Rp. {FormatNumber(ppn, 0, TriState.True, TriState.False, TriState.True)}"
     End Sub
 
     Function GetValueGrandTotal()
@@ -199,9 +169,6 @@ Public Class FormFnB
 
         Return grandtotal
     End Function
-
-
-
     Sub new_order()
         Load_Foods()
         labDate.Text = Date.Now.ToString("yyyy-MMMM-dd")
@@ -217,68 +184,77 @@ Public Class FormFnB
     End Sub
 
     Private Sub btnBayar_Click(sender As Object, e As EventArgs) Handles btnBayar.Click
-        If MsgBox("Are You Sure Order Conform ?", vbQuestion + vbYesNo) = vbYes Then
-            If tbUangDiterima.Text = String.Empty Then
-                MsgBox("Please Enter Receive Amount !", vbExclamation)
-                Return
-            ElseIf tbUangKembalian.Text < 0 Then
-                MsgBox("Uang Diterima Kurang !" & vbNewLine & tbUangDiterima.Text & " Rp.", MsgBoxStyle.Exclamation)
-                Return
-            ElseIf Not (rbtnCash.Checked Or rbtnDebit.Checked Or rbtnQris.Checked Or rbtnTransfer.Checked) Then
-                MsgBox("Metode Pembayaran Harus Diisi", MsgBoxStyle.Exclamation)
-            Else
-                Try
-                    Dim tanggal_transaksi As String = Date.Now.ToString("yyyy-MM-dd")
-                    conn.Open()
-                    CMD = New MySqlCommand("INSERT INTO tb_fnb_transaksi(no_order, nama_menu, harga_menu, qty_menu, subtotal, nama_tamu, tanggal_transaksi, metode_pembayaran) VALUES (@no_order,@nama_menu,@harga_menu,@qty_menu,@subtotal,@nama_tamu,@tanggal_transaksi,@metode_pembayaran)", conn)
-                    For j As Integer = 0 To DataGridView1.Rows.Count - 1 Step +1
-                        CMD.Parameters.Clear()
-                        CMD.Parameters.AddWithValue("@no_order", tbNoOrder.Text)
-                        CMD.Parameters.AddWithValue("@nama_menu", DataGridView1.Rows(j).Cells(1).Value)
-                        CMD.Parameters.AddWithValue("@harga_menu", DataGridView1.Rows(j).Cells(2).Value)
-                        CMD.Parameters.AddWithValue("@qty_menu", DataGridView1.Rows(j).Cells(3).Value)
-                        CMD.Parameters.AddWithValue("@subtotal", DataGridView1.Rows(j).Cells(4).Value)
-                        CMD.Parameters.AddWithValue("@nama_tamu", tbNamaTamu.Text)
-                        CMD.Parameters.AddWithValue("@tanggal_transaksi", tanggal_transaksi)
-                        CMD.Parameters.AddWithValue("@metode_pembayaran", metodePembayaran)
-                        i = CMD.ExecuteNonQuery
-                    Next
-                    If i > 0 Then
-                        If MsgBox("Print Bill ?", vbQuestion + vbYesNo) = vbYes Then
-                            changelongpaper()
-                            PPD.Document = PD
-                            PPD.ShowDialog()
-                        End If
-                        new_order()
-                    Else
-                        MsgBox("Warning : Some Failure !", vbExclamation)
-                    End If
-                Catch ex As Exception
-
-                End Try
-                conn.Close()
-            End If
-        Else
+        If tbUangDiterima.Text = String.Empty Then
+            MsgBox("Please Enter Receive Amount !", vbExclamation)
             Return
         End If
+
+        If tbUangKembalian.Text < 0 Then
+            MsgBox("Uang Diterima Kurang !" & vbNewLine & tbUangDiterima.Text & " Rp.", MsgBoxStyle.Exclamation)
+            Return
+        End If
+
+        If Not (rbtnCash.Checked OrElse rbtnDebit.Checked OrElse rbtnQris.Checked OrElse rbtnTransfer.Checked) Then
+            MsgBox("Metode Pembayaran Harus Diisi", MsgBoxStyle.Exclamation)
+            Return
+        End If
+
+        ' Mengonversi nominal uang kembalian ke format rupiah
+        Dim uangKembalian As Decimal = Decimal.Parse(tbUangKembalian.Text)
+        Dim uangKembalianRupiah As String = uangKembalian.ToString("C", Globalization.CultureInfo.CreateSpecificCulture("id-ID"))
+
+        ' Tampilkan MsgBox konfirmasi dengan uang kembalian
+        If MsgBox("Konfirmasi Order? Uang Kembalian: " & uangKembalianRupiah, vbYesNo + vbQuestion, "Konfirmasi Pembayaran") = vbNo Then
+            Return
+        End If
+
+        Try
+            conn.Open()
+            Dim tanggal_transaksi As String = Date.Now.ToString("yyyy-MM-dd")
+            CMD = New MySqlCommand("INSERT INTO tb_fnb_transaksi(no_order, nama_menu, harga_menu, qty_menu, subtotal, nama_tamu, tanggal_transaksi, metode_pembayaran) VALUES (@no_order,@nama_menu,@harga_menu,@qty_menu,@subtotal,@nama_tamu,@tanggal_transaksi,@metode_pembayaran)", conn)
+
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                If Not row.IsNewRow Then
+                    CMD.Parameters.Clear()
+                    CMD.Parameters.AddWithValue("@no_order", tbNoOrder.Text)
+                    CMD.Parameters.AddWithValue("@nama_menu", row.Cells(1).Value)
+                    CMD.Parameters.AddWithValue("@harga_menu", row.Cells(2).Value)
+                    CMD.Parameters.AddWithValue("@qty_menu", row.Cells(3).Value)
+                    CMD.Parameters.AddWithValue("@subtotal", row.Cells(4).Value)
+                    CMD.Parameters.AddWithValue("@nama_tamu", tbNamaTamu.Text)
+                    CMD.Parameters.AddWithValue("@tanggal_transaksi", tanggal_transaksi)
+                    CMD.Parameters.AddWithValue("@metode_pembayaran", metodePembayaran)
+                    CMD.ExecuteNonQuery()
+                End If
+            Next
+
+            ' Konfirmasi untuk mencetak tagihan
+            If MsgBox("Print Bill?", vbQuestion + vbYesNo) = vbYes Then
+                changelongpaper()
+                PPD.Document = PD
+                PPD.ShowDialog()
+            End If
+
+        Catch ex As Exception
+            MsgBox("Database Error: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            conn.Close()
+        End Try
+        new_order()
     End Sub
+
 
     '================================================PRINT BILL==========================================
 
 
-
     Sub changelongpaper()
-        Dim rowcount1 As Integer
-        longpaper = 0
-        rowcount1 = DataGridView1.RowCount
-        longpaper = rowcount1 * 15
-        longpaper = longpaper + 500
+        longpaper = DataGridView1.RowCount * 15 + 500
     End Sub
 
     Private Sub PD_BeginPrint(sender As Object, e As EventArgs) Handles PD.BeginPrint
-        Dim pagesetup As New PageSettings
-        pagesetup.PaperSize = New PaperSize("Custom", 250, longpaper)
-        PD.DefaultPageSettings = pagesetup
+        PD.DefaultPageSettings = New PageSettings With {
+            .PaperSize = New PaperSize("Custom", 250, longpaper)
+        }
     End Sub
 
     Private Sub PD_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PD.PrintPage
@@ -308,29 +284,29 @@ Public Class FormFnB
         e.Graphics.DrawString(line, f10, Brushes.Black, 0, 75)
 
         ' Print Order Information
-        e.Graphics.DrawString(tbNoOrder.Text & "                                          " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
-        e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 140)
+        e.Graphics.DrawString(tbNoOrder.Text & "                      " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
+        e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 120)
 
         ' Print Column Headers
-        e.Graphics.DrawString("Item", f10, Brushes.Black, 5, 180)
-        e.Graphics.DrawString("Qty", f10, Brushes.Black, 150, 180)
-        e.Graphics.DrawString("Price", f10, Brushes.Black, 200, 180)
-        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 200)
+        e.Graphics.DrawString("Item", f10, Brushes.Black, 5, 150)
+        e.Graphics.DrawString("Qty", f10, Brushes.Black, 150, 150)
+        e.Graphics.DrawString("Price", f10, Brushes.Black, 200, 150)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 155)
 
         ' Print DataGridView Rows (Column5, Column1, Column2, Column3, Column4)
-        Dim yPos As Integer = 220
+        Dim yPos As Integer = 175
         For Each row As DataGridViewRow In DataGridView1.Rows
             If Not row.IsNewRow Then
                 ' Retrieve values from specific columns
-                Dim itemName As String = row.Cells("Column5").Value.ToString() ' Menu name (or any data in Column5)
-                Dim qty As String = row.Cells("Column1").Value.ToString()     ' Quantity (or any data in Column1)
+                Dim itemName As String = row.Cells("Column1").Value.ToString() ' Menu name (or any data in Column5)
+                Dim qty As String = row.Cells("Column3").Value.ToString()     ' Quantity (or any data in Column1)
                 Dim price As String = row.Cells("Column2").Value.ToString()   ' Price (or any data in Column2)
-                Dim total As String = row.Cells("Column3").Value.ToString()   ' Total (or any data in Column3)
+                Dim total As String = row.Cells("Column4").Value.ToString()   ' Total (or any data in Column3)
                 Dim extraInfo As String = row.Cells("Column4").Value.ToString() ' Additional info (or any data in Column4)
 
                 ' Print the row's data
                 e.Graphics.DrawString(itemName, f10, Brushes.Black, 5, yPos)
-                e.Graphics.DrawString(qty, f10, Brushes.Black, 150, yPos)
+                e.Graphics.DrawString(qty, f10, Brushes.Black, 155, yPos)
                 e.Graphics.DrawString(price, f10, Brushes.Black, 200, yPos)
 
                 ' Increment position for the next row
@@ -345,7 +321,7 @@ Public Class FormFnB
         yPos += 15
         e.Graphics.DrawString("Subtotal : " & labSubtotal.Text, f10, Brushes.Black, 5, yPos)
         yPos += 15
-        e.Graphics.DrawString("PPn : " & labPPN.Text & "%", f10, Brushes.Black, 5, yPos)
+        e.Graphics.DrawString("PPn : " & labPPN.Text, f10, Brushes.Black, 5, yPos)
         yPos += 15
         e.Graphics.DrawString("Total : " & labTotal.Text, f10, Brushes.Black, 5, yPos)
         yPos += 15
@@ -386,18 +362,37 @@ Public Class FormFnB
     End Sub
 
     Private Sub tbUangDiterima_TextChanged(sender As Object, e As EventArgs) Handles tbUangDiterima.TextChanged
-        Try
-            Dim grandtotal As Double = 0
-            For i As Double = 0 To DataGridView1.Rows.Count() - 1 Step +1
-                grandtotal = grandtotal + DataGridView1.Rows(i).Cells(4).Value
+        If String.IsNullOrWhiteSpace(tbUangDiterima.Text) Then
+            tbUangKembalian.Text = "Rp. 0"
+            Return
+        End If
 
-            Next
-            Dim ppn As Integer = grandtotal * 0.11
-            grandtotal = grandtotal + ppn
-            tbUangKembalian.Text = tbUangDiterima.Text - Format(CDec(grandtotal), "#,##0.00")
-        Catch ex As Exception
+        Dim unformattedInput As String = tbUangDiterima.Text.Replace("Rp.", "").Replace(",", "").Trim()
+        Dim inputAmount As Double
 
-        End Try
+        If Not Double.TryParse(unformattedInput, inputAmount) Then
+            tbUangDiterima.Text = "0"
+            tbUangDiterima.SelectionStart = tbUangDiterima.Text.Length
+            Return
+        End If
+
+        Dim grandTotal As Double = 0
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            If Not row.IsNewRow Then
+                grandTotal += Convert.ToDouble(row.Cells(4).Value)
+            End If
+        Next
+
+        Dim ppn As Double = grandTotal * 0.11
+        grandTotal += ppn
+        Dim kembalian As Double = inputAmount - grandTotal
+
+        If Not tbUangDiterima.Text.StartsWith("Rp.") Then
+            tbUangDiterima.Text = $"Rp. {FormatNumber(inputAmount, 0, TriState.True, TriState.False, TriState.True)}"
+            tbUangDiterima.SelectionStart = tbUangDiterima.Text.Length
+        End If
+
+        tbUangKembalian.Text = kembalian
     End Sub
 
     Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
@@ -410,19 +405,18 @@ Public Class FormFnB
         Try
             conn.Open()
 
-            ' Use parameterized query for safety and correctness
             CMD = New MySqlCommand("SELECT `image_fnb`, `nama_fnb`, `harga_fnb` FROM `tb_fnb` WHERE `nama_fnb` LIKE @search", conn)
-            CMD.Parameters.AddWithValue("@search", "%" & tbSearch.Text & "%") ' Use parameter to prevent SQL injection
+            CMD.Parameters.AddWithValue("@search", "%" & tbSearch.Text & "%")
 
             Using DR As MySqlDataReader = CMD.ExecuteReader()
                 While DR.Read()
-                    LoadControls(DR) ' Pass the DataReader to LoadControls
+                    LoadControls(DR)
                 End While
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
-            conn.Close() ' Ensure the connection is closed in case of an error
+            conn.Close()
         End Try
     End Sub
 

@@ -147,6 +147,14 @@ Partial Class FormBilling
         timerTable6 = New Timer(components)
         timerTable7 = New Timer(components)
         timerTable8 = New Timer(components)
+        btnPindahMeja1 = New Button()
+        btnPindahMeja2 = New Button()
+        btnPindahMeja3 = New Button()
+        btnPindahMeja4 = New Button()
+        btnPindahMeja5 = New Button()
+        btnPindahMeja6 = New Button()
+        btnPindahMeja7 = New Button()
+        btnPindahMeja8 = New Button()
         FlowLayoutPanel2.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
@@ -312,6 +320,7 @@ Partial Class FormBilling
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TableLayoutPanel2.Controls.Add(btnPindahMeja1, 0, 0)
         TableLayoutPanel2.Controls.Add(btnStopTable1, 2, 0)
         TableLayoutPanel2.Controls.Add(btnDetail1, 1, 0)
         TableLayoutPanel2.Dock = DockStyle.Top
@@ -498,6 +507,7 @@ Partial Class FormBilling
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TableLayoutPanel4.Controls.Add(btnPindahMeja2, 0, 0)
         TableLayoutPanel4.Controls.Add(btnStopTable2, 2, 0)
         TableLayoutPanel4.Controls.Add(btnDetail2, 1, 0)
         TableLayoutPanel4.Dock = DockStyle.Top
@@ -668,6 +678,7 @@ Partial Class FormBilling
         TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TableLayoutPanel6.Controls.Add(btnPindahMeja3, 0, 0)
         TableLayoutPanel6.Controls.Add(btnStopTable3, 2, 0)
         TableLayoutPanel6.Controls.Add(btnDetail3, 1, 0)
         TableLayoutPanel6.Dock = DockStyle.Top
@@ -838,6 +849,7 @@ Partial Class FormBilling
         TableLayoutPanel8.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel8.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel8.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TableLayoutPanel8.Controls.Add(btnPindahMeja4, 0, 0)
         TableLayoutPanel8.Controls.Add(btnStopTable4, 2, 0)
         TableLayoutPanel8.Controls.Add(btnDetail4, 1, 0)
         TableLayoutPanel8.Dock = DockStyle.Top
@@ -1008,6 +1020,7 @@ Partial Class FormBilling
         TableLayoutPanel10.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel10.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel10.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TableLayoutPanel10.Controls.Add(btnPindahMeja5, 0, 0)
         TableLayoutPanel10.Controls.Add(btnStopTable5, 2, 0)
         TableLayoutPanel10.Controls.Add(btnDetail5, 1, 0)
         TableLayoutPanel10.Dock = DockStyle.Top
@@ -1178,6 +1191,7 @@ Partial Class FormBilling
         TableLayoutPanel12.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel12.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel12.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TableLayoutPanel12.Controls.Add(btnPindahMeja6, 0, 0)
         TableLayoutPanel12.Controls.Add(btnStopTable6, 2, 0)
         TableLayoutPanel12.Controls.Add(btnDetail6, 1, 0)
         TableLayoutPanel12.Dock = DockStyle.Top
@@ -1348,6 +1362,7 @@ Partial Class FormBilling
         TableLayoutPanel14.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel14.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel14.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TableLayoutPanel14.Controls.Add(btnPindahMeja7, 0, 0)
         TableLayoutPanel14.Controls.Add(btnStopTable7, 2, 0)
         TableLayoutPanel14.Controls.Add(btnDetail7, 1, 0)
         TableLayoutPanel14.Dock = DockStyle.Top
@@ -1518,6 +1533,7 @@ Partial Class FormBilling
         TableLayoutPanel16.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel16.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel16.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TableLayoutPanel16.Controls.Add(btnPindahMeja8, 0, 0)
         TableLayoutPanel16.Controls.Add(btnStopTable8, 2, 0)
         TableLayoutPanel16.Controls.Add(btnDetail8, 1, 0)
         TableLayoutPanel16.Dock = DockStyle.Top
@@ -1661,6 +1677,94 @@ Partial Class FormBilling
         ' 
         ' timerTable8
         ' 
+        ' 
+        ' btnPindahMeja1
+        ' 
+        btnPindahMeja1.Dock = DockStyle.Fill
+        btnPindahMeja1.Location = New Point(0, 0)
+        btnPindahMeja1.Margin = New Padding(0, 0, 10, 0)
+        btnPindahMeja1.Name = "btnPindahMeja1"
+        btnPindahMeja1.Size = New Size(83, 28)
+        btnPindahMeja1.TabIndex = 3
+        btnPindahMeja1.Text = "Pindah"
+        btnPindahMeja1.UseVisualStyleBackColor = True
+        ' 
+        ' btnPindahMeja2
+        ' 
+        btnPindahMeja2.Dock = DockStyle.Fill
+        btnPindahMeja2.Location = New Point(0, 0)
+        btnPindahMeja2.Margin = New Padding(0, 0, 10, 0)
+        btnPindahMeja2.Name = "btnPindahMeja2"
+        btnPindahMeja2.Size = New Size(83, 28)
+        btnPindahMeja2.TabIndex = 4
+        btnPindahMeja2.Text = "Pindah"
+        btnPindahMeja2.UseVisualStyleBackColor = True
+        ' 
+        ' btnPindahMeja3
+        ' 
+        btnPindahMeja3.Dock = DockStyle.Fill
+        btnPindahMeja3.Location = New Point(0, 0)
+        btnPindahMeja3.Margin = New Padding(0, 0, 10, 0)
+        btnPindahMeja3.Name = "btnPindahMeja3"
+        btnPindahMeja3.Size = New Size(83, 28)
+        btnPindahMeja3.TabIndex = 4
+        btnPindahMeja3.Text = "Pindah"
+        btnPindahMeja3.UseVisualStyleBackColor = True
+        ' 
+        ' btnPindahMeja4
+        ' 
+        btnPindahMeja4.Dock = DockStyle.Fill
+        btnPindahMeja4.Location = New Point(0, 0)
+        btnPindahMeja4.Margin = New Padding(0, 0, 10, 0)
+        btnPindahMeja4.Name = "btnPindahMeja4"
+        btnPindahMeja4.Size = New Size(83, 28)
+        btnPindahMeja4.TabIndex = 4
+        btnPindahMeja4.Text = "Pindah"
+        btnPindahMeja4.UseVisualStyleBackColor = True
+        ' 
+        ' btnPindahMeja5
+        ' 
+        btnPindahMeja5.Dock = DockStyle.Fill
+        btnPindahMeja5.Location = New Point(0, 0)
+        btnPindahMeja5.Margin = New Padding(0, 0, 10, 0)
+        btnPindahMeja5.Name = "btnPindahMeja5"
+        btnPindahMeja5.Size = New Size(83, 28)
+        btnPindahMeja5.TabIndex = 4
+        btnPindahMeja5.Text = "Pindah"
+        btnPindahMeja5.UseVisualStyleBackColor = True
+        ' 
+        ' btnPindahMeja6
+        ' 
+        btnPindahMeja6.Dock = DockStyle.Fill
+        btnPindahMeja6.Location = New Point(0, 0)
+        btnPindahMeja6.Margin = New Padding(0, 0, 10, 0)
+        btnPindahMeja6.Name = "btnPindahMeja6"
+        btnPindahMeja6.Size = New Size(83, 28)
+        btnPindahMeja6.TabIndex = 4
+        btnPindahMeja6.Text = "Pindah"
+        btnPindahMeja6.UseVisualStyleBackColor = True
+        ' 
+        ' btnPindahMeja7
+        ' 
+        btnPindahMeja7.Dock = DockStyle.Fill
+        btnPindahMeja7.Location = New Point(0, 0)
+        btnPindahMeja7.Margin = New Padding(0, 0, 10, 0)
+        btnPindahMeja7.Name = "btnPindahMeja7"
+        btnPindahMeja7.Size = New Size(83, 28)
+        btnPindahMeja7.TabIndex = 4
+        btnPindahMeja7.Text = "Pindah"
+        btnPindahMeja7.UseVisualStyleBackColor = True
+        ' 
+        ' btnPindahMeja8
+        ' 
+        btnPindahMeja8.Dock = DockStyle.Fill
+        btnPindahMeja8.Location = New Point(0, 0)
+        btnPindahMeja8.Margin = New Padding(0, 0, 10, 0)
+        btnPindahMeja8.Name = "btnPindahMeja8"
+        btnPindahMeja8.Size = New Size(83, 28)
+        btnPindahMeja8.TabIndex = 4
+        btnPindahMeja8.Text = "Pindah"
+        btnPindahMeja8.UseVisualStyleBackColor = True
         ' 
         ' FormBilling
         ' 
@@ -1842,4 +1946,12 @@ Partial Class FormBilling
     Friend WithEvents timerTable6 As Timer
     Friend WithEvents timerTable7 As Timer
     Friend WithEvents timerTable8 As Timer
+    Friend WithEvents btnPindahMeja1 As Button
+    Friend WithEvents btnPindahMeja2 As Button
+    Friend WithEvents btnPindahMeja3 As Button
+    Friend WithEvents btnPindahMeja4 As Button
+    Friend WithEvents btnPindahMeja5 As Button
+    Friend WithEvents btnPindahMeja6 As Button
+    Friend WithEvents btnPindahMeja7 As Button
+    Friend WithEvents btnPindahMeja8 As Button
 End Class

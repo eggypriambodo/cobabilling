@@ -86,7 +86,7 @@ Public Class FormDetailTable
         e.Graphics.DrawString("No. Order : " & labelNoOrder.Text, f10, Brushes.Black, 5, 125)
         e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 140)
         e.Graphics.DrawString("Paket : " & labelPaket.Text, f10, Brushes.Black, 5, 155)
-        e.Graphics.DrawString("No. Meja : " & labelJenisPaket.Text, f10, Brushes.Black, 5, 170)
+        e.Graphics.DrawString("No. Meja : " & labelNoTable.Text, f10, Brushes.Black, 5, 170)
         e.Graphics.DrawString("Waktu Mulai : " & labelWaktuMulai.Text, f10, Brushes.Black, 5, 185)
         e.Graphics.DrawString("Waktu Selesai : " & labelWaktuSelesai.Text, f10, Brushes.Black, 5, 200)
         e.Graphics.DrawString("Durasi : " & durasiSiang + durasiMalam & " menit", f10, Brushes.Black, 5, 215)
@@ -176,6 +176,50 @@ Public Class FormDetailTable
         End Try
 
     End Sub
+
+    Public Sub PindahMeja(mejaBaru As String)
+        Try
+            connect()
+
+            ' Ambil data dari meja saat ini
+            DA = New MySqlDataAdapter("SELECT * FROM tb_detailbilling WHERE no_meja = '" & currentMeja & "'", Koneksi)
+            DT = New DataTable
+            DA.Fill(DT)
+
+            ' Masukkan data ke meja baru
+            For Each row As DataRow In DT.Rows
+                Dim cmd As New MySqlCommand("INSERT INTO tb_detailbilling (no_meja, nama_tamu, paket, waktu_mulai, waktu_selesai, duration, subtotal, diskon, jenis_paket) VALUES (@no_meja, @nama_tamu, @paket, @waktu_mulai, @waktu_selesai, @duration, @subtotal, @diskon, @jenis_paket)", Koneksi)
+
+                cmd.Parameters.AddWithValue("@no_meja", mejaBaru)
+                cmd.Parameters.AddWithValue("@nama_tamu", row("nama_tamu"))
+                cmd.Parameters.AddWithValue("@paket", row("paket"))
+                cmd.Parameters.AddWithValue("@waktu_mulai", row("waktu_mulai"))
+                cmd.Parameters.AddWithValue("@waktu_selesai", row("waktu_selesai"))
+                cmd.Parameters.AddWithValue("@duration", row("duration"))
+                cmd.Parameters.AddWithValue("@subtotal", row("subtotal"))
+                cmd.Parameters.AddWithValue("@diskon", row("diskon"))
+                cmd.Parameters.AddWithValue("@jenis_paket", row("jenis_paket"))
+
+                cmd.ExecuteNonQuery()
+            Next
+
+            ' Hapus data dari meja saat ini setelah dipindahkan
+            Dim deleteCmd As New MySqlCommand("DELETE FROM tb_detailbilling WHERE no_meja = @no_meja", Koneksi)
+            deleteCmd.Parameters.AddWithValue("@no_meja", currentMeja)
+            deleteCmd.ExecuteNonQuery()
+
+            MessageBox.Show("Data berhasil dipindahkan ke meja " & mejaBaru, "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' Update tampilan jika diperlukan
+            ambilData(mejaBaru)
+
+        Catch ex As Exception
+            MessageBox.Show("Terjadi kesalahan: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            disconnect()
+        End Try
+    End Sub
+
 
     Public Sub ubahTombolBayardanCetak()
 
