@@ -9,9 +9,49 @@ Public Class FormDashboard
 
 
     Shared _continue As Boolean
-    Shared _serialPort As SerialPort
-    Sub munculserial()
+    Public Shared _serialPort As SerialPort
+    Public Shared correctPortName As String  ' Variable to store the correct port name
 
+    ' Method to find and initialize the correct serial port based on command
+    Sub munculserial(command As String)
+        If command = "1k" Then
+            ' Check available serial ports
+            Dim availablePorts As String() = SerialPort.GetPortNames()
+
+            ' Loop through available ports and attempt to open the correct one
+            For Each portName In availablePorts
+                Try
+                    _serialPort = New SerialPort(portName)
+                    _serialPort.BaudRate = 9600  ' Set your baud rate here
+                    _serialPort.Open()
+
+                    ' Send "1k" command and check response
+                    _serialPort.WriteLine("1k")
+                    Dim response As String = _serialPort.ReadLine()
+
+                    ' If response is valid, save the port name and break the loop
+                    If response.Contains("ACK") Then ' Adjust "ACK" to the expected response
+                        correctPortName = portName
+                        Console.WriteLine($"Correct port found: {correctPortName}")
+                        _serialPort = New SerialPort(correctPortName)
+                        _serialPort.BaudRate = 9600  ' Set your device's baud rate here
+                        _serialPort.Open()
+                        Exit For
+                    Else
+                        _serialPort.Close()
+                    End If
+                Catch ex As Exception
+                    Console.WriteLine($"Port {portName} not valid or in use.")
+                End Try
+            Next
+
+            ' If correct port is not found
+            If correctPortName Is Nothing Then
+                Console.WriteLine("No valid port found responding to '1k' command.")
+            End If
+        Else
+            Console.WriteLine("Command not recognized.")
+        End If
     End Sub
 
     Private Sub FormDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load

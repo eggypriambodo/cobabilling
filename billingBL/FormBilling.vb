@@ -45,6 +45,8 @@ Public Class FormBilling
 
     '=======================================LOGIC DB=========================================================='
     Public Sub ubahStatusMeja()
+        Dim portName As String = FormDashboard.correctPortName
+
         Try
             connect()
 
@@ -81,6 +83,13 @@ Public Class FormBilling
                     End If
 
                     timerTable1.Start()
+                    If FormDashboard._serialPort IsNot Nothing AndAlso FormDashboard._serialPort.IsOpen Then
+                        FormDashboard._serialPort.WriteLine(11)
+                        Console.WriteLine($"Command '{command}' sent to {FormDashboard.correctPortName}")
+                    Else
+                        Console.WriteLine("Serial port is not open or not initialized.")
+                    End If
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable1.Text = "CHECKOUT"
                     statusTable1.BackColor = Color.LightGray
@@ -123,6 +132,13 @@ Public Class FormBilling
                     End If
 
                     timerTable2.Start()
+                    If FormDashboard._serialPort IsNot Nothing AndAlso FormDashboard._serialPort.IsOpen Then
+                        FormDashboard._serialPort.WriteLine(21)
+                        Console.WriteLine($"Command '{Command()}' sent to {FormDashboard.correctPortName}")
+                    Else
+                        Console.WriteLine("Serial port is not open or not initialized.")
+                    End If
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable2.Text = "CHECKOUT"
                     statusTable2.BackColor = Color.LightGray
@@ -165,6 +181,13 @@ Public Class FormBilling
                     End If
 
                     timerTable3.Start()
+                    If FormDashboard._serialPort IsNot Nothing AndAlso FormDashboard._serialPort.IsOpen Then
+                        FormDashboard._serialPort.WriteLine(31)
+                        Console.WriteLine($"Command '{Command()}' sent to {FormDashboard.correctPortName}")
+                    Else
+                        Console.WriteLine("Serial port is not open or not initialized.")
+                    End If
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable3.Text = "CHECKOUT"
                     statusTable3.BackColor = Color.LightGray
@@ -207,6 +230,13 @@ Public Class FormBilling
                     End If
 
                     timerTable4.Start()
+                    If FormDashboard._serialPort IsNot Nothing AndAlso FormDashboard._serialPort.IsOpen Then
+                        FormDashboard._serialPort.WriteLine(41)
+                        Console.WriteLine($"Command '{Command()}' sent to {FormDashboard.correctPortName}")
+                    Else
+                        Console.WriteLine("Serial port is not open or not initialized.")
+                    End If
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable4.Text = "CHECKOUT"
                     statusTable4.BackColor = Color.LightGray
@@ -249,6 +279,13 @@ Public Class FormBilling
                     End If
 
                     timerTable5.Start()
+                    If FormDashboard._serialPort IsNot Nothing AndAlso FormDashboard._serialPort.IsOpen Then
+                        FormDashboard._serialPort.WriteLine(51)
+                        Console.WriteLine($"Command '{Command()}' sent to {FormDashboard.correctPortName}")
+                    Else
+                        Console.WriteLine("Serial port is not open or not initialized.")
+                    End If
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable5.Text = "CHECKOUT"
                     statusTable5.BackColor = Color.LightGray
@@ -291,6 +328,13 @@ Public Class FormBilling
                     End If
 
                     timerTable6.Start()
+                    If FormDashboard._serialPort IsNot Nothing AndAlso FormDashboard._serialPort.IsOpen Then
+                        FormDashboard._serialPort.WriteLine(61)
+                        Console.WriteLine($"Command '{Command()}' sent to {FormDashboard.correctPortName}")
+                    Else
+                        Console.WriteLine("Serial port is not open or not initialized.")
+                    End If
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable6.Text = "CHECKOUT"
                     statusTable6.BackColor = Color.LightGray
@@ -333,6 +377,13 @@ Public Class FormBilling
                     End If
 
                     timerTable7.Start()
+                    If FormDashboard._serialPort IsNot Nothing AndAlso FormDashboard._serialPort.IsOpen Then
+                        FormDashboard._serialPort.WriteLine(71)
+                        Console.WriteLine($"Command '{Command()}' sent to {FormDashboard.correctPortName}")
+                    Else
+                        Console.WriteLine("Serial port is not open or not initialized.")
+                    End If
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable7.Text = "CHECKOUT"
                     statusTable7.BackColor = Color.LightGray
@@ -374,6 +425,13 @@ Public Class FormBilling
                     End If
 
                     timerTable8.Start()
+                    If FormDashboard._serialPort IsNot Nothing AndAlso FormDashboard._serialPort.IsOpen Then
+                        FormDashboard._serialPort.WriteLine(81)
+                        Console.WriteLine($"Command '{Command()}' sent to {FormDashboard.correctPortName}")
+                    Else
+                        Console.WriteLine("Serial port is not open or not initialized.")
+                    End If
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable8.Text = "CHECKOUT"
                     statusTable8.BackColor = Color.LightGray
@@ -511,6 +569,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable1.Stop()
+                FormDashboard._serialPort.WriteLine(10)
                 statusTable1.Text = "CHECKOUT"
                 statusTable1.BackColor = Color.LightGray
                 btnStopTable1.Enabled = False
@@ -534,6 +593,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable2.Stop()
+                FormDashboard._serialPort.WriteLine(20)
                 statusTable2.Text = "CHECKOUT"
                 statusTable2.BackColor = Color.LightGray
                 btnStopTable2.Enabled = False
@@ -556,6 +616,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable3.Stop()
+                FormDashboard._serialPort.WriteLine(30)
                 statusTable3.Text = "CHECKOUT"
                 statusTable3.BackColor = Color.LightGray
                 btnStopTable3.Enabled = False
@@ -578,6 +639,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable4.Stop()
+                FormDashboard._serialPort.WriteLine(40)
                 statusTable4.Text = "CHECKOUT"
                 statusTable4.BackColor = Color.LightGray
                 btnStopTable4.Enabled = False
@@ -600,6 +662,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable5.Stop()
+                FormDashboard._serialPort.WriteLine(50)
                 statusTable5.Text = "CHECKOUT"
                 statusTable5.BackColor = Color.LightGray
                 btnStopTable5.Enabled = False
@@ -622,6 +685,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable6.Stop()
+                FormDashboard._serialPort.WriteLine(60)
                 statusTable6.Text = "CHECKOUT"
                 statusTable6.BackColor = Color.LightGray
                 btnStopTable6.Enabled = False
@@ -644,6 +708,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable7.Stop()
+                FormDashboard._serialPort.WriteLine(70)
                 statusTable7.Text = "CHECKOUT"
                 statusTable7.BackColor = Color.LightGray
                 btnStopTable7.Enabled = False
@@ -666,6 +731,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable8.Stop()
+                FormDashboard._serialPort.WriteLine(80)
                 statusTable8.Text = "CHECKOUT"
                 statusTable8.BackColor = Color.LightGray
                 btnStopTable8.Enabled = False
