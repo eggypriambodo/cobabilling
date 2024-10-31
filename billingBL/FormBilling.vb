@@ -3,6 +3,9 @@ Imports System.IO.Ports
 Imports MySql.Data.MySqlClient
 
 Public Class FormBilling
+    Dim portName As String = FormDashboard.correctPortName
+    Dim _serialPort As SerialPort
+
 
     Public Shared Instance As FormBilling
 
@@ -10,8 +13,6 @@ Public Class FormBilling
     Dim waktuSelesai As TimeSpan
     Dim waktuMulai As TimeSpan
     Dim timeRemaining As TimeSpan
-    Dim portName As String = FormDashboard.correctPortName
-    Dim _serialPort As SerialPort = FormDashboard._serialPort
 
     Private Sub FormBilling_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Instance = Me
@@ -40,6 +41,9 @@ Public Class FormBilling
         btnPindahMeja7.Enabled = False
         btnPindahMeja8.Enabled = False
         ubahStatusMeja()
+        If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
+            _serialPort.Close() ' Close the port if it's already open
+        End If
     End Sub
 
     Private countDownTime1, countDownTime2, countDownTime3, countDownTime4, countDownTime5, countDownTime6, countDownTime7, countDownTime8 As TimeSpan
@@ -47,10 +51,44 @@ Public Class FormBilling
     Private namaPaket1, namaPaket2, namaPaket3, namaPaket4, namaPaket5, namaPaket6, namaPaket7, namaPaket8 As String
 
     '=======================================LOGIC DB=========================================================='
+    Public Sub InitializeAndSendData(data As String)
+        Try
+            ' Initialize the SerialPort
+            _serialPort = New SerialPort("COM9")
+            _serialPort.BaudRate = 9600
+            _serialPort.PortName = "COM9"
+            _serialPort.DataBits = 8
+            _serialPort.Parity = Parity.None
+            _serialPort.StopBits = StopBits.One
+            _serialPort.Handshake = Handshake.None
+
+
+
+            ' Open the port
+            _serialPort.Open()
+            MessageBox.Show("Port opened successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' Send data if the port is open
+            If _serialPort.IsOpen Then
+                _serialPort.Write(data & vbCr)
+                MessageBox.Show($"Data {data} sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("Serial port is not open.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As UnauthorizedAccessException
+            MessageBox.Show("Access to COM9 is denied. Please ensure the port is not in use by another application.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Catch ex As Exception
+            MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the port is closed if it's open when the application exits
+            If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
+                _serialPort.Close()
+                MessageBox.Show("Port closed successfully!", "Closed", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End Try
+    End Sub
+
     Public Sub ubahStatusMeja()
-        _serialPort = New SerialPort(portName)
-        _serialPort.BaudRate = 9600  ' Set your device's baud rate here
-        _serialPort.Open()
 
         Try
             connect()
@@ -58,6 +96,7 @@ Public Class FormBilling
             DA = New MySqlDataAdapter("SELECT * FROM tb_detailbilling ", Koneksi)
             DT = New DataTable
             DA.Fill(DT)
+
 
             For i = 0 To DT.Rows.Count - 1
                 If DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -88,12 +127,8 @@ Public Class FormBilling
                     End If
 
                     timerTable1.Start()
-                    If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        _serialPort.WriteLine(11)
-                        Console.WriteLine($"Command '{Command()}' sent to {portName}")
-                    Else
-                        Console.WriteLine("Serial port is not open or not initialized.")
-                    End If
+                    InitializeAndSendData("11")
+
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable1.Text = "CHECKOUT"
@@ -137,12 +172,8 @@ Public Class FormBilling
                     End If
 
                     timerTable2.Start()
-                    If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        _serialPort.WriteLine(21)
-                        Console.WriteLine($"Command '{Command()}' sent to {portName}")
-                    Else
-                        Console.WriteLine("Serial port is not open or not initialized.")
-                    End If
+
+                    InitializeAndSendData("21")
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable2.Text = "CHECKOUT"
@@ -186,12 +217,9 @@ Public Class FormBilling
                     End If
 
                     timerTable3.Start()
-                    If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        _serialPort.WriteLine(31)
-                        Console.WriteLine($"Command '{Command()}' sent to {portName}")
-                    Else
-                        Console.WriteLine("Serial port is not open or not initialized.")
-                    End If
+
+                    InitializeAndSendData("31")
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable3.Text = "CHECKOUT"
                     statusTable3.BackColor = Color.LightGray
@@ -234,13 +262,8 @@ Public Class FormBilling
                     End If
 
                     timerTable4.Start()
-                    If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        _serialPort.WriteLine(41)
-                        Console.WriteLine($"Command '{Command()}' sent to {portName}")
-                    Else
-                        Console.WriteLine("Serial port is not open or not initialized.")
-                    End If
 
+                    InitializeAndSendData("41")
                 ElseIf DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable4.Text = "CHECKOUT"
                     statusTable4.BackColor = Color.LightGray
@@ -284,7 +307,7 @@ Public Class FormBilling
 
                     timerTable5.Start()
                     If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        _serialPort.WriteLine(51)
+                        InitializeAndSendData("51")
                         Console.WriteLine($"Command '{Command()}' sent to {portName}")
                     Else
                         Console.WriteLine("Serial port is not open or not initialized.")
@@ -332,12 +355,9 @@ Public Class FormBilling
                     End If
 
                     timerTable6.Start()
-                    If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        _serialPort.WriteLine(61)
-                        Console.WriteLine($"Command '{Command()}' sent to {portName}")
-                    Else
-                        Console.WriteLine("Serial port is not open or not initialized.")
-                    End If
+
+                    InitializeAndSendData("61")
+
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable6.Text = "CHECKOUT"
@@ -381,12 +401,9 @@ Public Class FormBilling
                     End If
 
                     timerTable7.Start()
-                    If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        _serialPort.WriteLine(71)
-                        Console.WriteLine($"Command '{Command()}' sent to {portName}")
-                    Else
-                        Console.WriteLine("Serial port is not open or not initialized.")
-                    End If
+
+                    InitializeAndSendData("71")
+
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable7.Text = "CHECKOUT"
@@ -429,13 +446,7 @@ Public Class FormBilling
                     End If
 
                     timerTable8.Start()
-                    If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        _serialPort.WriteLine(81)
-                        Console.WriteLine($"Command '{Command()}' sent to {portName}")
-                    Else
-                        Console.WriteLine("Serial port is not open or not initialized.")
-                    End If
-
+                    InitializeAndSendData("81")
                 ElseIf DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable8.Text = "CHECKOUT"
                     statusTable8.BackColor = Color.LightGray
@@ -573,7 +584,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable1.Stop()
-                _serialPort.WriteLine(10)
+                InitializeAndSendData("10")
                 statusTable1.Text = "CHECKOUT"
                 statusTable1.BackColor = Color.LightGray
                 btnStopTable1.Enabled = False
@@ -597,7 +608,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable2.Stop()
-                _serialPort.WriteLine(20)
+                InitializeAndSendData("20")
                 statusTable2.Text = "CHECKOUT"
                 statusTable2.BackColor = Color.LightGray
                 btnStopTable2.Enabled = False
@@ -620,7 +631,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable3.Stop()
-                _serialPort.WriteLine(30)
+                InitializeAndSendData("30")
                 statusTable3.Text = "CHECKOUT"
                 statusTable3.BackColor = Color.LightGray
                 btnStopTable3.Enabled = False
@@ -643,7 +654,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable4.Stop()
-                _serialPort.WriteLine(40)
+                InitializeAndSendData("40")
                 statusTable4.Text = "CHECKOUT"
                 statusTable4.BackColor = Color.LightGray
                 btnStopTable4.Enabled = False
@@ -666,7 +677,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable5.Stop()
-                _serialPort.WriteLine(50)
+                InitializeAndSendData("50")
                 statusTable5.Text = "CHECKOUT"
                 statusTable5.BackColor = Color.LightGray
                 btnStopTable5.Enabled = False
@@ -689,7 +700,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable6.Stop()
-                _serialPort.WriteLine(60)
+                InitializeAndSendData("60")
                 statusTable6.Text = "CHECKOUT"
                 statusTable6.BackColor = Color.LightGray
                 btnStopTable6.Enabled = False
@@ -712,7 +723,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable7.Stop()
-                _serialPort.WriteLine(70)
+                InitializeAndSendData("70")
                 statusTable7.Text = "CHECKOUT"
                 statusTable7.BackColor = Color.LightGray
                 btnStopTable7.Enabled = False
@@ -735,7 +746,7 @@ Public Class FormBilling
 
             If timeRemaining = TimeSpan.Zero Then
                 timerTable8.Stop()
-                _serialPort.WriteLine(80)
+                InitializeAndSendData("80")
                 statusTable8.Text = "CHECKOUT"
                 statusTable8.BackColor = Color.LightGray
                 btnStopTable8.Enabled = False
