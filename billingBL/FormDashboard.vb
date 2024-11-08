@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.IO.Ports
+Imports System.Management
 Imports System.Threading
 
 Public Class FormDashboard
@@ -13,8 +14,22 @@ Public Class FormDashboard
     Public Shared correctPortName As String  ' Variable to store the correct port name
 
     ' Method to find and initialize the correct serial port based on command
-    Sub munculserial(command As String)
+    Sub munculserial(expectedDescription As String)
+        Dim foundPort As String = Nothing
 
+        ' Use ManagementObjectSearcher to get detailed information about serial ports
+        Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption LIKE '%(COM%'")
+        For Each obj As ManagementObject In searcher.Get()
+            Dim portName As String = obj("Caption").ToString()
+            ' Check if the port description contains the expected description
+            If portName.Contains(expectedDescription) Then
+                ' Extract the COM port name (e.g., COM3)
+                Dim comPort As String = portName.Substring(portName.LastIndexOf("(") + 1).TrimEnd(")"c)
+                correctPortName = comPort
+                Exit For
+
+            End If
+        Next
     End Sub
 
     Private Sub FormDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -22,7 +37,7 @@ Public Class FormDashboard
             cbSerialPort.Items.Add(AvailableSerialPorts)
             cbSerialPort.Text = AvailableSerialPorts
             '_serialPort.ReadTimeout = 2000
-
+            munculserial("Prolific PL2303GT USB Serial COM Port")
             TextBox1.ScrollBars = ScrollBars.Vertical
         Next
         btnToOnSerialPorts.Visible = True

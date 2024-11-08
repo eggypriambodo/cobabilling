@@ -52,11 +52,11 @@ Public Class FormBilling
 
     '=======================================LOGIC DB=========================================================='
     Public Sub InitializeAndSendData(data As String)
+
         Try
             ' Initialize the SerialPort
-            _serialPort = New SerialPort("COM9")
+            _serialPort = New SerialPort(portName)
             _serialPort.BaudRate = 9600
-            _serialPort.PortName = "COM9"
             _serialPort.DataBits = 8
             _serialPort.Parity = Parity.None
             _serialPort.StopBits = StopBits.One
@@ -66,14 +66,14 @@ Public Class FormBilling
 
             ' Open the port
             _serialPort.Open()
-            MessageBox.Show("Port opened successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
 
             ' Send data if the port is open
             If _serialPort.IsOpen Then
                 _serialPort.Write(data & vbCr)
-                MessageBox.Show($"Data {data} sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
             Else
-                MessageBox.Show("Serial port is not open.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
             End If
         Catch ex As UnauthorizedAccessException
             MessageBox.Show("Access to COM9 is denied. Please ensure the port is not in use by another application.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -83,7 +83,7 @@ Public Class FormBilling
             ' Ensure the port is closed if it's open when the application exits
             If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
                 _serialPort.Close()
-                MessageBox.Show("Port closed successfully!", "Closed", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
             End If
         End Try
     End Sub
