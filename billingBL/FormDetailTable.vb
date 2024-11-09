@@ -177,41 +177,53 @@ Public Class FormDetailTable
 
     End Sub
 
-    Public Sub PindahMeja(mejaBaru As String)
+    Public Sub PindahMeja(mejaBaru As String, mejaLama As String)
         Try
             connect()
 
             ' Ambil data dari meja saat ini
-            DA = New MySqlDataAdapter("SELECT * FROM tb_detailbilling WHERE no_meja = '" & currentMeja & "'", Koneksi)
+            DA = New MySqlDataAdapter("SELECT * FROM tb_detailbilling WHERE no_meja = '" & mejaLama & "'", Koneksi)
             DT = New DataTable
             DA.Fill(DT)
 
+            ' Hapus data dari meja saat ini setelah dipindahkan
+            Dim deleteCmd As New MySqlCommand("DELETE FROM tb_detailbilling WHERE no_meja = @no_meja", Koneksi)
+            deleteCmd.Parameters.AddWithValue("@no_meja", mejaLama)
+            deleteCmd.ExecuteNonQuery()
+
             ' Masukkan data ke meja baru
             For Each row As DataRow In DT.Rows
-                Dim cmd As New MySqlCommand("INSERT INTO tb_detailbilling (no_meja, nama_tamu, paket, waktu_mulai, waktu_selesai, duration, subtotal, diskon, jenis_paket) VALUES (@no_meja, @nama_tamu, @paket, @waktu_mulai, @waktu_selesai, @duration, @subtotal, @diskon, @jenis_paket)", Koneksi)
+                Dim cmd As New MySqlCommand("INSERT INTO tb_detailbilling (no_order, no_meja, nama_tamu, paket, mulai, selesai, durasi, harga, disc_table, durasi_siang, durasi_malam, harga_siang, harga_malam, status_bayar, jenis_paket) VALUES (@no_order, @no_meja, @nama_tamu, @paket, @waktu_mulai, @waktu_selesai, @duration, @subtotal, @disc_table, @durasi_siang, @durasi_malam, @harga_siang, @harga_malam, @status_bayar, @jenis_paket)", Koneksi)
 
+                cmd.Parameters.AddWithValue("@no_order", row("no_order"))
                 cmd.Parameters.AddWithValue("@no_meja", mejaBaru)
                 cmd.Parameters.AddWithValue("@nama_tamu", row("nama_tamu"))
                 cmd.Parameters.AddWithValue("@paket", row("paket"))
-                cmd.Parameters.AddWithValue("@waktu_mulai", row("waktu_mulai"))
-                cmd.Parameters.AddWithValue("@waktu_selesai", row("waktu_selesai"))
-                cmd.Parameters.AddWithValue("@duration", row("duration"))
-                cmd.Parameters.AddWithValue("@subtotal", row("subtotal"))
-                cmd.Parameters.AddWithValue("@diskon", row("diskon"))
+                cmd.Parameters.AddWithValue("@waktu_mulai", row("mulai"))
+                cmd.Parameters.AddWithValue("@waktu_selesai", row("selesai"))
+                cmd.Parameters.AddWithValue("@duration", row("durasi"))
+                cmd.Parameters.AddWithValue("@subtotal", row("harga"))
+                cmd.Parameters.AddWithValue("@disc_table", row("disc_table"))
+                cmd.Parameters.AddWithValue("@durasi_siang", row("durasi_siang"))
+                cmd.Parameters.AddWithValue("@durasi_malam", row("durasi_malam"))
+                cmd.Parameters.AddWithValue("@harga_siang", row("harga_siang"))
+                cmd.Parameters.AddWithValue("@harga_malam", row("harga_malam"))
+                cmd.Parameters.AddWithValue("@status_bayar", row("status_bayar"))
                 cmd.Parameters.AddWithValue("@jenis_paket", row("jenis_paket"))
 
                 cmd.ExecuteNonQuery()
             Next
 
-            ' Hapus data dari meja saat ini setelah dipindahkan
-            Dim deleteCmd As New MySqlCommand("DELETE FROM tb_detailbilling WHERE no_meja = @no_meja", Koneksi)
-            deleteCmd.Parameters.AddWithValue("@no_meja", currentMeja)
-            deleteCmd.ExecuteNonQuery()
 
-            MessageBox.Show("Data berhasil dipindahkan ke meja " & mejaBaru, "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim updateStatusMejaKosongCmd As New MySqlCommand("UPDATE tb_meja SET status='kosong' WHERE nama_meja= @no_meja", Koneksi)
+            updateStatusMejaKosongCmd.Parameters.AddWithValue("@no_meja", mejaLama)
+            updateStatusMejaKosongCmd.ExecuteNonQuery()
 
-            ' Update tampilan jika diperlukan
-            ambilData(mejaBaru)
+            Dim updateStatusMejaIsiCmd As New MySqlCommand("UPDATE tb_meja SET status='isi' WHERE nama_meja= @no_meja", Koneksi)
+            updateStatusMejaIsiCmd.Parameters.AddWithValue("@no_meja", mejaBaru)
+            updateStatusMejaIsiCmd.ExecuteNonQuery()
+
+            MessageBox.Show("Data berhasil dipindahkan ke " & mejaBaru, "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             MessageBox.Show("Terjadi kesalahan: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

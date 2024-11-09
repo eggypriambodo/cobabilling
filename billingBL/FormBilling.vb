@@ -97,6 +97,7 @@ Public Class FormBilling
             DT = New DataTable
             DA.Fill(DT)
 
+            Console.WriteLine($"{DT}")
 
             For i = 0 To DT.Rows.Count - 1
                 If DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "" Then
@@ -487,11 +488,15 @@ Public Class FormBilling
         Dim harga As Integer = 0
 
         If selesai < mulai Then
-            selesai = selesai.Add(New TimeSpan(24, 0, 0))
+            Dim selesaiNew As TimeSpan = selesai.Add(New TimeSpan(24, 0, 0))
+            totalWaktu = selesaiNew - mulai
+            totalWaktuInt = totalWaktu.TotalMinutes
+        Else
+            totalWaktu = selesai - mulai
+            totalWaktuInt = totalWaktu.TotalMinutes
         End If
 
-        totalWaktu = selesai - mulai
-        totalWaktuInt = totalWaktu.TotalMinutes
+
 
         Try
             connect()
@@ -574,7 +579,13 @@ Public Class FormBilling
     '=============================TIMER==============================================================='
     Public Sub timerTable1_Tick(sender As Object, e As EventArgs) Handles timerTable1.Tick
         If jenisPaket1 = "LOSTIME" Then
-            timeRemaining = Date.Now.TimeOfDay - countDownTime1
+            Dim waktuSekarang As TimeSpan = Date.Now.TimeOfDay
+            If waktuSekarang < countDownTime1 Then
+                Dim waktuSekarangNew As TimeSpan = waktuSekarang.Add(New TimeSpan(24, 0, 0))
+                timeRemaining = waktuSekarangNew - countDownTime1
+            Else
+                timeRemaining = Date.Now.TimeOfDay - countDownTime1
+            End If
         Else
             timeRemaining = countDownTime1 - Date.Now.TimeOfDay
 
@@ -598,7 +609,13 @@ Public Class FormBilling
 
     Public Sub timerTable2_Tick(sender As Object, e As EventArgs) Handles timerTable2.Tick
         If jenisPaket2 = "LOSTIME" Then
-            timeRemaining = Date.Now.TimeOfDay - countDownTime2
+            Dim waktuSekarang As TimeSpan = Date.Now.TimeOfDay
+            If waktuSekarang < countDownTime2 Then
+                Dim waktuSekarangNew As TimeSpan = waktuSekarang.Add(New TimeSpan(24, 0, 0))
+                timeRemaining = waktuSekarangNew - countDownTime2
+            Else
+                timeRemaining = Date.Now.TimeOfDay - countDownTime2
+            End If
         Else
             timeRemaining = countDownTime2 - Date.Now.TimeOfDay
 
@@ -621,7 +638,13 @@ Public Class FormBilling
 
     Public Sub timerTable3_Tick(sender As Object, e As EventArgs) Handles timerTable3.Tick
         If jenisPaket3 = "LOSTIME" Then
-            timeRemaining = Date.Now.TimeOfDay - countDownTime3
+            Dim waktuSekarang As TimeSpan = Date.Now.TimeOfDay
+            If waktuSekarang < countDownTime3 Then
+                Dim waktuSekarangNew As TimeSpan = waktuSekarang.Add(New TimeSpan(24, 0, 0))
+                timeRemaining = waktuSekarangNew - countDownTime3
+            Else
+                timeRemaining = Date.Now.TimeOfDay - countDownTime3
+            End If
         Else
             timeRemaining = countDownTime3 - Date.Now.TimeOfDay
 
@@ -644,7 +667,13 @@ Public Class FormBilling
 
     Public Sub timerTable4_Tick(sender As Object, e As EventArgs) Handles timerTable4.Tick
         If jenisPaket4 = "LOSTIME" Then
-            timeRemaining = Date.Now.TimeOfDay - countDownTime4
+            Dim waktuSekarang As TimeSpan = Date.Now.TimeOfDay
+            If waktuSekarang < countDownTime4 Then
+                Dim waktuSekarangNew As TimeSpan = waktuSekarang.Add(New TimeSpan(24, 0, 0))
+                timeRemaining = waktuSekarangNew - countDownTime4
+            Else
+                timeRemaining = Date.Now.TimeOfDay - countDownTime4
+            End If
         Else
             timeRemaining = countDownTime4 - Date.Now.TimeOfDay
 
@@ -667,7 +696,13 @@ Public Class FormBilling
 
     Public Sub timerTable5_Tick(sender As Object, e As EventArgs) Handles timerTable5.Tick
         If jenisPaket5 = "LOSTIME" Then
-            timeRemaining = Date.Now.TimeOfDay - countDownTime5
+            Dim waktuSekarang As TimeSpan = Date.Now.TimeOfDay
+            If waktuSekarang < countDownTime5 Then
+                Dim waktuSekarangNew As TimeSpan = waktuSekarang.Add(New TimeSpan(24, 0, 0))
+                timeRemaining = waktuSekarangNew - countDownTime5
+            Else
+                timeRemaining = Date.Now.TimeOfDay - countDownTime5
+            End If
         Else
             timeRemaining = countDownTime5 - Date.Now.TimeOfDay
 
@@ -690,7 +725,13 @@ Public Class FormBilling
 
     Public Sub timerTable6_Tick(sender As Object, e As EventArgs) Handles timerTable6.Tick
         If jenisPaket6 = "LOSTIME" Then
-            timeRemaining = Date.Now.TimeOfDay - countDownTime6
+            Dim waktuSekarang As TimeSpan = Date.Now.TimeOfDay
+            If waktuSekarang < countDownTime6 Then
+                Dim waktuSekarangNew As TimeSpan = waktuSekarang.Add(New TimeSpan(24, 0, 0))
+                timeRemaining = waktuSekarangNew - countDownTime6
+            Else
+                timeRemaining = Date.Now.TimeOfDay - countDownTime6
+            End If
         Else
             timeRemaining = countDownTime6 - Date.Now.TimeOfDay
 
@@ -713,7 +754,13 @@ Public Class FormBilling
 
     Public Sub timerTable7_Tick(sender As Object, e As EventArgs) Handles timerTable7.Tick
         If jenisPaket7 = "LOSTIME" Then
-            timeRemaining = Date.Now.TimeOfDay - countDownTime7
+            Dim waktuSekarang As TimeSpan = Date.Now.TimeOfDay
+            If waktuSekarang < countDownTime7 Then
+                Dim waktuSekarangNew As TimeSpan = waktuSekarang.Add(New TimeSpan(24, 0, 0))
+                timeRemaining = waktuSekarangNew - countDownTime7
+            Else
+                timeRemaining = Date.Now.TimeOfDay - countDownTime7
+            End If
         Else
             timeRemaining = countDownTime7 - Date.Now.TimeOfDay
 
@@ -736,7 +783,13 @@ Public Class FormBilling
 
     Public Sub timerTable8_Tick(sender As Object, e As EventArgs) Handles timerTable8.Tick
         If jenisPaket8 = "LOSTIME" Then
-            timeRemaining = Date.Now.TimeOfDay - countDownTime8
+            Dim waktuSekarang As TimeSpan = Date.Now.TimeOfDay
+            If waktuSekarang < countDownTime8 Then
+                Dim waktuSekarangNew As TimeSpan = waktuSekarang.Add(New TimeSpan(24, 0, 0))
+                timeRemaining = waktuSekarangNew - countDownTime8
+            Else
+                timeRemaining = Date.Now.TimeOfDay - countDownTime8
+            End If
         Else
             timeRemaining = countDownTime8 - Date.Now.TimeOfDay
 
@@ -804,32 +857,32 @@ Public Class FormBilling
     Public Sub UbahStatusTableCheckout(meja As String, metodePembayaran As String)
 
         If meja = "Meja 1" Then
-            ResetTable("Meja 1", labTimeStart1, labTimeStop1, timerTable1, statusTable1, duration1, btnDetail1, btnStopTable1, metodePembayaran)
+            ResetTable("Meja 1", labTimeStart1, labTimeStop1, timerTable1, statusTable1, duration1, btnDetail1, btnStopTable1, btnPindahMeja1, metodePembayaran)
         End If
         If meja = "Meja 2" Then
-            ResetTable("Meja 2", labTimeStart2, labTimeStop2, timerTable2, statusTable2, duration2, btnDetail2, btnStopTable2, metodePembayaran)
+            ResetTable("Meja 2", labTimeStart2, labTimeStop2, timerTable2, statusTable2, duration2, btnDetail2, btnStopTable2, btnPindahMeja2, metodePembayaran)
         End If
         If meja = "Meja 3" Then
-            ResetTable("Meja 3", labTimeStart3, labTimeStop3, timerTable3, statusTable3, duration3, btnDetail3, btnStopTable3, metodePembayaran)
+            ResetTable("Meja 3", labTimeStart3, labTimeStop3, timerTable3, statusTable3, duration3, btnDetail3, btnStopTable3, btnPindahMeja3, metodePembayaran)
         End If
         If meja = "Meja 4" Then
-            ResetTable("Meja 4", labTimeStart4, labTimeStop4, timerTable4, statusTable4, duration4, btnDetail4, btnStopTable4, metodePembayaran)
+            ResetTable("Meja 4", labTimeStart4, labTimeStop4, timerTable4, statusTable4, duration4, btnDetail4, btnStopTable4, btnPindahMeja4, metodePembayaran)
         End If
         If meja = "Meja 5" Then
-            ResetTable("Meja 5", labTimeStart5, labTimeStop5, timerTable5, statusTable5, duration5, btnDetail5, btnStopTable5, metodePembayaran)
+            ResetTable("Meja 5", labTimeStart5, labTimeStop5, timerTable5, statusTable5, duration5, btnDetail5, btnStopTable5, btnPindahMeja5, metodePembayaran)
         End If
         If meja = "Meja 6" Then
-            ResetTable("Meja 6", labTimeStart6, labTimeStop6, timerTable6, statusTable6, duration6, btnDetail6, btnStopTable6, metodePembayaran)
+            ResetTable("Meja 6", labTimeStart6, labTimeStop6, timerTable6, statusTable6, duration6, btnDetail6, btnStopTable6, btnPindahMeja6, metodePembayaran)
         End If
         If meja = "Meja 7" Then
-            ResetTable("Meja 7", labTimeStart7, labTimeStop7, timerTable7, statusTable7, duration7, btnDetail7, btnStopTable7, metodePembayaran)
+            ResetTable("Meja 7", labTimeStart7, labTimeStop7, timerTable7, statusTable7, duration7, btnDetail7, btnStopTable7, btnPindahMeja7, metodePembayaran)
         End If
         If meja = "Meja 8" Then
-            ResetTable("Meja 8", labTimeStart8, labTimeStop8, timerTable8, statusTable8, duration8, btnDetail8, btnStopTable8, metodePembayaran)
+            ResetTable("Meja 8", labTimeStart8, labTimeStop8, timerTable8, statusTable8, duration8, btnDetail8, btnStopTable8, btnPindahMeja8, metodePembayaran)
         End If
     End Sub
 
-    Private Sub ResetTable(meja As String, ByRef labTimeStart As Label, ByRef labTimeStop As Label, ByRef timer As Timer, ByRef statusLabel As Label, ByRef durationLabel As Label, ByRef btnDetail As Button, ByRef btnStopTable As Button, metodePembayaran As String)
+    Private Sub ResetTable(meja As String, ByRef labTimeStart As Label, ByRef labTimeStop As Label, ByRef timer As Timer, ByRef statusLabel As Label, ByRef durationLabel As Label, ByRef btnDetail As Button, ByRef btnStopTable As Button, ByRef btnPindahMeja As Button, metodePembayaran As String)
         Try
             connect()
             CMD = New MySqlCommand("UPDATE tb_meja SET status='kosong' WHERE nama_meja='" & meja & "'", Koneksi)
@@ -849,6 +902,7 @@ Public Class FormBilling
         durationLabel.Text = "-;-;-"
         btnDetail.Enabled = False
         btnStopTable.Enabled = False
+        btnPindahMeja.Enabled = False
     End Sub
 
     Private Sub TimerSaatIni_Tick(sender As Object, e As EventArgs) Handles TimerSaatIni.Tick
@@ -877,9 +931,9 @@ Public Class FormBilling
             If jenisPaket1 = "LOSTIME" Then
                 jenisPaket1 = ""
                 updateStopPaketLos("Meja 1", countDownTime1)
-            Else
-                timerTable1.Stop()
+
             End If
+            timerTable1.Stop()
             updateStatusBayar("Meja 1")
         End If
 
@@ -1031,7 +1085,7 @@ Public Class FormBilling
         FormDetailTable.Instance.ambilData("Meja 8")
     End Sub
 
-    Private Sub ShowCustomMessageBox()
+    Private Sub ShowCustomMessageBox(mejaLama As String, ByRef labTimeStart As Label, ByRef labTimeStop As Label, ByRef timer As Timer, ByRef statusLabel As Label, ByRef durationLabel As Label)
         ' Buat form secara dinamis
         Dim customDialog As New Form()
         customDialog.Text = "Pindah Meja"
@@ -1100,7 +1154,14 @@ Public Class FormBilling
             Dim selectedTable As String = comboBox.SelectedItem.ToString()
             MessageBox.Show("Meja telah dipindah ke: " & selectedTable)
             'KODE PINDAH DATA KE MEJA
-            FormDetailTable.PindahMeja(mejaBaru:=selectedTable)
+            FormDetailTable.PindahMeja(mejaBaru:=selectedTable, mejaLama:=mejaLama)
+            FormBilling_Load(Nothing, Nothing)
+            timer.Stop()
+            labTimeStart.Text = "-;-;-"
+            labTimeStop.Text = "-;-;-"
+            statusLabel.Text = "KOSONG"
+            statusLabel.BackColor = Color.Lime
+            durationLabel.Text = "-;-;-"
         Else
             MessageBox.Show("Pindah meja dibatalkan.")
         End If
@@ -1108,7 +1169,34 @@ Public Class FormBilling
 
 
     Private Sub btnPindahMeja1_Click(sender As Object, e As EventArgs) Handles btnPindahMeja1.Click
-        ShowCustomMessageBox()
+        ShowCustomMessageBox("Meja 1", labTimeStart1, labTimeStop1, timerTable1, statusTable1, duration1)
     End Sub
 
+    Private Sub btnPindahMeja2_Click(sender As Object, e As EventArgs) Handles btnPindahMeja2.Click
+        ShowCustomMessageBox("Meja 2", labTimeStart2, labTimeStop2, timerTable2, statusTable2, duration2)
+    End Sub
+
+    Private Sub btnPindahMeja3_Click(sender As Object, e As EventArgs) Handles btnPindahMeja3.Click
+        ShowCustomMessageBox("Meja 3", labTimeStart3, labTimeStop3, timerTable3, statusTable3, duration3)
+    End Sub
+
+    Private Sub btnPindahMeja4_Click(sender As Object, e As EventArgs) Handles btnPindahMeja4.Click
+        ShowCustomMessageBox("Meja 4", labTimeStart4, labTimeStop4, timerTable4, statusTable4, duration4)
+    End Sub
+
+    Private Sub btnPindahMeja5_Click(sender As Object, e As EventArgs) Handles btnPindahMeja5.Click
+        ShowCustomMessageBox("Meja 5", labTimeStart5, labTimeStop5, timerTable5, statusTable5, duration5)
+    End Sub
+
+    Private Sub btnPindahMeja6_Click(sender As Object, e As EventArgs) Handles btnPindahMeja6.Click
+        ShowCustomMessageBox("Meja 6", labTimeStart6, labTimeStop6, timerTable6, statusTable6, duration6)
+    End Sub
+
+    Private Sub btnPindahMeja7_Click(sender As Object, e As EventArgs) Handles btnPindahMeja7.Click
+        ShowCustomMessageBox("Meja 7", labTimeStart7, labTimeStop7, timerTable7, statusTable7, duration7)
+    End Sub
+
+    Private Sub btnPindahMeja8_Click(sender As Object, e As EventArgs) Handles btnPindahMeja8.Click
+        ShowCustomMessageBox("Meja 8", labTimeStart8, labTimeStop8, timerTable8, statusTable8, duration8)
+    End Sub
 End Class

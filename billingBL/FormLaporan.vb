@@ -1,88 +1,131 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports OfficeOpenXml
+Imports System.IO
 
 Public Class FormLaporan
     Dim totalDurasi As Integer = 0
     Dim totalPemasukan As Integer = 0
-    Private Sub DisplayTransactionsByYear(selectedYear As Integer)
+
+    Private Sub DisplayTransactionByDate()
+        Dim startDate As DateTime = datePickerBefore.Value.Date
+        Dim endDate As DateTime = datePickerAfter.Value.Date
+
+        Dim formattedStartDate As String = startDate.ToString("yyyy-MM-dd")
+        Dim formattedEndDate As String = endDate.ToString("yyyy-MM-dd")
+
         Try
             connect()
 
-            ' Query untuk mengambil semua data transaksi
-            Dim query As String = "SELECT * FROM tb_transaksi"
-            DA = New MySqlDataAdapter(query, Koneksi)
+            Dim query As String = "SELECT * FROM tb_transaksi WHERE STR_TO_DATE(tanggal_transaksi, '%Y-%m-%d') BETWEEN @StartDate AND @EndDate"
+            Dim cmd As New MySqlCommand(query, Koneksi)
+
+            cmd.Parameters.AddWithValue("@StartDate", formattedStartDate)
+            cmd.Parameters.AddWithValue("@EndDate", formattedEndDate)
+
+            DA = New MySqlDataAdapter(cmd)
             DT = New DataTable
             DA.Fill(DT)
 
-
-            Dim dateFormat As String = "yyyy-MM-dd"
-
-            ' Filter data berdasarkan tahun
-            Dim filteredRows = From row In DT.AsEnumerable()
-                               Let transactionDate As DateTime = DateTime.ParseExact(row.Field(Of String)("tanggal_transaksi"), DateFormat, System.Globalization.CultureInfo.InvariantCulture)
-                               Where transactionDate.Year = selectedYear
-                               Order By transactionDate Descending ' Urutkan berdasarkan tanggal terbaru
-                               Select row
-
-            ' Mengisi DataGridView dengan data transaksi yang sudah difilter
             DataGridView1.Rows.Clear()
-            For i = 0 To filteredRows.Count() - 1
-                totalDurasi = Convert.ToInt32(filteredRows(i).Item(9)) + Convert.ToInt32(filteredRows(i).Item(10))
-                totalPemasukan = totalPemasukan + Convert.ToInt32(filteredRows(i).Item(7))
-                Dim row As DataGridViewRow = New DataGridViewRow()
-                row.CreateCells(DataGridView1)
-                row.Cells(0).Value = i + 1
-                row.Cells(1).Value = filteredRows(i).Item(0)
-                row.Cells(2).Value = totalDurasi
-                row.Cells(3).Value = filteredRows(i).Item(7)
-                row.Cells(4).Value = filteredRows(i).Item(11)
-                row.Cells(5).Value = filteredRows(i).Item(12)
+            Dim i As Integer = 0
+            totalPemasukan = 0
 
-                DataGridView1.Rows.Add(row)
+            For Each row As DataRow In DT.Rows
+                Dim totalDurasi As Integer = Convert.ToInt32(row("durasi_siang")) + Convert.ToInt32(row("durasi_malam"))
+                totalPemasukan += Convert.ToInt32(row("harga"))
+
+                Dim rows As DataGridViewRow = New DataGridViewRow()
+                rows.CreateCells(DataGridView1)
+                rows.Cells(0).Value = i + 1
+                rows.Cells(1).Value = row("no_order")
+                rows.Cells(2).Value = totalDurasi
+                rows.Cells(3).Value = row("harga")
+                rows.Cells(4).Value = row("metode_pembayaran")
+                rows.Cells(5).Value = row("tanggal_transaksi")
+
+                DataGridView1.Rows.Add(rows)
+                i += 1
             Next
 
             labelTotalPemasukan.Text = FormatCurrency(totalPemasukan)
+
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Error: " & ex.Message)
         Finally
             disconnect()
         End Try
     End Sub
 
-    'Private Sub comboBoxYears_SelectedIndexChanged(sender As Object, e As EventArgs)
-    '    If comboBoxYears.SelectedItem IsNot Nothing Then
-    '        Dim selectedYear = Convert.ToInt32(comboBoxYears.SelectedItem)
-    '        DisplayTransactionsByYear(selectedYear)
-    '    End If
-    'End Sub
+    Private Sub ExportDataGridViewToExcel()
 
-    Private Sub LoadYearsIntoComboBox()
+        ExcelPackage.LicenseContext = LicenseContext.NonCommercial
+        ' Initialize SaveFileDialog
+        Dim saveFileDialog As New SaveFileDialog()
+        saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx"  ' Set file filter to Excel files
+        saveFileDialog.Title = "Save Excel File"
+        saveFileDialog.FileName = "ExportedData.xlsx"  ' Default filename
+
+        ' Show the dialog and get the result
+        If saveFileDialog.ShowDialog() = DialogResult.OK Then
+            ' Proceed with exporting data
+            Dim filePath As String = saveFileDialog.FileName
+
+            ' Add your Excel export code here (using Microsoft.Office.Interop.Excel or EPPlus)
+            ' Example with EPPlus:
+            Try
+                Using package As New OfficeOpenXml.ExcelPackage()
+                    Dim worksheet As OfficeOpenXml.ExcelWorksheet = package.Workbook.Worksheets.Add("Sheet1")
+
+                    ' Export headers
+                    For col As Integer = 0 To DataGridView1.Columns.Count - 1
+                        worksheet.Cells(1, col + 1).Value = DataGridView1.Columns(col).HeaderText
+                    Next
+
+                    ' Export rows
+                    For row As Integer = 0 To DataGridView1.Rows.Count - 1
+                        For col As Integer = 0 To DataGridView1.Columns.Count - 1
+                            worksheet.Cells(row + 2, col + 1).Value = DataGridView1.Rows(row).Cells(col).Value
+                        Next
+                    Next
+
+                    ' Save the Excel file
+                    Dim file As New IO.FileInfo(filePath)
+                    package.SaveAs(file)
+
+                    MsgBox("Data exported successfully!")
+                End Using
+            Catch ex As Exception
+                MsgBox("Error exporting data: " & ex.Message)
+            End Try
+        End If
+    End Sub
+
+
+    ' Helper method to release COM objects and free up memory
+    Private Sub ReleaseObject(ByVal obj As Object)
         Try
-            connect()
-
-            ' Query untuk mengambil semua tahun dari tanggal transaksi
-            Dim query As String = "SELECT DISTINCT YEAR(STR_TO_DATE(tanggal_transaksi, '%Y-%m-%d')) AS Tahun FROM tb_transaksi ORDER BY Tahun DESC"
-            DA = New MySqlDataAdapter(query, Koneksi)
-            DT = New DataTable
-            DA.Fill(DT)
-
-            ' Mengisi comboBoxYears dengan tahun-tahun
-            'comboBoxYears.Items.Clear()
-            'For Each row As DataRow In DT.Rows
-            '    comboBoxYears.Items.Add(row("Tahun"))
-            'Next
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
         Catch ex As Exception
-            MsgBox(ex.Message)
+            obj = Nothing
         Finally
-            disconnect()
+            GC.Collect()
         End Try
     End Sub
 
     Private Sub FormLaporan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.RowHeadersVisible = False
-        LoadYearsIntoComboBox()
     End Sub
 
     Private Sub DataGridView1_SelectionChanged(sender As System.Object, e As System.EventArgs) Handles DataGridView1.SelectionChanged
         DataGridView1.ClearSelection()
+    End Sub
+
+    Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
+        DisplayTransactionByDate()
+    End Sub
+
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        ExportDataGridViewToExcel()
     End Sub
 End Class
