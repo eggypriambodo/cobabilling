@@ -493,6 +493,7 @@ Public Class FormBilling
 
 
 
+
         Try
             connect()
 
@@ -584,7 +585,11 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime1 - Date.Now.TimeOfDay
 
-            If timeRemaining < TimeSpan.Zero Then
+            If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
+                timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
+            End If
+
+            If timeRemaining.TotalSeconds < 1 Then
                 timeRemaining = TimeSpan.Zero
             End If
 
@@ -594,6 +599,7 @@ Public Class FormBilling
                 statusTable1.Text = "CHECKOUT"
                 statusTable1.BackColor = Color.LightGray
                 btnStopTable1.Enabled = False
+                btnPindahMeja1.Enabled = False
                 updateStatusBayar("Meja 1")
             End If
         End If
@@ -614,7 +620,11 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime2 - Date.Now.TimeOfDay
 
-            If timeRemaining < TimeSpan.Zero Then
+            If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
+                timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
+            End If
+
+            If timeRemaining.TotalSeconds < 1 Then
                 timeRemaining = TimeSpan.Zero
             End If
 
@@ -624,6 +634,7 @@ Public Class FormBilling
                 statusTable2.Text = "CHECKOUT"
                 statusTable2.BackColor = Color.LightGray
                 btnStopTable2.Enabled = False
+                btnPindahMeja2.Enabled = False
                 updateStatusBayar("Meja 2")
             End If
         End If
@@ -643,7 +654,11 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime3 - Date.Now.TimeOfDay
 
-            If timeRemaining < TimeSpan.Zero Then
+            If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
+                timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
+            End If
+
+            If timeRemaining.TotalSeconds < 1 Then
                 timeRemaining = TimeSpan.Zero
             End If
 
@@ -653,6 +668,7 @@ Public Class FormBilling
                 statusTable3.Text = "CHECKOUT"
                 statusTable3.BackColor = Color.LightGray
                 btnStopTable3.Enabled = False
+                btnPindahMeja3.Enabled = False
                 updateStatusBayar("Meja 3")
             End If
         End If
@@ -672,7 +688,11 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime4 - Date.Now.TimeOfDay
 
-            If timeRemaining < TimeSpan.Zero Then
+            If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
+                timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
+            End If
+
+            If timeRemaining.TotalSeconds < 1 Then
                 timeRemaining = TimeSpan.Zero
             End If
 
@@ -682,6 +702,7 @@ Public Class FormBilling
                 statusTable4.Text = "CHECKOUT"
                 statusTable4.BackColor = Color.LightGray
                 btnStopTable4.Enabled = False
+                btnPindahMeja4.Enabled = False
                 updateStatusBayar("Meja 4")
             End If
         End If
@@ -701,7 +722,11 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime5 - Date.Now.TimeOfDay
 
-            If timeRemaining < TimeSpan.Zero Then
+            If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
+                timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
+            End If
+
+            If timeRemaining.TotalSeconds < 1 Then
                 timeRemaining = TimeSpan.Zero
             End If
 
@@ -711,6 +736,7 @@ Public Class FormBilling
                 statusTable5.Text = "CHECKOUT"
                 statusTable5.BackColor = Color.LightGray
                 btnStopTable5.Enabled = False
+                btnPindahMeja5.Enabled = False
                 updateStatusBayar("Meja 5")
             End If
         End If
@@ -730,7 +756,11 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime6 - Date.Now.TimeOfDay
 
-            If timeRemaining < TimeSpan.Zero Then
+            If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
+                timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
+            End If
+
+            If timeRemaining.TotalSeconds < 1 Then
                 timeRemaining = TimeSpan.Zero
             End If
 
@@ -740,6 +770,7 @@ Public Class FormBilling
                 statusTable6.Text = "CHECKOUT"
                 statusTable6.BackColor = Color.LightGray
                 btnStopTable6.Enabled = False
+                btnPindahMeja6.Enabled = False
                 updateStatusBayar("Meja 6")
             End If
         End If
@@ -759,7 +790,11 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime7 - Date.Now.TimeOfDay
 
-            If timeRemaining < TimeSpan.Zero Then
+            If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
+                timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
+            End If
+
+            If timeRemaining.TotalSeconds < 1 Then
                 timeRemaining = TimeSpan.Zero
             End If
 
@@ -769,6 +804,7 @@ Public Class FormBilling
                 statusTable7.Text = "CHECKOUT"
                 statusTable7.BackColor = Color.LightGray
                 btnStopTable7.Enabled = False
+                btnPindahMeja7.Enabled = False
                 updateStatusBayar("Meja 7")
             End If
         End If
@@ -788,7 +824,11 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime8 - Date.Now.TimeOfDay
 
-            If timeRemaining < TimeSpan.Zero Then
+            If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
+                timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
+            End If
+
+            If timeRemaining.TotalSeconds < 1 Then
                 timeRemaining = TimeSpan.Zero
             End If
 
@@ -798,6 +838,7 @@ Public Class FormBilling
                 statusTable8.Text = "CHECKOUT"
                 statusTable8.BackColor = Color.LightGray
                 btnStopTable8.Enabled = False
+                btnPindahMeja8.Enabled = False
                 updateStatusBayar("Meja 8")
             End If
         End If
