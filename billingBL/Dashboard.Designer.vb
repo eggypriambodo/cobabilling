@@ -24,7 +24,9 @@ Partial Class Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dashboard))
         SideNavbar = New Panel()
+        btnExit = New Button()
         btnPengaturan = New IconButton()
         btnLaporan = New IconButton()
         btnTransaksi = New IconButton()
@@ -38,7 +40,6 @@ Partial Class Dashboard
         LabelAlamat = New Label()
         LabelNamaTempat = New Label()
         PanelDesktop = New Panel()
-        btnExit = New Button()
         SideNavbar.SuspendLayout()
         Panel1.SuspendLayout()
         CType(imgboxlogo, ComponentModel.ISupportInitialize).BeginInit()
@@ -62,6 +63,19 @@ Partial Class Dashboard
         SideNavbar.Name = "SideNavbar"
         SideNavbar.Size = New Size(257, 837)
         SideNavbar.TabIndex = 0
+        ' 
+        ' btnExit
+        ' 
+        btnExit.BackColor = Color.Red
+        btnExit.Dock = DockStyle.Bottom
+        btnExit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExit.ForeColor = Color.White
+        btnExit.Location = New Point(0, 794)
+        btnExit.Name = "btnExit"
+        btnExit.Size = New Size(257, 43)
+        btnExit.TabIndex = 9
+        btnExit.Text = "EXIT "
+        btnExit.UseVisualStyleBackColor = False
         ' 
         ' btnPengaturan
         ' 
@@ -208,7 +222,7 @@ Partial Class Dashboard
         ' imgboxlogo
         ' 
         imgboxlogo.Dock = DockStyle.Fill
-        imgboxlogo.Image = My.Resources.Resources.logo21
+        imgboxlogo.Image = CType(resources.GetObject("imgboxlogo.Image"), Image)
         imgboxlogo.Location = New Point(0, 0)
         imgboxlogo.Margin = New Padding(3, 4, 3, 4)
         imgboxlogo.Name = "imgboxlogo"
@@ -256,11 +270,11 @@ Partial Class Dashboard
         LabelAlamat.Dock = DockStyle.Top
         LabelAlamat.Font = New Font("Segoe UI", 10F)
         LabelAlamat.ForeColor = SystemColors.Control
-        LabelAlamat.Location = New Point(0, 131)
+        LabelAlamat.Location = New Point(0, 114)
         LabelAlamat.Name = "LabelAlamat"
-        LabelAlamat.Size = New Size(1149, 65)
+        LabelAlamat.Size = New Size(1149, 38)
         LabelAlamat.TabIndex = 3
-        LabelAlamat.Text = "Jl. MT. Haryono No.195-197, Dinoyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144"
+        LabelAlamat.Text = "Jl. Terusan Danau Kerinci Jl. Sawojajar II No.1E-23, Keduyo, Mangliawan, Kec. Pakis, Kabupaten Malang, Jawa Timur 65154"
         LabelAlamat.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' LabelNamaTempat
@@ -270,9 +284,9 @@ Partial Class Dashboard
         LabelNamaTempat.ForeColor = SystemColors.Control
         LabelNamaTempat.Location = New Point(0, 0)
         LabelNamaTempat.Name = "LabelNamaTempat"
-        LabelNamaTempat.Size = New Size(1149, 131)
+        LabelNamaTempat.Size = New Size(1149, 114)
         LabelNamaTempat.TabIndex = 2
-        LabelNamaTempat.Text = "XYZ BILLIARD"
+        LabelNamaTempat.Text = "TRIPLE F POOL N COFFEE"
         LabelNamaTempat.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' PanelDesktop
@@ -282,19 +296,6 @@ Partial Class Dashboard
         PanelDesktop.Name = "PanelDesktop"
         PanelDesktop.Size = New Size(1149, 641)
         PanelDesktop.TabIndex = 2
-        ' 
-        ' btnExit
-        ' 
-        btnExit.BackColor = Color.Red
-        btnExit.Dock = DockStyle.Bottom
-        btnExit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnExit.ForeColor = Color.White
-        btnExit.Location = New Point(0, 794)
-        btnExit.Name = "btnExit"
-        btnExit.Size = New Size(257, 43)
-        btnExit.TabIndex = 9
-        btnExit.Text = "EXIT "
-        btnExit.UseVisualStyleBackColor = False
         ' 
         ' Dashboard
         ' 

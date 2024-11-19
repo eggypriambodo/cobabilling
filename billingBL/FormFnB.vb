@@ -21,9 +21,7 @@ Public Class FormFnB
 
     Private Sub FormFnB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbconn()
-        labDate.Text = Date.Now.ToString("yyyy-MMMM-dd")
-        getNoOrder()
-        Load_Foods()
+        new_order()
     End Sub
 
     Sub getNoOrder()
@@ -177,6 +175,11 @@ Public Class FormFnB
         tbNamaTamu.Clear()
         tbUangDiterima.Clear()
         tbUangKembalian.Clear()
+        tbUangDiterima.Enabled = False
+        rbtnCash.Checked = False
+        rbtnDebit.Checked = False
+        rbtnQris.Checked = False
+        rbtnTransfer.Checked = False
     End Sub
 
     Private Sub btnManageMenu_Click(sender As Object, e As EventArgs) Handles btnManageMenu.Click
@@ -231,8 +234,7 @@ Public Class FormFnB
             ' Konfirmasi untuk mencetak tagihan
             If MsgBox("Print Bill?", vbQuestion + vbYesNo) = vbYes Then
                 changelongpaper()
-                PPD.Document = PD
-                PPD.ShowDialog()
+                PD.Print()
             End If
 
         Catch ex As Exception
@@ -253,19 +255,23 @@ Public Class FormFnB
 
     Private Sub PD_BeginPrint(sender As Object, e As EventArgs) Handles PD.BeginPrint
         PD.DefaultPageSettings = New PageSettings With {
-            .PaperSize = New PaperSize("Custom", 250, longpaper)
+            .PaperSize = New PaperSize("Custom", 57 * 3.77953, longpaper)
         }
     End Sub
 
     Private Sub PD_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PD.PrintPage
-        Dim f8 As New Font("Calibri", 8, FontStyle.Regular)
-        Dim f10 As New Font("Calibri", 10, FontStyle.Regular)
+        Dim f8 As New Font("Calibri", 6, FontStyle.Regular)
+        Dim f10 As New Font("Calibri", 8, FontStyle.Regular)
         Dim f12 As New Font("Calibri", 12, FontStyle.Bold)
         Dim f14 As New Font("Calibri", 14, FontStyle.Bold)
 
         Dim leftmargin As Integer = PD.DefaultPageSettings.Margins.Left
         Dim rightmargin As Integer = PD.DefaultPageSettings.PaperSize.Width
         Dim centermargin As Integer = PD.DefaultPageSettings.PaperSize.Width / 2
+        Dim paperwidth As Integer = 57 * 3.77953
+
+        Dim adjustment As Single = 12 ' Kurangi nilai untuk menghilangkan kelebihan margin
+        Dim centerX As Single = (paperwidth / 2) - adjustment
 
         Dim right As New StringFormat
         Dim center As New StringFormat
@@ -276,21 +282,21 @@ Public Class FormFnB
         Dim line As String
         line = "__________________________________________________________________________________________________________________"
 
-        ' Print Header
-        e.Graphics.DrawString("XYZ BILLIARD", f14, Brushes.Black, centermargin, 10, center)
-        e.Graphics.DrawString("Jl. Raya Kedung Baruk No. 1", f10, Brushes.Black, centermargin, 30, center)
-        e.Graphics.DrawString("Surabaya", f10, Brushes.Black, centermargin, 45, center)
-        e.Graphics.DrawString("Telp. 031-1234567", f10, Brushes.Black, centermargin, 60, center)
-        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 75)
+        e.Graphics.DrawString("TRIPLE F", f14, Brushes.Black, centerX, 10, center)
+        e.Graphics.DrawString("POOL N COFFEE", f14, Brushes.Black, centerX, 30, center)
+        e.Graphics.DrawString("Jl. Terusan Danau Kerinci Jl. Sawojajar II No.1E-23", f8, Brushes.Black, centerX, 60, center)
+        e.Graphics.DrawString("Kec. Pakis, Kabupaten Malang, Jawa Timur", f8, Brushes.Black, centerX, 70, center)
+        e.Graphics.DrawString("65154", f8, Brushes.Black, centerX, 80, center)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 90)
 
         ' Print Order Information
-        e.Graphics.DrawString(tbNoOrder.Text & "                      " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
+        e.Graphics.DrawString(tbNoOrder.Text & "                " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 105)
         e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 120)
 
         ' Print Column Headers
         e.Graphics.DrawString("Item", f10, Brushes.Black, 5, 150)
-        e.Graphics.DrawString("Qty", f10, Brushes.Black, 150, 150)
-        e.Graphics.DrawString("Price", f10, Brushes.Black, 200, 150)
+        e.Graphics.DrawString("Qty", f10, Brushes.Black, 115, 150)
+        e.Graphics.DrawString("Price", f10, Brushes.Black, 145, 150)
         e.Graphics.DrawString(line, f10, Brushes.Black, 0, 155)
 
         ' Print DataGridView Rows (Column5, Column1, Column2, Column3, Column4)
@@ -306,8 +312,8 @@ Public Class FormFnB
 
                 ' Print the row's data
                 e.Graphics.DrawString(itemName, f10, Brushes.Black, 5, yPos)
-                e.Graphics.DrawString(qty, f10, Brushes.Black, 155, yPos)
-                e.Graphics.DrawString(price, f10, Brushes.Black, 200, yPos)
+                e.Graphics.DrawString(qty, f10, Brushes.Black, 120, yPos)
+                e.Graphics.DrawString(price, f10, Brushes.Black, 145, yPos)
 
                 ' Increment position for the next row
                 yPos += 20
@@ -326,6 +332,7 @@ Public Class FormFnB
         e.Graphics.DrawString("Total : " & labTotal.Text, f10, Brushes.Black, 5, yPos)
         yPos += 15
         e.Graphics.DrawString(line, f10, Brushes.Black, 0, yPos)
+        e.Graphics.DrawString("TOTAL  " & labTotal.Text, f12, Brushes.Black, 5, yPos + 20)
 
     End Sub
 

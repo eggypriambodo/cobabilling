@@ -307,12 +307,7 @@ Public Class FormBilling
                     End If
 
                     timerTable5.Start()
-                    If _serialPort IsNot Nothing AndAlso _serialPort.IsOpen Then
-                        InitializeAndSendData("51")
-                        Console.WriteLine($"Command '{Command()}' sent to {portName}")
-                    Else
-                        Console.WriteLine("Serial port is not open or not initialized.")
-                    End If
+                    InitializeAndSendData("51")
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable5.Text = "CHECKOUT"
@@ -928,12 +923,15 @@ Public Class FormBilling
         If statusTable1.Text = "AKTIF" Then
             statusTable1.Text = "CHECKOUT"
             statusTable1.BackColor = Color.LightGray
+            btnStopTable1.Enabled = False
+            btnPindahMeja1.Enabled = False
             If jenisPaket1 = "LOSTIME" Then
                 jenisPaket1 = ""
                 updateStopPaketLos("Meja 1", countDownTime1)
 
             End If
             timerTable1.Stop()
+            InitializeAndSendData("10")
             updateStatusBayar("Meja 1")
         End If
 
@@ -944,11 +942,14 @@ Public Class FormBilling
         If statusTable2.Text = "AKTIF" Then
             statusTable2.Text = "CHECKOUT"
             statusTable2.BackColor = Color.LightGray
+            btnStopTable2.Enabled = False
+            btnPindahMeja2.Enabled = False
             If jenisPaket2 = "LOSTIME" Then
                 jenisPaket2 = ""
                 updateStopPaketLos("Meja 2", countDownTime2)
             Else
                 timerTable2.Stop()
+                InitializeAndSendData("20")
             End If
             updateStatusBayar("Meja 2")
         End If
@@ -959,11 +960,14 @@ Public Class FormBilling
         If statusTable3.Text = "AKTIF" Then
             statusTable3.Text = "CHECKOUT"
             statusTable3.BackColor = Color.LightGray
+            btnStopTable3.Enabled = False
+            btnPindahMeja3.Enabled = False
             If jenisPaket3 = "LOSTIME" Then
                 jenisPaket3 = ""
                 updateStopPaketLos("Meja 3", countDownTime3)
             Else
                 timerTable3.Stop()
+                InitializeAndSendData("30")
             End If
             updateStatusBayar("Meja 3")
         End If
@@ -974,11 +978,14 @@ Public Class FormBilling
         If statusTable4.Text = "AKTIF" Then
             statusTable4.Text = "CHECKOUT"
             statusTable4.BackColor = Color.LightGray
+            btnStopTable4.Enabled = False
+            btnPindahMeja4.Enabled = False
             If jenisPaket4 = "LOSTIME" Then
                 jenisPaket4 = ""
                 updateStopPaketLos("Meja 4", countDownTime4)
             Else
                 timerTable4.Stop()
+                InitializeAndSendData("40")
             End If
             updateStatusBayar("Meja 4")
         End If
@@ -989,11 +996,14 @@ Public Class FormBilling
         If statusTable5.Text = "AKTIF" Then
             statusTable5.Text = "CHECKOUT"
             statusTable5.BackColor = Color.LightGray
+            btnStopTable5.Enabled = False
+            btnPindahMeja5.Enabled = False
             If jenisPaket5 = "LOSTIME" Then
                 jenisPaket5 = ""
                 updateStopPaketLos("Meja 5", countDownTime5)
             Else
                 timerTable5.Stop()
+                InitializeAndSendData("50")
             End If
             updateStatusBayar("Meja 5")
         End If
@@ -1004,11 +1014,14 @@ Public Class FormBilling
         If statusTable6.Text = "AKTIF" Then
             statusTable6.Text = "CHECKOUT"
             statusTable6.BackColor = Color.LightGray
+            btnStopTable6.Enabled = False
+            btnPindahMeja6.Enabled = False
             If jenisPaket6 = "LOSTIME" Then
                 jenisPaket6 = ""
                 updateStopPaketLos("Meja 6", countDownTime6)
             Else
                 timerTable6.Stop()
+                InitializeAndSendData("60")
             End If
             updateStatusBayar("Meja 6")
         End If
@@ -1019,11 +1032,14 @@ Public Class FormBilling
         If statusTable7.Text = "AKTIF" Then
             statusTable7.Text = "CHECKOUT"
             statusTable7.BackColor = Color.LightGray
+            btnStopTable7.Enabled = False
+            btnPindahMeja7.Enabled = False
             If jenisPaket7 = "LOSTIME" Then
                 jenisPaket7 = ""
                 updateStopPaketLos("Meja 7", countDownTime7)
             Else
                 timerTable7.Stop()
+                InitializeAndSendData("70")
             End If
             updateStatusBayar("Meja 7")
         End If
@@ -1034,11 +1050,14 @@ Public Class FormBilling
         If statusTable8.Text = "AKTIF" Then
             statusTable8.Text = "CHECKOUT"
             statusTable8.BackColor = Color.LightGray
+            btnStopTable8.Enabled = False
+            btnPindahMeja8.Enabled = False
             If jenisPaket8 = "LOSTIME" Then
                 jenisPaket8 = ""
                 updateStopPaketLos("Meja 8", countDownTime8)
             Else
                 timerTable8.Stop()
+                InitializeAndSendData("80")
             End If
             updateStatusBayar("Meja 8")
         End If

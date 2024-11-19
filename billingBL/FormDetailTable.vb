@@ -22,8 +22,7 @@ Public Class FormDetailTable
 
     Private Sub btnCetak_Click(sender As Object, e As EventArgs) Handles btnCetak.Click
         changelongpaper()
-        PPD.Document = PD
-        PPD.ShowDialog()
+        PD.Print()
     End Sub
 
     Private Sub btnBayar_Click(sender As Object, e As EventArgs) Handles btnBayar.Click
@@ -48,7 +47,7 @@ Public Class FormDetailTable
 
     Private Sub PD_BeginPrint(sender As Object, e As EventArgs) Handles PD.BeginPrint
         Dim pagesetup As New PageSettings
-        pagesetup.PaperSize = New PaperSize("Custom", 250, longpaper)
+        pagesetup.PaperSize = New PaperSize("Custom", 57 * 3.77953, longpaper)
         PD.DefaultPageSettings = pagesetup
     End Sub
 
@@ -57,14 +56,18 @@ Public Class FormDetailTable
     End Sub
 
     Private Sub PD_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PD.PrintPage
-        Dim f8 As New Font("Calibri", 8, FontStyle.Regular)
-        Dim f10 As New Font("Calibri", 10, FontStyle.Regular)
+        Dim f8 As New Font("Calibri", 6, FontStyle.Regular)
+        Dim f10 As New Font("Calibri", 8, FontStyle.Regular)
         Dim f12 As New Font("Calibri", 12, FontStyle.Bold)
         Dim f14 As New Font("Calibri", 14, FontStyle.Bold)
 
         Dim leftmargin As Integer = PD.DefaultPageSettings.Margins.Left
         Dim rightmargin As Integer = PD.DefaultPageSettings.PaperSize.Width
         Dim centermargin As Integer = PD.DefaultPageSettings.PaperSize.Width / 2
+        Dim paperwidth As Integer = 57 * 3.77953
+
+        Dim adjustment As Single = 12 ' Kurangi nilai untuk menghilangkan kelebihan margin
+        Dim centerX As Single = (paperwidth / 2) - adjustment
 
         Dim right As New StringFormat
         Dim center As New StringFormat
@@ -76,44 +79,45 @@ Public Class FormDetailTable
         line = "__________________________________________________________________________________________________________________"
 
 
-        e.Graphics.DrawString("XYZ BILLIARD", f14, Brushes.Black, centermargin, 10, center)
-        e.Graphics.DrawString("Jl. Raya Kedung Baruk No. 1", f10, Brushes.Black, centermargin, 30, center)
-        e.Graphics.DrawString("Surabaya", f10, Brushes.Black, centermargin, 45, center)
-        e.Graphics.DrawString("Telp. 031-1234567", f10, Brushes.Black, centermargin, 60, center)
-        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 75)
+        e.Graphics.DrawString("TRIPLE F", f14, Brushes.Black, centerX, 10, center)
+        e.Graphics.DrawString("POOL N COFFEE", f14, Brushes.Black, centerX, 30, center)
+        e.Graphics.DrawString("Jl. Terusan Danau Kerinci Jl. Sawojajar II No.1E-23", f8, Brushes.Black, centerX, 60, center)
+        e.Graphics.DrawString("Kec. Pakis, Kabupaten Malang, Jawa Timur", f8, Brushes.Black, centerX, 70, center)
+        e.Graphics.DrawString("65154", f8, Brushes.Black, centerX, 80, center)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 90)
 
-        e.Graphics.DrawString(labelJenisPaket.Text & "                                          " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 100)
-        e.Graphics.DrawString("No. Order : " & labelNoOrder.Text, f10, Brushes.Black, 5, 125)
-        e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 140)
-        e.Graphics.DrawString("Paket : " & labelPaket.Text, f10, Brushes.Black, 5, 155)
-        e.Graphics.DrawString("No. Meja : " & labelNoTable.Text, f10, Brushes.Black, 5, 170)
-        e.Graphics.DrawString("Waktu Mulai : " & labelWaktuMulai.Text, f10, Brushes.Black, 5, 185)
-        e.Graphics.DrawString("Waktu Selesai : " & labelWaktuSelesai.Text, f10, Brushes.Black, 5, 200)
-        e.Graphics.DrawString("Durasi : " & durasiSiang + durasiMalam & " menit", f10, Brushes.Black, 5, 215)
+        e.Graphics.DrawString(labelJenisPaket.Text & "                                     " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 115)
+        e.Graphics.DrawString("No. Order : " & labelNoOrder.Text, f10, Brushes.Black, 5, 150)
+        e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 165)
+        e.Graphics.DrawString("Paket : " & labelPaket.Text, f10, Brushes.Black, 5, 180)
+        e.Graphics.DrawString("No. Meja : " & labelNoTable.Text, f10, Brushes.Black, 5, 195)
+        e.Graphics.DrawString("Waktu Mulai : " & labelWaktuMulai.Text, f10, Brushes.Black, 5, 210)
+        e.Graphics.DrawString("Waktu Selesai : " & labelWaktuSelesai.Text, f10, Brushes.Black, 5, 225)
+        e.Graphics.DrawString("Durasi : " & durasiSiang + durasiMalam & " menit", f10, Brushes.Black, 5, 240)
         If labelJenisPaket.Text <> "DURASI" AndAlso labelJenisPaket.Text <> "LOSTIME" Then
-            e.Graphics.DrawString("TABLE CHARGES STANDART", f10, Brushes.Black, 5, 235)
-            e.Graphics.DrawString("0 menit X Rp. " & Format(0, "0.00"), f10, Brushes.Black, 5, 250)
-            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 7, 250)
-            e.Graphics.DrawString("0 menit X Rp. " & Format(0, "0.00"), f10, Brushes.Black, 5, 265)
-            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 7, 265)
+            e.Graphics.DrawString("TABLE CHARGES STANDART", f10, Brushes.Black, 5, 260)
+            e.Graphics.DrawString("0 menit X Rp. " & Format(0, "0.00"), f10, Brushes.Black, 5, 275)
+            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 7, 275)
+            e.Graphics.DrawString("0 menit X Rp. " & Format(0, "0.00"), f10, Brushes.Black, 5, 290)
+            e.Graphics.DrawString("                                                     " & Format(0, "0"), f10, Brushes.Black, 7, 290)
         Else
-            e.Graphics.DrawString("TABLE CHARGES STANDART", f10, Brushes.Black, 5, 235)
-            e.Graphics.DrawString(durasiSiang & " menit X Rp. " & Format(hargaSiang / 60, "0.00"), f10, Brushes.Black, 5, 250)
-            e.Graphics.DrawString("                                                     " & Format((hargaSiang / 60) * durasiSiang, "0"), f10, Brushes.Black, 5, 250)
-            e.Graphics.DrawString(durasiMalam & " menit X Rp. " & Format(hargaMalam / 60, "0.00"), f10, Brushes.Black, 5, 265)
-            e.Graphics.DrawString("                                                     " & Format((hargaMalam / 60) * durasiMalam, "0"), f10, Brushes.Black, 5, 265)
+            e.Graphics.DrawString("TABLE CHARGES STANDART", f10, Brushes.Black, 5, 260)
+            e.Graphics.DrawString(durasiSiang & " menit X Rp. " & Format(hargaSiang / 60, "0.00"), f10, Brushes.Black, 5, 275)
+            e.Graphics.DrawString("                                                     " & Format((hargaSiang / 60) * durasiSiang, "0"), f10, Brushes.Black, 5, 275)
+            e.Graphics.DrawString(durasiMalam & " menit X Rp. " & Format(hargaMalam / 60, "0.00"), f10, Brushes.Black, 5, 290)
+            e.Graphics.DrawString("                                                     " & Format((hargaMalam / 60) * durasiMalam, "0"), f10, Brushes.Black, 5, 290)
         End If
 
-        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 280)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 310)
 
-        e.Graphics.DrawString("Metode Pembayaran :" & metodePembayaran, f10, Brushes.Black, 5, 295)
-        e.Graphics.DrawString("Subtotal : " & labelSubtotalTable.Text, f10, Brushes.Black, 5, 310)
-        e.Graphics.DrawString("Diskon : " & labelDiskonTable.Text & "%", f10, Brushes.Black, 5, 325)
-        e.Graphics.DrawString("Total : " & labelTotalTable.Text, f10, Brushes.Black, 5, 340)
-        e.Graphics.DrawString("Tax Service : " & labelTaxService.Text, f10, Brushes.Black, 5, 355)
-        e.Graphics.DrawString("PPn : " & labelPPn.Text, f10, Brushes.Black, 5, 370)
-        e.Graphics.DrawString("Grand Total : " & tboxGrandTotal.Text, f10, Brushes.Black, 5, 385)
-        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 400)
+        e.Graphics.DrawString("Metode Pembayaran :" & metodePembayaran, f10, Brushes.Black, 5, 325)
+        e.Graphics.DrawString("Subtotal : " & labelSubtotalTable.Text, f10, Brushes.Black, 5, 340)
+        e.Graphics.DrawString("Diskon : " & labelDiskonTable.Text & "%", f10, Brushes.Black, 5, 355)
+        e.Graphics.DrawString("Total : " & labelTotalTable.Text, f10, Brushes.Black, 5, 370)
+        e.Graphics.DrawString("Tax Service : " & labelTaxService.Text, f10, Brushes.Black, 5, 385)
+        e.Graphics.DrawString("PPn : " & labelPPn.Text, f10, Brushes.Black, 5, 400)
+        e.Graphics.DrawString("Grand Total : " & tboxGrandTotal.Text, f10, Brushes.Black, 5, 415)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 435)
 
     End Sub
 

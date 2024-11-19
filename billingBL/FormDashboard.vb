@@ -26,22 +26,29 @@ Public Class FormDashboard
                 ' Extract the COM port name (e.g., COM3)
                 Dim comPort As String = portName.Substring(portName.LastIndexOf("(") + 1).TrimEnd(")"c)
                 correctPortName = comPort
+                btnToOnSerialPorts.Enabled = False
+                Label1.Text = "PORT SUDAH TERSAMBUNG"
+                Try
+                    connect()
+
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+
+                Finally
+                    disconnect()
+                    Label2.Text = "DATABASE SUDAH TERSAMBUNG"
+                End Try
+
                 Exit For
 
             End If
         Next
+
     End Sub
 
     Private Sub FormDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        For Each AvailableSerialPorts As String In System.IO.Ports.SerialPort.GetPortNames()
-            cbSerialPort.Items.Add(AvailableSerialPorts)
-            cbSerialPort.Text = AvailableSerialPorts
-            '_serialPort.ReadTimeout = 2000
-            munculserial("Prolific PL2303GT USB Serial COM Port")
-            TextBox1.ScrollBars = ScrollBars.Vertical
-        Next
-        btnToOnSerialPorts.Visible = True
-        btnToOffSerialPorts.Visible = False
+        btnToOnSerialPorts.Enabled = True
+        btnToOffSerialPorts.Enabled = False
     End Sub
 
     Private Sub btnToOnSerialPorts_Click(sender As Object, e As EventArgs)
@@ -61,4 +68,8 @@ Public Class FormDashboard
 
     End Sub
 
+    Private Sub btnToOnSerialPorts_Click_1(sender As Object, e As EventArgs) Handles btnToOnSerialPorts.Click
+        munculserial("Prolific PL2303GT USB Serial COM Port")
+
+    End Sub
 End Class

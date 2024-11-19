@@ -348,7 +348,7 @@ Partial Class FormTransaksi
         DataGridViewTextBoxColumn4.HeaderText = "Total Harga"
         DataGridViewTextBoxColumn4.MinimumWidth = 6
         DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        DataGridViewTextBoxColumn4.Width = 117
+        DataGridViewTextBoxColumn4.Width = 108
         ' 
         ' DataGridViewTextBoxColumn5
         ' 
@@ -356,7 +356,7 @@ Partial Class FormTransaksi
         DataGridViewTextBoxColumn5.HeaderText = "Metode Bayar"
         DataGridViewTextBoxColumn5.MinimumWidth = 6
         DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        DataGridViewTextBoxColumn5.Width = 134
+        DataGridViewTextBoxColumn5.Width = 123
         ' 
         ' FormTransaksi
         ' 
