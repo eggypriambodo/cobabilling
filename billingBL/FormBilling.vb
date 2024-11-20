@@ -491,8 +491,10 @@ Public Class FormBilling
             totalWaktuInt = totalWaktu.TotalMinutes
         End If
 
-
-
+        Debug.WriteLine(totalWaktuInt)
+        If totalWaktuInt < 60 Then
+            totalWaktuInt = 60
+        End If
 
         Try
             connect()
@@ -526,10 +528,37 @@ Public Class FormBilling
                         harga = (hargaSiang * totalWaktuInt) / 60
                         selisihmulaiInt = totalWaktuInt
                     End If
-                ElseIf mulai >= akhirWaktuSiang AndAlso mulai < akhirWaktuMalam Then
-                    hargaMalam = Convert.ToInt32(DT.Rows(i).Item("harga_malam"))
-                    harga = (hargaMalam * totalWaktuInt) / 60
-                    selisihselesaiInt = totalWaktuInt
+                ElseIf mulai >= akhirWaktuSiang OrElse mulai < akhirWaktuMalam Then
+                    If akhirWaktuMalam < selesai AndAlso selesai > akhirWaktuSiang Then
+                        akhirWaktuMalam = akhirWaktuMalam.Add(New TimeSpan(24, 0, 0))
+                    End If
+
+                    If selesai <= akhirWaktuMalam Then
+                        hargaMalam = Convert.ToInt32(DT.Rows(i).Item("harga_malam"))
+                        harga = (hargaMalam * totalWaktuInt) / 60
+                        selisihmulaiInt = totalWaktuInt
+                    ElseIf selesai > akhirWaktuMalam Then
+                        Dim bataswaktu As New TimeSpan(akhirWaktuMalam.Hours, 0, 0)
+
+                        If bataswaktu < mulai Then
+                            bataswaktu = bataswaktu.Add(New TimeSpan(24, 0, 0))
+                        End If
+                        Dim selisihmulai As TimeSpan = bataswaktu - mulai
+                        selisihmulaiInt = selisihmulai.TotalMinutes
+                        hargaMalam = Convert.ToInt32(DT.Rows(i).Item("harga_malam"))
+                        Dim hargaSelisihMulai As Integer = (hargaMalam / 60) * selisihmulaiInt
+
+                        If selesai < bataswaktu Then
+                            selesai = selesai.Add(New TimeSpan(24, 0, 0))
+                        End If
+                        Dim selisihselesai As TimeSpan = selesai - bataswaktu
+                        selisihselesaiInt = selisihselesai.TotalMinutes
+                        hargaSiang = Convert.ToInt32(DT.Rows(i).Item("harga_siang"))
+                        Dim hargaSelisihSelesai As Integer = (hargaSiang / 60) * selisihselesaiInt
+
+                        harga = hargaSelisihMulai + hargaSelisihSelesai
+                    End If
+
                 End If
             Next
         Catch ex As Exception
@@ -537,23 +566,42 @@ Public Class FormBilling
         Finally
             disconnect()
         End Try
+        If mulai >= akhirWaktuMalam AndAlso mulai < akhirWaktuSiang Then
+            Try
+                connect()
 
-        Try
-            connect()
+                CMD = New MySqlCommand("UPDATE tb_detailbilling SET selesai=@selesai, harga=@harga, durasi_siang=@durasi_siang, durasi_malam=@durasi_malam WHERE no_meja=@no_meja", Koneksi)
+                CMD.Parameters.AddWithValue("@selesai", selesaiString)
+                CMD.Parameters.AddWithValue("@harga", harga)
+                CMD.Parameters.AddWithValue("@durasi_siang", selisihmulaiInt)
+                CMD.Parameters.AddWithValue("@durasi_malam", selisihselesaiInt)
+                CMD.Parameters.AddWithValue("@no_meja", meja)
 
-            CMD = New MySqlCommand("UPDATE tb_detailbilling SET selesai=@selesai, harga=@harga, durasi_siang=@durasi_siang, durasi_malam=@durasi_malam WHERE no_meja=@no_meja", Koneksi)
-            CMD.Parameters.AddWithValue("@selesai", selesaiString)
-            CMD.Parameters.AddWithValue("@harga", harga)
-            CMD.Parameters.AddWithValue("@durasi_siang", selisihmulaiInt)
-            CMD.Parameters.AddWithValue("@durasi_malam", selisihselesaiInt)
-            CMD.Parameters.AddWithValue("@no_meja", meja)
+                CMD.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                disconnect()
+            End Try
+        ElseIf mulai >= akhirWaktuSiang OrElse mulai < akhirWaktuMalam Then
+            Try
+                connect()
 
-            CMD.ExecuteNonQuery()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            disconnect()
-        End Try
+                CMD = New MySqlCommand("UPDATE tb_detailbilling SET selesai=@selesai, harga=@harga, durasi_siang=@durasi_siang, durasi_malam=@durasi_malam WHERE no_meja=@no_meja", Koneksi)
+                CMD.Parameters.AddWithValue("@selesai", selesaiString)
+                CMD.Parameters.AddWithValue("@harga", harga)
+                CMD.Parameters.AddWithValue("@durasi_siang", selisihselesaiInt)
+                CMD.Parameters.AddWithValue("@durasi_malam", selisihmulaiInt)
+                CMD.Parameters.AddWithValue("@no_meja", meja)
+
+                CMD.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                disconnect()
+            End Try
+        End If
+
     End Sub
 
 
@@ -988,10 +1036,9 @@ Public Class FormBilling
             If jenisPaket2 = "LOSTIME" Then
                 jenisPaket2 = ""
                 updateStopPaketLos("Meja 2", countDownTime2)
-            Else
-                timerTable2.Stop()
-                InitializeAndSendData("20")
             End If
+            timerTable2.Stop()
+            InitializeAndSendData("20")
             updateStatusBayar("Meja 2")
         End If
 
@@ -1006,10 +1053,9 @@ Public Class FormBilling
             If jenisPaket3 = "LOSTIME" Then
                 jenisPaket3 = ""
                 updateStopPaketLos("Meja 3", countDownTime3)
-            Else
-                timerTable3.Stop()
-                InitializeAndSendData("30")
             End If
+            timerTable3.Stop()
+            InitializeAndSendData("30")
             updateStatusBayar("Meja 3")
         End If
 
@@ -1024,10 +1070,9 @@ Public Class FormBilling
             If jenisPaket4 = "LOSTIME" Then
                 jenisPaket4 = ""
                 updateStopPaketLos("Meja 4", countDownTime4)
-            Else
-                timerTable4.Stop()
-                InitializeAndSendData("40")
             End If
+            timerTable4.Stop()
+            InitializeAndSendData("40")
             updateStatusBayar("Meja 4")
         End If
 
@@ -1042,10 +1087,9 @@ Public Class FormBilling
             If jenisPaket5 = "LOSTIME" Then
                 jenisPaket5 = ""
                 updateStopPaketLos("Meja 5", countDownTime5)
-            Else
-                timerTable5.Stop()
-                InitializeAndSendData("50")
             End If
+            timerTable5.Stop()
+            InitializeAndSendData("50")
             updateStatusBayar("Meja 5")
         End If
 
@@ -1060,10 +1104,9 @@ Public Class FormBilling
             If jenisPaket6 = "LOSTIME" Then
                 jenisPaket6 = ""
                 updateStopPaketLos("Meja 6", countDownTime6)
-            Else
-                timerTable6.Stop()
-                InitializeAndSendData("60")
             End If
+            timerTable6.Stop()
+            InitializeAndSendData("60")
             updateStatusBayar("Meja 6")
         End If
 
@@ -1078,10 +1121,9 @@ Public Class FormBilling
             If jenisPaket7 = "LOSTIME" Then
                 jenisPaket7 = ""
                 updateStopPaketLos("Meja 7", countDownTime7)
-            Else
-                timerTable7.Stop()
-                InitializeAndSendData("70")
             End If
+            timerTable7.Stop()
+            InitializeAndSendData("70")
             updateStatusBayar("Meja 7")
         End If
 
@@ -1096,10 +1138,9 @@ Public Class FormBilling
             If jenisPaket8 = "LOSTIME" Then
                 jenisPaket8 = ""
                 updateStopPaketLos("Meja 8", countDownTime8)
-            Else
-                timerTable8.Stop()
-                InitializeAndSendData("80")
             End If
+            timerTable8.Stop()
+            InitializeAndSendData("80")
             updateStatusBayar("Meja 8")
         End If
 

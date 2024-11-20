@@ -146,7 +146,6 @@ Public Class FormDetailTable
                 labelWaktuMulai.Text = DT.Rows(i).Item(4)
                 labelWaktuSelesai.Text = DT.Rows(i).Item(5)
                 labelNoTable.Text = DT.Rows(i).Item(3)
-                labelDuration.Text = DT.Rows(i).Item(6)
                 labelSubtotalTable.Text = "Rp. " & subtotal
                 labelDiskonTable.Text = DT.Rows(i).Item(8)
                 labelTotalTable.Text = "Rp. " & total
@@ -158,7 +157,7 @@ Public Class FormDetailTable
                 durasiMalam = DT.Rows(i).Item(10)
                 hargaSiang = DT.Rows(i).Item(11)
                 hargaMalam = DT.Rows(i).Item(12)
-                labelNoTable.Text = durasiSiang + durasiMalam & " Menit"
+                labelDuration.Text = durasiSiang + durasiMalam & " Menit"
             Next
 
             DA = New MySqlDataAdapter("SELECT * FROM tb_meja WHERE nama_meja = '" & meja & "'", Koneksi)
