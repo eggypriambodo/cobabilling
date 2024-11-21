@@ -16,6 +16,7 @@ Public Class FormBilling
 
     Private Sub FormBilling_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Instance = Me
+        TimerSaatIni.Start()
         btnStopTable1.Enabled = False
         btnStopTable2.Enabled = False
         btnStopTable3.Enabled = False
@@ -1024,7 +1025,7 @@ Public Class FormBilling
     End Sub
 
     Private Sub TimerSaatIni_Tick(sender As Object, e As EventArgs) Handles TimerSaatIni.Tick
-        LabelTimerSaatIni.Text = Date.Now.ToString("dd MMM yyyy HH:mm:ss")
+        LabelTimerSaatIni.Text = Date.Now.ToString("dd/mm/yyyy HH:mm:ss")
     End Sub
 
     '==========================================Button OPEN====================================================='
@@ -1342,4 +1343,5 @@ Public Class FormBilling
         ShowCustomMessageBox("Meja 8", labTimeStart8, labTimeStop8, timerTable8, statusTable8, duration8)
         InitializeAndSendData("80")
     End Sub
+
 End Class

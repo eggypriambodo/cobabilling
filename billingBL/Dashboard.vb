@@ -8,6 +8,7 @@ Public Class Dashboard
     Private currentBtn As IconButton
     Private leftBorderBtn As Panel
     Private currentChildForm As Form
+    Private formBillingInstance As FormBilling = Nothing
 
     'Constructor'
     Public Sub New()
@@ -54,23 +55,22 @@ Public Class Dashboard
     End Sub
     Private Sub OpenChildForm(childForm As Form)
         'Open only form'
-        If currentChildForm IsNot Nothing Then
-            currentChildForm.Close()
+        If currentChildForm IsNot Nothing AndAlso currentChildForm IsNot formBillingInstance Then
+            currentChildForm.Hide() ' Sembunyikan form sebelumnya, kecuali FormBilling
         End If
         currentChildForm = childForm
-        'end'
+        'End'
         childForm.TopLevel = False
         childForm.FormBorderStyle = FormBorderStyle.None
         childForm.Dock = DockStyle.Fill
-        PanelDesktop.Controls.Add(childForm)
+
+        If Not PanelDesktop.Controls.Contains(childForm) Then
+            PanelDesktop.Controls.Add(childForm)
+        End If
+
         PanelDesktop.Tag = childForm
         childForm.BringToFront()
         childForm.Show()
-    End Sub
-
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles SideNavbar.Paint
-
     End Sub
 
     Private Sub imgboxlogo_Click(sender As Object, e As EventArgs) Handles imgboxlogo.Click
@@ -86,7 +86,13 @@ Public Class Dashboard
 
     Private Sub btnBilling_Click(sender As Object, e As EventArgs) Handles btnBilling.Click
         ActivateButton(sender, RGBColors.color)
-        OpenChildForm(New FormBilling)
+
+        ' Gunakan singleton untuk FormBilling
+        If formBillingInstance Is Nothing OrElse formBillingInstance.IsDisposed Then
+            formBillingInstance = New FormBilling()
+        End If
+
+        OpenChildForm(formBillingInstance)
     End Sub
 
     Private Sub btnFnB_Click(sender As Object, e As EventArgs) Handles btnFnB.Click
