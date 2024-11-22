@@ -129,7 +129,6 @@ Public Class FormBilling
                     End If
 
                     timerTable1.Start()
-                    InitializeAndSendData("11")
 
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "checkout" Then
@@ -139,7 +138,6 @@ Public Class FormBilling
                     btnDetail1.Enabled = True
                     btnPindahMeja1.Enabled = False
                     timerTable1.Stop()
-                    InitializeAndSendData("10")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart1.Text = DT.Rows(i).Item(4)
                     Else
@@ -179,7 +177,6 @@ Public Class FormBilling
 
                     timerTable2.Start()
 
-                    InitializeAndSendData("21")
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable2.Text = "CHECKOUT"
@@ -188,7 +185,6 @@ Public Class FormBilling
                     btnDetail2.Enabled = True
                     btnPindahMeja2.Enabled = False
                     timerTable2.Stop()
-                    InitializeAndSendData("20")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart2.Text = DT.Rows(i).Item(4)
                     Else
@@ -228,7 +224,6 @@ Public Class FormBilling
 
                     timerTable3.Start()
 
-                    InitializeAndSendData("31")
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable3.Text = "CHECKOUT"
@@ -237,7 +232,6 @@ Public Class FormBilling
                     btnDetail3.Enabled = True
                     btnPindahMeja3.Enabled = False
                     timerTable3.Stop()
-                    InitializeAndSendData("30")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart3.Text = DT.Rows(i).Item(4)
                     Else
@@ -277,7 +271,6 @@ Public Class FormBilling
 
                     timerTable4.Start()
 
-                    InitializeAndSendData("41")
                 ElseIf DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable4.Text = "CHECKOUT"
                     statusTable4.BackColor = Color.LightGray
@@ -285,7 +278,6 @@ Public Class FormBilling
                     btnDetail4.Enabled = True
                     btnPindahMeja4.Enabled = False
                     timerTable4.Stop()
-                    InitializeAndSendData("40")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart4.Text = DT.Rows(i).Item(4)
                     Else
@@ -324,7 +316,6 @@ Public Class FormBilling
                     End If
 
                     timerTable5.Start()
-                    InitializeAndSendData("51")
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable5.Text = "CHECKOUT"
@@ -333,7 +324,6 @@ Public Class FormBilling
                     btnDetail5.Enabled = True
                     btnPindahMeja5.Enabled = False
                     timerTable5.Stop()
-                    InitializeAndSendData("50")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart5.Text = DT.Rows(i).Item(4)
                     Else
@@ -373,8 +363,6 @@ Public Class FormBilling
 
                     timerTable6.Start()
 
-                    InitializeAndSendData("61")
-
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable6.Text = "CHECKOUT"
@@ -383,7 +371,6 @@ Public Class FormBilling
                     btnDetail6.Enabled = True
                     btnPindahMeja6.Enabled = False
                     timerTable6.Stop()
-                    InitializeAndSendData("60")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart6.Text = DT.Rows(i).Item(4)
                     Else
@@ -423,8 +410,6 @@ Public Class FormBilling
 
                     timerTable7.Start()
 
-                    InitializeAndSendData("71")
-
 
                 ElseIf DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable7.Text = "CHECKOUT"
@@ -433,7 +418,6 @@ Public Class FormBilling
                     btnDetail7.Enabled = True
                     btnPindahMeja7.Enabled = False
                     timerTable7.Stop()
-                    InitializeAndSendData("70")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart7.Text = DT.Rows(i).Item(4)
                     Else
@@ -472,7 +456,7 @@ Public Class FormBilling
                     End If
 
                     timerTable8.Start()
-                    InitializeAndSendData("81")
+
                 ElseIf DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(13) = "checkout" Then
                     statusTable8.Text = "CHECKOUT"
                     statusTable8.BackColor = Color.LightGray
@@ -480,7 +464,6 @@ Public Class FormBilling
                     btnDetail8.Enabled = True
                     btnPindahMeja8.Enabled = False
                     timerTable8.Stop()
-                    InitializeAndSendData("80")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart8.Text = DT.Rows(i).Item(4)
                     Else

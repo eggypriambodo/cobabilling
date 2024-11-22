@@ -109,6 +109,11 @@ Public Class FormOpenTableDurasi
             connect()
             CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table, durasi_siang, durasi_malam, harga_siang, harga_malam, jenis_paket) VALUES ('" & LabelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(textboxDurasiMain.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonDurasi.Text) & "', '" & selisihmulaiInt & "', '" & selisihselesaiInt & "', '" & hargaSiang & "', '" & hargaMalam & "' ,'" & jenisPaket & "' )", Koneksi)
             CMD.ExecuteNonQuery()
+
+            Dim input As String = dropdownPilihTable.Text
+            Dim parts() As String = input.Split(" "c)
+            Dim onMeja As String = parts(1) + "1"
+            FormBilling.InitializeAndSendData(onMeja)
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

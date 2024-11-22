@@ -58,6 +58,11 @@ Public Class FormOpenTableLos
             connect()
             CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, disc_table, harga_siang, harga_malam, jenis_paket) VALUES ('" & LabelNoOrderLos.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaketLos.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & Convert.ToInt32(labelDiskonLos.Text) & "', '" & Convert.ToInt32(labelHargaSiangLos.Text) & "', '" & Convert.ToInt32(labelisihargamalamLos.Text) & "', '" & labelJenisPaket.Text & "')", Koneksi)
             CMD.ExecuteNonQuery()
+
+            Dim input As String = dropdownPilihTable.Text
+            Dim parts() As String = input.Split(" "c)
+            Dim onMeja As String = parts(1) + "1"
+            FormBilling.InitializeAndSendData(onMeja)
             disconnect()
         Catch ex As Exception
             MsgBox(ex.Message)
