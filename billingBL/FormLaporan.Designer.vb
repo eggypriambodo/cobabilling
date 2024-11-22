@@ -50,7 +50,7 @@ Partial Class FormLaporan
         Label1.Name = "Label1"
         Label1.Size = New Size(1167, 45)
         Label1.TabIndex = 11
-        Label1.Text = "DATA LAPORAN"
+        Label1.Text = "DATA LAPORAN BILLIARD"
         Label1.TextAlign = ContentAlignment.MiddleCenter
         Label1.UseCompatibleTextRendering = True
         ' 

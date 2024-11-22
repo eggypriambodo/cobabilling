@@ -26,8 +26,9 @@ Partial Class Dashboard
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dashboard))
         SideNavbar = New Panel()
-        btnExit = New Button()
         btnPengaturan = New IconButton()
+        btnExit = New Button()
+        btnLaporanFnB = New IconButton()
         btnLaporan = New IconButton()
         btnTransaksi = New IconButton()
         btnFnB = New IconButton()
@@ -49,8 +50,9 @@ Partial Class Dashboard
         ' SideNavbar
         ' 
         SideNavbar.BackColor = Color.FromArgb(CByte(51), CByte(153), CByte(255))
-        SideNavbar.Controls.Add(btnExit)
         SideNavbar.Controls.Add(btnPengaturan)
+        SideNavbar.Controls.Add(btnExit)
+        SideNavbar.Controls.Add(btnLaporanFnB)
         SideNavbar.Controls.Add(btnLaporan)
         SideNavbar.Controls.Add(btnTransaksi)
         SideNavbar.Controls.Add(btnFnB)
@@ -61,21 +63,8 @@ Partial Class Dashboard
         SideNavbar.Location = New Point(0, 0)
         SideNavbar.Margin = New Padding(3, 4, 3, 4)
         SideNavbar.Name = "SideNavbar"
-        SideNavbar.Size = New Size(257, 837)
+        SideNavbar.Size = New Size(257, 951)
         SideNavbar.TabIndex = 0
-        ' 
-        ' btnExit
-        ' 
-        btnExit.BackColor = Color.Red
-        btnExit.Dock = DockStyle.Bottom
-        btnExit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnExit.ForeColor = Color.White
-        btnExit.Location = New Point(0, 794)
-        btnExit.Name = "btnExit"
-        btnExit.Size = New Size(257, 43)
-        btnExit.TabIndex = 9
-        btnExit.Text = "EXIT "
-        btnExit.UseVisualStyleBackColor = False
         ' 
         ' btnPengaturan
         ' 
@@ -88,16 +77,51 @@ Partial Class Dashboard
         btnPengaturan.IconFont = IconFont.Auto
         btnPengaturan.IconSize = 32
         btnPengaturan.ImageAlign = ContentAlignment.MiddleLeft
-        btnPengaturan.Location = New Point(0, 705)
+        btnPengaturan.Location = New Point(0, 798)
         btnPengaturan.Margin = New Padding(3, 4, 3, 4)
         btnPengaturan.Name = "btnPengaturan"
         btnPengaturan.Padding = New Padding(11, 0, 0, 0)
         btnPengaturan.Size = New Size(257, 93)
-        btnPengaturan.TabIndex = 8
+        btnPengaturan.TabIndex = 10
         btnPengaturan.Text = "Pengaturan"
         btnPengaturan.TextAlign = ContentAlignment.MiddleLeft
         btnPengaturan.TextImageRelation = TextImageRelation.ImageBeforeText
         btnPengaturan.UseVisualStyleBackColor = True
+        ' 
+        ' btnExit
+        ' 
+        btnExit.BackColor = Color.Red
+        btnExit.Dock = DockStyle.Bottom
+        btnExit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExit.ForeColor = Color.White
+        btnExit.Location = New Point(0, 908)
+        btnExit.Name = "btnExit"
+        btnExit.Size = New Size(257, 43)
+        btnExit.TabIndex = 9
+        btnExit.Text = "EXIT "
+        btnExit.UseVisualStyleBackColor = False
+        ' 
+        ' btnLaporanFnB
+        ' 
+        btnLaporanFnB.Dock = DockStyle.Top
+        btnLaporanFnB.FlatAppearance.BorderSize = 0
+        btnLaporanFnB.FlatStyle = FlatStyle.Flat
+        btnLaporanFnB.ForeColor = SystemColors.ButtonHighlight
+        btnLaporanFnB.IconChar = IconChar.Cog
+        btnLaporanFnB.IconColor = Color.White
+        btnLaporanFnB.IconFont = IconFont.Auto
+        btnLaporanFnB.IconSize = 32
+        btnLaporanFnB.ImageAlign = ContentAlignment.MiddleLeft
+        btnLaporanFnB.Location = New Point(0, 705)
+        btnLaporanFnB.Margin = New Padding(3, 4, 3, 4)
+        btnLaporanFnB.Name = "btnLaporanFnB"
+        btnLaporanFnB.Padding = New Padding(11, 0, 0, 0)
+        btnLaporanFnB.Size = New Size(257, 93)
+        btnLaporanFnB.TabIndex = 8
+        btnLaporanFnB.Text = "Laporan FnB"
+        btnLaporanFnB.TextAlign = ContentAlignment.MiddleLeft
+        btnLaporanFnB.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnLaporanFnB.UseVisualStyleBackColor = True
         ' 
         ' btnLaporan
         ' 
@@ -116,7 +140,7 @@ Partial Class Dashboard
         btnLaporan.Padding = New Padding(11, 0, 0, 0)
         btnLaporan.Size = New Size(257, 93)
         btnLaporan.TabIndex = 7
-        btnLaporan.Text = "Laporan"
+        btnLaporan.Text = "Laporan Billing"
         btnLaporan.TextAlign = ContentAlignment.MiddleLeft
         btnLaporan.TextImageRelation = TextImageRelation.ImageBeforeText
         btnLaporan.UseVisualStyleBackColor = True
@@ -294,14 +318,14 @@ Partial Class Dashboard
         PanelDesktop.Dock = DockStyle.Fill
         PanelDesktop.Location = New Point(257, 196)
         PanelDesktop.Name = "PanelDesktop"
-        PanelDesktop.Size = New Size(1149, 641)
+        PanelDesktop.Size = New Size(1149, 755)
         PanelDesktop.TabIndex = 2
         ' 
         ' Dashboard
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1406, 837)
+        ClientSize = New Size(1406, 951)
         Controls.Add(PanelDesktop)
         Controls.Add(PanelJudul)
         Controls.Add(SideNavbar)
@@ -331,6 +355,7 @@ Partial Class Dashboard
     Friend WithEvents PanelDesktop As Panel
     Friend WithEvents LabelAlamat As Label
     Friend WithEvents LabelNamaTempat As Label
-    Friend WithEvents btnPengaturan As IconButton
+    Friend WithEvents btnLaporanFnB As IconButton
     Friend WithEvents btnExit As Button
+    Friend WithEvents btnPengaturan As IconButton
 End Class

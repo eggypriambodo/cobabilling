@@ -36,33 +36,45 @@ Public Class FormTransaksi
         End Try
     End Sub
 
-    Public Sub TampilTransaksiFnb()
+    Private Sub tampilTransaksiFnB()
         Dim tanggal_transaksi As String = Date.Now.ToString("yyyy-MM-dd")
         Dim totalPemasukan = 0
         Try
+
             connect()
-            DA = New MySqlDataAdapter("SELECT * FROM tb_transaksi WHERE tanggal_transaksi='" & tanggal_transaksi & "'", Koneksi)
+            DA = New MySqlDataAdapter("SELECT no_order, GROUP_CONCAT(nama_menu ORDER BY nama_menu SEPARATOR ', ') AS nama_menus, GROUP_CONCAT(qty_menu ORDER BY qty_menu SEPARATOR ', ') AS qty_menus, SUM(subtotal) AS total_price, metode_pembayaran FROM tb_fnb_transaksi WHERE tanggal_transaksi='" & tanggal_transaksi & "' GROUP BY  no_order;", Koneksi)
             DT = New DataTable
             DA.Fill(DT)
-            DataGridView1.Rows.Clear()
+            DataGridView2.Rows.Clear()
+            Debug.WriteLine(DT)
+            Debug.WriteLine(DT.Rows.Count)
 
             For i = 0 To DT.Rows.Count - 1
-                totalDurasi = Convert.ToInt32(DT.Rows(i).Item(9)) + Convert.ToInt32(DT.Rows(i).Item(10))
-                totalPemasukan += Convert.ToInt32(DT.Rows(i).Item(7))
+                totalPemasukan += Convert.ToInt32(DT.Rows(i).Item("total_price"))
 
                 Dim row As DataGridViewRow = New DataGridViewRow()
-                row.CreateCells(DataGridView1)
+                row.CreateCells(DataGridView2)
 
                 row.Cells(0).Value = i + 1
-                row.Cells(1).Value = DT.Rows(i).Item(0)
-                row.Cells(2).Value = totalDurasi
-                row.Cells(3).Value = DT.Rows(i).Item(7)
-                row.Cells(4).Value = DT.Rows(i).Item(11)
+                row.Cells(1).Value = DT.Rows(i).Item("no_order")
+                row.Cells(2).Value = DT.Rows(i).Item("nama_menus")
+                row.Cells(3).Value = DT.Rows(i).Item("qty_menus")
+                row.Cells(4).Value = DT.Rows(i).Item("total_price")
+                row.Cells(5).Value = DT.Rows(i).Item("metode_pembayaran")
 
-                DataGridView1.Rows.Add(row)
+
+                DataGridView2.Rows.Add(row)
+
+
             Next
 
-            labelPemasukanBilling.Text = FormatCurrency(totalPemasukan)
+            DataGridView2.Columns(2).DefaultCellStyle.WrapMode = DataGridViewTriState.True
+            DataGridView2.Columns(2).Width = 200
+            DataGridView2.Columns(3).DefaultCellStyle.WrapMode = DataGridViewTriState.True
+            DataGridView2.Columns(3).Width = 75
+            DataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+            labelPemasukanFnB.Text = FormatCurrency(totalPemasukan)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -72,6 +84,14 @@ Public Class FormTransaksi
 
     Private Sub FormTransaksi_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tampilTransaksiBilling()
+        tampilTransaksiFnB()
     End Sub
 
+    Private Sub tpBilling_Click(sender As Object, e As EventArgs) Handles tpBilling.Click
+        tampilTransaksiBilling()
+    End Sub
+
+    Private Sub tpFnB_Click(sender As Object, e As EventArgs) Handles tpFnB.Click
+        tampilTransaksiFnB()
+    End Sub
 End Class

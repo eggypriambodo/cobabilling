@@ -61,16 +61,14 @@ Partial Class FormDetailTable
         btnCetak = New Button()
         btnBayar = New Button()
         TableLayoutPanel3 = New TableLayoutPanel()
-        labelPPn = New Label()
-        labelTaxService = New Label()
         labelTotalTable = New Label()
         labelDiskonTable = New Label()
         labelSubtotalTable = New Label()
         Label49 = New Label()
-        Label54 = New Label()
-        Label55 = New Label()
         Label47 = New Label()
         Label48 = New Label()
+        Label55 = New Label()
+        labelPPn = New Label()
         Panel1.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
@@ -552,16 +550,14 @@ Partial Class FormDetailTable
         TableLayoutPanel3.ColumnCount = 2
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 44.14716F))
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 55.8528442F))
-        TableLayoutPanel3.Controls.Add(labelPPn, 1, 4)
-        TableLayoutPanel3.Controls.Add(labelTaxService, 1, 3)
         TableLayoutPanel3.Controls.Add(labelTotalTable, 1, 2)
         TableLayoutPanel3.Controls.Add(labelDiskonTable, 1, 1)
         TableLayoutPanel3.Controls.Add(labelSubtotalTable, 1, 0)
         TableLayoutPanel3.Controls.Add(Label49, 0, 2)
-        TableLayoutPanel3.Controls.Add(Label54, 0, 3)
-        TableLayoutPanel3.Controls.Add(Label55, 0, 4)
         TableLayoutPanel3.Controls.Add(Label47, 0, 1)
         TableLayoutPanel3.Controls.Add(Label48, 0, 0)
+        TableLayoutPanel3.Controls.Add(Label55, 0, 3)
+        TableLayoutPanel3.Controls.Add(labelPPn, 1, 3)
         TableLayoutPanel3.Location = New Point(341, 99)
         TableLayoutPanel3.Name = "TableLayoutPanel3"
         TableLayoutPanel3.RowCount = 5
@@ -576,30 +572,6 @@ Partial Class FormDetailTable
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
         TableLayoutPanel3.Size = New Size(299, 237)
         TableLayoutPanel3.TabIndex = 6
-        ' 
-        ' labelPPn
-        ' 
-        labelPPn.AutoSize = True
-        labelPPn.Dock = DockStyle.Right
-        labelPPn.Font = New Font("Segoe UI", 8F)
-        labelPPn.Location = New Point(269, 188)
-        labelPPn.Name = "labelPPn"
-        labelPPn.Size = New Size(27, 49)
-        labelPPn.TabIndex = 32
-        labelPPn.Text = ";-;-"
-        labelPPn.TextAlign = ContentAlignment.MiddleRight
-        ' 
-        ' labelTaxService
-        ' 
-        labelTaxService.AutoSize = True
-        labelTaxService.Dock = DockStyle.Right
-        labelTaxService.Font = New Font("Segoe UI", 8F)
-        labelTaxService.Location = New Point(269, 141)
-        labelTaxService.Name = "labelTaxService"
-        labelTaxService.Size = New Size(27, 47)
-        labelTaxService.TabIndex = 31
-        labelTaxService.Text = ";-;-"
-        labelTaxService.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' labelTotalTable
         ' 
@@ -647,26 +619,6 @@ Partial Class FormDetailTable
         Label49.Text = "Total Table (Rp)"
         Label49.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Label54
-        ' 
-        Label54.Font = New Font("Segoe UI", 8F)
-        Label54.Location = New Point(3, 141)
-        Label54.Name = "Label54"
-        Label54.Size = New Size(125, 47)
-        Label54.TabIndex = 14
-        Label54.Text = "Tax Service 5%"
-        Label54.TextAlign = ContentAlignment.MiddleLeft
-        ' 
-        ' Label55
-        ' 
-        Label55.Font = New Font("Segoe UI", 8F)
-        Label55.Location = New Point(3, 188)
-        Label55.Name = "Label55"
-        Label55.Size = New Size(125, 49)
-        Label55.TabIndex = 15
-        Label55.Text = "PPn 11%"
-        Label55.TextAlign = ContentAlignment.MiddleLeft
-        ' 
         ' Label47
         ' 
         Label47.Font = New Font("Segoe UI", 8F)
@@ -686,6 +638,28 @@ Partial Class FormDetailTable
         Label48.TabIndex = 8
         Label48.Text = "Subtotal Table (Rp)"
         Label48.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Label55
+        ' 
+        Label55.Font = New Font("Segoe UI", 8F)
+        Label55.Location = New Point(3, 141)
+        Label55.Name = "Label55"
+        Label55.Size = New Size(125, 47)
+        Label55.TabIndex = 15
+        Label55.Text = "PPn 10%"
+        Label55.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' labelPPn
+        ' 
+        labelPPn.AutoSize = True
+        labelPPn.Dock = DockStyle.Right
+        labelPPn.Font = New Font("Segoe UI", 8F)
+        labelPPn.Location = New Point(269, 141)
+        labelPPn.Name = "labelPPn"
+        labelPPn.Size = New Size(27, 47)
+        labelPPn.TabIndex = 32
+        labelPPn.Text = ";-;-"
+        labelPPn.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' FormDetailTable
         ' 
@@ -753,14 +727,12 @@ Partial Class FormDetailTable
     Friend WithEvents btnBayar As Button
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents labelPPn As Label
-    Friend WithEvents labelTaxService As Label
     Friend WithEvents labelTotalTable As Label
     Friend WithEvents labelDiskonTable As Label
     Friend WithEvents labelSubtotalTable As Label
     Friend WithEvents Label47 As Label
     Friend WithEvents Label48 As Label
     Friend WithEvents Label49 As Label
-    Friend WithEvents Label54 As Label
     Friend WithEvents Label55 As Label
     Friend WithEvents labelDuration As Label
     Friend WithEvents Label10 As Label

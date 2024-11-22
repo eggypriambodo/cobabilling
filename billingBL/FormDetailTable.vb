@@ -114,10 +114,11 @@ Public Class FormDetailTable
         e.Graphics.DrawString("Subtotal : " & labelSubtotalTable.Text, f10, Brushes.Black, 5, 340)
         e.Graphics.DrawString("Diskon : " & labelDiskonTable.Text & "%", f10, Brushes.Black, 5, 355)
         e.Graphics.DrawString("Total : " & labelTotalTable.Text, f10, Brushes.Black, 5, 370)
-        e.Graphics.DrawString("Tax Service : " & labelTaxService.Text, f10, Brushes.Black, 5, 385)
-        e.Graphics.DrawString("PPn : " & labelPPn.Text, f10, Brushes.Black, 5, 400)
-        e.Graphics.DrawString("Grand Total : " & tboxGrandTotal.Text, f10, Brushes.Black, 5, 415)
-        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 435)
+        e.Graphics.DrawString("PPn : " & labelPPn.Text, f10, Brushes.Black, 5, 385)
+        e.Graphics.DrawString("Grand Total : " & tboxGrandTotal.Text, f10, Brushes.Black, 5, 400)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 420)
+        e.Graphics.DrawString("Grand Total : " & tboxGrandTotal.Text, f12, Brushes.Black, 5, 435)
+        e.Graphics.DrawString(line, f10, Brushes.Black, 0, 460)
 
     End Sub
 
@@ -134,9 +135,8 @@ Public Class FormDetailTable
                 currentMeja = meja
                 Dim subtotal As Integer = DT.Rows(i).Item(7)
                 Dim total As Integer = subtotal - (subtotal * (DT.Rows(i).Item(8) / 100))
-                Dim taxservice As Integer = total * 0.05
                 Dim ppn As Integer = total * 0.1
-                grandTotal = total + taxservice + ppn
+                grandTotal = total + ppn
 
 
                 labelTanggal.Text = Date.Now.ToString("dd MMM yyyy HH:mm:ss")
@@ -149,7 +149,6 @@ Public Class FormDetailTable
                 labelSubtotalTable.Text = "Rp. " & subtotal
                 labelDiskonTable.Text = DT.Rows(i).Item(8)
                 labelTotalTable.Text = "Rp. " & total
-                labelTaxService.Text = "Rp. " & taxservice
                 labelPPn.Text = "Rp. " & ppn
                 tboxGrandTotal.Text = "Rp. " & FormatNumber(grandTotal, 0, TriState.True, TriState.False, TriState.True)
                 tbNamaTamu.Text = DT.Rows(i).Item(1)

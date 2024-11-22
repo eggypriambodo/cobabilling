@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 Imports FontAwesome.Sharp
+Imports MySql.Data.MySqlClient
 
 
 Public Class Dashboard
@@ -110,9 +111,13 @@ Public Class Dashboard
         OpenChildForm(New FormLaporan)
     End Sub
 
-    Private Sub btnPengaturan_Click(sender As Object, e As EventArgs) Handles btnPengaturan.Click
+    Private Sub btnPengaturan_Click_(sender As Object, e As EventArgs) Handles btnPengaturan.Click
         ActivateButton(sender, RGBColors.color)
-        OpenChildForm(New FormPengaturan)
+        ShowCustomMessageBox()
+    End Sub
+    Private Sub btnLaporanFnB_Click(sender As Object, e As EventArgs) Handles btnLaporanFnB.Click
+        ActivateButton(sender, RGBColors.color)
+        OpenChildForm(New FormLaporanFnB)
     End Sub
 
 
@@ -151,7 +156,107 @@ Public Class Dashboard
         End
     End Sub
 
-    'LOGIC DATA'
+
+    Private Sub ShowCustomMessageBox()
+        ' Buat Form Custom Message Box
+        Dim customMessageBox As New Form With {
+            .Width = 300,
+            .Height = 200,
+            .FormBorderStyle = FormBorderStyle.FixedDialog,
+            .StartPosition = FormStartPosition.CenterScreen,
+            .Text = "Login",
+            .MaximizeBox = False,
+            .MinimizeBox = False
+        }
+
+        ' Label Username
+        Dim lblUsername As New Label With {
+            .Text = "Username:",
+            .Location = New Point(10, 20),
+            .Width = 80
+        }
+        customMessageBox.Controls.Add(lblUsername)
+
+        ' Input Username
+        Dim txtUsername As New TextBox With {
+            .Location = New Point(100, 20),
+            .Width = 150
+        }
+        customMessageBox.Controls.Add(txtUsername)
+
+        ' Label Password
+        Dim lblPassword As New Label With {
+            .Text = "Password:",
+            .Location = New Point(10, 60),
+            .Width = 80
+        }
+        customMessageBox.Controls.Add(lblPassword)
+
+        ' Input Password
+        Dim txtPassword As New TextBox With {
+            .Location = New Point(100, 60),
+            .Width = 150,
+            .PasswordChar = "*"c ' Tampilkan input sebagai asteris
+        }
+        customMessageBox.Controls.Add(txtPassword)
+
+        ' Tombol Login
+        Dim btnLogin As New Button With {
+            .Text = "Login",
+            .Location = New Point(100, 100),
+            .Width = 80
+        }
+        AddHandler btnLogin.Click, Sub(sender As Object, e As EventArgs)
+                                       ' Verifikasi username dan password (opsional)
+                                       Dim username = txtUsername.Text
+                                       Dim password = txtPassword.Text
+
+                                       If username = "Username" OrElse password = "Password" OrElse username = "" OrElse password = "" Then
+                                           MsgBox("Please enter your username and password.", MsgBoxStyle.Exclamation, "Warning")
+                                           Return
+                                       End If
+
+                                       ' Validasi login
+                                       If ValidateLogin(username, password) Then
+                                           MsgBox("Login success", MsgBoxStyle.Information, "Information")
+
+                                           customMessageBox.Close()
+                                           OpenChildForm(New FormPengaturan())
+                                       Else
+                                           MsgBox("Username or password is incorrect", MsgBoxStyle.Critical, "Error")
+                                       End If
+
+
+                                   End Sub
+        customMessageBox.Controls.Add(btnLogin)
+
+        ' Tampilkan Custom Message Box
+        customMessageBox.ShowDialog()
+    End Sub
+
+    Private Function ValidateLogin(username As String, password As String) As Boolean
+        Try
+            connect() ' Gunakan fungsi connect() dari ModuleDB
+
+            ' Query untuk memeriksa username dan password
+            Dim query As String = "SELECT COUNT(*) FROM tb_admin WHERE username = @username AND password = @password"
+            CMD = New MySqlCommand(query, Koneksi)
+            CMD.Parameters.AddWithValue("@username", username)
+            CMD.Parameters.AddWithValue("@password", password)
+
+            ' Eksekusi query dan periksa hasilnya
+            Dim result As Integer = Convert.ToInt32(CMD.ExecuteScalar())
+            Return result > 0
+        Catch ex As Exception
+            MsgBox("Error validating login: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            Return False
+        Finally
+            ' Pastikan reader dan command dibersihkan
+            If DR IsNot Nothing AndAlso Not DR.IsClosed Then DR.Close()
+            CMD?.Dispose()
+            disconnect() ' Gunakan fungsi disconnect() dari ModuleDB
+        End Try
+    End Function
 
 
 

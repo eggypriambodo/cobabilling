@@ -1,18 +1,20 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports OfficeOpenXml
-Imports System.IO
 
-Public Class FormLaporan
-    Dim totalDurasi As Integer = 0
+Public Class FormLaporanFnB
+
     Dim totalPemasukan As Integer = 0
+    Private Sub FormLaporanFnB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DataGridView1.RowHeadersVisible = False
+        DisplayTransactionAnnual()
+    End Sub
 
     Private Sub DisplayTransactionAnnual()
         Try
             connect()
 
-            Dim query As String = "SELECT * FROM tb_transaksi WHERE YEAR(STR_TO_DATE(tanggal_transaksi, '%Y-%m-%d')) = YEAR(CURDATE());"
+            Dim query As String = "SELECT no_order, GROUP_CONCAT(nama_menu ORDER BY nama_menu SEPARATOR ', ') AS nama_menus, GROUP_CONCAT(qty_menu ORDER BY qty_menu SEPARATOR ', ') AS qty_menus, SUM(subtotal) AS total_price, tanggal_transaksi, metode_pembayaran FROM tb_fnb_transaksi WHERE YEAR(STR_TO_DATE(tanggal_transaksi, '%Y-%m-%d')) = YEAR(CURDATE()) GROUP BY no_order;"
             Dim cmd As New MySqlCommand(query, Koneksi)
-
             DA = New MySqlDataAdapter(cmd)
             DT = New DataTable
             DA.Fill(DT)
@@ -21,22 +23,31 @@ Public Class FormLaporan
             Dim i As Integer = 0
             totalPemasukan = 0
 
-            For Each row As DataRow In DT.Rows
-                Dim totalDurasi As Integer = Convert.ToInt32(row("durasi_siang")) + Convert.ToInt32(row("durasi_malam"))
-                totalPemasukan += Convert.ToInt32(row("harga"))
+            For i = 0 To DT.Rows.Count - 1
+                totalPemasukan += Convert.ToInt32(DT.Rows(i).Item("total_price"))
 
-                Dim rows As DataGridViewRow = New DataGridViewRow()
-                rows.CreateCells(DataGridView1)
-                rows.Cells(0).Value = i + 1
-                rows.Cells(1).Value = row("no_order")
-                rows.Cells(2).Value = totalDurasi
-                rows.Cells(3).Value = row("harga")
-                rows.Cells(4).Value = row("metode_pembayaran")
-                rows.Cells(5).Value = row("tanggal_transaksi")
+                Dim row As DataGridViewRow = New DataGridViewRow()
+                row.CreateCells(DataGridView1)
 
-                DataGridView1.Rows.Add(rows)
-                i += 1
+                row.Cells(0).Value = i + 1
+                row.Cells(1).Value = DT.Rows(i).Item("no_order")
+                row.Cells(2).Value = DT.Rows(i).Item("nama_menus")
+                row.Cells(3).Value = DT.Rows(i).Item("qty_menus")
+                row.Cells(4).Value = DT.Rows(i).Item("total_price")
+                row.Cells(5).Value = DT.Rows(i).Item("metode_pembayaran")
+                row.Cells(6).Value = DT.Rows(i).Item("tanggal_transaksi")
+
+
+                DataGridView1.Rows.Add(row)
+
+
             Next
+
+            DataGridView1.Columns(2).DefaultCellStyle.WrapMode = DataGridViewTriState.True
+            DataGridView1.Columns(2).Width = 200
+            DataGridView1.Columns(3).DefaultCellStyle.WrapMode = DataGridViewTriState.True
+            DataGridView1.Columns(3).Width = 75
+            DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
             labelTotalPemasukan.Text = FormatCurrency(totalPemasukan)
 
@@ -46,7 +57,6 @@ Public Class FormLaporan
             disconnect()
         End Try
     End Sub
-
 
     Private Sub DisplayTransactionByDate()
         Dim startDate As DateTime = datePickerBefore.Value.Date
@@ -58,7 +68,7 @@ Public Class FormLaporan
         Try
             connect()
 
-            Dim query As String = "SELECT * FROM tb_transaksi WHERE STR_TO_DATE(tanggal_transaksi, '%Y-%m-%d') BETWEEN @StartDate AND @EndDate"
+            Dim query As String = "SELECT no_order, GROUP_CONCAT(nama_menu ORDER BY nama_menu SEPARATOR ', ') AS nama_menus, GROUP_CONCAT(qty_menu ORDER BY qty_menu SEPARATOR ', ') AS qty_menus, SUM(subtotal) AS total_price, tanggal_transaksi, metode_pembayaran FROM tb_fnb_transaksi WHERE STR_TO_DATE(tanggal_transaksi, '%Y-%m-%d') BETWEEN @StartDate AND @EndDate GROUP BY no_order"
             Dim cmd As New MySqlCommand(query, Koneksi)
 
             cmd.Parameters.AddWithValue("@StartDate", formattedStartDate)
@@ -72,22 +82,31 @@ Public Class FormLaporan
             Dim i As Integer = 0
             totalPemasukan = 0
 
-            For Each row As DataRow In DT.Rows
-                Dim totalDurasi As Integer = Convert.ToInt32(row("durasi_siang")) + Convert.ToInt32(row("durasi_malam"))
-                totalPemasukan += Convert.ToInt32(row("harga"))
+            For i = 0 To DT.Rows.Count - 1
+                totalPemasukan += Convert.ToInt32(DT.Rows(i).Item("total_price"))
 
-                Dim rows As DataGridViewRow = New DataGridViewRow()
-                rows.CreateCells(DataGridView1)
-                rows.Cells(0).Value = i + 1
-                rows.Cells(1).Value = row("no_order")
-                rows.Cells(2).Value = totalDurasi
-                rows.Cells(3).Value = row("harga")
-                rows.Cells(4).Value = row("metode_pembayaran")
-                rows.Cells(5).Value = row("tanggal_transaksi")
+                Dim row As DataGridViewRow = New DataGridViewRow()
+                row.CreateCells(DataGridView1)
 
-                DataGridView1.Rows.Add(rows)
-                i += 1
+                row.Cells(0).Value = i + 1
+                row.Cells(1).Value = DT.Rows(i).Item("no_order")
+                row.Cells(2).Value = DT.Rows(i).Item("nama_menus")
+                row.Cells(3).Value = DT.Rows(i).Item("qty_menus")
+                row.Cells(4).Value = DT.Rows(i).Item("total_price")
+                row.Cells(5).Value = DT.Rows(i).Item("metode_pembayaran")
+                row.Cells(6).Value = DT.Rows(i).Item("tanggal_transaksi")
+
+
+                DataGridView1.Rows.Add(row)
+
+
             Next
+
+            DataGridView1.Columns(2).DefaultCellStyle.WrapMode = DataGridViewTriState.True
+            DataGridView1.Columns(2).Width = 200
+            DataGridView1.Columns(3).DefaultCellStyle.WrapMode = DataGridViewTriState.True
+            DataGridView1.Columns(3).Width = 75
+            DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
             labelTotalPemasukan.Text = FormatCurrency(totalPemasukan)
 
@@ -142,8 +161,6 @@ Public Class FormLaporan
         End If
     End Sub
 
-
-    ' Helper method to release COM objects and free up memory
     Private Sub ReleaseObject(ByVal obj As Object)
         Try
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
@@ -153,11 +170,6 @@ Public Class FormLaporan
         Finally
             GC.Collect()
         End Try
-    End Sub
-
-    Private Sub FormLaporan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridView1.RowHeadersVisible = False
-        DisplayTransactionAnnual()
     End Sub
 
     Private Sub DataGridView1_SelectionChanged(sender As System.Object, e As System.EventArgs) Handles DataGridView1.SelectionChanged
@@ -171,5 +183,4 @@ Public Class FormLaporan
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
         ExportDataGridViewToExcel()
     End Sub
-
 End Class

@@ -129,7 +129,7 @@ Partial Class FormFnB
         ' TimerSaatIni
         ' 
         TimerSaatIni.AutoSize = True
-        TimerSaatIni.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        TimerSaatIni.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
         TimerSaatIni.Location = New Point(482, 24)
         TimerSaatIni.Name = "TimerSaatIni"
         TimerSaatIni.Size = New Size(0, 20)
@@ -205,7 +205,7 @@ Partial Class FormFnB
         ' 
         btnBatal.BackColor = Color.IndianRed
         btnBatal.Dock = DockStyle.Fill
-        btnBatal.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnBatal.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
         btnBatal.ForeColor = Color.White
         btnBatal.Location = New Point(958, 3)
         btnBatal.Name = "btnBatal"
@@ -218,7 +218,7 @@ Partial Class FormFnB
         ' 
         btnBayar.BackColor = SystemColors.MenuHighlight
         btnBayar.Dock = DockStyle.Fill
-        btnBayar.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnBayar.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
         btnBayar.ForeColor = Color.White
         btnBayar.Location = New Point(1149, 3)
         btnBayar.Name = "btnBayar"
@@ -231,7 +231,7 @@ Partial Class FormFnB
         ' 
         btnManageMenu.BackColor = SystemColors.MenuHighlight
         btnManageMenu.Dock = DockStyle.Fill
-        btnManageMenu.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnManageMenu.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
         btnManageMenu.ForeColor = Color.White
         btnManageMenu.Location = New Point(3, 3)
         btnManageMenu.Name = "btnManageMenu"
@@ -258,7 +258,7 @@ Partial Class FormFnB
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0)
         DataGridViewCellStyle1.ForeColor = SystemColors.Control
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
@@ -350,7 +350,7 @@ Partial Class FormFnB
         ' 
         rbtnCash.AutoSize = True
         rbtnCash.Dock = DockStyle.Bottom
-        rbtnCash.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        rbtnCash.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
         rbtnCash.Location = New Point(3, 3)
         rbtnCash.Name = "rbtnCash"
         rbtnCash.Size = New Size(85, 32)
@@ -363,7 +363,7 @@ Partial Class FormFnB
         ' 
         rbtnQris.AutoSize = True
         rbtnQris.Dock = DockStyle.Bottom
-        rbtnQris.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        rbtnQris.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
         rbtnQris.Location = New Point(94, 3)
         rbtnQris.Name = "rbtnQris"
         rbtnQris.Size = New Size(78, 32)
@@ -376,7 +376,7 @@ Partial Class FormFnB
         ' 
         rbtnDebit.AutoSize = True
         rbtnDebit.Dock = DockStyle.Bottom
-        rbtnDebit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        rbtnDebit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
         rbtnDebit.Location = New Point(178, 3)
         rbtnDebit.Name = "rbtnDebit"
         rbtnDebit.Size = New Size(90, 32)
@@ -389,7 +389,7 @@ Partial Class FormFnB
         ' 
         rbtnTransfer.AutoSize = True
         rbtnTransfer.Dock = DockStyle.Bottom
-        rbtnTransfer.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        rbtnTransfer.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
         rbtnTransfer.Location = New Point(274, 3)
         rbtnTransfer.Name = "rbtnTransfer"
         rbtnTransfer.Size = New Size(133, 32)
@@ -557,7 +557,7 @@ Partial Class FormFnB
         ' 
         labTotal.AutoSize = True
         labTotal.Dock = DockStyle.Right
-        labTotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        labTotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         labTotal.ForeColor = SystemColors.Control
         labTotal.Location = New Point(392, 0)
         labTotal.Name = "labTotal"
@@ -570,7 +570,7 @@ Partial Class FormFnB
         ' 
         Label24.AutoSize = True
         Label24.Dock = DockStyle.Left
-        Label24.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label24.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         Label24.ForeColor = SystemColors.Control
         Label24.Location = New Point(0, 0)
         Label24.Name = "Label24"
@@ -607,7 +607,7 @@ Partial Class FormFnB
         ' 
         labPPN.AutoSize = True
         labPPN.Dock = DockStyle.Right
-        labPPN.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        labPPN.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         labPPN.ForeColor = SystemColors.Control
         labPPN.Location = New Point(392, 0)
         labPPN.Name = "labPPN"
@@ -620,7 +620,7 @@ Partial Class FormFnB
         ' 
         Label25.AutoSize = True
         Label25.Dock = DockStyle.Left
-        Label25.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label25.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         Label25.ForeColor = SystemColors.Control
         Label25.Location = New Point(0, 0)
         Label25.Name = "Label25"
@@ -657,7 +657,7 @@ Partial Class FormFnB
         ' 
         labSubtotal.AutoSize = True
         labSubtotal.Dock = DockStyle.Right
-        labSubtotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        labSubtotal.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         labSubtotal.ForeColor = SystemColors.Control
         labSubtotal.Location = New Point(392, 0)
         labSubtotal.Name = "labSubtotal"
@@ -670,7 +670,7 @@ Partial Class FormFnB
         ' 
         Label26.AutoSize = True
         Label26.Dock = DockStyle.Left
-        Label26.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label26.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         Label26.ForeColor = SystemColors.Control
         Label26.Location = New Point(0, 0)
         Label26.Name = "Label26"

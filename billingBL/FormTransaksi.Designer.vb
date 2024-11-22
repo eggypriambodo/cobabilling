@@ -40,17 +40,16 @@ Partial Class FormTransaksi
         durasi = New DataGridViewTextBoxColumn()
         totalHarga = New DataGridViewTextBoxColumn()
         metodebayar = New DataGridViewTextBoxColumn()
-        tpFNB = New TabPage()
-        Panel6 = New Panel()
-        Label2 = New Label()
-        labPemasukanFnB = New Label()
+        tpFnB = New TabPage()
         Panel5 = New Panel()
+        Label2 = New Label()
+        labelPemasukanFnB = New Label()
         DataGridView2 = New DataGridView()
         DataGridViewTextBoxColumn1 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn2 = New DataGridViewTextBoxColumn()
-        Column1 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn3 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn4 = New DataGridViewTextBoxColumn()
+        Column1 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn5 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
@@ -58,8 +57,8 @@ Partial Class FormTransaksi
         tpBilling.SuspendLayout()
         Panel4.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
-        tpFNB.SuspendLayout()
-        Panel6.SuspendLayout()
+        tpFnB.SuspendLayout()
+        Panel5.SuspendLayout()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -103,7 +102,7 @@ Partial Class FormTransaksi
         ' TabControl1
         ' 
         TabControl1.Controls.Add(tpBilling)
-        TabControl1.Controls.Add(tpFNB)
+        TabControl1.Controls.Add(tpFnB)
         TabControl1.Dock = DockStyle.Fill
         TabControl1.Location = New Point(0, 0)
         TabControl1.Name = "TabControl1"
@@ -167,6 +166,10 @@ Partial Class FormTransaksi
         ' 
         ' DataGridView1
         ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.AllowUserToResizeColumns = False
+        DataGridView1.AllowUserToResizeRows = False
         DataGridView1.BackgroundColor = SystemColors.Control
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -184,6 +187,7 @@ Partial Class FormTransaksi
         DataGridView1.Location = New Point(3, 3)
         DataGridView1.Margin = New Padding(50, 3, 3, 3)
         DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.Size = New Size(1062, 600)
@@ -196,6 +200,7 @@ Partial Class FormTransaksi
         no.HeaderText = "No"
         no.MinimumWidth = 6
         no.Name = "no"
+        no.ReadOnly = True
         no.Width = 59
         ' 
         ' noOrder
@@ -205,6 +210,7 @@ Partial Class FormTransaksi
         noOrder.HeaderText = "No Order"
         noOrder.MinimumWidth = 4
         noOrder.Name = "noOrder"
+        noOrder.ReadOnly = True
         ' 
         ' durasi
         ' 
@@ -213,6 +219,7 @@ Partial Class FormTransaksi
         durasi.HeaderText = "Durasi (menit)"
         durasi.MinimumWidth = 6
         durasi.Name = "durasi"
+        durasi.ReadOnly = True
         durasi.Width = 124
         ' 
         ' totalHarga
@@ -221,6 +228,7 @@ Partial Class FormTransaksi
         totalHarga.HeaderText = "Total Harga"
         totalHarga.MinimumWidth = 6
         totalHarga.Name = "totalHarga"
+        totalHarga.ReadOnly = True
         totalHarga.Width = 108
         ' 
         ' metodebayar
@@ -229,30 +237,30 @@ Partial Class FormTransaksi
         metodebayar.HeaderText = "Metode Bayar"
         metodebayar.MinimumWidth = 6
         metodebayar.Name = "metodebayar"
+        metodebayar.ReadOnly = True
         metodebayar.Width = 123
         ' 
-        ' tpFNB
+        ' tpFnB
         ' 
-        tpFNB.Controls.Add(Panel6)
-        tpFNB.Controls.Add(Panel5)
-        tpFNB.Controls.Add(DataGridView2)
-        tpFNB.Location = New Point(4, 29)
-        tpFNB.Name = "tpFNB"
-        tpFNB.Padding = New Padding(3)
-        tpFNB.Size = New Size(1295, 606)
-        tpFNB.TabIndex = 1
-        tpFNB.Text = "TRANSAKSI FnB"
-        tpFNB.UseVisualStyleBackColor = True
+        tpFnB.BackColor = SystemColors.Control
+        tpFnB.Controls.Add(Panel5)
+        tpFnB.Controls.Add(DataGridView2)
+        tpFnB.Location = New Point(4, 29)
+        tpFnB.Name = "tpFnB"
+        tpFnB.Padding = New Padding(3)
+        tpFnB.Size = New Size(1295, 606)
+        tpFnB.TabIndex = 1
+        tpFnB.Text = "TRANSAKSI FnB"
         ' 
-        ' Panel6
+        ' Panel5
         ' 
-        Panel6.BackColor = SystemColors.MenuHighlight
-        Panel6.Controls.Add(Label2)
-        Panel6.Controls.Add(labPemasukanFnB)
-        Panel6.Location = New Point(1104, 0)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(188, 97)
-        Panel6.TabIndex = 22
+        Panel5.BackColor = SystemColors.MenuHighlight
+        Panel5.Controls.Add(Label2)
+        Panel5.Controls.Add(labelPemasukanFnB)
+        Panel5.Location = New Point(1104, 2)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(188, 97)
+        Panel5.TabIndex = 23
         ' 
         ' Label2
         ' 
@@ -262,28 +270,19 @@ Partial Class FormTransaksi
         Label2.Location = New Point(4, 0)
         Label2.Name = "Label2"
         Label2.Size = New Size(181, 28)
-        Label2.TabIndex = 17
+        Label2.TabIndex = 16
         Label2.Text = "Pemasukan Harian"
         Label2.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' labPemasukanFnB
+        ' labelPemasukanFnB
         ' 
-        labPemasukanFnB.AutoSize = True
-        labPemasukanFnB.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        labPemasukanFnB.ForeColor = SystemColors.ControlLightLight
-        labPemasukanFnB.Location = New Point(46, 53)
-        labPemasukanFnB.Name = "labPemasukanFnB"
-        labPemasukanFnB.Size = New Size(0, 25)
-        labPemasukanFnB.TabIndex = 15
-        ' 
-        ' Panel5
-        ' 
-        Panel5.BackColor = SystemColors.Control
-        Panel5.Dock = DockStyle.Right
-        Panel5.Location = New Point(1095, 3)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(197, 600)
-        Panel5.TabIndex = 17
+        labelPemasukanFnB.AutoSize = True
+        labelPemasukanFnB.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        labelPemasukanFnB.ForeColor = SystemColors.ControlLightLight
+        labelPemasukanFnB.Location = New Point(46, 53)
+        labelPemasukanFnB.Name = "labelPemasukanFnB"
+        labelPemasukanFnB.Size = New Size(0, 25)
+        labelPemasukanFnB.TabIndex = 15
         ' 
         ' DataGridView2
         ' 
@@ -298,16 +297,17 @@ Partial Class FormTransaksi
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView2.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, Column1, DataGridViewTextBoxColumn3, DataGridViewTextBoxColumn4, DataGridViewTextBoxColumn5})
+        DataGridView2.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, DataGridViewTextBoxColumn3, DataGridViewTextBoxColumn4, Column1, DataGridViewTextBoxColumn5})
         DataGridView2.Dock = DockStyle.Left
         DataGridView2.EnableHeadersVisualStyles = False
         DataGridView2.Location = New Point(3, 3)
         DataGridView2.Margin = New Padding(50, 3, 3, 3)
         DataGridView2.Name = "DataGridView2"
+        DataGridView2.ReadOnly = True
         DataGridView2.RowHeadersVisible = False
         DataGridView2.RowHeadersWidth = 51
-        DataGridView2.Size = New Size(1095, 600)
-        DataGridView2.TabIndex = 16
+        DataGridView2.Size = New Size(1062, 600)
+        DataGridView2.TabIndex = 22
         ' 
         ' DataGridViewTextBoxColumn1
         ' 
@@ -316,6 +316,7 @@ Partial Class FormTransaksi
         DataGridViewTextBoxColumn1.HeaderText = "No"
         DataGridViewTextBoxColumn1.MinimumWidth = 6
         DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        DataGridViewTextBoxColumn1.ReadOnly = True
         DataGridViewTextBoxColumn1.Width = 59
         ' 
         ' DataGridViewTextBoxColumn2
@@ -324,31 +325,34 @@ Partial Class FormTransaksi
         DataGridViewTextBoxColumn2.HeaderText = "No Order"
         DataGridViewTextBoxColumn2.MinimumWidth = 4
         DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        DataGridViewTextBoxColumn2.ReadOnly = True
         DataGridViewTextBoxColumn2.Width = 200
-        ' 
-        ' Column1
-        ' 
-        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column1.HeaderText = "Nama Menu"
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
         ' 
         ' DataGridViewTextBoxColumn3
         ' 
-        DataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewTextBoxColumn3.FillWeight = 75F
-        DataGridViewTextBoxColumn3.HeaderText = "Qty"
+        DataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn3.FillWeight = 300F
+        DataGridViewTextBoxColumn3.HeaderText = "Nama Menu"
         DataGridViewTextBoxColumn3.MinimumWidth = 6
         DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        DataGridViewTextBoxColumn3.Width = 62
+        DataGridViewTextBoxColumn3.ReadOnly = True
         ' 
         ' DataGridViewTextBoxColumn4
         ' 
         DataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewTextBoxColumn4.HeaderText = "Total Harga"
+        DataGridViewTextBoxColumn4.HeaderText = "Qty"
         DataGridViewTextBoxColumn4.MinimumWidth = 6
         DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        DataGridViewTextBoxColumn4.Width = 108
+        DataGridViewTextBoxColumn4.ReadOnly = True
+        DataGridViewTextBoxColumn4.Width = 62
+        ' 
+        ' Column1
+        ' 
+        Column1.HeaderText = "Harga"
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        Column1.ReadOnly = True
+        Column1.Width = 130
         ' 
         ' DataGridViewTextBoxColumn5
         ' 
@@ -356,6 +360,7 @@ Partial Class FormTransaksi
         DataGridViewTextBoxColumn5.HeaderText = "Metode Bayar"
         DataGridViewTextBoxColumn5.MinimumWidth = 6
         DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        DataGridViewTextBoxColumn5.ReadOnly = True
         DataGridViewTextBoxColumn5.Width = 123
         ' 
         ' FormTransaksi
@@ -375,9 +380,9 @@ Partial Class FormTransaksi
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
-        tpFNB.ResumeLayout(False)
-        Panel6.ResumeLayout(False)
-        Panel6.PerformLayout()
+        tpFnB.ResumeLayout(False)
+        Panel5.ResumeLayout(False)
+        Panel5.PerformLayout()
         CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -388,27 +393,26 @@ Partial Class FormTransaksi
     Friend WithEvents Label1 As Label
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents tpBilling As TabPage
-    Friend WithEvents tpFNB As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents Panel3 As Panel
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents labelPemasukanBilling As Label
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents Label2 As Label
-    Friend WithEvents labPemasukanFnB As Label
-    Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents no As DataGridViewTextBoxColumn
     Friend WithEvents noOrder As DataGridViewTextBoxColumn
     Friend WithEvents durasi As DataGridViewTextBoxColumn
     Friend WithEvents totalHarga As DataGridViewTextBoxColumn
     Friend WithEvents metodebayar As DataGridViewTextBoxColumn
+    Friend WithEvents tpFnB As TabPage
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents labelPemasukanFnB As Label
+    Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
 End Class

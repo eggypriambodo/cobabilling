@@ -1,8 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class Loginpage
-    ' Event saat form dimuat
-    Private Sub Loginpage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+Public Class FormLoginPengaturan
+    Private Sub FormLoginPengaturan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtPass.PasswordChar = "●"c ' Set karakter untuk menyembunyikan password
     End Sub
 
@@ -46,11 +45,6 @@ Public Class Loginpage
         If ValidateLogin(username, password) Then
             MsgBox("Login success", MsgBoxStyle.Information, "Information")
 
-            ' Menampilkan form Dashboard
-            Dim dashboardForm As New Dashboard()
-            dashboardForm.Show()
-
-            ' Menutup form Login (hanya jika diperlukan)
             Me.Hide() ' Gunakan Me.Hide agar aplikasi tidak tertutup
         Else
             MsgBox("Username or password is incorrect", MsgBoxStyle.Critical, "Error")
@@ -64,5 +58,4 @@ Public Class Loginpage
             btnLogin.PerformClick()
         End If
     End Sub
-
 End Class

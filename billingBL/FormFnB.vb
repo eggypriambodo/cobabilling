@@ -144,7 +144,7 @@ Public Class FormFnB
 
     Sub Get_grandTotal()
         Dim grandTotal As Double = DataGridView1.Rows.Cast(Of DataGridViewRow)().Sum(Function(row) CDbl(row.Cells(4).Value))
-        Dim ppn = grandTotal * 0.11
+        Dim ppn = grandTotal * 0.1
         labSubtotal.Text = $"Rp. {FormatNumber(grandTotal, 0, TriState.True, TriState.False, TriState.True)}"
         grandTotal += ppn
         labTotal.Text = $"Rp. {FormatNumber(grandTotal, 0, TriState.True, TriState.False, TriState.True)}"
@@ -159,7 +159,7 @@ Public Class FormFnB
                 grandtotal = grandtotal + Convert.ToDouble(DataGridView1.Rows(i).Cells(4).Value)
 
             Next
-            Dim ppn As Double = grandtotal * 0.11
+            Dim ppn As Double = grandtotal * 0.1
             grandtotal = grandtotal + ppn
         Catch ex As Exception
 
@@ -291,7 +291,7 @@ Public Class FormFnB
 
         ' Print Order Information
         e.Graphics.DrawString(tbNoOrder.Text & "                " & Date.Now.ToString("dd/MM/yyyy"), f10, Brushes.Black, 5, 105)
-        e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 120)
+        e.Graphics.DrawString("Nama Tamu : " & tbNamaTamu.Text, f10, Brushes.Black, 5, 130)
 
         ' Print Column Headers
         e.Graphics.DrawString("Item", f10, Brushes.Black, 5, 150)
@@ -304,21 +304,32 @@ Public Class FormFnB
         For Each row As DataGridViewRow In DataGridView1.Rows
             If Not row.IsNewRow Then
                 ' Retrieve values from specific columns
-                Dim itemName As String = row.Cells("Column1").Value.ToString() ' Menu name (or any data in Column5)
-                Dim qty As String = row.Cells("Column3").Value.ToString()     ' Quantity (or any data in Column1)
-                Dim price As String = row.Cells("Column2").Value.ToString()   ' Price (or any data in Column2)
-                Dim total As String = row.Cells("Column4").Value.ToString()   ' Total (or any data in Column3)
-                Dim extraInfo As String = row.Cells("Column4").Value.ToString() ' Additional info (or any data in Column4)
+                Dim itemName As String = row.Cells("Column1").Value.ToString() ' Menu name
+                Dim qty As String = row.Cells("Column3").Value.ToString()     ' Quantity
+                Dim price As String = row.Cells("Column2").Value.ToString()   ' Price
+                Dim total As String = row.Cells("Column4").Value.ToString()   ' Total
 
-                ' Print the row's data
-                e.Graphics.DrawString(itemName, f10, Brushes.Black, 5, yPos)
+                ' Define rectangle for itemName with reduced height
+                Dim rectItemName As New RectangleF(5, yPos, 100, 30) ' Adjust height (30 in this example)
+                Dim stringFormat As New StringFormat() With {
+            .Alignment = StringAlignment.Near,
+            .LineAlignment = StringAlignment.Near
+        }
+
+                ' Print the wrapped text in the rectangle
+                e.Graphics.DrawString(itemName, f10, Brushes.Black, rectItemName, stringFormat)
+
+                ' Print other data
                 e.Graphics.DrawString(qty, f10, Brushes.Black, 120, yPos)
                 e.Graphics.DrawString(price, f10, Brushes.Black, 145, yPos)
 
-                ' Increment position for the next row
-                yPos += 20
+                ' Increment position for the next row with reduced spacing
+                Dim rowHeight As Integer = 30 ' Adjust this value to control spacing
+                yPos += rowHeight
             End If
         Next
+
+
 
         ' Print Footer
         e.Graphics.DrawString(line, f10, Brushes.Black, 0, yPos)
@@ -390,12 +401,12 @@ Public Class FormFnB
             End If
         Next
 
-        Dim ppn As Double = grandTotal * 0.11
+        Dim ppn As Double = grandTotal * 0.1
         grandTotal += ppn
         Dim kembalian As Double = inputAmount - grandTotal
 
         If Not tbUangDiterima.Text.StartsWith("Rp.") Then
-            tbUangDiterima.Text = $"Rp. {FormatNumber(inputAmount, 0, TriState.True, TriState.False, TriState.True)}"
+            tbUangDiterima.Text = FormatNumber(inputAmount, 0, TriState.True, TriState.False, TriState.True)
             tbUangDiterima.SelectionStart = tbUangDiterima.Text.Length
         End If
 

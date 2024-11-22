@@ -1008,7 +1008,7 @@ Public Class FormBilling
     End Sub
 
     Private Sub TimerSaatIni_Tick(sender As Object, e As EventArgs) Handles TimerSaatIni.Tick
-        LabelTimerSaatIni.Text = Date.Now.ToString("dd/mm/yyyy HH:mm:ss")
+        LabelTimerSaatIni.Text = Date.Now.ToString("dd/MM/yyyy   HH:mm:ss")
     End Sub
 
     '==========================================Button OPEN====================================================='

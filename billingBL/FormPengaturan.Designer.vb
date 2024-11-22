@@ -75,7 +75,7 @@ Partial Class FormPengaturan
         Label1.Font = New Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(15, 15)
         Label1.Name = "Label1"
-        Label1.Size = New Size(1323, 55)
+        Label1.Size = New Size(1466, 55)
         Label1.TabIndex = 2
         Label1.Text = "Menu Admin"
         Label1.TextAlign = ContentAlignment.MiddleCenter
@@ -88,9 +88,9 @@ Partial Class FormPengaturan
         Panel1.Controls.Add(Panel4)
         Panel1.Controls.Add(DataGridView2)
         Panel1.Controls.Add(Label2)
-        Panel1.Location = New Point(0, 59)
+        Panel1.Location = New Point(97, 89)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(663, 795)
+        Panel1.Size = New Size(634, 765)
         Panel1.TabIndex = 3
         ' 
         ' Panel6
@@ -100,13 +100,13 @@ Partial Class FormPengaturan
         Panel6.Dock = DockStyle.Top
         Panel6.Location = New Point(0, 611)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(663, 45)
+        Panel6.Size = New Size(634, 45)
         Panel6.TabIndex = 18
         ' 
         ' btnTambahDurasi
         ' 
         btnTambahDurasi.Dock = DockStyle.Right
-        btnTambahDurasi.Location = New Point(475, 0)
+        btnTambahDurasi.Location = New Point(446, 0)
         btnTambahDurasi.Name = "btnTambahDurasi"
         btnTambahDurasi.Size = New Size(94, 45)
         btnTambahDurasi.TabIndex = 1
@@ -116,7 +116,7 @@ Partial Class FormPengaturan
         ' btnHapusDurasi
         ' 
         btnHapusDurasi.Dock = DockStyle.Right
-        btnHapusDurasi.Location = New Point(569, 0)
+        btnHapusDurasi.Location = New Point(540, 0)
         btnHapusDurasi.Name = "btnHapusDurasi"
         btnHapusDurasi.Size = New Size(94, 45)
         btnHapusDurasi.TabIndex = 0
@@ -145,7 +145,7 @@ Partial Class FormPengaturan
         DataGridView4.RowHeadersVisible = False
         DataGridView4.RowHeadersWidth = 51
         DataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView4.Size = New Size(663, 253)
+        DataGridView4.Size = New Size(634, 253)
         DataGridView4.TabIndex = 17
         ' 
         ' namaDurasi
@@ -205,7 +205,7 @@ Partial Class FormPengaturan
         Label4.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label4.Location = New Point(0, 328)
         Label4.Name = "Label4"
-        Label4.Size = New Size(663, 30)
+        Label4.Size = New Size(634, 30)
         Label4.TabIndex = 16
         Label4.Text = "Daftar Paket Durasi"
         Label4.TextAlign = ContentAlignment.MiddleCenter
@@ -217,13 +217,13 @@ Partial Class FormPengaturan
         Panel4.Dock = DockStyle.Top
         Panel4.Location = New Point(0, 283)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(663, 45)
+        Panel4.Size = New Size(634, 45)
         Panel4.TabIndex = 14
         ' 
         ' btnTambahPromo
         ' 
         btnTambahPromo.Dock = DockStyle.Right
-        btnTambahPromo.Location = New Point(475, 0)
+        btnTambahPromo.Location = New Point(446, 0)
         btnTambahPromo.Name = "btnTambahPromo"
         btnTambahPromo.Size = New Size(94, 45)
         btnTambahPromo.TabIndex = 1
@@ -233,7 +233,7 @@ Partial Class FormPengaturan
         ' btnHapusPromo
         ' 
         btnHapusPromo.Dock = DockStyle.Right
-        btnHapusPromo.Location = New Point(569, 0)
+        btnHapusPromo.Location = New Point(540, 0)
         btnHapusPromo.Name = "btnHapusPromo"
         btnHapusPromo.Size = New Size(94, 45)
         btnHapusPromo.TabIndex = 0
@@ -262,7 +262,7 @@ Partial Class FormPengaturan
         DataGridView2.RowHeadersVisible = False
         DataGridView2.RowHeadersWidth = 51
         DataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView2.Size = New Size(663, 253)
+        DataGridView2.Size = New Size(634, 253)
         DataGridView2.TabIndex = 13
         ' 
         ' namaPaket
@@ -306,7 +306,7 @@ Partial Class FormPengaturan
         Label2.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.Location = New Point(0, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(663, 30)
+        Label2.Size = New Size(634, 30)
         Label2.TabIndex = 12
         Label2.Text = "Daftar Paket Promo"
         Label2.TextAlign = ContentAlignment.MiddleCenter
@@ -316,9 +316,9 @@ Partial Class FormPengaturan
         Panel2.Controls.Add(Panel5)
         Panel2.Controls.Add(DataGridView3)
         Panel2.Controls.Add(Label3)
-        Panel2.Location = New Point(669, 59)
+        Panel2.Location = New Point(790, 89)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(663, 795)
+        Panel2.Size = New Size(634, 765)
         Panel2.TabIndex = 4
         ' 
         ' Panel5
@@ -328,13 +328,13 @@ Partial Class FormPengaturan
         Panel5.Dock = DockStyle.Top
         Panel5.Location = New Point(0, 283)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(663, 45)
+        Panel5.Size = New Size(634, 45)
         Panel5.TabIndex = 14
         ' 
         ' btnTambahLos
         ' 
         btnTambahLos.Dock = DockStyle.Right
-        btnTambahLos.Location = New Point(475, 0)
+        btnTambahLos.Location = New Point(446, 0)
         btnTambahLos.Name = "btnTambahLos"
         btnTambahLos.Size = New Size(94, 45)
         btnTambahLos.TabIndex = 1
@@ -344,7 +344,7 @@ Partial Class FormPengaturan
         ' btnHapusLos
         ' 
         btnHapusLos.Dock = DockStyle.Right
-        btnHapusLos.Location = New Point(569, 0)
+        btnHapusLos.Location = New Point(540, 0)
         btnHapusLos.Name = "btnHapusLos"
         btnHapusLos.Size = New Size(94, 45)
         btnHapusLos.TabIndex = 0
@@ -373,7 +373,7 @@ Partial Class FormPengaturan
         DataGridView3.RowHeadersVisible = False
         DataGridView3.RowHeadersWidth = 51
         DataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView3.Size = New Size(663, 253)
+        DataGridView3.Size = New Size(634, 253)
         DataGridView3.TabIndex = 13
         ' 
         ' DataGridViewTextBoxColumn3
@@ -433,7 +433,7 @@ Partial Class FormPengaturan
         Label3.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.Location = New Point(0, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(663, 30)
+        Label3.Size = New Size(634, 30)
         Label3.TabIndex = 9
         Label3.Text = "Daftar Paket Los Time"
         Label3.TextAlign = ContentAlignment.MiddleCenter
@@ -442,7 +442,7 @@ Partial Class FormPengaturan
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1353, 748)
+        ClientSize = New Size(1496, 871)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         Controls.Add(Label1)
