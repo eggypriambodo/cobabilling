@@ -100,7 +100,7 @@ Public Class FormBilling
             Console.WriteLine($"{DT}")
 
             For i = 0 To DT.Rows.Count - 1
-                If DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "" Then
+                If DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(13) = "" OrElse DT.Rows(i).Item(3) = "Meja 1" AndAlso DT.Rows(i).Item(5) = "" Then
 
                     statusTable1.Text = "AKTIF"
                     statusTable1.BackColor = Color.Red
@@ -137,16 +137,20 @@ Public Class FormBilling
                     btnStopTable1.Enabled = False
                     btnDetail1.Enabled = True
                     btnPindahMeja1.Enabled = False
+                    timerTable1.Stop()
+                    InitializeAndSendData("10")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart1.Text = DT.Rows(i).Item(4)
                     Else
                         labTimeStart1.Text = DT.Rows(i).Item(4)
                         labTimeStop1.Text = DT.Rows(i).Item(5)
+                        duration1.Text = "00:00:00"
+                        updateStatusBayar("Meja 1")
                     End If
 
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(13) = "" Then
+                If DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(13) = "" OrElse DT.Rows(i).Item(3) = "Meja 2" AndAlso DT.Rows(i).Item(5) = "" Then
                     statusTable2.Text = "AKTIF"
                     statusTable2.BackColor = Color.Red
                     btnDetail2.Enabled = True
@@ -182,16 +186,20 @@ Public Class FormBilling
                     btnStopTable2.Enabled = False
                     btnDetail2.Enabled = True
                     btnPindahMeja2.Enabled = False
+                    timerTable2.Stop()
+                    InitializeAndSendData("20")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart2.Text = DT.Rows(i).Item(4)
                     Else
                         labTimeStart2.Text = DT.Rows(i).Item(4)
                         labTimeStop2.Text = DT.Rows(i).Item(5)
+                        duration2.Text = "00:00:00"
+                        updateStatusBayar("Meja 2")
                     End If
 
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(13) = "" Then
+                If DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(13) = "" OrElse DT.Rows(i).Item(3) = "Meja 3" AndAlso DT.Rows(i).Item(5) = "" Then
                     statusTable3.Text = "AKTIF"
                     statusTable3.BackColor = Color.Red
                     btnDetail3.Enabled = True
@@ -227,16 +235,20 @@ Public Class FormBilling
                     btnStopTable3.Enabled = False
                     btnDetail3.Enabled = True
                     btnPindahMeja3.Enabled = False
+                    timerTable3.Stop()
+                    InitializeAndSendData("30")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart3.Text = DT.Rows(i).Item(4)
                     Else
                         labTimeStart3.Text = DT.Rows(i).Item(4)
                         labTimeStop3.Text = DT.Rows(i).Item(5)
+                        duration3.Text = "00:00:00"
+                        updateStatusBayar("Meja 3")
                     End If
 
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(13) = "" Then
+                If DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(13) = "" OrElse DT.Rows(i).Item(3) = "Meja 4" AndAlso DT.Rows(i).Item(5) = "" Then
                     statusTable4.Text = "AKTIF"
                     statusTable4.BackColor = Color.Red
                     btnDetail4.Enabled = True
@@ -271,16 +283,20 @@ Public Class FormBilling
                     btnStopTable4.Enabled = False
                     btnDetail4.Enabled = True
                     btnPindahMeja4.Enabled = False
+                    timerTable4.Stop()
+                    InitializeAndSendData("40")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart4.Text = DT.Rows(i).Item(4)
                     Else
                         labTimeStart4.Text = DT.Rows(i).Item(4)
                         labTimeStop4.Text = DT.Rows(i).Item(5)
+                        duration4.Text = "00:00:00"
+                        updateStatusBayar("Meja 4")
                     End If
 
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(13) = "" Then
+                If DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(13) = "" OrElse DT.Rows(i).Item(3) = "Meja 5" AndAlso DT.Rows(i).Item(5) = "" Then
                     statusTable5.Text = "AKTIF"
                     statusTable5.BackColor = Color.Red
                     btnDetail5.Enabled = True
@@ -315,16 +331,20 @@ Public Class FormBilling
                     btnStopTable5.Enabled = False
                     btnDetail5.Enabled = True
                     btnPindahMeja5.Enabled = False
+                    timerTable5.Stop()
+                    InitializeAndSendData("50")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart5.Text = DT.Rows(i).Item(4)
                     Else
                         labTimeStart5.Text = DT.Rows(i).Item(4)
                         labTimeStop5.Text = DT.Rows(i).Item(5)
+                        duration5.Text = "00:00:00"
+                        updateStatusBayar("Meja 5")
                     End If
 
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(13) = "" Then
+                If DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(13) = "" OrElse DT.Rows(i).Item(3) = "Meja 6" AndAlso DT.Rows(i).Item(5) = "" Then
                     statusTable6.Text = "AKTIF"
                     statusTable6.BackColor = Color.Red
                     btnDetail6.Enabled = True
@@ -361,16 +381,20 @@ Public Class FormBilling
                     btnStopTable6.Enabled = False
                     btnDetail6.Enabled = True
                     btnPindahMeja6.Enabled = False
+                    timerTable6.Stop()
+                    InitializeAndSendData("60")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart6.Text = DT.Rows(i).Item(4)
                     Else
                         labTimeStart6.Text = DT.Rows(i).Item(4)
                         labTimeStop6.Text = DT.Rows(i).Item(5)
+                        duration6.Text = "00:00:00"
+                        updateStatusBayar("Meja 6")
                     End If
 
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(13) = "" Then
+                If DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(13) = "" OrElse DT.Rows(i).Item(3) = "Meja 7" AndAlso DT.Rows(i).Item(5) = "" Then
                     statusTable7.Text = "AKTIF"
                     statusTable7.BackColor = Color.Red
                     btnDetail7.Enabled = True
@@ -406,16 +430,21 @@ Public Class FormBilling
                     statusTable7.BackColor = Color.LightGray
                     btnStopTable7.Enabled = False
                     btnDetail7.Enabled = True
+                    btnPindahMeja7.Enabled = False
+                    timerTable7.Stop()
+                    InitializeAndSendData("70")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart7.Text = DT.Rows(i).Item(4)
                     Else
                         labTimeStart7.Text = DT.Rows(i).Item(4)
                         labTimeStop7.Text = DT.Rows(i).Item(5)
+                        duration7.Text = "00:00:00"
+                        updateStatusBayar("Meja 7")
                     End If
 
                 End If
 
-                If DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(13) = "" Then
+                If DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(13) = "" OrElse DT.Rows(i).Item(3) = "Meja 8" AndAlso DT.Rows(i).Item(5) = "" Then
                     statusTable8.Text = "AKTIF"
                     statusTable8.BackColor = Color.Red
                     btnDetail8.Enabled = True
@@ -449,11 +478,15 @@ Public Class FormBilling
                     btnStopTable8.Enabled = False
                     btnDetail8.Enabled = True
                     btnPindahMeja8.Enabled = False
+                    timerTable8.Stop()
+                    InitializeAndSendData("80")
                     If DT.Rows(i).Item(14) = "LOSTIME" Then
                         labTimeStart8.Text = DT.Rows(i).Item(4)
                     Else
                         labTimeStart8.Text = DT.Rows(i).Item(4)
                         labTimeStop8.Text = DT.Rows(i).Item(5)
+                        duration8.Text = "00:00:00"
+                        updateStatusBayar("Meja 8")
                     End If
 
                 End If
@@ -633,11 +666,12 @@ Public Class FormBilling
         Else
             timeRemaining = countDownTime1 - Date.Now.TimeOfDay
 
+
             If timeRemaining > New TimeSpan(1, 0, 0, 0) Then
                 timeRemaining = timeRemaining.Subtract(New TimeSpan(1, 0, 0, 0))
             End If
 
-            If timeRemaining.TotalSeconds < 1 Then
+            If timeRemaining.TotalSeconds < 1 OrElse countDownTime1 < Date.Now.TimeOfDay Then
                 timeRemaining = TimeSpan.Zero
             End If
 
