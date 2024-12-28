@@ -211,10 +211,27 @@ Public Class FormFnB
             Return
         End If
 
+        Dim query As String = "SELECT * FROM tb_shift WHERE status = 'on'"
+        Dim namaShift As String = ""
+        Try
+            connect()
+            Dim cmd As New MySqlCommand(query, Koneksi)
+            DA = New MySqlDataAdapter(cmd)
+            DT = New DataTable
+            DA.Fill(DT)
+            For i = 0 To DT.Rows.Count - 1
+                namaShift = DT.Rows(i).Item("nama")
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            disconnect()
+        End Try
+
         Try
             conn.Open()
             Dim tanggal_transaksi As String = Date.Now.ToString("yyyy-MM-dd")
-            CMD = New MySqlCommand("INSERT INTO tb_fnb_transaksi(no_order, nama_menu, harga_menu, qty_menu, subtotal, nama_tamu, tanggal_transaksi, metode_pembayaran) VALUES (@no_order,@nama_menu,@harga_menu,@qty_menu,@subtotal,@nama_tamu,@tanggal_transaksi,@metode_pembayaran)", conn)
+            CMD = New MySqlCommand("INSERT INTO tb_fnb_transaksi(no_order, nama_menu, harga_menu, qty_menu, subtotal, nama_tamu, tanggal_transaksi, metode_pembayaran, nama_shift) VALUES (@no_order,@nama_menu,@harga_menu,@qty_menu,@subtotal,@nama_tamu,@tanggal_transaksi,@metode_pembayaran, @nama_shift)", conn)
 
             For Each row As DataGridViewRow In DataGridView1.Rows
                 If Not row.IsNewRow Then
@@ -227,6 +244,8 @@ Public Class FormFnB
                     CMD.Parameters.AddWithValue("@nama_tamu", tbNamaTamu.Text)
                     CMD.Parameters.AddWithValue("@tanggal_transaksi", tanggal_transaksi)
                     CMD.Parameters.AddWithValue("@metode_pembayaran", metodePembayaran)
+                    CMD.Parameters.AddWithValue("@nama_shift", namaShift)
+
                     CMD.ExecuteNonQuery()
                 End If
             Next

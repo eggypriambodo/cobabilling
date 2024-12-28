@@ -25,6 +25,7 @@ Partial Class FormPengaturan
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
         Panel6 = New Panel()
@@ -48,6 +49,13 @@ Partial Class FormPengaturan
         discPaket = New DataGridViewTextBoxColumn()
         Label2 = New Label()
         Panel2 = New Panel()
+        Panel3 = New Panel()
+        btnTambahUser = New Button()
+        btnHapusUser = New Button()
+        DataGridView1 = New DataGridView()
+        DataGridViewTextBoxColumn1 = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn2 = New DataGridViewTextBoxColumn()
+        Label5 = New Label()
         Panel5 = New Panel()
         btnTambahLos = New Button()
         btnHapusLos = New Button()
@@ -65,6 +73,8 @@ Partial Class FormPengaturan
         Panel4.SuspendLayout()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
+        Panel3.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel5.SuspendLayout()
         CType(DataGridView3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -313,6 +323,9 @@ Partial Class FormPengaturan
         ' 
         ' Panel2
         ' 
+        Panel2.Controls.Add(Panel3)
+        Panel2.Controls.Add(DataGridView1)
+        Panel2.Controls.Add(Label5)
         Panel2.Controls.Add(Panel5)
         Panel2.Controls.Add(DataGridView3)
         Panel2.Controls.Add(Label3)
@@ -320,6 +333,91 @@ Partial Class FormPengaturan
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(634, 765)
         Panel2.TabIndex = 4
+        ' 
+        ' Panel3
+        ' 
+        Panel3.Controls.Add(btnTambahUser)
+        Panel3.Controls.Add(btnHapusUser)
+        Panel3.Dock = DockStyle.Top
+        Panel3.Location = New Point(0, 611)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(634, 45)
+        Panel3.TabIndex = 19
+        ' 
+        ' btnTambahUser
+        ' 
+        btnTambahUser.Dock = DockStyle.Right
+        btnTambahUser.Location = New Point(446, 0)
+        btnTambahUser.Name = "btnTambahUser"
+        btnTambahUser.Size = New Size(94, 45)
+        btnTambahUser.TabIndex = 1
+        btnTambahUser.Text = "Tambah"
+        btnTambahUser.UseVisualStyleBackColor = True
+        ' 
+        ' btnHapusUser
+        ' 
+        btnHapusUser.Dock = DockStyle.Right
+        btnHapusUser.Location = New Point(540, 0)
+        btnHapusUser.Name = "btnHapusUser"
+        btnHapusUser.Size = New Size(94, 45)
+        btnHapusUser.TabIndex = 0
+        btnHapusUser.Text = "Hapus"
+        btnHapusUser.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.BackgroundColor = SystemColors.Control
+        DataGridView1.BorderStyle = BorderStyle.None
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle3.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle3.ForeColor = SystemColors.Control
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2})
+        DataGridView1.Dock = DockStyle.Top
+        DataGridView1.EnableHeadersVisualStyles = False
+        DataGridView1.Location = New Point(0, 358)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView1.Size = New Size(634, 253)
+        DataGridView1.TabIndex = 18
+        ' 
+        ' DataGridViewTextBoxColumn1
+        ' 
+        DataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewTextBoxColumn1.FillWeight = 175F
+        DataGridViewTextBoxColumn1.HeaderText = "Nomor"
+        DataGridViewTextBoxColumn1.MinimumWidth = 6
+        DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        DataGridViewTextBoxColumn1.ReadOnly = True
+        DataGridViewTextBoxColumn1.Width = 87
+        ' 
+        ' DataGridViewTextBoxColumn2
+        ' 
+        DataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn2.HeaderText = "Nama Staff Kasir"
+        DataGridViewTextBoxColumn2.MinimumWidth = 6
+        DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        DataGridViewTextBoxColumn2.ReadOnly = True
+        ' 
+        ' Label5
+        ' 
+        Label5.BorderStyle = BorderStyle.FixedSingle
+        Label5.Dock = DockStyle.Top
+        Label5.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label5.Location = New Point(0, 328)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(634, 30)
+        Label5.TabIndex = 17
+        Label5.Text = "Daftar User Staff Kasir"
+        Label5.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Panel5
         ' 
@@ -355,14 +453,14 @@ Partial Class FormPengaturan
         ' 
         DataGridView3.BackgroundColor = SystemColors.Control
         DataGridView3.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle3.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle3.ForeColor = SystemColors.Control
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle4.ForeColor = SystemColors.Control
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         DataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView3.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn3, DataGridViewTextBoxColumn4, DataGridViewTextBoxColumn5, DataGridViewTextBoxColumn6, DataGridViewTextBoxColumn7, discTable})
         DataGridView3.Dock = DockStyle.Top
@@ -456,6 +554,8 @@ Partial Class FormPengaturan
         Panel4.ResumeLayout(False)
         CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
+        Panel3.ResumeLayout(False)
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         Panel5.ResumeLayout(False)
         CType(DataGridView3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -494,4 +594,11 @@ Partial Class FormPengaturan
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents discTable As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnTambahUser As Button
+    Friend WithEvents btnHapusUser As Button
 End Class

@@ -100,7 +100,7 @@ Public Class FormTransaksi
         Try
 
             connect()
-            DA = New MySqlDataAdapter("SELECT no_order, GROUP_CONCAT(nama_menu ORDER BY nama_menu SEPARATOR ', ') AS nama_menus, GROUP_CONCAT(qty_menu ORDER BY qty_menu SEPARATOR ', ') AS qty_menus, SUM(subtotal) AS total_price, metode_pembayaran FROM tb_fnb_transaksi WHERE tanggal_transaksi='" & tanggal_transaksi & "' GROUP BY  no_order;", Koneksi)
+            DA = New MySqlDataAdapter("SELECT no_order, GROUP_CONCAT(nama_menu ORDER BY nama_menu SEPARATOR ', ') AS nama_menus, GROUP_CONCAT(qty_menu ORDER BY qty_menu SEPARATOR ', ') AS qty_menus, SUM(subtotal) AS total_price, metode_pembayaran, nama_shift FROM tb_fnb_transaksi WHERE tanggal_transaksi='" & tanggal_transaksi & "' GROUP BY  no_order;", Koneksi)
             DT = New DataTable
             DA.Fill(DT)
             DataGridView2.Rows.Clear()
@@ -421,7 +421,7 @@ Public Class FormTransaksi
         End Try
     End Sub
 
-    Private Sub btnFilterBilling_Click(sender As Object, e As EventArgs) Handles btnFilterBilling.Click
+    Private Sub btnFilterBilling_Click(sender As Object, e As EventArgs)
         tampilFilter("billing")
     End Sub
 
@@ -433,7 +433,7 @@ Public Class FormTransaksi
         ExportDataGridViewToExcel("fnb")
     End Sub
 
-    Private Sub btnExportBilling_Click(sender As Object, e As EventArgs) Handles btnExportBilling.Click
+    Private Sub btnExportBilling_Click(sender As Object, e As EventArgs)
         ExportDataGridViewToExcel("billing")
     End Sub
 End Class

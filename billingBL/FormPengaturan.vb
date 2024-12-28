@@ -73,6 +73,22 @@ Public Class FormPengaturan
         disconnect()
     End Sub
 
+    Sub tampilUser()
+        connect()
+
+        DA = New MySqlDataAdapter("SELECT * FROM tb_shift", Koneksi)
+        DT = New DataTable
+        DA.Fill(DT)
+        DataGridView1.Rows.Clear()
+
+        For i = 0 To DT.Rows.Count - 1
+            DataGridView1.Rows.Add(DT.Rows(i).Item(0))
+            DataGridView1.Rows(i).Cells(1).Value = DT.Rows(i).Item(1)
+        Next
+
+        disconnect()
+    End Sub
+
     Private Sub btnTambahPromo_Click(sender As Object, e As EventArgs) Handles btnTambahPromo.Click
         FormAddPaket.Show()
     End Sub
@@ -90,15 +106,19 @@ Public Class FormPengaturan
         tampilpaketDurasi()
         tampilpaketLos()
         tampilpaketPromo()
+        tampilUser()
         btnHapusDurasi.Enabled = False
         btnHapusLos.Enabled = False
         btnHapusPromo.Enabled = False
+        btnHapusUser.Enabled = False
     End Sub
 
     Public Sub RefreshData()
         tampilpaketDurasi()
         tampilpaketLos()
         tampilpaketPromo()
+        tampilUser()
+        btnHapusUser.Enabled = False
         btnHapusDurasi.Enabled = False
         btnHapusLos.Enabled = False
         btnHapusPromo.Enabled = False
@@ -203,5 +223,40 @@ Public Class FormPengaturan
         End If
     End Sub
 
+    Private Sub btnTambahUser_Click(sender As Object, e As EventArgs) Handles btnTambahUser.Click
+        FormAddUser.Show()
 
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        If e.RowIndex >= 0 Then
+            btnHapusUser.Enabled = True
+            selectedRowName = CType(DataGridView1.Rows(e.RowIndex).Cells(0).Value, String)
+        End If
+    End Sub
+
+    Private Sub btnHapusUser_Click(sender As Object, e As EventArgs) Handles btnHapusUser.Click
+        If selectedRowName <> "" Then
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                If CType(row.Cells(0).Value, String) = selectedRowName Then
+                    DataGridView1.Rows.Remove(row)
+                    Exit For
+                End If
+            Next
+
+            Try
+                connect()
+                CMD = New MySqlCommand("DELETE FROM tb_shift WHERE nama = @nama", Koneksi)
+                CMD.Parameters.AddWithValue("@nama", selectedRowName)
+                CMD.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                disconnect()
+            End Try
+            selectedRowName = ""
+        Else
+            MessageBox.Show("Data yang dipilih tidak ada", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
 End Class
