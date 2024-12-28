@@ -82,6 +82,7 @@ Public Class FormTransaksi
         End Try
     End Sub
 
+
     Private Sub FormTransaksi_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tampilTransaksiBilling()
         tampilTransaksiFnB()
@@ -93,5 +94,59 @@ Public Class FormTransaksi
 
     Private Sub tpFnB_Click(sender As Object, e As EventArgs) Handles tpFnB.Click
         tampilTransaksiFnB()
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        Try
+            Dim colName As String = DataGridView1.Columns(e.ColumnIndex).Name
+
+            If colName = "Column4" Then
+                If MsgBox("Are you sure you want to print this bill?", vbYesNo + vbQuestion, "Print Bill") = vbYes Then
+                    Try
+                        'print bill
+
+
+                    Catch ex As Exception
+                        MsgBox("Error: " & ex.Message, vbCritical, "Deletion Error")
+                    Finally
+                        conn.Close()  ' Ensure the connection is closed
+                    End Try
+
+                    ' Reload data after deletion
+                    ' Ensure this method works correctly
+                End If
+            End If
+
+        Catch ex As Exception
+            conn.Close()
+            MsgBox("Warning: " & ex.Message, vbCritical, "Operation Error")
+        End Try
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+        Try
+            Dim colName As String = DataGridView2.Columns(e.ColumnIndex).Name
+
+            If colName = "Column2" Then
+                If MsgBox("Are you sure you want to print this bill?", vbYesNo + vbQuestion, "Print Bill") = vbYes Then
+                    Try
+                        'print bill
+
+
+                    Catch ex As Exception
+                        MsgBox("Error: " & ex.Message, vbCritical, "Deletion Error")
+                    Finally
+                        conn.Close()  ' Ensure the connection is closed
+                    End Try
+
+                    ' Reload data after deletion
+                    ' Ensure this method works correctly
+                End If
+            End If
+
+        Catch ex As Exception
+            conn.Close()
+            MsgBox("Warning: " & ex.Message, vbCritical, "Operation Error")
+        End Try
     End Sub
 End Class

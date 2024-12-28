@@ -22,8 +22,8 @@ Partial Class FormTransaksi
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
         Panel1 = New Panel()
         Label1 = New Label()
@@ -34,13 +34,26 @@ Partial Class FormTransaksi
         Label3 = New Label()
         labelPemasukanBilling = New Label()
         Panel3 = New Panel()
+        btnExportBilling = New Button()
+        btnFilterBilling = New Button()
+        ddShiftBilling = New ComboBox()
+        Label5 = New Label()
+        Label4 = New Label()
+        ddMetodeBilling = New ComboBox()
         DataGridView1 = New DataGridView()
         no = New DataGridViewTextBoxColumn()
         noOrder = New DataGridViewTextBoxColumn()
         durasi = New DataGridViewTextBoxColumn()
         totalHarga = New DataGridViewTextBoxColumn()
         metodebayar = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewButtonColumn()
         tpFnB = New TabPage()
+        btnExportFNB = New Button()
+        btnFilterFNB = New Button()
+        ddShiftFNB = New ComboBox()
+        Label6 = New Label()
+        Label7 = New Label()
+        ddMetodeFNB = New ComboBox()
         Panel5 = New Panel()
         Label2 = New Label()
         labelPemasukanFnB = New Label()
@@ -51,11 +64,13 @@ Partial Class FormTransaksi
         DataGridViewTextBoxColumn4 = New DataGridViewTextBoxColumn()
         Column1 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn5 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewButtonColumn()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         TabControl1.SuspendLayout()
         tpBilling.SuspendLayout()
         Panel4.SuspendLayout()
+        Panel3.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         tpFnB.SuspendLayout()
         Panel5.SuspendLayout()
@@ -158,11 +173,79 @@ Partial Class FormTransaksi
         ' Panel3
         ' 
         Panel3.BackColor = SystemColors.Control
+        Panel3.Controls.Add(btnExportBilling)
+        Panel3.Controls.Add(btnFilterBilling)
+        Panel3.Controls.Add(ddShiftBilling)
+        Panel3.Controls.Add(Label5)
+        Panel3.Controls.Add(Label4)
+        Panel3.Controls.Add(ddMetodeBilling)
         Panel3.Dock = DockStyle.Right
         Panel3.Location = New Point(1095, 3)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(197, 600)
         Panel3.TabIndex = 15
+        ' 
+        ' btnExportBilling
+        ' 
+        btnExportBilling.BackColor = Color.Green
+        btnExportBilling.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        btnExportBilling.ForeColor = SystemColors.Control
+        btnExportBilling.Location = New Point(3, 353)
+        btnExportBilling.Name = "btnExportBilling"
+        btnExportBilling.Size = New Size(191, 38)
+        btnExportBilling.TabIndex = 22
+        btnExportBilling.Text = "EXPORT"
+        btnExportBilling.UseVisualStyleBackColor = False
+        ' 
+        ' btnFilterBilling
+        ' 
+        btnFilterBilling.BackColor = SystemColors.Highlight
+        btnFilterBilling.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnFilterBilling.ForeColor = SystemColors.ControlLightLight
+        btnFilterBilling.Location = New Point(3, 296)
+        btnFilterBilling.Name = "btnFilterBilling"
+        btnFilterBilling.Size = New Size(194, 38)
+        btnFilterBilling.TabIndex = 4
+        btnFilterBilling.Text = "FILTER"
+        btnFilterBilling.UseVisualStyleBackColor = False
+        ' 
+        ' ddShiftBilling
+        ' 
+        ddShiftBilling.FormattingEnabled = True
+        ddShiftBilling.Items.AddRange(New Object() {"QRIS", "Cash", "Debit", "Transfer"})
+        ddShiftBilling.Location = New Point(8, 248)
+        ddShiftBilling.Name = "ddShiftBilling"
+        ddShiftBilling.Size = New Size(186, 28)
+        ddShiftBilling.TabIndex = 3
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label5.Location = New Point(8, 213)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(88, 23)
+        Label5.TabIndex = 2
+        Label5.Text = "Filter Shift"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label4.Location = New Point(8, 131)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(161, 23)
+        Label4.TabIndex = 1
+        Label4.Text = "Filter Metode Bayar"
+        ' 
+        ' ddMetodeBilling
+        ' 
+        ddMetodeBilling.FormattingEnabled = True
+        ddMetodeBilling.Items.AddRange(New Object() {"SHOW ALL", "QRIS", "Cash", "Debit", "Transfer"})
+        ddMetodeBilling.Location = New Point(8, 157)
+        ddMetodeBilling.Name = "ddMetodeBilling"
+        ddMetodeBilling.Size = New Size(186, 28)
+        ddMetodeBilling.TabIndex = 0
         ' 
         ' DataGridView1
         ' 
@@ -172,16 +255,16 @@ Partial Class FormTransaksi
         DataGridView1.AllowUserToResizeRows = False
         DataGridView1.BackgroundColor = SystemColors.Control
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle1.ForeColor = SystemColors.Control
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle3.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle3.ForeColor = SystemColors.Control
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, noOrder, durasi, totalHarga, metodebayar})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {no, noOrder, durasi, totalHarga, metodebayar, Column4})
         DataGridView1.Dock = DockStyle.Left
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.Location = New Point(3, 3)
@@ -240,9 +323,26 @@ Partial Class FormTransaksi
         metodebayar.ReadOnly = True
         metodebayar.Width = 123
         ' 
+        ' Column4
+        ' 
+        Column4.HeaderText = ""
+        Column4.MinimumWidth = 6
+        Column4.Name = "Column4"
+        Column4.ReadOnly = True
+        Column4.Resizable = DataGridViewTriState.True
+        Column4.SortMode = DataGridViewColumnSortMode.Automatic
+        Column4.Text = "Print Bill"
+        Column4.Width = 125
+        ' 
         ' tpFnB
         ' 
         tpFnB.BackColor = SystemColors.Control
+        tpFnB.Controls.Add(btnExportFNB)
+        tpFnB.Controls.Add(btnFilterFNB)
+        tpFnB.Controls.Add(ddShiftFNB)
+        tpFnB.Controls.Add(Label6)
+        tpFnB.Controls.Add(Label7)
+        tpFnB.Controls.Add(ddMetodeFNB)
         tpFnB.Controls.Add(Panel5)
         tpFnB.Controls.Add(DataGridView2)
         tpFnB.Location = New Point(4, 29)
@@ -251,6 +351,68 @@ Partial Class FormTransaksi
         tpFnB.Size = New Size(1295, 606)
         tpFnB.TabIndex = 1
         tpFnB.Text = "TRANSAKSI FnB"
+        ' 
+        ' btnExportFNB
+        ' 
+        btnExportFNB.BackColor = Color.Green
+        btnExportFNB.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        btnExportFNB.ForeColor = SystemColors.Control
+        btnExportFNB.Location = New Point(1099, 358)
+        btnExportFNB.Name = "btnExportFNB"
+        btnExportFNB.Size = New Size(191, 38)
+        btnExportFNB.TabIndex = 29
+        btnExportFNB.Text = "EXPORT"
+        btnExportFNB.UseVisualStyleBackColor = False
+        ' 
+        ' btnFilterFNB
+        ' 
+        btnFilterFNB.BackColor = SystemColors.Highlight
+        btnFilterFNB.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnFilterFNB.ForeColor = SystemColors.ControlLightLight
+        btnFilterFNB.Location = New Point(1099, 301)
+        btnFilterFNB.Name = "btnFilterFNB"
+        btnFilterFNB.Size = New Size(194, 38)
+        btnFilterFNB.TabIndex = 28
+        btnFilterFNB.Text = "FILTER"
+        btnFilterFNB.UseVisualStyleBackColor = False
+        ' 
+        ' ddShiftFNB
+        ' 
+        ddShiftFNB.FormattingEnabled = True
+        ddShiftFNB.Items.AddRange(New Object() {"QRIS", "Cash", "Debit", "Transfer"})
+        ddShiftFNB.Location = New Point(1104, 253)
+        ddShiftFNB.Name = "ddShiftFNB"
+        ddShiftFNB.Size = New Size(186, 28)
+        ddShiftFNB.TabIndex = 27
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label6.Location = New Point(1104, 218)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(88, 23)
+        Label6.TabIndex = 26
+        Label6.Text = "Filter Shift"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.Location = New Point(1104, 136)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(161, 23)
+        Label7.TabIndex = 25
+        Label7.Text = "Filter Metode Bayar"
+        ' 
+        ' ddMetodeFNB
+        ' 
+        ddMetodeFNB.FormattingEnabled = True
+        ddMetodeFNB.Items.AddRange(New Object() {"SHOW ALL", "QRIS", "Cash", "Debit", "Transfer"})
+        ddMetodeFNB.Location = New Point(1104, 162)
+        ddMetodeFNB.Name = "ddMetodeFNB"
+        ddMetodeFNB.Size = New Size(186, 28)
+        ddMetodeFNB.TabIndex = 24
         ' 
         ' Panel5
         ' 
@@ -288,16 +450,16 @@ Partial Class FormTransaksi
         ' 
         DataGridView2.BackgroundColor = SystemColors.Control
         DataGridView2.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight
-        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = SystemColors.MenuHighlight
+        DataGridViewCellStyle4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle4.ForeColor = SystemColors.Control
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView2.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, DataGridViewTextBoxColumn3, DataGridViewTextBoxColumn4, Column1, DataGridViewTextBoxColumn5})
+        DataGridView2.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, DataGridViewTextBoxColumn3, DataGridViewTextBoxColumn4, Column1, DataGridViewTextBoxColumn5, Column2})
         DataGridView2.Dock = DockStyle.Left
         DataGridView2.EnableHeadersVisualStyles = False
         DataGridView2.Location = New Point(3, 3)
@@ -363,6 +525,15 @@ Partial Class FormTransaksi
         DataGridViewTextBoxColumn5.ReadOnly = True
         DataGridViewTextBoxColumn5.Width = 123
         ' 
+        ' Column2
+        ' 
+        Column2.HeaderText = ""
+        Column2.MinimumWidth = 6
+        Column2.Name = "Column2"
+        Column2.ReadOnly = True
+        Column2.Text = "Print Bill"
+        Column2.Width = 125
+        ' 
         ' FormTransaksi
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -379,8 +550,11 @@ Partial Class FormTransaksi
         tpBilling.ResumeLayout(False)
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
+        Panel3.ResumeLayout(False)
+        Panel3.PerformLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         tpFnB.ResumeLayout(False)
+        tpFnB.PerformLayout()
         Panel5.ResumeLayout(False)
         Panel5.PerformLayout()
         CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
@@ -399,20 +573,34 @@ Partial Class FormTransaksi
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents labelPemasukanBilling As Label
-    Friend WithEvents no As DataGridViewTextBoxColumn
-    Friend WithEvents noOrder As DataGridViewTextBoxColumn
-    Friend WithEvents durasi As DataGridViewTextBoxColumn
-    Friend WithEvents totalHarga As DataGridViewTextBoxColumn
-    Friend WithEvents metodebayar As DataGridViewTextBoxColumn
     Friend WithEvents tpFnB As TabPage
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents labelPemasukanFnB As Label
     Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents ddShiftBilling As ComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ddMetodeBilling As ComboBox
+    Friend WithEvents btnFilterBilling As Button
+    Friend WithEvents btnExportBilling As Button
+    Friend WithEvents btnExportFNB As Button
+    Friend WithEvents btnFilterFNB As Button
+    Friend WithEvents ddShiftFNB As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents ddMetodeFNB As ComboBox
+    Friend WithEvents no As DataGridViewTextBoxColumn
+    Friend WithEvents noOrder As DataGridViewTextBoxColumn
+    Friend WithEvents durasi As DataGridViewTextBoxColumn
+    Friend WithEvents totalHarga As DataGridViewTextBoxColumn
+    Friend WithEvents metodebayar As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewButtonColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewButtonColumn
 End Class
