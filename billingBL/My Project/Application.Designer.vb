@@ -33,7 +33,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.billingBL.Loginpage
+            Me.MainForm = Global.billingBL.Dashboard
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

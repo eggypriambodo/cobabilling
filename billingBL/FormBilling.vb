@@ -928,7 +928,7 @@ Public Class FormBilling
 
             ' Pindahkan data ke tb_transaksi
             For Each row As DataRow In DT.Rows
-                CMD = New MySqlCommand("INSERT INTO tb_transaksi (no_order, nama_tamu, paket,no_meja,mulai, selesai, durasi, harga, disc_table, metode_pembayaran, durasi_siang, durasi_malam, tanggal_transaksi) VALUES (@no_order, @nama_tamu, @paket,@no_meja, @mulai, @selesai, @durasi, @harga,@disc_table, @metode_pembayaran, @durasi_siang, @durasi_malam, @tanggal_transaksi)", Koneksi)
+                CMD = New MySqlCommand("INSERT INTO tb_transaksi (no_order, nama_tamu, paket,no_meja,mulai, selesai, durasi, harga, disc_table, metode_pembayaran, durasi_siang, durasi_malam, tanggal_transaksi) VALUES (@no_order, @nama_tamu, @paket,@no_meja, @mulai, @selesai, @durasi, @harga,@disc_table, @metode_pembayaran, @durasi_siang, @durasi_malam, @tanggal_transaksi, @nama_shift)", Koneksi)
                 ' Ganti @value1, @value2, @value3 dengan nama kolom yang sesuai
                 CMD.Parameters.AddWithValue("@no_order", row("no_order"))
                 CMD.Parameters.AddWithValue("@nama_tamu", row("nama_tamu"))
@@ -943,6 +943,7 @@ Public Class FormBilling
                 CMD.Parameters.AddWithValue("@durasi_siang", row("durasi_siang"))
                 CMD.Parameters.AddWithValue("@durasi_malam", row("durasi_malam"))
                 CMD.Parameters.AddWithValue("@tanggal_transaksi", tanggal_transaksi)
+                CMD.Parameters.AddWithValue("@nama_shift", row("nama_shift"))
                 CMD.ExecuteNonQuery()
             Next
 

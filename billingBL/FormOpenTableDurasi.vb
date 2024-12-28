@@ -75,6 +75,22 @@ Public Class FormOpenTableDurasi
         Dim akhirWaktuMalamString As String = labelAkhirHargaMalam.Text
         Dim akhirWaktuMalam As DateTime = DateTime.Parse(akhirWaktuMalamString)
         Dim jenisPaket As String = "DURASI"
+        Dim query As String = "SELECT * FROM tb_shift WHERE status = 'on'"
+        Dim namaShift As String = ""
+        Try
+            connect()
+            Dim cmd As New MySqlCommand(query, Koneksi)
+            DA = New MySqlDataAdapter(cmd)
+            DT = New DataTable
+            DA.Fill(DT)
+            For i = 0 To DT.Rows.Count - 1
+                namaShift = DT.Rows(i).Item("nama")
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            disconnect()
+        End Try
 
         If mulai.Hour >= akhirWaktuMalam.Hour AndAlso mulai.Hour < akhirWaktuSiang.Hour Then
             If selesai.Hour >= akhirWaktuSiang.Hour Then
@@ -107,7 +123,7 @@ Public Class FormOpenTableDurasi
         Console.WriteLine("Harga: " & harga)
         Try
             connect()
-            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table, durasi_siang, durasi_malam, harga_siang, harga_malam, jenis_paket) VALUES ('" & LabelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(textboxDurasiMain.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonDurasi.Text) & "', '" & selisihmulaiInt & "', '" & selisihselesaiInt & "', '" & hargaSiang & "', '" & hargaMalam & "' ,'" & jenisPaket & "' )", Koneksi)
+            CMD = New MySqlCommand("INSERT INTO tb_detailbilling (no_order, nama_tamu, paket, no_meja, mulai, selesai, durasi, harga, disc_table, durasi_siang, durasi_malam, harga_siang, harga_malam, jenis_paket, nama_shift) VALUES ('" & LabelNoOrder.Text & "', '" & textboxNamaTamu.Text & "', '" & labelPaket.Text & "', '" & dropdownPilihTable.Text & "', '" & mulaiString & "', '" & selesaiString & "', '" & Convert.ToInt32(textboxDurasiMain.Text) & "', '" & harga & "', '" & Convert.ToInt32(labelDiskonDurasi.Text) & "', '" & selisihmulaiInt & "', '" & selisihselesaiInt & "', '" & hargaSiang & "', '" & hargaMalam & "' ,'" & jenisPaket & "', '" & namaShift & "' )", Koneksi)
             CMD.ExecuteNonQuery()
 
             Dim input As String = dropdownPilihTable.Text
