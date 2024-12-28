@@ -215,7 +215,15 @@ Public Class FormDetailTable
 
                 cmd.ExecuteNonQuery()
             Next
+            Dim input As String = mejaBaru
+            Dim parts() As String = input.Split(" "c)
+            Dim onMeja As String = parts(1) + "1"
+            FormBilling.InitializeAndSendData(onMeja)
 
+            Dim input2 As String = mejaLama
+            Dim parts2() As String = input2.Split(" "c)
+            Dim onMeja2 As String = parts2(1) + "0"
+            FormBilling.InitializeAndSendData(onMeja2)
 
             Dim updateStatusMejaKosongCmd As New MySqlCommand("UPDATE tb_meja SET status='kosong' WHERE nama_meja= @no_meja", Koneksi)
             updateStatusMejaKosongCmd.Parameters.AddWithValue("@no_meja", mejaLama)

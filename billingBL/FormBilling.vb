@@ -1289,42 +1289,34 @@ Public Class FormBilling
 
     Private Sub btnPindahMeja1_Click(sender As Object, e As EventArgs) Handles btnPindahMeja1.Click
         ShowCustomMessageBox("Meja 1", labTimeStart1, labTimeStop1, timerTable1, statusTable1, duration1)
-        InitializeAndSendData("10")
     End Sub
 
     Private Sub btnPindahMeja2_Click(sender As Object, e As EventArgs) Handles btnPindahMeja2.Click
         ShowCustomMessageBox("Meja 2", labTimeStart2, labTimeStop2, timerTable2, statusTable2, duration2)
-        InitializeAndSendData("20")
     End Sub
 
     Private Sub btnPindahMeja3_Click(sender As Object, e As EventArgs) Handles btnPindahMeja3.Click
         ShowCustomMessageBox("Meja 3", labTimeStart3, labTimeStop3, timerTable3, statusTable3, duration3)
-        InitializeAndSendData("30")
     End Sub
 
     Private Sub btnPindahMeja4_Click(sender As Object, e As EventArgs) Handles btnPindahMeja4.Click
         ShowCustomMessageBox("Meja 4", labTimeStart4, labTimeStop4, timerTable4, statusTable4, duration4)
-        InitializeAndSendData("40")
     End Sub
 
     Private Sub btnPindahMeja5_Click(sender As Object, e As EventArgs) Handles btnPindahMeja5.Click
         ShowCustomMessageBox("Meja 5", labTimeStart5, labTimeStop5, timerTable5, statusTable5, duration5)
-        InitializeAndSendData("50")
     End Sub
 
     Private Sub btnPindahMeja6_Click(sender As Object, e As EventArgs) Handles btnPindahMeja6.Click
         ShowCustomMessageBox("Meja 6", labTimeStart6, labTimeStop6, timerTable6, statusTable6, duration6)
-        InitializeAndSendData("60")
     End Sub
 
     Private Sub btnPindahMeja7_Click(sender As Object, e As EventArgs) Handles btnPindahMeja7.Click
         ShowCustomMessageBox("Meja 7", labTimeStart7, labTimeStop7, timerTable7, statusTable7, duration7)
-        InitializeAndSendData("70")
     End Sub
 
     Private Sub btnPindahMeja8_Click(sender As Object, e As EventArgs) Handles btnPindahMeja8.Click
         ShowCustomMessageBox("Meja 8", labTimeStart8, labTimeStop8, timerTable8, statusTable8, duration8)
-        InitializeAndSendData("80")
     End Sub
 
 End Class
