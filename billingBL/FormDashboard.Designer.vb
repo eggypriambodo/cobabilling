@@ -29,9 +29,9 @@ Partial Class FormDashboard
         Label1 = New Label()
         Label2 = New Label()
         Label3 = New Label()
-        ComboBox1 = New ComboBox()
-        Button1 = New Button()
-        Button2 = New Button()
+        ddShift = New ComboBox()
+        btnOnShift = New Button()
+        btnOffShift = New Button()
         SuspendLayout()
         ' 
         ' btnToOnSerialPorts
@@ -43,10 +43,9 @@ Partial Class FormDashboard
         btnToOnSerialPorts.IconColor = Color.Black
         btnToOnSerialPorts.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnToOnSerialPorts.IconSize = 128
-        btnToOnSerialPorts.Location = New Point(668, 288)
-        btnToOnSerialPorts.Margin = New Padding(3, 4, 3, 4)
+        btnToOnSerialPorts.Location = New Point(584, 216)
         btnToOnSerialPorts.Name = "btnToOnSerialPorts"
-        btnToOnSerialPorts.Size = New Size(174, 236)
+        btnToOnSerialPorts.Size = New Size(152, 177)
         btnToOnSerialPorts.TabIndex = 5
         btnToOnSerialPorts.TextImageRelation = TextImageRelation.ImageAboveText
         btnToOnSerialPorts.UseVisualStyleBackColor = True
@@ -60,10 +59,9 @@ Partial Class FormDashboard
         btnToOffSerialPorts.IconColor = Color.Black
         btnToOffSerialPorts.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnToOffSerialPorts.IconSize = 128
-        btnToOffSerialPorts.Location = New Point(298, 288)
-        btnToOffSerialPorts.Margin = New Padding(3, 4, 3, 4)
+        btnToOffSerialPorts.Location = New Point(261, 216)
         btnToOffSerialPorts.Name = "btnToOffSerialPorts"
-        btnToOffSerialPorts.Size = New Size(174, 236)
+        btnToOffSerialPorts.Size = New Size(152, 177)
         btnToOffSerialPorts.TabIndex = 4
         btnToOffSerialPorts.TextImageRelation = TextImageRelation.ImageAboveText
         btnToOffSerialPorts.UseVisualStyleBackColor = True
@@ -71,9 +69,9 @@ Partial Class FormDashboard
         ' Label1
         ' 
         Label1.Font = New Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(668, 495)
+        Label1.Location = New Point(584, 371)
         Label1.Name = "Label1"
-        Label1.Size = New Size(174, 99)
+        Label1.Size = New Size(152, 74)
         Label1.TabIndex = 8
         Label1.Text = "KLIK GAMBAR DIATAS UNTUK MENYAMBUNGKAN KE ALAT"
         Label1.TextAlign = ContentAlignment.MiddleCenter
@@ -81,9 +79,9 @@ Partial Class FormDashboard
         ' Label2
         ' 
         Label2.Font = New Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(274, 495)
+        Label2.Location = New Point(240, 371)
         Label2.Name = "Label2"
-        Label2.Size = New Size(213, 99)
+        Label2.Size = New Size(186, 74)
         Label2.TabIndex = 9
         Label2.Text = "DB BELUM TERKONEKSI"
         Label2.TextAlign = ContentAlignment.MiddleCenter
@@ -92,61 +90,63 @@ Partial Class FormDashboard
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(987, 364)
+        Label3.Location = New Point(864, 273)
         Label3.Name = "Label3"
-        Label3.Size = New Size(146, 23)
+        Label3.Size = New Size(122, 19)
         Label3.TabIndex = 10
         Label3.Text = "SHIFT SEKARANG"
         ' 
-        ' ComboBox1
+        ' ddShift
         ' 
-        ComboBox1.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(960, 398)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(201, 31)
-        ComboBox1.TabIndex = 11
+        ddShift.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        ddShift.FormattingEnabled = True
+        ddShift.Location = New Point(840, 298)
+        ddShift.Margin = New Padding(3, 2, 3, 2)
+        ddShift.Name = "ddShift"
+        ddShift.Size = New Size(176, 27)
+        ddShift.TabIndex = 11
         ' 
-        ' Button1
+        ' btnOnShift
         ' 
-        Button1.BackColor = SystemColors.MenuHighlight
-        Button1.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.ForeColor = SystemColors.ButtonHighlight
-        Button1.Location = New Point(960, 483)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(93, 41)
-        Button1.TabIndex = 12
-        Button1.Text = "ON"
-        Button1.UseVisualStyleBackColor = False
+        btnOnShift.BackColor = SystemColors.MenuHighlight
+        btnOnShift.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnOnShift.ForeColor = SystemColors.ButtonHighlight
+        btnOnShift.Location = New Point(840, 362)
+        btnOnShift.Margin = New Padding(3, 2, 3, 2)
+        btnOnShift.Name = "btnOnShift"
+        btnOnShift.Size = New Size(81, 31)
+        btnOnShift.TabIndex = 12
+        btnOnShift.Text = "ON"
+        btnOnShift.UseVisualStyleBackColor = False
         ' 
-        ' Button2
+        ' btnOffShift
         ' 
-        Button2.BackColor = SystemColors.MenuHighlight
-        Button2.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button2.ForeColor = SystemColors.ButtonHighlight
-        Button2.Location = New Point(1068, 483)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(93, 41)
-        Button2.TabIndex = 13
-        Button2.Text = "OFF"
-        Button2.UseVisualStyleBackColor = False
+        btnOffShift.BackColor = SystemColors.MenuHighlight
+        btnOffShift.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnOffShift.ForeColor = SystemColors.ButtonHighlight
+        btnOffShift.Location = New Point(934, 362)
+        btnOffShift.Margin = New Padding(3, 2, 3, 2)
+        btnOffShift.Name = "btnOffShift"
+        btnOffShift.Size = New Size(81, 31)
+        btnOffShift.TabIndex = 13
+        btnOffShift.Text = "OFF"
+        btnOffShift.UseVisualStyleBackColor = False
         ' 
         ' FormDashboard
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1566, 999)
-        Controls.Add(Button2)
-        Controls.Add(Button1)
-        Controls.Add(ComboBox1)
+        ClientSize = New Size(1199, 562)
+        Controls.Add(btnOffShift)
+        Controls.Add(btnOnShift)
+        Controls.Add(ddShift)
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(btnToOnSerialPorts)
         Controls.Add(btnToOffSerialPorts)
-        Margin = New Padding(3, 4, 3, 4)
         Name = "FormDashboard"
-        Padding = New Padding(15)
+        Padding = New Padding(13, 11, 13, 11)
         Text = "FormDashboard"
         ResumeLayout(False)
         PerformLayout()
@@ -157,7 +157,7 @@ Partial Class FormDashboard
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents ddShift As ComboBox
+    Friend WithEvents btnOnShift As Button
+    Friend WithEvents btnOffShift As Button
 End Class
