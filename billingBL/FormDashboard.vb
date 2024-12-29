@@ -200,7 +200,9 @@ Public Class FormDashboard
 
         namaShift = ddShift.SelectedItem.ToString()
 
-        ubahStatusShift("on", formattedDateTime, namaShift)
+
+        ShowCustomMessageBox(namaShift, formattedDateTime)
+
     End Sub
 
     Private Sub btnOffShift_Click(sender As Object, e As EventArgs) Handles btnOffShift.Click
@@ -214,4 +216,88 @@ Public Class FormDashboard
 
         ubahStatusShift("off", formattedDateTime, namaShift)
     End Sub
+
+    Private Sub ShowCustomMessageBox(namaShift As String, formattedDateTime As String)
+        ' Buat Form Custom Message Box
+        Dim customMessageBox As New Form With {
+            .Width = 300,
+            .Height = 200,
+            .FormBorderStyle = FormBorderStyle.FixedDialog,
+            .StartPosition = FormStartPosition.CenterScreen,
+            .Text = "Input Password Shift",
+            .MaximizeBox = False,
+            .MinimizeBox = False
+        }
+
+        ' Label Password
+        Dim lblPassword As New Label With {
+            .Text = "Password:",
+            .Location = New Point(10, 20),
+            .Width = 80
+        }
+        customMessageBox.Controls.Add(lblPassword)
+
+        ' Input Password
+        Dim txtPassword As New TextBox With {
+            .Location = New Point(100, 20),
+            .Width = 150,
+            .PasswordChar = "*"c ' Tampilkan input sebagai asteris
+        }
+        customMessageBox.Controls.Add(txtPassword)
+
+        ' Tombol Login
+        Dim btnLogin As New Button With {
+            .Text = "Input",
+            .Location = New Point(100, 100),
+            .Width = 80
+        }
+        AddHandler btnLogin.Click, Sub(sender As Object, e As EventArgs)
+                                       ' Verifikasi username dan password (opsional)
+                                       Dim password = txtPassword.Text
+
+                                       If password = "Password" OrElse password = "" Then
+                                           MsgBox("Please enter your username and password.", MsgBoxStyle.Exclamation, "Warning")
+                                           Return
+                                       End If
+
+                                       ' Validasi login
+                                       If ValidateLogin(namaShift, password) Then
+                                           MsgBox("Berhasil mengaktifkan shift, selamat bekerja!", MsgBoxStyle.Information, "Information")
+                                           ubahStatusShift("on", formattedDateTime, namaShift)
+                                           customMessageBox.Close()
+                                       Else
+                                           MsgBox("Username or password is incorrect", MsgBoxStyle.Critical, "Error")
+                                       End If
+
+
+                                   End Sub
+        customMessageBox.Controls.Add(btnLogin)
+
+        ' Tampilkan Custom Message Box
+        customMessageBox.ShowDialog()
+    End Sub
+
+    Private Function ValidateLogin(namaShift As String, password As String) As Boolean
+        Try
+            connect() ' Gunakan fungsi connect() dari ModuleDB
+
+            ' Query untuk memeriksa username dan password
+            Dim query As String = "SELECT COUNT(*) FROM tb_shift WHERE nama = @nama AND pass = @password"
+            CMD = New MySqlCommand(query, Koneksi)
+            CMD.Parameters.AddWithValue("@nama", namaShift)
+            CMD.Parameters.AddWithValue("@password", password)
+
+            ' Eksekusi query dan periksa hasilnya
+            Dim result As Integer = Convert.ToInt32(CMD.ExecuteScalar())
+            Return result > 0
+        Catch ex As Exception
+            MsgBox("Error validating login: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            Return False
+        Finally
+            ' Pastikan reader dan command dibersihkan
+            If DR IsNot Nothing AndAlso Not DR.IsClosed Then DR.Close()
+            CMD?.Dispose()
+            disconnect() ' Gunakan fungsi disconnect() dari ModuleDB
+        End Try
+    End Function
 End Class
